@@ -1,0 +1,24 @@
+{
+ "todos los hilos": {
+  "prefill_32_ms": 17.9599,
+  "prefill_128_ms": 73.1474,
+  "prefill_450_ms": 284.1639,
+  "decod_ctx64_ms_tok": 1.7610408163265303,
+  "decod_ctx450_ms_tok": 1.7974399999999997,
+  "pico_mb": 105.627648,
+  "antes_mb": 33.40288,
+  "adaptadores_mb": 0.0,
+  "bin_mb": 41.253084
+ },
+ "1 hilo": {
+  "prefill_32_ms": 58.8273,
+  "prefill_128_ms": 231.9507,
+  "prefill_450_ms": 1064.0514,
+  "decod_ctx64_ms_tok": 6.301977551020409,
+  "decod_ctx450_ms_tok": 7.661916666666667,
+  "pico_mb": 101.933056,
+  "antes_mb": 32.247808,
+  "adaptadores_mb": 0.0,
+  "bin_mb": 41.253084
+ }
+}

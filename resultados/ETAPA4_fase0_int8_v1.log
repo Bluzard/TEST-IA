@@ -1,0 +1,5 @@
+{'tok.weight': (16004, 512), 'cabeza.weight': (16004, 512)} ¿atados en v1? False
+  tok.weight: error relativo de la cuantización int8 por fila = 0.7423%
+  cabeza.weight: error relativo de la cuantización int8 por fila = 1.2030%
+v1 fp16: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+v1 con embedding y cabeza int8 por fila: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}

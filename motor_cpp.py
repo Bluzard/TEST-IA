@@ -44,11 +44,20 @@ class MotorCpp:
         if not self.h:
             raise RuntimeError(f"No se pudo cargar {ruta_bin}")
         with open(ruta_bin, "rb") as f:
-            assert f.read(8) == b"NUCL0001"
+            magia = f.read(8)
+            assert magia in (b"NUCL0001", b"NUCL0002"), magia
             c = struct.unpack("<13i", f.read(52))
+            self.formato = magia.decode()
+            # NUCL0002 (núcleo v2): cabezas de KV, flags (bit0 embedding atado, bit1 int8, bit2 KV fp16) y tokens por bloque de prefill
+            self.cabezas_kv, self.flags = (self.__class__._extra(f) if magia == b"NUCL0002" else (c[4], 0))
         (self.vocab, self.bloque, self.d, self.capas, self.cabezas, self.vueltas, _, self.fin, self.herramienta,
          self.asistente, self.usuario, self.relleno, _) = c
         self.ultimos_tiempos = (0.0, 0.0, 0)
+
+    @staticmethod
+    def _extra(f):
+        hk, flags, _bloque = struct.unpack("<3i", f.read(12))
+        return hk, flags
 
     # --- adaptadores LoRA al vuelo ---
     def cargar_lora(self, ruta):

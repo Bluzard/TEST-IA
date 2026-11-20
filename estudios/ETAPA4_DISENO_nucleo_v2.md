@@ -1,6 +1,6 @@
 # Etapa 4 — Diseño del Núcleo Base v2 (propuesta, sin entrenar todavía)
 
-Fecha: 2026-11-20. Estado: **diseño aprobado (decisiones en §12)**. No se entrena nada hasta pasar la «Fase 0» (benchmark del motor con pesos aleatorios, §9).
+Fecha: 2026-11-20. Estado: **diseño aprobado (decisiones en §12); Fase 0 completada y aprobada (§13)**. Siguiente: Fase 1 (tokenizador 24 k y corpus), todavía sin GPU.
 Punto de partida congelado: tag `etapa3-cierre` (núcleo v1 de 48 M + expertos de código y redacción). v1 se conserva como respaldo; ningún peso congelado se toca.
 
 ## 0. Resumen
@@ -232,3 +232,39 @@ Respuestas del dueño del proyecto a las decisiones abiertas de §11. Quedan com
 
 Consecuencias para el diseño: (a) el 10 % de código/documentación del preentrenamiento sube a ≈ 8–12 % de los tokens y se limpia con los mismos filtros de licencia/calidad; (b) la mezcla del tokenizador incluye ≈ 10 % de código para que los símbolos tengan tokens propios;
 (c) la verificación de fidelidad de la síntesis es un requisito de entrada al dataset (no una métrica posterior); (d) `capa1()` incorpora las respuestas de identidad («¿Cómo te llamas?», «¿Quién eres?») con el nombre TEST-IA; (e) el modelo auxiliar usado, su licencia y versión se registran por lote (§5.2); (f) el curriculum de longitud acorta el costo de atención de ≈ 80 % del entrenamiento (la atención crece con el cuadrado del bloque), pero **la reducción de tiempo no está medida**: la estimación de ≈ 47 h de la §6 es conservadora y se reemplaza por la medición del piloto; (g) `modelo.py` deberá aceptar `n_kv_heads`, embedding atado, SDPA con GQA y bloques de longitud variable por fase, y la comparación de calidad entre 512 y 1.024 (extrapolación de posiciones) se mide al cierre del preentrenamiento; (h) la política de «mantener 4 B tokens» fija el piso: si la calidad del piloto lo exige, se **añade** (nunca se recorta) datos.
+
+## 13. Fase 0 — resultados (2026-11-20, sin GPU, pesos aleatorios)
+Código: `motor.cpp` (GQA, KV fp16, embedding atado int8, prefill por bloques, `NUCL0002`), `motor_cpp.py`, `fase0_nucleo_v2.py` (`verificar`, `bench`, `bench_v1`). Equipo: Ryzen 7 7800X3D (8 núcleos/16 hilos), 31 GB. Registros: `resultados/ETAPA4_fase0_*.log|json`.
+
+**Exactitud (todo OK)** — `python fase0_nucleo_v2.py verificar`, con una referencia independiente en PyTorch fp32 (lee el mismo `.bin` con otro código):
+- v2-A completa (d=768, 22 capas, 12/4 cabezas, T=1024, atado int8, KV fp16): diferencia relativa de logits ≤ 2,2·10⁻⁴ con prompts de 1, 64, 129, 400 y 1.000 tokens, y mismo token siguiente. Variantes reducidas (MHA, sin atar, fp16, KV fp32): ≤ 7·10⁻⁶.
+- Prefill por bloques de 128, 64 y 7 tokens = procesar todo junto, **bit a bit** (1.000 tokens).
+- LoRA r=16 con la salida del qkv de `d + 2·kvd`: motor vs PyTorch 3,9·10⁻⁵ relativa; tibio == núcleo base bit a bit.
+- **v1 sin cambios:** con el motor nuevo, `verificar_multiexperto.py --rapido` da logits idénticos bit a bit al motor de la Etapa 2 (92 prompts) y 116,1 MB de RAM.
+
+**RAM pico del proceso (núcleo + 2 LoRA cargados, prompt de 950 tokens + 50 generados, peor de 3 corridas; el proceso base mide 33 MB, no 28)**
+| Variante | .bin | 2 LoRA | RAM pico | Lectura |
+|---|---|---|---|---|
+| **A · diseño** (GQA 4, KV fp16, embedding atado int8) | 54,9 MB | 15,9 MB | **139,0 MB** | estimado 141–160; **cumple < 200 MB con 61 MB de holgura** |
+| B · embedding atado fp16 | 73,3 MB | 15,9 MB | 157,3 MB | int8 ahorra 18 MB |
+| C · KV fp32 | 54,9 MB | 15,9 MB | 162,1 MB | KV fp16 ahorra 23 MB |
+| D · sin GQA (12 cabezas KV), KV fp16 | 59,3 MB | 17,3 MB | 192,0 MB | GQA ahorra 53 MB |
+| E · estilo v1 (sin GQA, KV fp32, sin atar fp16) | 114,5 MB | 17,3 MB | **317,1 MB** | ✗ excede 200 MB: las tres decisiones eran necesarias |
+
+**Velocidad de la configuración del diseño (A), mediana de 3 corridas**
+| | Decodificación ms/token (ctx 64 / 512 / 950) | Prefill 32 / 128 / 512 / 950 tokens |
+|---|---|---|
+| Todos los hilos | **4,0 / 4,5 / 6,8** (≈ 250 → 150 tok/s) | 48 / 187 / 850 / 1.727 ms |
+| Todos los hilos, LoRA activo | 4,9 (ctx 512) / 5,5 (ctx 950); ctx 64 dio 6,1 (corrida ruidosa) | 48 / 185 / 777 / 1.581 ms |
+| 1 hilo | 23,4 / 24,5 / 26,2 (≈ 40 tok/s) | 215 / 854 / 3.746 / 7.435 ms |
+| **v1, mismo arnés** (todos los hilos) | 1,76 (ctx 64) / 1,80 (ctx 450) | 18 / 73 / 284 ms (450 tokens) |
+| v1, 1 hilo | 6,3 / 7,7 | 59 / 232 / 1.064 ms |
+Contra las estimaciones de §4: decodificación 4,0 ms (estimado 5,8) y prefill ≈ 1,8 ms/token (estimado 1,7). v2-A cuesta ≈ 2,3× la decodificación de v1 y ≈ 2,9× el prefill. Una respuesta de 60 tokens ≈ 0,25–0,4 s; un prompt de 300 tokens ≈ 0,5 s.
+El costo del LoRA activo cae dentro del ruido (±10–20 % entre corridas, como en la Etapa 3); no se afirma una cifra más fina.
+
+**Impacto del embedding int8 por fila (proxy sobre v1, sin tocar archivos congelados):** cuantizar en memoria el embedding y la cabeza de salida de v1 a int8 por fila (escala fp16) da un error relativo de 0,74 % y 1,20 %, y la evaluación general con ddgs real queda **idéntica**:
+hechos 71,6 %, abstención 98,1 %, vacío 100 %. Es una cuantización posterior sobre un modelo sin atar: indica que el int8 por fila no es un riesgo grande, pero **el impacto real sobre v2 (atado) se mide con la perplejidad del piloto**; el plan B sigue siendo fp16 atado (+18 MB, 157 MB en total).
+
+**Puertas de la Fase 0 (§8, paso 2):** RAM ≤ 175 MB → **139 MB ✓**; ≥ 120 tok/s en v2-A → **≈ 250 tok/s (ctx 64), ≈ 150 tok/s (ctx 950) ✓**. Fase 0 aprobada.
+Límites de esta medición: pesos aleatorios (el costo de cómputo no depende de los valores, pero sí podría hacerlo el estado de las cachés); la velocidad en CPU con pesos reales de un modelo entrenado debería ser la misma; el proceso medido usa el tokenizador de v1 (el de 24 k añade < 1 MB); no se midió consumo de energía.
+Efecto en el plan: la holgura de RAM (61 MB) permite considerar **v2-B (≈ 235 M)** si la calidad lo exige (estimado 166–190 MB: ajustado) y también subir r de los LoRA o conservar KV en fp16 sin riesgo.

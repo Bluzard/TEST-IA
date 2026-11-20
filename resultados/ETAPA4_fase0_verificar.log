@@ -1,0 +1,42 @@
+
+[reducida: d=128, 3 capas, 8 cabezas / 2 KV, T=256, embedding atado int8, KV fp16]
+  [OK ] el motor lee la cabecera NUCL0002  -> [500, 256, 128, 3, 8, 2, 7, 128]
+  [OK ]    1 tokens: logits motor vs PyTorch fp32 (dif. máx. 7.86e-07, relativa 4.6e-07) y mismo token siguiente
+  [OK ]   17 tokens: logits motor vs PyTorch fp32 (dif. máx. 5.62e-05, relativa 2.9e-05) y mismo token siguiente
+  [OK ]  128 tokens: logits motor vs PyTorch fp32 (dif. máx. 7.57e-06, relativa 4.3e-06) y mismo token siguiente
+  [OK ]  129 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.33e-05, relativa 6.9e-06) y mismo token siguiente
+  [OK ]  250 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.41e-05, relativa 7.4e-06) y mismo token siguiente
+  [OK ] prefill en bloques de 128 == todo junto (bit a bit, 250 tokens)
+  [OK ] prefill en bloques de 64 == todo junto (bit a bit, 250 tokens)
+  [OK ] prefill en bloques de 7 == todo junto (bit a bit, 250 tokens)
+  [OK ] LoRA r=16 con qkv de salida d + 2·kvd: motor vs PyTorch  -> relativa 3.6e-06
+  [OK ] el adaptador cambia los logits (la prueba discrimina) y tibio == base
+  [OK ] adaptador tibio: logits idénticos al base bit a bit
+
+[reducida: sin atar, embedding fp16, KV fp32, GQA 4/4 (= MHA)]
+  [OK ] el motor lee la cabecera NUCL0002  -> [500, 256, 128, 3, 4, 4, 0, 128]
+  [OK ]    1 tokens: logits motor vs PyTorch fp32 (dif. máx. 8.64e-07, relativa 4.8e-07) y mismo token siguiente
+  [OK ]   40 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.04e-06, relativa 4.8e-07) y mismo token siguiente
+  [OK ]  200 tokens: logits motor vs PyTorch fp32 (dif. máx. 7.15e-07, relativa 3.9e-07) y mismo token siguiente
+  [OK ] prefill en bloques de 128 == todo junto (bit a bit, 200 tokens)
+  [OK ] prefill en bloques de 64 == todo junto (bit a bit, 200 tokens)
+  [OK ] prefill en bloques de 7 == todo junto (bit a bit, 200 tokens)
+  [OK ] LoRA r=16 con qkv de salida d + 2·kvd: motor vs PyTorch  -> relativa 5.3e-07
+  [OK ] el adaptador cambia los logits (la prueba discrimina) y tibio == base
+  [OK ] adaptador tibio: logits idénticos al base bit a bit
+
+[v2-A completa: d=768, 22 capas, 12/4 cabezas, T=1024, atado int8, KV fp16]
+  [OK ] el motor lee la cabecera NUCL0002  -> [24004, 1024, 768, 22, 12, 4, 7, 128]
+  [OK ]    1 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.28e-03, relativa 2.2e-04) y mismo token siguiente
+  [OK ]   64 tokens: logits motor vs PyTorch fp32 (dif. máx. 3.16e-04, relativa 5.2e-05) y mismo token siguiente
+  [OK ]  129 tokens: logits motor vs PyTorch fp32 (dif. máx. 2.14e-04, relativa 3.6e-05) y mismo token siguiente
+  [OK ]  400 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.34e-04, relativa 2.3e-05) y mismo token siguiente
+  [OK ] 1000 tokens: logits motor vs PyTorch fp32 (dif. máx. 1.57e-04, relativa 2.2e-05) y mismo token siguiente
+  [OK ] prefill en bloques de 128 == todo junto (bit a bit, 1000 tokens)
+  [OK ] prefill en bloques de 64 == todo junto (bit a bit, 1000 tokens)
+  [OK ] prefill en bloques de 7 == todo junto (bit a bit, 1000 tokens)
+  [OK ] LoRA r=16 con qkv de salida d + 2·kvd: motor vs PyTorch  -> relativa 3.9e-05
+  [OK ] el adaptador cambia los logits (la prueba discrimina) y tibio == base
+  [OK ] adaptador tibio: logits idénticos al base bit a bit
+
+TODO CORRECTO

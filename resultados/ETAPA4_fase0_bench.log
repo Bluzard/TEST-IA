@@ -1,0 +1,27 @@
+Fase 0 · benchmark con pesos ALEATORIOS en este equipo (Ryzen 7 7800X3D, 8 núcleos / 16 hilos)
+
+A_diseno (GQA 4, KV fp16, embedding atado int8)
+   .bin 54.9 MB | 2 LoRA 15.9 MB | RAM pico del proceso 139.0 MB (antes de cargar 33.1)
+B embedding atado fp16
+   .bin 73.3 MB | 2 LoRA 15.9 MB | RAM pico del proceso 157.3 MB (antes de cargar 33.0)
+C KV fp32
+   .bin 54.9 MB | 2 LoRA 15.9 MB | RAM pico del proceso 162.1 MB (antes de cargar 33.2)
+D sin GQA (12 cabezas KV), KV fp16
+   .bin 59.3 MB | 2 LoRA 17.3 MB | RAM pico del proceso 192.0 MB (antes de cargar 33.1)
+E sin GQA, KV fp32, embedding sin atar fp16 (estilo v1)
+   .bin 114.5 MB | 2 LoRA 17.3 MB | RAM pico del proceso 317.1 MB (antes de cargar 33.1)
+
+Velocidad de la configuración del diseño (A)
+  todos los hilos, sin adaptador: decodificación 4.00 ms/tok (ctx 64) · 4.52 (ctx 512) · 6.76 (ctx 950)  |  prefill 32/128/512/950 tok: 48 / 187 / 850 / 1727 ms
+  todos los hilos, LoRA activo: decodificación 6.13 ms/tok (ctx 64) · 4.86 (ctx 512) · 5.51 (ctx 950)  |  prefill 32/128/512/950 tok: 48 / 185 / 777 / 1581 ms
+  1 hilo, sin adaptador: decodificación 23.42 ms/tok (ctx 64) · 24.49 (ctx 512) · 26.18 (ctx 950)  |  prefill 32/128/512/950 tok: 215 / 854 / 3746 / 7435 ms
+Traceback (most recent call last):
+  File "d:\Documentos\GitHub\TEST-IA\fase0_nucleo_v2.py", line 373, in <module>
+    verificar() if a.orden == "verificar" else bench()
+                                               ~~~~~^^
+  File "d:\Documentos\GitHub\TEST-IA\fase0_nucleo_v2.py", line 359, in bench
+    r = correr(v1, None, hilos=hilos, largo_prompt=450)
+  File "d:\Documentos\GitHub\TEST-IA\fase0_nucleo_v2.py", line 322, in correr
+    salida = subprocess.run(cmd, capture_output=True, text=True, env=env, cwd=RAIZ).stdout.strip().splitlines()[-1]
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range

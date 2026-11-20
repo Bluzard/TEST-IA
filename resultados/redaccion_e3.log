@@ -1,0 +1,32 @@
+[redaccion_e3] LoRA r=16 en ['qkv', 'proy', 'fc1', 'fc2']: 1,310,720 parámetros = 2.62 MB (fp16)
+  época 1/3 paso 1/525 | pérdida 1.8385 | 4s
+  época 1/3 paso 100/525 | pérdida 0.3936 | 24s
+  época 2/3 paso 200/525 | pérdida 0.2863 | 44s
+  época 2/3 paso 300/525 | pérdida 0.2625 | 65s
+  época 3/3 paso 400/525 | pérdida 0.2112 | 84s
+  época 3/3 paso 500/525 | pérdida 0.1542 | 105s
+[redaccion_e3] núcleo base intacto tras entrenar: True
+
+[redaccion_e3] evaluación del experto (penalización 1.0)
+tipo                  n  herramienta  consulta  exacta  sim>=95  busca
+ortografia_ok        12      100.0%     0.0%   16.7%    16.7%   0.0%
+ortografia          108       99.1%     0.0%   12.0%    36.1%   0.0%
+ortografia_signos     4      100.0%     0.0%    0.0%     0.0%   0.0%
+tono_formal          60      100.0%     0.0%   61.7%    65.0%   0.0%
+tono_cercano         40      100.0%     0.0%   32.5%    32.5%   0.0%
+tono_conciso         40      100.0%     0.0%   25.0%    45.0%   0.0%
+tono_claro           40      100.0%     0.0%   22.5%    50.0%   0.0%
+gramatica_reservada   54      100.0%    51.9%   57.4%    75.9%  100.0%
+gramatica_ejemplo    55      100.0%    81.8%   81.8%    85.5%  100.0%
+gramatica           113       99.1%    99.1%   89.4%    89.4%  99.1%
+cola_inexistente     14      100.0%    14.3%  100.0%   100.0%  100.0%
+cola_abst            30       96.7%     6.7%   96.7%    96.7%  96.7%
+PUNTAJE (promedio de la métrica principal por tipo): 51.2%
+
+[redaccion_e3] regresión general (Etapa 1, ddgs real)
+  buscar_ok    buscó=99.5%  respuesta_exacta=73.0%
+  irrelevante  buscó=100.0%  se_abstuvo=96.2%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+  con el adaptador DORMIDO: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+
+[redaccion_e3] terminado en 3.4 min

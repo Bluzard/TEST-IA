@@ -1,0 +1,119 @@
+{
+ "nombre": "r16_f27_e3",
+ "r": 16,
+ "objetivos": [
+  "qkv",
+  "proy",
+  "fc1",
+  "fc2"
+ ],
+ "semilla": 0,
+ "parametros": 1310720,
+ "mb_fp16": 2.62144,
+ "perdida_final": 0.01063099130988121,
+ "entrenamiento_s": 138.09510445594788,
+ "nucleo_intacto": true,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.7555555555555555,
+   "consulta": 0.0,
+   "exacta": 0.454320987654321,
+   "sim95": 0.4691358024691358,
+   "busca": 0.24444444444444444
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 1.0,
+   "consulta": 0.0,
+   "exacta": 0.9583333333333334,
+   "sim95": 0.9583333333333334,
+   "busca": 0.0
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.4807692307692308,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.5192307692307693
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.8305084745762712,
+   "consulta": 0.15254237288135594,
+   "exacta": 0.3220338983050847,
+   "sim95": 0.4406779661016949,
+   "busca": 0.8305084745762712
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.865546218487395,
+   "consulta": 0.44537815126050423,
+   "exacta": 0.8151260504201681,
+   "sim95": 0.8151260504201681,
+   "busca": 0.865546218487395
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 1.0,
+   "consulta": 0.9933333333333333,
+   "exacta": 0.9866666666666667,
+   "sim95": 0.9933333333333333,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 1.0,
+   "sim95": 1.0,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 1.0,
+   "sim95": 1.0,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 0.9,
+   "consulta": 0.0,
+   "exacta": 0.65,
+   "sim95": 0.7833333333333333,
+   "busca": 0.1
+  },
+  "_puntaje": 0.7582617526007726
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 0.9954954954954955,
+   "respuesta_exacta": 0.6666666666666666
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "general_dormido": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

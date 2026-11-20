@@ -1,0 +1,80 @@
+
+[1] Cambio entre expertos tibios por puntero
+   llamada C directa (ctypes): mediana 0.4 µs | p99 0.5 µs | máx 101.5 µs
+   envoltorio Python seleccionar(nombre): mediana 0.5 µs | p99 0.6 µs | máx 86.5 µs
+  [OK ] cambio tibio<->activo < 0,1 ms (mediana y p99, llamada C)  -> mediana 0.4 µs, p99 0.5 µs
+  [OK ] cambio < 0,1 ms también con el envoltorio Python (p99)  -> p99 0.6 µs
+
+[Caché] Activo -> Tibio -> Frío
+  [OK ] ambos cargan tibios
+  [OK ] seleccionar deja 1 activo y el otro tibio
+  [OK ] el activo no decae; el tibio pierde 1 de vida por turno  -> vida 1
+  [OK ] al llegar a 0 el tibio se descarga (frío) y libera su memoria  -> 5.24 -> 2.62 MB
+  [OK ] un experto frío se recarga solo al pedirlo  -> recarga 1.0 ms
+  [OK ] seleccionar(None) deja a todos tibios (núcleo base)
+
+[3-4] Logits idénticos bit a bit (motor nuevo vs motor de la Etapa 2)
+  [OK ] ambos TIBIOS (cargados, fuera del forward) == núcleo base (92 prompts)  -> diferencia máxima 0.0
+  [OK ] experto_codigo activo (redacción tibio) == motor anterior con experto_codigo  -> diferencia máxima 0.0
+  [OK ] experto_redaccion activo (código tibio) == motor anterior con experto_redaccion  -> diferencia máxima 0.0
+  [OK ] tras alternar vuelve a ser idéntico al núcleo base  -> diferencia máxima 0.0
+  [OK ] los dos adaptadores son realmente distintos (la prueba discrimina)  -> diferencia código vs redacción 11.084
+
+[2] RAM pico del proceso (un proceso por configuración, 40 prompts generando)
+   0 experto(s) cargado(s): pico 110.5 MB (adaptadores 0.00 MB)
+   1 experto(s) cargado(s): pico 113.5 MB (adaptadores 2.62 MB)
+   2 experto(s) cargado(s): pico 116.0 MB (adaptadores 5.24 MB)
+  [OK ] RAM pico con ambos expertos <= 118 MB  -> 116.0 MB
+
+[5] Conversación multi-dominio de 30 turnos (motor C++, búsqueda web simulada)
+   [None     ] hola, ¿cómo estás?                                           -> '¡Hola! Estoy bien, gracias. ¿En qué te puedo ayuda'
+   [None     ] Recuerda que mi proyecto se llama TEST-IA                    -> 'Anotado: mi proyecto se llama TEST-IA'
+   [codigo   ] ¿Qué es la recursividad?                                     -> 'No tengo información suficiente para responder eso'
+   [codigo   ] ¿y para qué sirve?                                           -> 'No tengo información suficiente para responder eso'
+   [codigo   ] Ejecuta: sum([x*x for x in range(1, 6)])                     -> 'Imprime 55.'
+   [redaccion] Corrige la ortografía: ayer fui al mercado y compre berdur   -> 'Ayer fui al mercado y compre verduras.'
+   [redaccion] ¿y la tilde de compré?                                       -> 'No tengo información suficiente para responder eso'
+   [redaccion] Hazlo más formal: oye, mándame la factura                    -> 'Le solicito que me envíe la factura.'
+   [None     ] ¿Cómo se llama mi proyecto?                                  -> 'Mi proyecto se llama TEST-IA.'
+   [redaccion] ¿Cuál es la diferencia entre porque y por qué?               -> 'Porque introduce una causa; por qué es interrogati'
+   [codigo   ] ¿Cómo se usa merge en pandas?                                -> 'No tengo información suficiente para responder eso'
+   [redaccion] Explícame el dequeísmo                                       -> 'El dequeísmo es el uso incorrecto de de delante de'
+   [None     ] ¿Quién fue Gabriela Mistral?                                 -> 'No tengo información suficiente para responder eso'
+   [codigo   ] Simplifica esta función: def f(x): return x*2                -> 'Imprime: def f(x): return x*2.'
+   [redaccion] Mejora la redacción de este correo: hola, quiero un reembo   -> 'Hola, quiero un reembolso.'
+   [redaccion] gracias                                                      -> '¡De nada! Aquí estoy si necesitas algo más.'
+   [None     ] ok                                                           -> '¡Hasta luego!'
+   [None     ] cuéntame más                                                 -> '¡Hasta luego! ¿En qué te puedo ayudar?'
+   [codigo   ] ¿Qué es un decorador?                                        -> 'Un decorador es una función que recibe otra funció'
+   [redaccion] Corrige: el ni;o juga en la plasa                            -> 'Ocho juga en la plasa.'
+   [redaccion] ¿Qué es un hiato?                                            -> 'Un hiato es la separación de dos vocales en sílaba'
+   [codigo   ] Ejecuta: print(len('hola'))                                  -> 'Imprime 4.'
+   [redaccion] Reescribe en tono formal: Dame el archivo ya.                -> 'Le solicito que me entregue el archivo a la breved'
+   [None     ] ¿Qué hora es en Tokio?                                       -> 'No tengo información suficiente para responder eso'
+   [codigo   ] ¿Qué es una lista en Python?                                 -> 'Por ejemplo: nums = [1, 2, 3]'
+   [redaccion] Acórtalo sin cambiar el sentido: la verdad es que llegué t   -> 'la verdad es que me faltan.'
+   [codigo   ] ¿Cómo funciona un diccionario?                               -> "Por ejemplo: edades = {'Ana': 30}"
+   [codigo   ] 1+1                                                          -> '2'
+   [None     ] ¿Qué es el Teide?                                            -> 'No tengo información suficiente para responder eso'
+   [None     ] gracias                                                      -> '¡De nada! Aquí estoy si necesitas algo más.'
+  [OK ] usó los tres estados (dormido, codigo, redaccion)  -> ['None', 'codigo', 'redaccion']
+  [OK ] nunca hubo más de 1 experto activo  -> máximo simultáneo 1
+  [OK ] 0 colisiones (activos != lo que decidió el enrutador)  -> 0 colisiones
+
+[3-4] Calidad con el motor multi-slot (C++)
+   núcleo base con ambos expertos TIBIOS: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+  [OK ] núcleo base: hechos 71,6 %  -> 71.6%
+  [OK ] núcleo base: abstención 98,1 %  -> 98.1%
+  [OK ] núcleo base: conversación/vacío 100 %  -> 100.0%
+   experto_codigo ACTIVO con redacción tibio: puntaje 82.3%
+  [OK ] experto_codigo 82,2 % (±0,3 por redondeo de motor)  -> 82.3%
+   experto_redaccion ACTIVO con código tibio: puntaje 55.6% (PyTorch: 56,2 %)
+  [OK ] experto_redaccion conserva su puntaje (56,2 % ±1)  -> 55.6%
+
+[6] SHA-256 de los pesos congelados
+  [OK ] modelos/nucleo_sft_v3.pt intacto  -> a867d741e0e65aa7…
+  [OK ] modelos/nucleo_sft_v3.bin intacto  -> 17ecdbdaafba9c61…
+  [OK ] modelos/experto_codigo.lora intacto  -> b57032631efdcdb6…
+  [OK ] modelos/experto_redaccion.lora intacto  -> 3ec614b0ba4ecd55…
+
+TODO CORRECTO

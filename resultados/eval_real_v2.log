@@ -1,0 +1,23 @@
+﻿.\.venv\Scripts\python.exe : Traceback (most recent call last):
+En línea: 1 Carácter: 779
++ ... ddgs real"; .\.venv\Scripts\python.exe inferir.py --modelo modelos\nu ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\Documentos\GitHub\TEST-IA\inferir.py", line 157, in <module>
+    main()
+    ~~~~^^
+  File "D:\Documentos\GitHub\TEST-IA\inferir.py", line 145, in main
+    for tipo, m in evaluar(modelo, fmt, disp, ruta=args.datos, n_por_tipo=300, penalizacion=args.pen).items():
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documentos\GitHub\TEST-IA\inferir.py", line 118, in evaluar
+    for j, (nuevo, _) in zip(idx2, generar_lote(modelo, fmt, fase2, dispositivo, penalizacion)):
+                                   ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Documentos\GitHub\TEST-IA\.venv\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\Documentos\GitHub\TEST-IA\inferir.py", line 38, in generar_lote
+    ids[i, : len(p)] = torch.tensor(p)
+    ~~~^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (512) must match the existing size (826) at non-singleton dimension 0.  
+Target sizes: [512].  Tensor sizes: [826]

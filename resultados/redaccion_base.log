@@ -1,0 +1,23 @@
+
+[redaccion_base] evaluación del experto (penalización 1.0)
+tipo                  n  herramienta  consulta  exacta  sim>=95  busca
+ortografia_ok        12      100.0%     0.0%    0.0%     0.0%   0.0%
+ortografia          108       95.4%     0.0%    0.0%     5.6%   4.6%
+ortografia_signos     4       75.0%     0.0%    0.0%     0.0%  25.0%
+tono_formal          60       36.7%     0.0%    0.0%     0.0%  63.3%
+tono_cercano         40       65.0%     0.0%    0.0%     0.0%  35.0%
+tono_conciso         40       95.0%     0.0%    0.0%     0.0%   5.0%
+tono_claro           40       97.5%     0.0%    0.0%     0.0%   2.5%
+gramatica_reservada   54       74.1%     0.0%   14.8%    14.8%  74.1%
+gramatica_ejemplo    55       96.4%     0.0%    0.0%     0.0%  96.4%
+gramatica           113       77.9%     0.0%    6.2%     8.8%  77.9%
+cola_inexistente     14      100.0%     0.0%  100.0%   100.0%  100.0%
+cola_abst            30      100.0%     0.0%   93.3%    93.3%  100.0%
+PUNTAJE (promedio de la métrica principal por tipo): 18.1%
+
+[redaccion_base] regresión general (Etapa 1, ddgs real)
+  buscar_ok    buscó=100.0%  respuesta_exacta=71.6%
+  irrelevante  buscó=98.1%  se_abstuvo=98.1%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+
+[redaccion_base] terminado en 1.3 min

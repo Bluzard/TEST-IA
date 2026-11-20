@@ -1,0 +1,1315 @@
+{"grupo": "conocidas", "termino": "silla", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "mesa", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "banco", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "sillón", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "cama", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "repisa", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "velador", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "ropero", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "escritorio", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "estante", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "perro", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "gato", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "caballo", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "loro", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "zorro", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "conejo", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "oveja", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "vaca", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "puma", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "pato", "cat": "animal", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "pan", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "queso", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "arroz", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "empanada", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "sopa", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "torta", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "galleta", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "tortilla", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "pastel", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "flan", "cat": "comida", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "martillo", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "alicate", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "serrucho", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "taladro", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "llave", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "destornillador", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "lima", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "pala", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "hacha", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "tenaza", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "playa", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "plaza", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "cerro", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "parque", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "puerto", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "bosque", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "valle", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "isla", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "río", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "lago", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "camisa", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "chaqueta", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "gorro", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "bufanda", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "calcetín", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "pantalón", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "falda", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "abrigo", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "guante", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "conocidas", "termino": "chaleco", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "inventadas_nuevas", "termino": "grelpegis", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "rapla", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lirgos", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trirtro", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tabror", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chobe", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "troru", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sibrolvi", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nincasur", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gulbrolfos", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "ninci", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fudo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chultas", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "minla", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "saller", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gurna", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grusbin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gretronbul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brarpanplur", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "ducisbu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plasnas", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vugra", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "rulsas", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trugril", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lulbroven", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cidi", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "depochu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tragropen", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "node", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mugel", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pabrusa", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brannas", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "desplafu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grorgru", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tanchusbon", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "relmo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tuchaban", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nargeson", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tritri", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nolparplan", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "melcho", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chesraror", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "farfol", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mepi", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "porle", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brofun", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "natru", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "filci", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "churplal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "posgrenmir", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cholur", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "losmin", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "socus", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "galgintran", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "timel", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plesrir", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pabrodol", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "binbi", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "valdi", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "menfaplu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vabi", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lidipli", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plusmas", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brennel", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pogrogrul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "carde", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bates", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fisil", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "charvul", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "faschu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "naror", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grurso", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chupel", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brorver", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nirfumo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "muschela", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "britefe", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "divo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chanplicul", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lurace", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vebuca", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bevan", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fanlenrar", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gruspli", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lifer", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vivudus", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "buli", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chormi", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pelsa", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plifupu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mangrir", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nasbe", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plerlen", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "noscel", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "ruplircho", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trochil", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "leschir", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tulpi", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nogelfal", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sossas", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tabriplun", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fargo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gomu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pipen", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cinbrul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gocu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plarrarta", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bretrul", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "getranlun", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cevor", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "breles", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chestra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pedi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "disca", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nesor", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "furlur", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grischur", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sortres", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dutrun", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sepu", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "culfu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brebul", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pani", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pentros", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "corsos", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "digrur", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nalchur", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nusul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gicu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "balplar", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chidu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fafen", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chafe", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fenbrunu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "ronsa", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plochos", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mestrocis", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bridunsos", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "levar", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sevil", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plosbur", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bencho", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "banfes", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cenilge", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nerfirchu", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brurra", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lunpa", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brugi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cobrur", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pumas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "toti", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pinalgir", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "daltregus", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "teschitra", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "miplu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "silplon", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "telto", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gango", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "polgrer", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pibro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "funchosba", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "basi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trorplinles", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "firpon", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bredil", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pirbi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "laver", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cholbastrol", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gefa", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "doror", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dorsadas", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "moper", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mirchuschu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "molin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tarchal", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chesan", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "relple", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lelnis", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sucil", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fescalo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chollis", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "lalci", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "surli", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "calbril", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "citrol", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grorgal", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vebuplen", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plagu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fuvessa", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nospera", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gregrer", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tosgu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gonbuntra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "felfu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "merbi", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "teso", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "regal", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "rolpo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chiner", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vudaschis", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tuge", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cunrun", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "busmun", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bechos", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "branto", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sabrur", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brunbis", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "culresgran", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dusmol", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cilbrol", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vonbru", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dirral", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "getal", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gorcesro", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fortrorcher", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chopla", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "breltros", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grobir", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "costrore", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nurlanbros", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mostro", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "bulmabro", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chudil", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "sochen", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "purrir", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "mebrarnas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "desrespin", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plalrirlel", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "basgripler", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "penbo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "citri", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grengrendin", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gunal", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "burgris", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grosnasal", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "remanmir", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "braltri", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vesinsan", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "respanpe", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "posvu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plinpiscen", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "deplo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cucis", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fonsar", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "buchi", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nontostre", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gunpepos", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "merces", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "golar", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trurmar", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plirplilcel", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trire", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "babrofe", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nirlusve", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trones", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plobes", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "russus", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "trolma", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gurlofu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tuvor", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "rasbu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cinnulsis", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vesgoplu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tuvo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brespluspi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vedolnun", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dismas", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chara", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "coto", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plage", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grinten", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "menbigro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "pegris", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "vulgolpan", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "masen", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "resler", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "somo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "cellel", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "penar", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "grilfil", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nilas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tori", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "plugrin", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brorfor", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "punitur", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tebraru", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nila", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "chorchen", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nulci", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "nirvi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "brirpla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "banbron", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "rasgibral", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "fibibral", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "dinbumen", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "travi", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "goce", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "tararcel", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "gonil", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_nuevas", "termino": "casplan", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trubrallo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dipolsir", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fonsal", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "laga", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grabul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nanplodon", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bangacha", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "curechul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sorbri", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gitere", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ginon", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vullir", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gralren", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tinnil", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plonro", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grortran", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tavol", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "polpol", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pilfasco", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vastroca", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "traltro", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plilplas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "firrer", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "satri", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brotrar", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sipun", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trafeplo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "truga", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chesnurne", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chere", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tilgrus", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cendi", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gitru", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bora", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cinmos", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pultentri", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dirlil", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tunro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chentrulon", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rosvarvu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pilfol", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chubotun", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "milsir", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nagrun", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bischi", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brilme", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "manplil", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mofinsun", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tisgepes", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bufenrul", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gelrol", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tresses", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "veforur", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plirlis", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grunbis", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brulgrosfa", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brucharle", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "togru", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sansebe", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grabo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "polningro", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gonomen", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "binchon", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "turdor", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mernafis", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "merfus", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sutrarbri", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "falrus", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "liladis", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pelgur", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lepan", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pulbanpos", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vefolbel", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "digronma", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sicul", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pluro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "peschin", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rogra", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tinte", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bederri", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "surir", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chuschel", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cicudu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "charna", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brirsusba", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cochusbu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "norsus", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lufar", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "feplir", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cugro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "puplilbra", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "groroplo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mitrutra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gasce", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "susno", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tonsul", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sulbes", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brunmis", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ferbur", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "murso", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plimol", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vigomer", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "risplir", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "socolcol", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pantraldin", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "redun", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gafil", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nusar", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brefugril", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ligivu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cerrenfas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chormuslal", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dondin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bupleldon", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pomame", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gribru", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "potro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fulchubor", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gunsorul", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chalmor", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brurpol", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nartur", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vosri", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trures", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plencunsu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brodo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mulsil", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bilre", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cigror", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plupil", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "larpi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grafanur", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plandor", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brensas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "taldasbru", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plarbrir", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plurbe", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trorgucel", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chosvin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trisbrus", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lulcirme", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sibri", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chontasto", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "babu", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rebra", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lorlal", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pulbus", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dansusme", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rosti", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cirtrusfis", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "perchin", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gurbel", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brumo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nolmes", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fungos", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plumus", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plenla", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tasvun", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brilfu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tasnen", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tirpler", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lussu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lerosgis", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mortrul", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sucon", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fortroti", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "puches", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trela", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "solcescu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plulrischa", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "molbral", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chinin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "findin", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trasar", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grosle", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nusfun", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grerfal", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pocor", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "guncaril", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gusbru", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chetu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nurtrilbe", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trengrir", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "salbru", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "daru", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nagis", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mibo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "puschulur", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "corilnas", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tinlisli", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nodos", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gincil", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "luta", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gronbros", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "minnil", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rachi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nufe", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lodindi", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nofan", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "finbrocu", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plucul", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fernispal", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trolcho", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lartarplu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bichasul", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rurlon", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chalbu", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trimu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nogrur", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cidos", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rasple", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bumes", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "falbor", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "robargre", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plepa", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "minvos", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chanbre", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pogrupli", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tobil", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ploco", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gupe", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fabe", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "graltra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chenolcur", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pluvi", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gorora", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cidur", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trestin", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fusbalnon", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brosfa", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vinerba", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tuvasror", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lolra", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "roraldas", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nupo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gerul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trellos", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ceschos", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dugar", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chibi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chulbra", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ginpa", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "legol", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sosbur", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gilgilsus", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gordun", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "temu", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tenlar", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "picus", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rages", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vildentas", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "fecal", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "grestorbrul", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cachulpil", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "popergra", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "pleslalle", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brossur", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bici", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tilda", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bissu", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bespuldol", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "chasri", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "masbene", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dinafo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lersal", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vonbatos", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "plalnos", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rerchu", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lapamu", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "resnica", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vepa", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "broslinas", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bisba", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "trivalsir", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gulca", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "caschar", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lidugros", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vunbre", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "folgosta", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vocis", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "planmin", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ditu", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "planvun", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lufa", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cosgrurcas", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "lofe", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "ventrafol", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "nelo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "bispler", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "brenpir", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "gribri", "cat": "comida", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "mosnalpes", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "rorbre", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "dirvarvur", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "vagi", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "cerpen", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "sogir", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "tranva", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "denmirmen", "cat": "animal", "deberia_buscar": true}
+{"grupo": "inventadas_mezcladas", "termino": "volplun", "cat": "animal", "deberia_buscar": true}
+{"grupo": "compatibles_nuevas", "termino": "torta de maíz", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "playa de arena", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "arroz de harina", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "gato de campo", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "sillón de pino", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "pastel de harina", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "oveja de campo", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "alicate de hierro", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "tenaza de bronce", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "perro de carrera", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "bosque de arena", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "oveja de monte", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "lima de acero", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "pato de corral", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "hacha de bronce", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "destornillador de acero", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "guante de cuero", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "llave de titanio", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "repisa de roble", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "gorro de lino", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "silla de mimbre", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "lago de barro", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "tortilla de harina", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "río de roca", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "pan de trigo", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "calcetín de mezclilla", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "sopa de maíz", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "estante de mimbre", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "arroz de trigo", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "mesa de pino", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "empanada de maíz", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "tortilla de trigo", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "tenaza de titanio", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "mesa de roble", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "galleta de harina", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "puma de carrera", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "arroz de manjar", "cat": "comida", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "estante de pino", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "pala de carbono", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "silla de plástico", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "cama de roble", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "escritorio de plástico", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "martillo de carbono", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "zorro de monte", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "vaca de carrera", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "puma de granja", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "loro de carrera", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "oveja de carrera", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "repisa de madera", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "velador de roble", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "sillón de madera", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "taladro de titanio", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "serrucho de bronce", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "isla de barro", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "martillo de acero", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "plaza de arena", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "plaza de barro", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "escritorio de pino", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "pato de monte", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "mesa de mimbre", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "falda de algodón", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "camisa de lana", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "guante de mezclilla", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "sillón de metal", "cat": "mueble", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "alicate de bronce", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "destornillador de titanio", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "puma de caza", "cat": "animal", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "falda de cuero", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "chaqueta de mezclilla", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "bosque de ripio", "cat": "lugar", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "lima de goma", "cat": "herramienta", "deberia_buscar": false}
+{"grupo": "compatibles_nuevas", "termino": "calcetín de cuero", "cat": "ropa", "deberia_buscar": false}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de carrera", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de lana", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de luz", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de monte", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de seda", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de nubes", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de humo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de pasto", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de granja", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de ripio", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de plástico", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de niebla", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "galleta de carbono", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de hierro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de madera", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de piedra", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de caza", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de seda", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de trigo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de algodón", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de pasto", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "oveja de nubes", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "alicate de monte", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de piedra", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de plástico", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de madera", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de viento", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de acero", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de avena", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de seda", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de chocolate", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "torta de carrera", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de bronce", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de monte", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de plástico", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de mimbre", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de espuma", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de roble", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "galleta de hierro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de harina", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de caza", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "alicate de viento", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de hierro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de chocolate", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de metal", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de avena", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de campo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de manjar", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de plástico", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de metal", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "abrigo de metal", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de lana", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tenaza de roble", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de maíz", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "abrigo de luz", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de monte", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de maíz", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "abrigo de campo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de metal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de maíz", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de bronce", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de acero", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de roca", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de cuero", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lima de chocolate", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de monte", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de maíz", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tenaza de chocolate", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de roca", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de avena", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de bronce", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "mesa de niebla", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de carbono", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de caza", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de titanio", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pan de cuero", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de harina", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de metal", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de seda", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de seda", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de seda", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de granja", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de plástico", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaleco de carbono", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de monte", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de granja", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de lino", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de carbono", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de campo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "oveja de arena", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de acero", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de caza", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de bronce", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de mezclilla", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de maíz", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de roble", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de corral", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "oveja de chocolate", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de carbono", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de mezclilla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de maíz", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de avena", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de goma", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de titanio", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de caza", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "torta de viento", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de caza", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de humo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "plaza de titanio", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de algodón", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de caza", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de maíz", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "llave de piedra", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de roca", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de monte", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de mimbre", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "alicate de roca", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de hierro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de lana", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de carbono", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "serrucho de campo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de carrera", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de monte", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de goma", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de piedra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de avena", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sillón de cuero", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de granja", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de acero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "arroz de nubes", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de plástico", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de algodón", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de titanio", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de trigo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "isla de humo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de cuero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sillón de monte", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de espuma", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de roca", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de humo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de avena", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de carbono", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de viento", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de maíz", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de caza", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de viento", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de hierro", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de manjar", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de humo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "plaza de bronce", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de lana", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de trigo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de algodón", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de caza", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de manjar", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de goma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de corral", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de madera", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de arena", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de granja", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de titanio", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de campo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de pino", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de metal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de seda", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de manjar", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de piedra", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de ripio", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de nubes", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de mezclilla", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de harina", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de goma", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de mimbre", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "abrigo de chocolate", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "serrucho de arena", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de carbono", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de corral", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de corral", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de humo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de chocolate", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de mezclilla", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de niebla", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de nubes", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de hierro", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de piedra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "galleta de humo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "llave de harina", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de lino", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "isla de niebla", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de nubes", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de hierro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de carrera", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de corral", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de mezclilla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de trigo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de humo", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de ripio", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de madera", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de carrera", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de roca", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de acero", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de mimbre", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "serrucho de roca", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "mesa de monte", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "destornillador de pino", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de metal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de mezclilla", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de niebla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "arroz de caza", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de monte", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de algodón", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de chocolate", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de humo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de roca", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de hierro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de metal", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de maíz", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaleco de niebla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sillón de titanio", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de seda", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de pino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de manjar", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lima de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "isla de pino", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de humo", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de viento", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de luz", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de mezclilla", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de madera", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de bronce", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de avena", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lima de barro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de harina", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de carrera", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "plaza de metal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puerto de niebla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de bronce", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de plástico", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de caza", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de corral", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de harina", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de caza", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de plástico", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de chocolate", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de ripio", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de monte", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de maíz", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de goma", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de goma", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de monte", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de acero", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de niebla", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de seda", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de barro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de plástico", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "isla de metal", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de carbono", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de pino", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "isla de campo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de luz", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tenaza de lana", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "plaza de humo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de humo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de pasto", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de piedra", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de humo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de algodón", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de pasto", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "llave de mimbre", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de seda", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de cuero", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de carbono", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de mimbre", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de ripio", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de titanio", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de cuero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de metal", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de pino", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de titanio", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de chocolate", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de cuero", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "abrigo de nubes", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de seda", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de plástico", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tenaza de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de lino", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de mimbre", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de madera", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "mesa de espuma", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sillón de campo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lima de nubes", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "torta de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de lino", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de lino", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "llave de trigo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de pino", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de espuma", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de roble", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "calcetín de titanio", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de manjar", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "alicate de niebla", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de carrera", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de madera", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de campo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de lana", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de trigo", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de carrera", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de madera", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de lana", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de lino", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de maíz", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de espuma", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de barro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de cuero", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de barro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sillón de espuma", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "galleta de cuero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de cuero", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de hierro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de caza", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "parque de hierro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "torta de ripio", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de piedra", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de acero", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "vaca de mimbre", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de maíz", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de manjar", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de avena", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de lino", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de luz", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de viento", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de lana", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de roca", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de mimbre", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de nubes", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pan de seda", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de goma", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de bronce", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de viento", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de monte", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de barro", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de chocolate", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de chocolate", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de algodón", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de humo", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "camisa de manjar", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "guante de viento", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de viento", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de ripio", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "arroz de madera", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de piedra", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "escritorio de roca", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de mezclilla", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de espuma", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de lana", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cama de viento", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de carbono", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "conejo de piedra", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "falda de harina", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de niebla", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de corral", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "flan de mimbre", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de cuero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "ropero de caza", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "lago de avena", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tenaza de arena", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "velador de harina", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "chaqueta de espuma", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "silla de carrera", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gorro de bronce", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de niebla", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de algodón", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "zorro de viento", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de barro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "llave de avena", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "valle de roble", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "mesa de viento", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "caballo de carbono", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de espuma", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de mimbre", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "puma de barro", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de goma", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de nubes", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "loro de humo", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de goma", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de titanio", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de metal", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pato de pino", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de ripio", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "taladro de caza", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "repisa de ripio", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de monte", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pala de plástico", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de mimbre", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "tortilla de hierro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "serrucho de corral", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "sopa de mezclilla", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "hacha de algodón", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pastel de acero", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "estante de acero", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "torta de seda", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "queso de campo", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de algodón", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "martillo de cuero", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de lana", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de roble", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "alicate de barro", "cat": "animal", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bufanda de maíz", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "gato de bronce", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "oveja de cuero", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "perro de pino", "cat": "comida", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "pantalón de arena", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "mesa de maíz", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de ripio", "cat": "herramienta", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "bosque de viento", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "cerro de monte", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "playa de acero", "cat": "mueble", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "río de corral", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "empanada de corral", "cat": "ropa", "deberia_buscar": true}
+{"grupo": "no_calzan_nuevas", "termino": "banco de arena", "cat": "lugar", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "fersipu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nisboni", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brerplun", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "mibrasso", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "melvalran", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "telso", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "suncho", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "morgin", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "plunca", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bigritrar", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "gruven", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "gramas", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nitrur", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "fube", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trebas", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "maplin", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pisdol", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bropal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cinsir", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "forpor", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nubolra", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cinnarchir", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tiba", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "darse", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "disgros", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nenbreril", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rulparder", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "murplegra", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bopi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brides", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "plingros", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "sorci", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "plorbrollir", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pegri", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "niviltrur", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grova", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "dubir", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "chesal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "sorcel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trispunbi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rusus", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "funful", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "mases", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "podilo", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lenagra", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lulrantral", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tuven", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rabi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pinsor", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nosgrulsi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "panti", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tugagran", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "subrir", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lotan", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "daplas", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "surga", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tosplutur", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trito", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brertrul", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brerse", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "buschacos", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "marbal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "vonmacal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lertrerron", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trilchun", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tumin", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "gruvucel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cebolger", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "regel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bascel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cibrapu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trumas", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "folmirchu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "farval", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grabrus", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "ginben", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "molchubu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "chosvo", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cubrin", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "piful", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tunmel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "selfo", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "sechasos", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trofoldar", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pocofo", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lusvun", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "ronlol", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bingri", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "murlor", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "charsi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bruval", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cepal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "seler", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "mises", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "buge", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "soldel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "ploldipes", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "golsemor", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pletolror", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rogre", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "vurven", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rerbirnu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "traslendul", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tuvi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "gribal", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bilel", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "sachi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "graresil", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rirponmol", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "dincos", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "copin", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "serner", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "fenpul", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "mengrenbror", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "silgaltra", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "senfi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grache", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nesmirgra", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "busbunbi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grulgris", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lavelbrur", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "fiscis", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "vurtenu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trenpluchu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "chigen", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "buran", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "bristrar", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grachasplen", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "lolcose", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "pova", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "silebon", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "vode", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tralnol", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brilpemar", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "trirpu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "porce", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "cossus", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "boplorche", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "nanbrema", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "resde", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "renple", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "vivisgi", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "gasci", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "plibenpas", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "brotrol", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "tulasbro", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "grosplorvu", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "sulnirti", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "plemurval", "cat": "no sé", "deberia_buscar": true}
+{"grupo": "inexistentes", "termino": "rertus", "cat": "no sé", "deberia_buscar": true}

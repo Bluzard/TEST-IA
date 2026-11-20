@@ -1,0 +1,100 @@
+{
+ "nombre": "base",
+ "r": 0,
+ "objetivos": [
+  "qkv",
+  "proy",
+  "fc1",
+  "fc2"
+ ],
+ "semilla": 0,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.4,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.5876543209876544
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.027777777777777776,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.9722222222222222
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.6153846153846154,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.38461538461538464
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.864406779661017,
+   "consulta": 0.0,
+   "exacta": 0.05084745762711865,
+   "sim95": 0.06779661016949153,
+   "busca": 0.864406779661017
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.7478991596638656,
+   "consulta": 0.0,
+   "exacta": 0.6722689075630253,
+   "sim95": 0.6722689075630253,
+   "busca": 0.7478991596638656
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 0.0,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.05333333333333334
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 0.0,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.0125
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 0.0,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 0.7833333333333333,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.21666666666666667
+  },
+  "_puntaje": 0.12496454470532238
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

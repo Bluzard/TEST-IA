@@ -1,0 +1,119 @@
+{
+ "nombre": "r16",
+ "r": 16,
+ "objetivos": [
+  "qkv",
+  "proy",
+  "fc1",
+  "fc2"
+ ],
+ "semilla": 0,
+ "parametros": 1310720,
+ "mb_fp16": 2.62144,
+ "perdida_final": 0.003399437526240945,
+ "entrenamiento_s": 165.2110891342163,
+ "nucleo_intacto": true,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.5358024691358024,
+   "consulta": 0.0,
+   "exacta": 0.1580246913580247,
+   "sim95": 0.18765432098765433,
+   "busca": 0.45925925925925926
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.9722222222222222,
+   "consulta": 0.0,
+   "exacta": 0.9305555555555556,
+   "sim95": 0.9305555555555556,
+   "busca": 0.027777777777777776
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.34615384615384615,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.6538461538461539
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.864406779661017,
+   "consulta": 0.13559322033898305,
+   "exacta": 0.3728813559322034,
+   "sim95": 0.4576271186440678,
+   "busca": 0.864406779661017
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.865546218487395,
+   "consulta": 0.37815126050420167,
+   "exacta": 0.8067226890756303,
+   "sim95": 0.8067226890756303,
+   "busca": 0.865546218487395
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.98,
+   "sim95": 0.9866666666666667,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.925,
+   "sim95": 0.925,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 1.0,
+   "sim95": 1.0,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 0.9166666666666666,
+   "consulta": 0.0,
+   "exacta": 0.6833333333333333,
+   "sim95": 0.7666666666666667,
+   "busca": 0.08333333333333333
+  },
+  "_puntaje": 0.7327899490903073
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.6666666666666666
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "general_dormido": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

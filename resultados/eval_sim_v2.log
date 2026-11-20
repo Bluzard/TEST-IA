@@ -1,0 +1,4 @@
+﻿buscar_ok    buscó=99.3%  respuesta_exacta=83.3%
+directo      no_buscó=100.0%  respuesta_exacta=100.0%
+vacio        buscó=100.0%  se_abstuvo=100.0%
+irrelevante  buscó=100.0%  se_abstuvo=98.0%

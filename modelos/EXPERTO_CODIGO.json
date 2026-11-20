@@ -1,0 +1,10 @@
+﻿{
+    "puntaje_eval":  0.822,
+    "archivo":  "modelos/experto_codigo.lora",
+    "base":  "modelos/nucleo_sft_v3.pt",
+    "r":  16,
+    "entrenado_desde":  "modelos/experto_r16_B2_e3.lora.pt",
+    "alpha":  32,
+    "bytes":  2621472,
+    "sha256":  "B57032631EFDCDB6EEC0C883207BAD64A23E91F65EB21792095BDFB2110278C6"
+}

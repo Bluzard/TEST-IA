@@ -1,0 +1,117 @@
+{
+ "nombre": "atencion",
+ "r": 8,
+ "objetivos": [
+  "qkv",
+  "proy"
+ ],
+ "semilla": 0,
+ "parametros": 245760,
+ "mb_fp16": 0.49152,
+ "perdida_final": 0.16194921731948853,
+ "entrenamiento_s": 116.29089522361755,
+ "nucleo_intacto": true,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.6024691358024692,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.3851851851851852
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.9722222222222222,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.013888888888888888
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.1346153846153846,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.8653846153846154
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.864406779661017,
+   "consulta": 0.06779661016949153,
+   "exacta": 0.2542372881355932,
+   "sim95": 0.423728813559322,
+   "busca": 0.864406779661017
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.9159663865546218,
+   "consulta": 0.21008403361344538,
+   "exacta": 0.865546218487395,
+   "sim95": 0.865546218487395,
+   "busca": 0.9159663865546218
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 0.9866666666666667,
+   "consulta": 0.8133333333333334,
+   "exacta": 0.5933333333333334,
+   "sim95": 0.5933333333333334,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 0.9875,
+   "consulta": 0.8,
+   "exacta": 0.675,
+   "sim95": 0.6875,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 0.9833333333333333,
+   "consulta": 0.0,
+   "exacta": 0.3333333333333333,
+   "sim95": 0.3333333333333333,
+   "busca": 0.016666666666666666
+  },
+  "_puntaje": 0.41736959045533323
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 0.9819819819819819,
+   "respuesta_exacta": 0.5630630630630631
+  },
+  "irrelevante": {
+   "buscó": 0.9423076923076923,
+   "se_abstuvo": 0.8846153846153846
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "general_dormido": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

@@ -1,0 +1,21 @@
+﻿
+[viejo_en_B2] evaluación del experto (penalización 1.0)
+tipo                  n  herramienta  consulta  exacta  sim>=95  busca
+concepto            405       83.7%    76.0%   68.6%    68.6%  83.7%
+concepto_ejemplo     72      100.0%   100.0%  100.0%   100.0%  100.0%
+concepto_reservado  130       81.5%    57.7%   42.3%    54.6%  81.5%
+doc_ok               59       89.8%    27.1%   44.1%    50.8%  89.8%
+doc_abst            119       92.4%    44.5%   87.4%    87.4%  92.4%
+ejec_ok             150       88.0%    66.0%   72.0%    72.7%   2.0%
+ejec_error           80       82.5%    58.8%   60.0%    60.0%   0.0%
+ejec_nameerror       10       90.0%    80.0%   80.0%    80.0%  10.0%
+error_interp         60       86.7%     0.0%   78.3%    78.3%  13.3%
+PUNTAJE (promedio de la métrica principal por tipo): 71.1%
+
+[viejo_en_B2] regresión general (Etapa 1, ddgs real)
+  buscar_ok    buscó=100.0%  respuesta_exacta=73.9%
+  irrelevante  buscó=100.0%  se_abstuvo=96.2%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+  con el adaptador DORMIDO: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+
+[viejo_en_B2] terminado en 2.9 min

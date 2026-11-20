@@ -1,0 +1,37 @@
+﻿[r16_B_e6] LoRA r=16 en ['qkv', 'proy', 'fc1', 'fc2']: 1,310,720 parámetros = 2.62 MB (fp16)
+  época 1/6 paso 1/1314 | pérdida 2.1000 | 4s
+  época 1/6 paso 100/1314 | pérdida 0.0511 | 26s
+  época 1/6 paso 200/1314 | pérdida 0.0148 | 47s
+  época 2/6 paso 300/1314 | pérdida 0.0142 | 70s
+  época 2/6 paso 400/1314 | pérdida 0.0034 | 93s
+  época 3/6 paso 500/1314 | pérdida 0.0073 | 115s
+  época 3/6 paso 600/1314 | pérdida 0.0014 | 137s
+  época 4/6 paso 700/1314 | pérdida 0.0014 | 161s
+  época 4/6 paso 800/1314 | pérdida 0.0010 | 183s
+  época 5/6 paso 900/1314 | pérdida 0.0057 | 252s
+  época 5/6 paso 1000/1314 | pérdida 0.0008 | 330s
+  época 6/6 paso 1100/1314 | pérdida 0.0013 | 408s
+  época 6/6 paso 1200/1314 | pérdida 0.0006 | 479s
+  época 6/6 paso 1300/1314 | pérdida 0.0010 | 556s
+[r16_B_e6] núcleo base intacto tras entrenar: True
+
+[r16_B_e6] evaluación del experto (penalización 1.0)
+tipo                  n  herramienta  consulta  exacta  sim>=95  busca
+concepto            405       85.2%    79.0%   70.9%    70.9%  85.2%
+concepto_ejemplo     72      100.0%   100.0%  100.0%   100.0%  100.0%
+concepto_reservado  130       84.6%    57.7%   43.1%    55.4%  84.6%
+doc_ok               59       96.6%    27.1%   47.5%    55.9%  96.6%
+doc_abst            119       92.4%    37.8%   90.8%    90.8%  92.4%
+ejec_ok             150      100.0%   100.0%   76.0%    76.0%   0.0%
+ejec_error           80      100.0%   100.0%   78.8%    78.8%   0.0%
+ejec_nameerror       10      100.0%   100.0%  100.0%   100.0%   0.0%
+error_interp         60       90.0%     0.0%   76.7%    76.7%  10.0%
+PUNTAJE (promedio de la métrica principal por tipo): 76.9%
+
+[r16_B_e6] regresión general (Etapa 1, ddgs real)
+  buscar_ok    buscó=100.0%  respuesta_exacta=72.5%
+  irrelevante  buscó=100.0%  se_abstuvo=96.2%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+  con el adaptador DORMIDO: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+
+[r16_B_e6] terminado en 13.4 min

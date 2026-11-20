@@ -1,0 +1,195 @@
+{
+ "nombre": "r8_todas",
+ "r": 8,
+ "objetivos": [
+  "qkv",
+  "proy",
+  "fc1",
+  "fc2"
+ ],
+ "semilla": 0,
+ "parametros": 655360,
+ "mb_fp16": 1.31072,
+ "perdida_final": 0.012634996324777603,
+ "entrenamiento_s": 144.2329227924347,
+ "nucleo_intacto": true,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.6074074074074074,
+   "consulta": 0.0,
+   "exacta": 0.1925925925925926,
+   "sim95": 0.20493827160493827,
+   "busca": 0.3925925925925926
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.9861111111111112,
+   "consulta": 0.0,
+   "exacta": 0.6111111111111112,
+   "sim95": 0.6111111111111112,
+   "busca": 0.013888888888888888
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.4423076923076923,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.5384615384615384
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.8135593220338984,
+   "consulta": 0.13559322033898305,
+   "exacta": 0.3220338983050847,
+   "sim95": 0.3728813559322034,
+   "busca": 0.8135593220338984
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.8235294117647058,
+   "consulta": 0.3697478991596639,
+   "exacta": 0.7815126050420168,
+   "sim95": 0.7815126050420168,
+   "busca": 0.8235294117647058
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.9666666666666667,
+   "sim95": 0.98,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.875,
+   "sim95": 0.875,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.7,
+   "sim95": 0.9,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 1.0,
+   "consulta": 0.0,
+   "exacta": 0.75,
+   "sim95": 0.75,
+   "busca": 0.0
+  },
+  "_puntaje": 0.6431362077562366
+ },
+ "experto_pen_extra": {
+  "pen": 1.1,
+  "concepto": {
+   "n": 405,
+   "herr": 0.5975308641975309,
+   "consulta": 0.0,
+   "exacta": 0.19012345679012346,
+   "sim95": 0.20493827160493827,
+   "busca": 0.4024691358024691
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.9861111111111112,
+   "consulta": 0.0,
+   "exacta": 0.625,
+   "sim95": 0.6388888888888888,
+   "busca": 0.013888888888888888
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.4423076923076923,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.5384615384615384
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.8305084745762712,
+   "consulta": 0.13559322033898305,
+   "exacta": 0.3220338983050847,
+   "sim95": 0.3728813559322034,
+   "busca": 0.8305084745762712
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.8319327731092437,
+   "consulta": 0.37815126050420167,
+   "exacta": 0.7899159663865546,
+   "sim95": 0.7899159663865546,
+   "busca": 0.8319327731092437
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.9666666666666667,
+   "sim95": 0.98,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.875,
+   "sim95": 0.875,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.7,
+   "sim95": 0.9,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 1.0,
+   "consulta": 0.0,
+   "exacta": 0.75,
+   "sim95": 0.75,
+   "busca": 0.0
+  },
+  "_puntaje": 0.6453387760263429
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 0.990990990990991,
+   "respuesta_exacta": 0.6351351351351351
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 0.9230769230769231
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "general_dormido": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

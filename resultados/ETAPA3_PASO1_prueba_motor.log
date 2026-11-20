@@ -1,0 +1,166 @@
+=== Motor: C++ ===
+
+[1] Experto dormido
+   P: Recuerda que mi proyecto se llama TEST-IA   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado: mi proyecto se llama TEST-IA
+  [OK ] capa 1 guarda y confirma sin red neuronal  -> Anotado: mi proyecto se llama TEST-IA
+  [OK ] temperatura inicial 10
+   P: ¿Cómo se llama mi proyecto?   [experto: dormido]
+       B: mi proyecto
+       [herramienta] 1. Mi proyecto: Mi proyecto se llama TEST-IA.
+       R: Mi proyecto se llama TEST-IA.
+   R: Mi proyecto se llama TEST-IA.
+  [OK ] el núcleo recupera el dato vía B:  -> Mi proyecto se llama TEST-IA.
+  [OK ] la memoria fue la fuente (no la web)
+  [OK ] refuerzo: 10 - 1 (turno) + 3 = 12  -> 12
+
+[2] Experto de código activo
+   P: Recuerda que mi proyecto se llama TEST-IA   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado: mi proyecto se llama TEST-IA
+   P: En Python, ¿cómo se llama mi proyecto?   [experto: codigo]
+       B: mi proyecto programación
+       [herramienta] 1. Mi proyecto: Mi proyecto se llama TEST-IA.
+       R: Mi proyecto se llama TEST-IA.
+   R: Mi proyecto se llama TEST-IA.
+  [OK ] el enrutador despertó al experto
+  [OK ] recupera el dato con el experto activo  -> Mi proyecto se llama TEST-IA.
+   P: Ejecuta: sum([x*x for x in range(1, 6)])   [experto: codigo]
+       E: sum([x*x for x in range(1, 6)])
+       [herramienta] 55
+       R: Imprime 55.
+   R: Imprime 55.
+  [OK ] el experto sigue ejecutando código (sin colisión)  -> Imprime 55.
+  [OK ] la memoria sigue viva tras el turno de código
+
+[3] Enfriamiento: 10 turnos sin mención
+   P: Recuerda que mi proyecto se llama TEST-IA   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado: mi proyecto se llama TEST-IA
+   P: Anota que mi color favorito es el azul   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado: mi color favorito es el azul
+   P: ¿Qué es el Teide?   [experto: dormido]
+       B: el Teide
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=8  color favorito=9
+   P: ¿Cuál es la capital de Chile?   [experto: dormido]
+       B: la capital de Chile
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=7  color favorito=8
+   P: hola, ¿cómo estás?   [experto: dormido]
+       R: ¡Hola! Estoy bien, gracias. ¿En qué te puedo ayudar?
+   R: ¡Hola! Estoy bien, gracias. ¿En qué te puedo ayudar?
+      temperaturas: proyecto=6  color favorito=7
+   P: ¿Cuál es mi color favorito?   [experto: dormido]
+       B: mi color favorito
+       [herramienta] 1. Mi color favorito: Mi color favorito es el azul.
+       R: Mi color favorito es el azul.
+   R: Mi color favorito es el azul.
+  [OK ] (turno 4) el dato reforzado se recupera  -> Mi color favorito es el azul.
+      temperaturas: proyecto=5  color favorito=9
+   P: ¿Quién fue Gabriela Mistral?   [experto: dormido]
+       B: Gabriela Mistral
+       [herramienta] 1. Gabriela Mistral - Wikipedia: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomát
+       R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+   R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+      temperaturas: proyecto=4  color favorito=8
+   P: Dame una receta de empanadas.   [experto: dormido]
+       B: receta de empanadas
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=3  color favorito=7
+   P: ¿Qué sabes de Tenerife?   [experto: dormido]
+       B: Tenerife
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=2  color favorito=6
+   P: ¿Qué hora es en Tokio?   [experto: dormido]
+       B: en Tokio
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=1  color favorito=5
+   P: Cuéntame sobre los volcanes.   [experto: dormido]
+       B: los volcanes
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=None  color favorito=4
+   P: ¿Qué es la relatividad?   [experto: dormido]
+       B: la relatividad
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+      temperaturas: proyecto=None  color favorito=3
+  [OK ] tras 10 turnos el recuerdo no reforzado llegó a 0 y se archivó
+  [OK ] el recuerdo reforzado sigue vivo  -> 3
+   P: ¿Cómo se llama mi proyecto?   [experto: dormido]
+       B: mi proyecto
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+  [OK ] el núcleo se abstiene honestamente  -> No tengo información suficiente para responder eso.
+  [OK ] no inventa el dato
+
+[4] Memoria de trabajo de 2 turnos (tope 80 tokens)
+   P: ¿Quién fue Gabriela Mistral?   [experto: dormido]
+       B: Gabriela Mistral
+       [herramienta] 1. Gabriela Mistral - Wikipedia: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomát
+       R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+   R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+   pregunta enviada al núcleo: '¿Quién fue Gabriela Mistral? ¿y cuándo nació?' (17 tokens)
+  [OK ] el seguimiento recibe el referente
+  [OK ] contexto <= 80 tokens  -> 17
+  [OK ] «¿y la tilde de compré?» (término de ficha) NO arrastra el turno anterior
+  [OK ] «¿y el hiato?» tampoco
+   P: ¿y cuándo nació?   [experto: dormido]
+       B: Gabriela Mistral
+       [herramienta] 1. Gabriela Mistral - Wikipedia: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomát
+       R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+   R: Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+  [OK ] la búsqueda B: conserva el referente  -> B: Gabriela Mistral
+  [OK ] responde con la fecha  -> Gabriela Mistral (Vicuña, 7 de abril de 1889 - Nueva York, 10 de enero de 1957) fue una poeta, diplomática y pedagoga chilena.
+  [OK ] con turnos enormes el contexto sigue <= 80 tokens  -> 72
+  [OK ] ventana total < 512 en el peor caso  -> 500
+
+[5] «Recuerda siempre que…» y «Olvida que…»
+   P: Recuerda siempre que mi alergia es el maní   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado para siempre: mi alergia es el maní
+  [OK ] permanente guardado en capa 1  -> Anotado para siempre: mi alergia es el maní
+   P: Recuerda que mi proyecto se llama TEST-IA   [experto: dormido]
+       [capa 1, sin IA]
+   R: Anotado: mi proyecto se llama TEST-IA
+  [OK ] tras 12 turnos el temporal se enfrió y el permanente no  -> 10
+   P: ¿Cuál es mi alergia?   [experto: dormido]
+       B: mi alergia
+       [herramienta] 1. Mi alergia: Mi alergia es el maní.
+       R: Mi alergia es el maní.
+   R: Mi alergia es el maní.
+  [OK ] el permanente se recupera tras 12 turnos  -> Mi alergia es el maní.
+   P: Olvida que mi alergia es el maní   [experto: dormido]
+       [capa 1, sin IA]
+   R: Olvidado: mi alergia es el maní
+  [OK ] olvido inmediato en capa 1 (sin IA)  -> Olvidado: mi alergia es el maní
+  [OK ] quedó archivado con motivo
+   P: ¿Cuál es mi alergia?   [experto: dormido]
+       B: mi alergia
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+  [OK ] tras olvidar el núcleo se abstiene  -> No tengo información suficiente para responder eso.
+
+=== SHA-256 de los pesos congelados ===
+  [OK ] modelos/nucleo_sft_v3.pt intacto  -> a867d741e0e65aa7…
+  [OK ] modelos/nucleo_sft_v3.bin intacto  -> 17ecdbdaafba9c61…
+  [OK ] modelos/experto_codigo.lora intacto  -> b57032631efdcdb6…
+
+TODO CORRECTO

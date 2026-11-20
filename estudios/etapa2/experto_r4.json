@@ -1,0 +1,119 @@
+{
+ "nombre": "r4",
+ "r": 4,
+ "objetivos": [
+  "qkv",
+  "proy",
+  "fc1",
+  "fc2"
+ ],
+ "semilla": 0,
+ "parametros": 327680,
+ "mb_fp16": 0.65536,
+ "perdida_final": 0.046605754643678665,
+ "entrenamiento_s": 144.5127727985382,
+ "nucleo_intacto": true,
+ "experto": {
+  "concepto": {
+   "n": 405,
+   "herr": 0.44938271604938274,
+   "consulta": 0.0,
+   "exacta": 0.07654320987654321,
+   "sim95": 0.08148148148148149,
+   "busca": 0.5432098765432098
+  },
+  "concepto_ejemplo": {
+   "n": 72,
+   "herr": 0.8888888888888888,
+   "consulta": 0.0,
+   "exacta": 0.08333333333333333,
+   "sim95": 0.1111111111111111,
+   "busca": 0.09722222222222222
+  },
+  "concepto_nuevo": {
+   "n": 52,
+   "herr": 0.1346153846153846,
+   "consulta": 0.0,
+   "exacta": 0.0,
+   "sim95": 0.0,
+   "busca": 0.8653846153846154
+  },
+  "doc_ok": {
+   "n": 59,
+   "herr": 0.8135593220338984,
+   "consulta": 0.13559322033898305,
+   "exacta": 0.23728813559322035,
+   "sim95": 0.2711864406779661,
+   "busca": 0.8135593220338984
+  },
+  "doc_abst": {
+   "n": 119,
+   "herr": 0.8067226890756303,
+   "consulta": 0.31932773109243695,
+   "exacta": 0.7226890756302521,
+   "sim95": 0.7226890756302521,
+   "busca": 0.8067226890756303
+  },
+  "ejec_ok": {
+   "n": 150,
+   "herr": 0.98,
+   "consulta": 0.98,
+   "exacta": 0.9466666666666667,
+   "sim95": 0.9466666666666667,
+   "busca": 0.0
+  },
+  "ejec_error": {
+   "n": 80,
+   "herr": 0.9875,
+   "consulta": 0.9875,
+   "exacta": 0.85,
+   "sim95": 0.85,
+   "busca": 0.0
+  },
+  "ejec_nameerror": {
+   "n": 10,
+   "herr": 1.0,
+   "consulta": 1.0,
+   "exacta": 0.3,
+   "sim95": 0.6,
+   "busca": 0.0
+  },
+  "error_interp": {
+   "n": 60,
+   "herr": 1.0,
+   "consulta": 0.0,
+   "exacta": 0.6166666666666667,
+   "sim95": 0.6166666666666667,
+   "busca": 0.0
+  },
+  "_puntaje": 0.5258300009151159
+ },
+ "general": {
+  "buscar_ok": {
+   "buscó": 0.9864864864864865,
+   "respuesta_exacta": 0.5990990990990991
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "general_dormido": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.7162162162162162
+  },
+  "irrelevante": {
+   "buscó": 0.9807692307692307,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ }
+}

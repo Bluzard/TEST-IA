@@ -1,0 +1,204 @@
+[entrenando] normal semilla 0 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0359 |     0s
+  paso   200/2000 | pérdida 0.1142 |    42s
+  paso   400/2000 | pérdida 0.0598 |    85s
+  paso   600/2000 | pérdida 0.0292 |   128s
+  paso   800/2000 | pérdida 0.0308 |   174s
+  paso  1000/2000 | pérdida 0.0124 |   229s
+  paso  1200/2000 | pérdida 0.0025 |   292s
+  paso  1400/2000 | pérdida 0.0009 |   345s
+  paso  1600/2000 | pérdida 0.0003 |   399s
+  paso  1800/2000 | pérdida 0.0002 |   451s
+  paso  2000/2000 | pérdida 0.0003 |   503s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_normal_s0_v3.pt (503s en total)
+[listo] cmp_normal_s0_v3.pt en 505s
+[entrenando] bitnet semilla 0 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0702 |     1s
+  paso   200/2000 | pérdida 0.2298 |    52s
+  paso   400/2000 | pérdida 0.0760 |   103s
+  paso   600/2000 | pérdida 0.0541 |   154s
+  paso   800/2000 | pérdida 0.0497 |   206s
+  paso  1000/2000 | pérdida 0.0191 |   257s
+  paso  1200/2000 | pérdida 0.0058 |   309s
+  paso  1400/2000 | pérdida 0.0025 |   362s
+  paso  1600/2000 | pérdida 0.0010 |   415s
+  paso  1800/2000 | pérdida 0.0012 |   469s
+  paso  2000/2000 | pérdida 0.0007 |   523s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bitnet_s0_v3.pt (523s en total)
+[listo] cmp_bitnet_s0_v3.pt en 526s
+[entrenando] chico semilla 0 (2000 pasos)...
+Variante B | dispositivo mps | 439,680 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0722 |     0s
+  paso   200/2000 | pérdida 0.2173 |    27s
+  paso   400/2000 | pérdida 0.0658 |    54s
+  paso   600/2000 | pérdida 0.0469 |    82s
+  paso   800/2000 | pérdida 0.0333 |   109s
+  paso  1000/2000 | pérdida 0.0176 |   136s
+  paso  1200/2000 | pérdida 0.0148 |   164s
+  paso  1400/2000 | pérdida 0.0031 |   191s
+  paso  1600/2000 | pérdida 0.0015 |   219s
+  paso  1800/2000 | pérdida 0.0017 |   247s
+  paso  2000/2000 | pérdida 0.0012 |   276s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_chico_s0_v3.pt (276s en total)
+[listo] cmp_chico_s0_v3.pt en 278s
+[entrenando] bucle semilla 0 (2000 pasos)...
+Variante B | dispositivo mps | 439,808 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0118 |     0s
+  paso   200/2000 | pérdida 0.1669 |    55s
+  paso   400/2000 | pérdida 0.0534 |   109s
+  paso   600/2000 | pérdida 0.0407 |   164s
+  paso   800/2000 | pérdida 0.0098 |   218s
+  paso  1000/2000 | pérdida 0.0040 |   273s
+  paso  1200/2000 | pérdida 0.0111 |   327s
+  paso  1400/2000 | pérdida 0.0007 |   382s
+  paso  1600/2000 | pérdida 0.0003 |   441s
+  paso  1800/2000 | pérdida 0.0003 |   495s
+  paso  2000/2000 | pérdida 0.0003 |   549s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bucle_s0_v3.pt (549s en total)
+[listo] cmp_bucle_s0_v3.pt en 552s
+[entrenando] normal semilla 1 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 3.9930 |     0s
+  paso   200/2000 | pérdida 0.1452 |    52s
+  paso   400/2000 | pérdida 0.0435 |   106s
+  paso   600/2000 | pérdida 0.0315 |   163s
+  paso   800/2000 | pérdida 0.0111 |   220s
+  paso  1000/2000 | pérdida 0.0089 |   276s
+  paso  1200/2000 | pérdida 0.0026 |   332s
+  paso  1400/2000 | pérdida 0.0026 |   389s
+  paso  1600/2000 | pérdida 0.0004 |   445s
+  paso  1800/2000 | pérdida 0.0002 |   499s
+  paso  2000/2000 | pérdida 0.0002 |   553s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_normal_s1_v3.pt (553s en total)
+[listo] cmp_normal_s1_v3.pt en 556s
+[entrenando] bitnet semilla 1 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0068 |     1s
+  paso   200/2000 | pérdida 0.3764 |    54s
+  paso   400/2000 | pérdida 0.0745 |   107s
+  paso   600/2000 | pérdida 0.0722 |   161s
+  paso   800/2000 | pérdida 0.0326 |   218s
+  paso  1000/2000 | pérdida 0.0300 |   273s
+  paso  1200/2000 | pérdida 0.0135 |   328s
+  paso  1400/2000 | pérdida 0.0111 |   382s
+  paso  1600/2000 | pérdida 0.0058 |   436s
+  paso  1800/2000 | pérdida 0.0038 |   492s
+  paso  2000/2000 | pérdida 0.0017 |   548s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bitnet_s1_v3.pt (548s en total)
+[listo] cmp_bitnet_s1_v3.pt en 551s
+[entrenando] chico semilla 1 (2000 pasos)...
+Variante B | dispositivo mps | 439,680 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0337 |     0s
+  paso   200/2000 | pérdida 0.2139 |    29s
+  paso   400/2000 | pérdida 0.0907 |    57s
+  paso   600/2000 | pérdida 0.0796 |    86s
+  paso   800/2000 | pérdida 0.0386 |   114s
+  paso  1000/2000 | pérdida 0.0346 |   143s
+  paso  1200/2000 | pérdida 0.0191 |   171s
+  paso  1400/2000 | pérdida 0.0093 |   200s
+  paso  1600/2000 | pérdida 0.0087 |   228s
+  paso  1800/2000 | pérdida 0.0046 |   257s
+  paso  2000/2000 | pérdida 0.0046 |   286s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_chico_s1_v3.pt (286s en total)
+[listo] cmp_chico_s1_v3.pt en 289s
+[entrenando] bucle semilla 1 (2000 pasos)...
+Variante B | dispositivo mps | 439,808 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0966 |     0s
+  paso   200/2000 | pérdida 0.1697 |    56s
+  paso   400/2000 | pérdida 0.0559 |   112s
+  paso   600/2000 | pérdida 0.0454 |   167s
+  paso   800/2000 | pérdida 0.0166 |   224s
+  paso  1000/2000 | pérdida 0.0061 |   280s
+  paso  1200/2000 | pérdida 0.0020 |   335s
+  paso  1400/2000 | pérdida 0.0007 |   390s
+  paso  1600/2000 | pérdida 0.0003 |   446s
+  paso  1800/2000 | pérdida 0.0003 |   503s
+  paso  2000/2000 | pérdida 0.0003 |   565s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bucle_s1_v3.pt (565s en total)
+[listo] cmp_bucle_s1_v3.pt en 568s
+[entrenando] normal semilla 2 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 3.9116 |     1s
+  paso   200/2000 | pérdida 0.1362 |    58s
+  paso   400/2000 | pérdida 0.0414 |   113s
+  paso   600/2000 | pérdida 0.0220 |   170s
+  paso   800/2000 | pérdida 0.0153 |   228s
+  paso  1000/2000 | pérdida 0.0085 |   287s
+  paso  1200/2000 | pérdida 0.0065 |   362s
+  paso  1400/2000 | pérdida 0.0010 |   425s
+  paso  1600/2000 | pérdida 0.0005 |   485s
+  paso  1800/2000 | pérdida 0.0004 |   543s
+  paso  2000/2000 | pérdida 0.0003 |   604s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_normal_s2_v3.pt (604s en total)
+[listo] cmp_normal_s2_v3.pt en 607s
+[entrenando] bitnet semilla 2 (2000 pasos)...
+Variante B | dispositivo mps | 833,920 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 3.9206 |     1s
+  paso   200/2000 | pérdida 0.2860 |    60s
+  paso   400/2000 | pérdida 0.0593 |   119s
+  paso   600/2000 | pérdida 0.0510 |   177s
+  paso   800/2000 | pérdida 0.0398 |   237s
+  paso  1000/2000 | pérdida 0.0195 |   299s
+  paso  1200/2000 | pérdida 0.0161 |   360s
+  paso  1400/2000 | pérdida 0.0074 |   420s
+  paso  1600/2000 | pérdida 0.0024 |   479s
+  paso  1800/2000 | pérdida 0.0014 |   539s
+  paso  2000/2000 | pérdida 0.0012 |   599s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bitnet_s2_v3.pt (599s en total)
+[listo] cmp_bitnet_s2_v3.pt en 601s
+[entrenando] chico semilla 2 (2000 pasos)...
+Variante B | dispositivo mps | 439,680 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.0202 |     0s
+  paso   200/2000 | pérdida 0.2198 |    31s
+  paso   400/2000 | pérdida 0.0713 |    62s
+  paso   600/2000 | pérdida 0.0496 |    93s
+  paso   800/2000 | pérdida 0.0310 |   127s
+  paso  1000/2000 | pérdida 0.0199 |   158s
+  paso  1200/2000 | pérdida 0.0110 |   191s
+  paso  1400/2000 | pérdida 0.0056 |   224s
+  paso  1600/2000 | pérdida 0.0018 |   257s
+  paso  1800/2000 | pérdida 0.0023 |   290s
+  paso  2000/2000 | pérdida 0.0041 |   322s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_chico_s2_v3.pt (322s en total)
+[listo] cmp_chico_s2_v3.pt en 324s
+[entrenando] bucle semilla 2 (2000 pasos)...
+Variante B | dispositivo mps | 439,808 parámetros | 60,000 ejemplos
+  paso     1/2000 | pérdida 4.1310 |     0s
+  paso   200/2000 | pérdida 0.1734 |    62s
+  paso   400/2000 | pérdida 0.0597 |   123s
+  paso   600/2000 | pérdida 0.0388 |   186s
+  paso   800/2000 | pérdida 0.0234 |   247s
+  paso  1000/2000 | pérdida 0.0171 |   310s
+  paso  1200/2000 | pérdida 0.0028 |   372s
+  paso  1400/2000 | pérdida 0.0005 |   436s
+  paso  1600/2000 | pérdida 0.0007 |   499s
+  paso  1800/2000 | pérdida 0.0003 |   560s
+  paso  2000/2000 | pérdida 0.0003 |   620s
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/modelos/cmp_bucle_s2_v3.pt (620s en total)
+[listo] cmp_bucle_s2_v3.pt en 623s
+
+Evaluando...
+
+# Comparación de variantes (3 semillas, 2000 pasos, v3)
+
+Acierto promedio ± desviación entre semillas.
+
+| Grupo | normal | bitnet | chico | bucle |
+|---|---|---|---|---|
+| conocidas | 100.0% ± 0.0 | 100.0% ± 0.0 | 100.0% ± 0.0 | 100.0% ± 0.0 |
+| inventadas_nuevas | 59.4% ± 6.0 | 53.1% ± 11.7 | 40.6% ± 13.6 | 54.3% ± 1.5 |
+| inventadas_mezcladas | 53.0% ± 8.8 | 48.9% ± 11.1 | 36.3% ± 8.1 | 49.8% ± 4.3 |
+| compatibles_nuevas | 26.4% ± 6.4 | 31.0% ± 6.6 | 23.1% ± 2.1 | 29.2% ± 2.8 |
+| no_calzan_nuevas | 42.7% ± 10.4 | 35.7% ± 6.5 | 25.7% ± 3.3 | 39.7% ± 0.6 |
+| inexistentes | 100.0% ± 0.0 | 99.6% ± 0.4 | 99.6% ± 0.4 | 100.0% ± 0.0 |
+
+| | normal | bitnet | chico | bucle |
+|---|---|---|---|---|
+| Busca de más en compatibles | 83.3% | 77.8% | 84.7% | 84.7% |
+| «banco de arena» correcto | 1/3 | 1/3 | 0/3 | 1/3 |
+| Parámetros | 833,920 | 833,920 | 439,680 | 439,808 |
+| Peso para usarlo | 1.67 MB | 0.29 MB | 0.88 MB | 0.88 MB |
+
+Guardado en /Users/joaquinmeneses/Documents/TEST-IA/resultados/comparacion_v3.md

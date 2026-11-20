@@ -1,0 +1,37 @@
+[redaccion_e6] LoRA r=16 en ['qkv', 'proy', 'fc1', 'fc2']: 1,310,720 parámetros = 2.62 MB (fp16)
+  época 1/6 paso 1/1050 | pérdida 1.8385 | 3s
+  época 1/6 paso 100/1050 | pérdida 0.3916 | 30s
+  época 2/6 paso 200/1050 | pérdida 0.2793 | 63s
+  época 2/6 paso 300/1050 | pérdida 0.2562 | 97s
+  época 3/6 paso 400/1050 | pérdida 0.1959 | 133s
+  época 3/6 paso 500/1050 | pérdida 0.1326 | 175s
+  época 4/6 paso 600/1050 | pérdida 0.1229 | 214s
+  época 4/6 paso 700/1050 | pérdida 0.1367 | 254s
+  época 5/6 paso 800/1050 | pérdida 0.1139 | 294s
+  época 6/6 paso 900/1050 | pérdida 0.1381 | 334s
+  época 6/6 paso 1000/1050 | pérdida 0.0735 | 374s
+[redaccion_e6] núcleo base intacto tras entrenar: True
+
+[redaccion_e6] evaluación del experto (penalización 1.0)
+tipo                  n  herramienta  consulta  exacta  sim>=95  busca
+ortografia_ok        12      100.0%     0.0%    8.3%     8.3%   0.0%
+ortografia          108      100.0%     0.0%   13.9%    42.6%   0.0%
+ortografia_signos     4      100.0%     0.0%    0.0%    25.0%   0.0%
+tono_formal          60      100.0%     0.0%   85.0%    86.7%   0.0%
+tono_cercano         40      100.0%     0.0%   32.5%    32.5%   0.0%
+tono_conciso         40      100.0%     0.0%   37.5%    65.0%   0.0%
+tono_claro           40      100.0%     0.0%   40.0%    62.5%   0.0%
+gramatica_reservada   54      100.0%    57.4%   64.8%    75.9%  100.0%
+gramatica_ejemplo    55      100.0%    85.5%   89.1%    89.1%  100.0%
+gramatica           113      100.0%   100.0%   92.0%    92.0%  100.0%
+cola_inexistente     14      100.0%    21.4%  100.0%   100.0%  100.0%
+cola_abst            30      100.0%     3.3%  100.0%   100.0%  100.0%
+PUNTAJE (promedio de la métrica principal por tipo): 56.2%
+
+[redaccion_e6] regresión general (Etapa 1, ddgs real)
+  buscar_ok    buscó=99.5%  respuesta_exacta=70.3%
+  irrelevante  buscó=100.0%  se_abstuvo=100.0%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+  con el adaptador DORMIDO: {'buscar_ok': {'buscó': 1.0, 'respuesta_exacta': 0.716}, 'irrelevante': {'buscó': 0.981, 'se_abstuvo': 0.981}, 'vacio': {'buscó': 1.0, 'se_abstuvo': 1.0}}
+
+[redaccion_e6] terminado en 8.3 min

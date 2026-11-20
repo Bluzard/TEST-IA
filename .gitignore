@@ -1,0 +1,30 @@
+# entorno y caché
+.venv/
+__pycache__/
+*.pyc
+*.tmp
+
+# binarios de compilación (se regeneran con compilar_motor.bat)
+*.dll
+*.obj
+*.lib
+*.exp
+
+# datos personales de la memoria externa
+datos/memoria.json
+datos/memoria_prueba.json
+
+# pesos pesados y variantes (ver modelos/README.md): solo producción liviana va al repositorio
+modelos/*.pt
+modelos/archivo/
+modelos/experimentos/
+
+# datos pesados (> 20 MB): se regeneran con corpus.py / sft_datos.py
+datos/corpus_es.txt
+datos/corpus_es.bin
+datos/corpus_es_val.bin
+datos/sft_train.jsonl
+datos/sft_pool.jsonl
+
+# documentos de terceros / sin revisar
+*.pdf

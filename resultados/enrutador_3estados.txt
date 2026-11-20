@@ -1,0 +1,15 @@
+=== Enrutador de tres estados: matriz de confusión (fila = real, columna = decidido) ===
+real               None     codigo  redaccion      n   acierto
+None               3232         18          2   3252   99.4%
+codigo              459       2136          0   2595   82.3%
+redaccion            82          2       2001   2085   96.0%
+falsos positivos de codigo: 20 de 5337 mensajes que no son suyos (0.37%); confusión código<->redacción: 0 + 2
+falsos positivos de redaccion: 2 de 5847 mensajes que no son suyos (0.03%); confusión código<->redacción: 0 + 2
+  codigo -> None: 459 p. ej. ['¿Qué es ordenar_magia en re?', 'Define blockchain.', '¿Cómo se usa basename en os.path?']
+  redaccion -> None: 82 p. ej. ['¿Podrías explicarme el imperativo?', 'Muéstrame las comillas con un ejemplo.', '¿Podrías explicarme las comillas?']
+  None -> codigo: 18 p. ej. ['¿Qué sabes de Número pseudoaleatorio?', '¿Qué es Java Runtime Environment?', '¿Qué sabes de Índice de percepción de corrupción?']
+  None -> redaccion: 2 p. ej. ['¿Cuántas sílabas tiene la palabra murciélago?', '¿Cuál es el plural de la palabra lápiz?']
+  redaccion -> codigo: 2 p. ej. ['Dime cuál es la regla de el condicional en español.', 'Dime cuál es la regla de el condicional en español.']
+
+Guion multi-dominio (mensaje -> experto):
+guion multi-dominio correcto: True

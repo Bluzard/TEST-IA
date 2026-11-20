@@ -1,5 +1,6 @@
 """Capa 1 (sin IA) y caja de herramientas que el núcleo puede consultar."""
 import ast
+import difflib
 import operator
 import re
 import sqlite3
@@ -144,8 +145,58 @@ def buscar_memoria(consulta, memoria):
     return memoria.buscar_memoria(consulta) if memoria is not None else None
 
 
+# Sinónimos habituales de los títulos de las fichas de código (el título exacto es el de la derecha)
+ALIAS_FICHAS = {"recursividad": "recursión", "recursivo": "recursión", "recursiva": "recursión", "funcion recursiva": "recursión",
+                "iteracion": "bucle for", "stack": "pila", "queue": "cola", "hashmap": "tabla hash", "array": "arreglo", "lambda": "función lambda",
+                "string": "cadena de texto", "float": "número decimal", "integer": "entero", "boolean": "booleano", "dictionary": "diccionario"}
+UMBRAL_DIFUSO = 0.75
+_POOL = None
+
+
+def _pool_fichas():
+    """{título normalizado: (dominio, ficha)} de las 107 fichas de código, las 71 gramaticales y los alias."""
+    global _POOL
+    if _POOL is None:
+        from experto_fichas import FICHAS
+        from redaccion_fichas import FICHAS_GRAMATICA
+
+        pool = {}
+        for f in FICHAS:
+            pool.setdefault(_norm_ficha(f[0]), ("codigo", f))
+        for f in FICHAS_GRAMATICA:
+            pool.setdefault(_norm_ficha(f[0]), ("gramatica", f))
+        por_nombre = {f[0]: f for f in FICHAS}
+        for alias, destino in ALIAS_FICHAS.items():
+            pool[_norm_ficha(alias)] = ("codigo", por_nombre[destino])
+        _POOL = pool
+    return _POOL
+
+
+def buscar_ficha_difusa(consulta, umbral=UMBRAL_DIFUSO):
+    """Búsqueda aproximada (difflib.get_close_matches, umbral 0,75) contra los títulos de las fichas locales de código y de gramática.
+
+    Absorbe los errores menores de transcripción del modelo («recursbilidad» -> recursividad -> ficha «recursión», «polimorfimso»,
+    «pilas»…) antes de gastar una consulta en internet. Solo consultas cortas (≤ 4 palabras): una frase larga no es un título.
+    Devuelve «1. nombre - base local: …» o None.
+    """
+    from redaccion_fichas import linea_ficha_gramatica
+
+    q = " ".join(re.sub(r"\bgramatica\b", " ", _norm_ficha(consulta)).split())
+    if len(q) < 4 or len(q.split()) > 4:
+        return None
+    pool = _pool_fichas()
+    from corrector import _distancia
+
+    # además del umbral de similitud, pocas ediciones (1 en títulos cortos, hasta 2 en largos): «Cantante» no es «constante»
+    m = [c for c in difflib.get_close_matches(q, list(pool), n=3, cutoff=umbral) if _distancia(q, c) <= max(1, int(len(c) * 0.15 + 0.5))]
+    if not m:
+        return None
+    dominio, f = pool[m[0]]
+    return "1. " + (linea_ficha(f) if dominio == "codigo" else linea_ficha_gramatica(f))
+
+
 def buscar_web(consulta, modo=None, memoria=None):
-    """Cadena de búsqueda B: memoria del usuario -> base local de conceptos (modo código) -> DuckDuckGo (ddgs, sin clave).
+    """Cadena de búsqueda B: memoria del usuario -> fichas locales (exactas y difusas; código o gramática según el experto) -> DuckDuckGo (ddgs).
 
     Pide 8 resultados, los limpia (preparar_resultados) y entrega los 3 mejores, título + fragmento
     de ~200 caracteres. Ante error de red o resultados vacíos devuelve "Sin resultados.".
@@ -160,13 +211,13 @@ def buscar_web(consulta, modo=None, memoria=None):
     codigo = modo == "codigo"  # experto de código: acepta inglés y recorta más los fragmentos
     redaccion = modo == "redaccion"  # experto de redacción: solo español, fragmentos cortos
     if codigo:
-        local = buscar_ficha(consulta)  # base local primero: instantánea, sin red
+        local = buscar_ficha(consulta) or buscar_ficha_difusa(consulta)  # base local primero (exacta y difusa): instantánea, sin red
         if local:
             return local
     if redaccion:
         from redaccion_fichas import buscar_ficha_gramatica
 
-        local = buscar_ficha_gramatica(consulta)  # base local de gramática y ortografía
+        local = buscar_ficha_gramatica(consulta) or buscar_ficha_difusa(consulta)  # base local de gramática y ortografía (exacta y difusa)
         if local:
             return local
     for intento in range(2):  # un reintento: ddgs da timeouts esporádicos
@@ -209,6 +260,29 @@ _TAREAS = (
 )
 
 
+_CORRIGE = re.compile(r"^(?:por favor,?\s*)?corr[ií]ge(?:me)?(?P<obj>[^:\n]{0,60}):\s*(?P<texto>.+)$", re.I | re.S)
+_OBJETO_TEXTO = {"la", "el", "mi", "este", "esta", "esto", "texto", "ortografia", "puntuacion", "redaccion", "y", "por", "favor", "lo", "siguiente", "mensaje",
+                 "parrafo", "frase", "oracion", "carta", "correo"}
+_SINTAXIS_CODIGO = re.compile(r"```|\bdef \w+\(|\bclass \w+\s*[:(]|^\s*import \w+|\bprint\(|=>|\bfor \w+ in\b|\bif .*:\s*$|\bSELECT\b|\w+\(\w*\)\s*[;{]|^\s*\w+\s*=\s*[\[\{(\d'\"]", re.M)
+
+
+def _corregir_texto(t):
+    """«Corrige: <texto>» / «Corrige la ortografía: <texto>»: corrección ortográfica y de puntuación DETERMINISTA (corrector.py), sin red
+    neuronal (la ortografía exacta está fuera del alcance de experto_redaccion: 14 %). Si lo que sigue parece código, no se interviene."""
+    m = _CORRIGE.match(t)
+    if not m:
+        return None
+    import unicodedata
+
+    objeto = unicodedata.normalize("NFD", m.group("obj").lower())
+    objeto = "".join(c for c in objeto if unicodedata.category(c) != "Mn")
+    if not set(re.findall(r"[a-z]+", objeto)) <= _OBJETO_TEXTO or _SINTAXIS_CODIGO.search(m.group("texto")):
+        return None
+    from corrector import corregir
+
+    return corregir(m.group("texto"))
+
+
 def capa1(pregunta, memoria=None):
     """Tareas mecánicas exactas (cuentas, mayúsculas, contar, ordenar) y órdenes de guardar en memoria, sin despertar a la red.
 
@@ -221,6 +295,9 @@ def capa1(pregunta, memoria=None):
         m = re.match(patron, t, flags=re.I | re.S)
         if m:
             return f(m)
+    corregido = _corregir_texto(t)
+    if corregido is not None:
+        return corregido
     r = filtro_determinista(t)
     if r is not None:
         return str(r)

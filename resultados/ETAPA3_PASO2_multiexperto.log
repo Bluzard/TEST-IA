@@ -1,16 +1,16 @@
 
 [1] Cambio entre expertos tibios por puntero
-   llamada C directa (ctypes): mediana 0.4 µs | p99 0.5 µs | máx 101.5 µs
-   envoltorio Python seleccionar(nombre): mediana 0.5 µs | p99 0.6 µs | máx 86.5 µs
-  [OK ] cambio tibio<->activo < 0,1 ms (mediana y p99, llamada C)  -> mediana 0.4 µs, p99 0.5 µs
-  [OK ] cambio < 0,1 ms también con el envoltorio Python (p99)  -> p99 0.6 µs
+   llamada C directa (ctypes): mediana 0.4 µs | p99 0.7 µs | máx 5.4 µs
+   envoltorio Python seleccionar(nombre): mediana 0.5 µs | p99 0.8 µs | máx 16.5 µs
+  [OK ] cambio tibio<->activo < 0,1 ms (mediana y p99, llamada C)  -> mediana 0.4 µs, p99 0.7 µs
+  [OK ] cambio < 0,1 ms también con el envoltorio Python (p99)  -> p99 0.8 µs
 
 [Caché] Activo -> Tibio -> Frío
   [OK ] ambos cargan tibios
   [OK ] seleccionar deja 1 activo y el otro tibio
   [OK ] el activo no decae; el tibio pierde 1 de vida por turno  -> vida 1
   [OK ] al llegar a 0 el tibio se descarga (frío) y libera su memoria  -> 5.24 -> 2.62 MB
-  [OK ] un experto frío se recarga solo al pedirlo  -> recarga 1.0 ms
+  [OK ] un experto frío se recarga solo al pedirlo  -> recarga 1.5 ms
   [OK ] seleccionar(None) deja a todos tibios (núcleo base)
 
 [3-4] Logits idénticos bit a bit (motor nuevo vs motor de la Etapa 2)
@@ -21,10 +21,10 @@
   [OK ] los dos adaptadores son realmente distintos (la prueba discrimina)  -> diferencia código vs redacción 11.084
 
 [2] RAM pico del proceso (un proceso por configuración, 40 prompts generando)
-   0 experto(s) cargado(s): pico 110.5 MB (adaptadores 0.00 MB)
-   1 experto(s) cargado(s): pico 113.5 MB (adaptadores 2.62 MB)
-   2 experto(s) cargado(s): pico 116.0 MB (adaptadores 5.24 MB)
-  [OK ] RAM pico con ambos expertos <= 118 MB  -> 116.0 MB
+   0 experto(s) cargado(s): pico 110.8 MB (adaptadores 0.00 MB)
+   1 experto(s) cargado(s): pico 113.3 MB (adaptadores 2.62 MB)
+   2 experto(s) cargado(s): pico 115.9 MB (adaptadores 5.24 MB)
+  [OK ] RAM pico con ambos expertos <= 118 MB  -> 115.9 MB
 
 [5] Conversación multi-dominio de 30 turnos (motor C++, búsqueda web simulada)
    [None     ] hola, ¿cómo estás?                                           -> '¡Hola! Estoy bien, gracias. ¿En qué te puedo ayuda'
@@ -46,7 +46,7 @@
    [None     ] ok                                                           -> '¡Hasta luego!'
    [None     ] cuéntame más                                                 -> '¡Hasta luego! ¿En qué te puedo ayudar?'
    [codigo   ] ¿Qué es un decorador?                                        -> 'Un decorador es una función que recibe otra funció'
-   [redaccion] Corrige: el ni;o juga en la plasa                            -> 'Ocho juga en la plasa.'
+   [redaccion] Corrige: el ni;o juga en la plasa                            -> 'El niño juga en la plaza.'
    [redaccion] ¿Qué es un hiato?                                            -> 'Un hiato es la separación de dos vocales en sílaba'
    [codigo   ] Ejecuta: print(len('hola'))                                  -> 'Imprime 4.'
    [redaccion] Reescribe en tono formal: Dame el archivo ya.                -> 'Le solicito que me entregue el archivo a la breved'

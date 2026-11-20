@@ -3,12 +3,35 @@
 Cierra la arquitectura de TEST-IA: un **núcleo congelado de 48 M parámetros** que sabe cuándo buscar, dos **expertos LoRA de 2,62 MB** que se conmutan por puntero y una **capa de Python** (capa 1, memoria, herramientas, enrutador) que concentra todo lo que no debe vivir en los pesos.
 Detalle por paso: [ETAPA3_PASO1_memoria_externa.md](ETAPA3_PASO1_memoria_externa.md) · [ETAPA3_PASO2_multi_experto.md](ETAPA3_PASO2_multi_experto.md).
 
-## 1. Ajustes finales de esta ronda
-- **Memoria de trabajo** (`memoria.py`, usada desde `inferir.py`): un seguimiento corto que ya nombra por sí solo un término de las fichas locales (código o gramática: «tilde», «hiato», «pila»…)
-  **no** arrastra el turno anterior, aunque empiece por «¿y…?». «¿y la tilde de compré?» y «¿y el hiato?» llegan limpios al núcleo; «¿y cuándo nació?» sigue recibiendo su referente.
-  Verificado en el escenario 4 de `probar_memoria.py` (motor C++ y PyTorch).
-- **Orden del repositorio:** `motor_etapa2_ref.dll` (motor de la Etapa 2, usado como referencia de bit-exactitud y ya documentado en el Paso 2) pasó a `modelos/archivo/`; `verificar_multiexperto.py` apunta ahí.
-- Tras los cambios se re-ejecutaron `verificar_multiexperto.py` (26 chequeos), `probar_memoria.py` en ambos motores, `sandbox.py` (28/28) y `memoria.py`: todo correcto, con los SHA-256 de los pesos congelados idénticos.
+## 1. Pulido final de la capa determinista (sin tocar pesos)
+Batería en vivo: `python probar_pulido.py` (motor C++ + núcleo + los dos expertos, web bloqueada; `resultados/ETAPA3_pulido.log`; todos los chequeos OK y SHA-256 de los 4 pesos congelados idénticos).
+
+**1) Memoria de trabajo sin contaminación** (`MemoriaTrabajo` en `memoria.py`, usada desde `inferir.py`). Un turno solo arrastra el anterior ante una referencia anafórica real:
+arranque elíptico («¿y…?»), pronombres (eso, esto, él, ella, su…), «cuándo nació / murió / ocurrió», «dónde queda», «dame un ejemplo / otro ejemplo». Si la pregunta ya nombra un término de las fichas locales
+(código o gramática: tilde, hiato, pila, pandas…) es autocontenida y no arrastra nada, aunque empiece por «¿y…?». Ya no cuentan «el», «este» ni «esta».
+Verificado: «¿y la tilde de compré?», «¿y el hiato?», «¿y la pila en Python?» y «¿Cuál es la capital de Chile?» llegan limpias; «¿y cuándo nació?», «¿y eso?», «Dame un ejemplo» y «¿Qué hizo él?» reciben su referente.
+
+**2) Búsqueda difusa contra las fichas locales** (`herramientas.buscar_ficha_difusa`). `difflib.get_close_matches` con umbral 0,75 sobre los títulos de las 107 fichas de código, las 71 gramaticales y 15 alias
+(recursividad → recursión, stack → pila…), antes de ir a ddgs y solo en los modos con experto (el núcleo base no fue entrenado con el formato «base local»). Además del umbral se exige un máximo de ediciones
+(1 en títulos cortos, hasta 2 en largos), porque con el umbral solo «Cantante» caía en «constante» y «Melanismo» en «laísmo».
+Resultados: «recursbilidad» → recursión, «polimorfimso» → polimorfismo, «hiatto» → hiato, «pilas» → pila, «dequeismo» → dequeísmo (0,2–0,5 ms, sin red); «capital de Chile», «Teide» y «Plutón» no caen en ninguna ficha.
+En vivo, «¿Qué es la recursividad?» despierta el experto de código, el modelo escribe `B: recursbilidad programación`, la ficha local responde y **no se toca internet**.
+Falsos positivos medidos sobre 2.455 consultas generales: 7 (0,29 %); los de ediciones arbitrarias (p. ej. «Pilar» → pila) solo ocurren con un experto activo, y varios son coincidencias exactas legítimas («Árbol», «Librería»).
+
+**3) Corrector ortográfico determinista** (`corrector.py`, invocado desde `capa1()`). «Corrige: <texto>» y «Corrige la ortografía: <texto>» (y variantes con «este texto», «mi mensaje»…) se resuelven en ~2 ms, sin red neuronal;
+si lo que sigue parece código no se interviene y el turno sigue su camino. Ya no depende de `experto_redaccion` (14 % exacta).
+- **Léxico propio** `datos/lexico_es.tsv` (`construir_lexico.py`): 193.000 formas con frecuencias, contadas sobre 400 MB del corpus del proyecto. Se probó antes `pyspellchecker` (diccionario de 86 k palabras): no traía conjugaciones
+  y «corregía» fui → fu y quiero → quieto, así que se descartó. Con el léxico propio no hay dependencias nuevas.
+- **Reglas:** «;» tecleado por «ñ» (ni;o → niño); espacios, mayúsculas, punto final, ¿ ? ¡ ! (abre en la palabra interrogativa: «hola , que tal ?» → «Hola, ¿qué tal?»); palabras fuera del léxico → la candidata a una edición de mayor
+  log-frecuencia menos el costo del error (tilde perdida 0,2; s/z/c, b/v, g/j, h omitida o sobrante 0,3; letra doble 0,5; transposición 0,7; otras 1, solo en palabras de 6+ letras): así «plasa» → plaza y no «pasa». Una palabra sin
+  tilde con su par acentuado ≥ 8 veces más frecuente es un error (tambien → también). Se respetan siglas, URL, correos, números y nombres propios en mitad de oración.
+- **Medición** (mismas 124 preguntas de ortografía de `redaccion_eval.jsonl` que se le hicieron al modelo): **76,6 % exactas** (`experto_redaccion`: 14 %; ortografía 74 %, signos 75 %, «ya está bien» 100 %). Un solo error por oración:
+  mayúscula 91 %, punto final 89 %, coma 88 %, b/v 78 %, tilde 68 %, h 45 %; en oraciones correctas del corpus deja intacto el 91 % (el resto son nombres raros, abreviaturas y URLs).
+- **Límites:** sin contexto no arregla errores que producen otra palabra válida (vaca/baca, compre/compré, esta/está) ni elige entre candidatos igual de plausibles («juga» → deja «juga»); los nombres propios fuera del léxico en mitad de
+  oración se respetan, incluso mal escritos.
+
+**Orden del repositorio:** `motor_etapa2_ref.dll` (referencia de bit-exactitud de la Etapa 2, ya documentada) vive en `modelos/archivo/`; `verificar_multiexperto.py` apunta ahí.
+**Regresión tras los cambios:** `verificar_multiexperto.py` (26 chequeos), `probar_memoria.py` en motor C++ y PyTorch, `sandbox.py` 28/28, `memoria.py` y `enrutador.py` (sin cambios: código 82,3 %, redacción 96,0 %, falsos positivos 0,37 % / 0,03 %): todo correcto.
 
 ## 2. Resultados consolidados
 
@@ -35,7 +58,7 @@ Límite: con el experto activo el rendimiento general cambia (hechos 73,9 %); `x
 | Pieza | Resultado |
 |---|---|
 | Memoria externa con enfriamiento (`datos/memoria.json`) | guardado en capa 1 sin IA; −1 por turno, +3 al usarse (tope 15); archivado a 0; «Recuerda siempre que…» (permanente) y «Olvida/Borra…» (inmediato); recuperación por `B:`; 10 turnos sin mención → abstención honesta |
-| Experto de redacción (`experto_redaccion.lora`, 6 épocas) | gramática 92 %, abstención 100 %, tono formal 85 %, **puntaje 56,2 %**; ortografía exacta 14 % (límite conocido) |
+| Experto de redacción (`experto_redaccion.lora`, 6 épocas) | gramática 92 %, abstención 100 %, tono formal 85 %, **puntaje 56,2 %**; ortografía exacta 14 % → delegada a `corrector.py` (determinista, **76,6 %**) |
 | Enrutador de 3 estados | redacción 96,0 %, código 82,3 %, falsos positivos 0,37 % / 0,03 %, 0 + 2 confusiones entre dominios |
 | Caché de 2 ranuras (Activo → Tibio → Frío) | cambio por puntero **0,4 µs** (meta < 100 µs) · RAM pico **116,0 MB** (meta ≤ 118) · núcleo base 71,6 / 98,1 / 100 % y logits idénticos bit a bit · `experto_codigo` 82,3 % · **0 colisiones** en 30 turnos |
 
@@ -49,7 +72,7 @@ Límite: con el experto activo el rendimiento general cambia (hechos 73,9 %); `x
 6. **Presupuesto.** 116 MB de RAM con núcleo + 2 expertos + herramientas; contexto de 512 tokens administrado (memoria de trabajo ≤ 80 tokens, resultados con tope dinámico).
 
 ## 4. Límites conocidos (abiertos)
-- Ortografía exacta 14 % y tono cercano 33 %: corregir tildes/`h`/`b-v` debe delegarse a una herramienta léxica determinista en Python.
+- Tono cercano 33 %. La ortografía ya no depende del modelo (corrector léxico 76,6 % exacta), pero sigue sin contexto: no distingue homógrafos válidos (esta/está, compre/compré).
 - La búsqueda en memoria es léxica («mi mascota» no encuentra «mi gato»); el núcleo congelado se abstiene con ciertas palabras («ciudad») aunque el dato llegue bien.
 - `cola_ok` de redacción: solo 6 ejemplos de entrenamiento y 0 de evaluación con resultado real útil (ddgs devolvió casi todo vacío o en otro idioma).
 - La cobertura del enrutador sin contexto es de ~82 % (código) y las reglas de redacción se afinaron con los mismos conjuntos que las evalúan (96 % es optimista).
@@ -61,6 +84,8 @@ Límite: con el experto activo el rendimiento general cambia (hechos 73,9 %); `x
 python inferir.py --motor --experto modelos/experto_codigo.lora --redaccion modelos/experto_redaccion.lora   # chat multi-experto con memoria
 python verificar_multiexperto.py          # 6 métricas de la Etapa 3
 python probar_memoria.py --motor          # memoria (también sin --motor, con PyTorch)
+python probar_pulido.py                   # memoria limpia, búsqueda difusa y corrector ortográfico (en vivo)
+python corrector.py                       # evalúa el corrector contra las preguntas de ortografía
 python enrutador.py                       # enrutador de 3 estados: matriz de confusión
 python sandbox.py                         # pruebas de seguridad del sandbox
 ```

@@ -15,7 +15,7 @@ Sobre ese núcleo congelado se montan dos expertos LoRA de 2,62 MB que se conmut
 |---|---|---|
 | 1 | Núcleo base: preentrenamiento + ajuste fino para buscar/leer/abstenerse + motor C++ | hechos 71,6 % · abstención 98,1 % · conversación 100 % (ddgs real) |
 | 2 | Experto de código (LoRA, base local de 107 fichas, sandbox) | 82,2 % · +2,6 MB de RAM · dormido = núcleo idéntico |
-| 3 | Memoria con enfriamiento, experto de redacción, enrutador de 3 estados, caché de 2 ranuras | cambio de experto 0,4 µs · 116,0 MB de RAM · 0 colisiones |
+| 3 | Memoria con enfriamiento, experto de redacción, enrutador de 3 estados, caché de 2 ranuras, capa determinista (corrector ortográfico, búsqueda difusa de fichas) | cambio de experto 0,4 µs · 116,0 MB de RAM · 0 colisiones · ortografía 76,6 % (el modelo: 14 %) |
 
 Informes: [estudios/ETAPA3_CIERRE.md](estudios/ETAPA3_CIERRE.md) (consolidado y conclusiones) · [RESUMEN_ETAPA1](estudios/RESUMEN_ETAPA1.md) · [ETAPA2_PASO3](estudios/ETAPA2_PASO3_experto_final.md) ·
 [ETAPA3_PASO1](estudios/ETAPA3_PASO1_memoria_externa.md) · [ETAPA3_PASO2](estudios/ETAPA3_PASO2_multi_experto.md).
@@ -26,8 +26,8 @@ Chat multi-experto con memoria (motor C++, sin preguntas por argumento abre un c
 python inferir.py --motor --experto modelos/experto_codigo.lora --redaccion modelos/experto_redaccion.lora
 ```
 Una sola pregunta, o con PyTorch (un solo experto): `python inferir.py "¿Qué es el Teide?"` · `python inferir.py --experto modelos/experto_codigo.lora.pt ...`
-Dentro del chat: «Recuerda que mi proyecto se llama X», «Recuerda siempre que…» (permanente), «Olvida que…», «¿Cómo se llama mi proyecto?», «Ejecuta: sum(range(5))», «Corrige: …», «Hazlo más formal: …», «¿Qué es un hiato?».
-Verificaciones: `python verificar_multiexperto.py` (6 métricas de la Etapa 3) · `python probar_memoria.py [--motor]` · `python enrutador.py` · `python sandbox.py`.
+Dentro del chat: «Corrige: tambien quiero un cafe» (corrector determinista, sin red neuronal), «Recuerda que mi proyecto se llama X», «Recuerda siempre que…» (permanente), «Olvida que…», «¿Cómo se llama mi proyecto?», «Ejecuta: sum(range(5))», «Corrige: …», «Hazlo más formal: …», «¿Qué es un hiato?».
+Verificaciones: `python verificar_multiexperto.py` (6 métricas de la Etapa 3) · `python probar_memoria.py [--motor]` · `python probar_pulido.py` (memoria limpia, búsqueda difusa y corrector, en vivo) · `python enrutador.py` · `python sandbox.py` · `python corrector.py`.
 Recompilar el motor: `compilar_motor.bat` (MSVC, AVX2 + OpenMP).
 
 ## Pesos y datos
@@ -41,6 +41,7 @@ se regeneran con los scripts de `estudios/` o se piden aparte.
 | Núcleo y motor | `modelo.py`, `preentrenar.py`, `ajustar.py`, `exportar_cpp.py`, `motor.cpp`, `motor_cpp.py`, `compilar_motor.bat` |
 | Inferencia | `inferir.py` (bucle, `Sesion`), `protocolo.py`, `herramientas.py` (capa 1, búsqueda), `enrutador.py` |
 | Memoria | `memoria.py`, `probar_memoria.py` |
+| Capa determinista | `corrector.py` + `construir_lexico.py` (ortografía determinista, 76,6 % exacta), `probar_pulido.py` |
 | Experto de código | `experto_fichas.py`, `experto_datos.py`, `sandbox.py`, `lora.py`, `entrenar_lora.py`, `exportar_lora_cpp.py`, `evaluar_experto.py` |
 | Experto de redacción | `redaccion_fichas.py`, `redaccion_datos.py`, `recolectar_redaccion.py`, `evaluar_redaccion.py` |
 | Verificación | `verificar_multiexperto.py`, `verificar_lora_motor.py`, `benchmark_motor.py` |

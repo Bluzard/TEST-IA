@@ -236,7 +236,9 @@ class Memoria:
 class MemoriaTrabajo:
     """Últimos 2 turnos, comprimidos a ~80 tokens, para resolver referencias de seguimiento («¿y cuándo nació?»)."""
 
-    SEGUIMIENTO = re.compile(r"^\s*¿?\s*(y\b|entonces\b|pero\b)|\b(eso|esto|él|ella|ello|lo mismo|su|sus|all[ií]|aqu[ií])\b",
+    # referencias anafóricas reales: arranque elíptico («¿y…?», «entonces…»), pronombres (eso, él, su…), «cuándo nació», «dame un ejemplo»
+    SEGUIMIENTO = re.compile(r"^\s*¿?\s*(y\b|entonces\b|pero\b)|\b(eso|esto|él|ella|ello|lo mismo|su|sus|all[ií]|aqu[ií]|otro ejemplo|"
+                             r"dame (un|otro) ejemplo|cu[aá]ndo (naci[oó]|muri[oó]|ocurri[oó]|pas[oó]|fue)|d[oó]nde (naci[oó]|muri[oó]|queda|est[aá]))\b",
                              re.I)
 
     def __init__(self, tokenizador=None, tope=TOKENS_MEMORIA_TRABAJO):

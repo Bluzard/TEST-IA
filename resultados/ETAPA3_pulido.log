@@ -1,0 +1,82 @@
+
+[1] Memoria de trabajo sin contaminación
+   P: Corrige: ayer fui al mercado y compre berduras   [experto: redaccion]
+       [capa 1, sin IA]
+   R: Ayer fui al mercado y compre verduras.
+  [OK ] '¿y la tilde de compré?' NO recibe el turno anterior
+  [OK ] '¿y el hiato?' NO recibe el turno anterior
+  [OK ] '¿y la pila en Python?' NO recibe el turno anterior
+  [OK ] '¿y cuándo nació?' recibe el turno anterior
+  [OK ] '¿y eso?' recibe el turno anterior
+  [OK ] 'Dame un ejemplo' recibe el turno anterior
+  [OK ] '¿Qué hizo él?' recibe el turno anterior
+  [OK ] '¿Cuál es la capital de Chile?' NO recibe el turno anterior
+   P: ¿y la tilde de compré?   [experto: redaccion]
+       B: tilde de compré
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+  [OK ] la consulta B: no está contaminada con el turno anterior  -> B: tilde de compré
+   P: ¿Quién fue Gabriela Mistral?   [experto: dormido]
+       B: Gabriela Mistral
+       [herramienta] Sin resultados.
+       R: No tengo información suficiente para responder eso.
+   R: No tengo información suficiente para responder eso.
+  [OK ] «¿y cuándo nació?» sí recibe «Gabriela Mistral»  -> ¿Quién fue Gabriela Mistral? ¿y cuándo nació?
+
+[2] Búsqueda difusa contra las fichas locales (difflib, umbral 0,75)
+  [OK ] 'recursbilidad programación' -> ficha «recursión» (0.45 ms, sin red)  -> 1. recursión - base local: La recursión es una técnica en la
+  [OK ] 'polimorfimso' -> ficha «polimorfismo» (0.37 ms, sin red)  -> 1. polimorfismo - base local: El polimorfismo permite que ob
+  [OK ] 'hiatto' -> ficha «hiato» (0.20 ms, sin red)  -> 1. hiato - base local: Un hiato es la separación de dos voca
+  [OK ] 'pilas' -> ficha «pila» (0.16 ms, sin red)  -> 1. pila - base local: Una pila es una estructura donde el úl
+  [OK ] 'dequeismo' -> ficha «dequeísmo» (0.32 ms, sin red)  -> 1. dequeísmo - base local: El dequeísmo es el uso incorrecto
+  [OK ] 'recursividad' -> ficha «recursión» (0.40 ms, sin red)  -> 1. recursión - base local: La recursión es una técnica en la
+  [OK ] 'capital de Chile' no cae en ninguna ficha
+  [OK ] 'Teide' no cae en ninguna ficha
+  [OK ] 'Gabriela Mistral' no cae en ninguna ficha
+  [OK ] 'Plutón' no cae en ninguna ficha
+   P: ¿Qué es la recursividad?   [experto: codigo]
+       B: recursbilidad programación
+       [herramienta] 1. recursión - base local: La recursión es una técnica en la que una función se llama a sí misma para resolver una versión más
+       R: La recursión es una técnica en la que una función se llama a sí misma para resolver una versión más pequeña del mismo problema.
+   R: La recursión es una técnica en la que una función se llama a sí misma para resolver una versión más pequeña del mismo problema.
+  [OK ] el enrutador despierta el experto de código
+  [OK ] la respuesta sale de la ficha local «recursión» (el modelo escribió su B: con o sin error)  -> La recursión es una técnica en la que una función se llama a sí misma para resol
+  [OK ] no se consultó internet  -> []
+
+[3] Corrección ortográfica determinista (capa 1)
+   P: Corrige: ayer fui al mercado y compre berduras
+   R: Ayer fui al mercado y compre verduras.   [2.2 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige: ayer fui al mercado y compre berduras…» -> resuelto en capa 1 y correcto  -> 'Ayer fui al mercado y compre verduras.'
+   P: Corrige la ortografía: el ni;o juega en la plasa
+   R: El niño juega en la plaza.   [1.8 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige la ortografía: el ni;o juega en la pla…» -> resuelto en capa 1 y correcto  -> 'El niño juega en la plaza.'
+   P: Corrige: tambien quiero un cafe
+   R: También quiero un café.   [1.2 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige: tambien quiero un cafe…» -> resuelto en capa 1 y correcto  -> 'También quiero un café.'
+   P: Corrige la ortografía: hola , que tal ?
+   R: Hola, ¿qué tal?   [1.3 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige la ortografía: hola , que tal ?…» -> resuelto en capa 1 y correcto  -> 'Hola, ¿qué tal?'
+   P: Corrige: ablamos mañana sobre el informe
+   R: Hablamos mañana sobre el informe.   [1.8 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige: ablamos mañana sobre el informe…» -> resuelto en capa 1 y correcto  -> 'Hablamos mañana sobre el informe.'
+   P: Corrige: Hola, ¿cómo estás?
+   R: El texto ya está bien escrito.   [1.2 ms, ['[capa 1, sin IA]']]
+  [OK ] «Corrige: Hola, ¿cómo estás?…» -> resuelto en capa 1 y correcto  -> 'El texto ya está bien escrito.'
+   P: Corrige este código: print('hola'   [experto: codigo]
+       E: print('hola'
+       [herramienta] SyntaxError: '(' was never closed
+       R: Falla con SyntaxError: '(' was never closed. El código está mal escrito: falta o sobra algún símbolo.
+   R: Falla con SyntaxError: '(' was never closed. El código está mal escrito: falta o sobra algún símbolo.
+  [OK ] «Corrige este código: …» NO lo toma el corrector de texto
+  [OK ] capa1() sin sesión también lo resuelve
+  [OK ] la web nunca se tocó en toda la batería  -> []
+  [OK ] 0 colisiones entre expertos  -> 0
+
+[SHA-256 de los pesos congelados]
+  [OK ] modelos/nucleo_sft_v3.pt intacto  -> a867d741e0e65aa7…
+  [OK ] modelos/nucleo_sft_v3.bin intacto  -> 17ecdbdaafba9c61…
+  [OK ] modelos/experto_codigo.lora intacto  -> b57032631efdcdb6…
+  [OK ] modelos/experto_redaccion.lora intacto  -> 3ec614b0ba4ecd55…
+
+TODO CORRECTO

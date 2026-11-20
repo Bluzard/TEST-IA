@@ -1,0 +1,9 @@
+{"paso": 1, "tokens_M": 0.0, "loss": 10.2395, "gnorm": 22.496, "lr": 5.999999999999999e-06, "tok_s": 0, "vram_pico_GB": 6.13, "min": 0.8}
+{"paso": 2, "tokens_M": 0.1, "loss": 9.8555, "gnorm": 17.442, "lr": 1.1999999999999999e-05, "tok_s": 0, "vram_pico_GB": 7.35, "min": 0.8}
+{"paso": 3, "tokens_M": 0.1, "loss": 9.5334, "gnorm": 10.842, "lr": 1.7999999999999997e-05, "tok_s": 0, "vram_pico_GB": 7.36, "min": 0.9}
+{"paso": 4, "tokens_M": 0.1, "loss": 9.2116, "gnorm": 7.279, "lr": 2.3999999999999997e-05, "tok_s": 0, "vram_pico_GB": 7.36, "min": 0.9}
+{"paso": 5, "tokens_M": 0.2, "loss": 9.097, "gnorm": 4.926, "lr": 2.9999999999999997e-05, "tok_s": 0, "vram_pico_GB": 7.36, "min": 0.9}
+{"paso": 25, "tokens_M": 0.8, "loss": 7.9869, "gnorm": 1.342, "lr": 0.00015, "tok_s": 0, "vram_pico_GB": 7.36, "min": 1.4}
+{"paso": 50, "tokens_M": 1.6, "loss": 7.1817, "gnorm": 1.027, "lr": 0.0003, "tok_s": 20024, "vram_pico_GB": 7.36, "min": 2.1}
+{"paso": 75, "tokens_M": 2.5, "loss": 6.8847, "gnorm": 0.576, "lr": 0.00016876310446665256, "tok_s": 20048, "vram_pico_GB": 7.36, "min": 2.8}
+{"paso": 100, "tokens_M": 3.3, "loss": 6.6421, "gnorm": 0.554, "lr": 9.381396717637045e-05, "tok_s": 20104, "vram_pico_GB": 7.36, "min": 3.5}

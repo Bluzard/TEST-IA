@@ -1,0 +1,48 @@
+parámetros: 157.7 M | NVIDIA GeForce RTX 5060 Ti
+corpus de entrenamiento: 4.000 B tokens | 32768 tokens/paso
+W1120 16:24:37.538000 30416 .venv\Lib\site-packages\torch\_inductor\utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode
+{'paso': 1, 'tokens_M': 0.0, 'loss': 10.2395, 'gnorm': 22.496, 'lr': 5.999999999999999e-06, 'tok_s': 0, 'vram_pico_GB': 6.13, 'min': 0.8}
+{'paso': 2, 'tokens_M': 0.1, 'loss': 9.8555, 'gnorm': 17.442, 'lr': 1.1999999999999999e-05, 'tok_s': 0, 'vram_pico_GB': 7.35, 'min': 0.8}
+{'paso': 3, 'tokens_M': 0.1, 'loss': 9.5334, 'gnorm': 10.842, 'lr': 1.7999999999999997e-05, 'tok_s': 0, 'vram_pico_GB': 7.36, 'min': 0.9}
+{'paso': 4, 'tokens_M': 0.1, 'loss': 9.2116, 'gnorm': 7.279, 'lr': 2.3999999999999997e-05, 'tok_s': 0, 'vram_pico_GB': 7.36, 'min': 0.9}
+{'paso': 5, 'tokens_M': 0.2, 'loss': 9.097, 'gnorm': 4.926, 'lr': 2.9999999999999997e-05, 'tok_s': 0, 'vram_pico_GB': 7.36, 'min': 0.9}
+{'paso': 25, 'tokens_M': 0.8, 'loss': 7.9869, 'gnorm': 1.342, 'lr': 0.00015, 'tok_s': 0, 'vram_pico_GB': 7.36, 'min': 1.4}
+{'paso': 50, 'tokens_M': 1.6, 'loss': 7.1817, 'gnorm': 1.027, 'lr': 0.0003, 'tok_s': 20024, 'vram_pico_GB': 7.36, 'min': 2.1}
+rendimiento estable: 20,053 tok/s (1.634 s/paso) -> 118 pasos planificados (4 M tokens)
+{'paso': 75, 'tokens_M': 2.5, 'loss': 6.8847, 'gnorm': 0.576, 'lr': 0.00016876310446665256, 'tok_s': 20048, 'vram_pico_GB': 7.36, 'min': 2.8}
+{'paso': 100, 'tokens_M': 3.3, 'loss': 6.6421, 'gnorm': 0.554, 'lr': 9.381396717637045e-05, 'tok_s': 20104, 'vram_pico_GB': 7.36, 'min': 3.5}
+val 8.2 M tokens | embedding fp32 (master) : nll 6.6193 ppl 749.419
+val 8.2 M tokens | embedding fp16          : nll 6.6193 ppl 749.416
+val 8.2 M tokens | embedding int8 por fila : nll 6.6193 ppl 749.443
+{
+ "pasos": 118,
+ "tokens_entrenados": 3866624,
+ "tokens_por_paso": 32768,
+ "segundos": 238,
+ "tok_s_estable": 20105,
+ "vram_pico_GB": 9.36,
+ "horas_para_4000M": 55.3,
+ "loss_inicial": 10.239484667778015,
+ "loss_final_media50": 6.728836389780045,
+ "loss_min": 6.484041154384613,
+ "gnorm_max": 22.496118545532227,
+ "gnorm_media": 1.5774171165490554,
+ "gnorm_ultimos50": 0.5886341011524201,
+ "picos_de_loss(>+0.5 sobre media m\u00f3vil)": 0,
+ "validacion": {
+  "fp32 (master)": {
+   "ppl": 749.41858687195,
+   "nll": 6.619297688389818
+  },
+  "fp16": {
+   "ppl": 749.4156001114917,
+   "nll": 6.619293702945018
+  },
+  "int8 por fila": {
+   "ppl": 749.4425870733099,
+   "nll": 6.619329712971919
+  }
+ },
+ "parametros_M": 157.702656,
+ "compile": true
+}

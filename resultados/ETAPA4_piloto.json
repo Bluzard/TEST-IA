@@ -1,0 +1,32 @@
+{
+ "pasos": 925,
+ "tokens_entrenados": 30310400,
+ "tokens_por_paso": 32768,
+ "segundos": 1440,
+ "tok_s_estable": 21774,
+ "vram_pico_GB": 11.92,
+ "horas_para_4000M": 51.0,
+ "loss_inicial": 10.233544826507568,
+ "loss_final_media50": 5.117142927646637,
+ "loss_min": 5.017214417457581,
+ "gnorm_max": 22.35822868347168,
+ "gnorm_media": 0.7035384564786344,
+ "gnorm_ultimos50": 0.5506144315004349,
+ "picos_de_loss(>+0.5 sobre media m\u00f3vil)": 0,
+ "validacion": {
+  "fp32 (master)": {
+   "ppl": 166.70904199628322,
+   "nll": 5.116250029415225
+  },
+  "fp16": {
+   "ppl": 166.70795713332708,
+   "nll": 5.116243521870865
+  },
+  "int8 por fila": {
+   "ppl": 166.71459000268592,
+   "nll": 5.11628330843849
+  }
+ },
+ "parametros_M": 157.702656,
+ "compile": true
+}

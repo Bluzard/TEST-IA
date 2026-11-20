@@ -1,0 +1,462 @@
+{
+ "comparacion": {
+  "wikipedia": {
+   "docs": 300,
+   "palabras": 164315,
+   "caracteres": 1020387,
+   "v1_tokens": 262767,
+   "v2_tokens": 258068,
+   "v1_tok_por_palabra": 1.5991662355840914,
+   "v2_tok_por_palabra": 1.570568724705596
+  },
+  "web": {
+   "docs": 300,
+   "palabras": 110220,
+   "caracteres": 666934,
+   "v1_tokens": 166630,
+   "v2_tokens": 156763,
+   "v1_tok_por_palabra": 1.511794592632916,
+   "v2_tok_por_palabra": 1.4222736345490836
+  },
+  "codigo_python": {
+   "docs": 22,
+   "palabras": 8726,
+   "caracteres": 93701,
+   "v1_tokens": 52457,
+   "v2_tokens": 28581,
+   "v1_tok_por_palabra": 6.011574604629842,
+   "v2_tok_por_palabra": 3.2753839101535642
+  },
+  "codigo_js_sql_sh": {
+   "docs": 63,
+   "palabras": 18751,
+   "caracteres": 189402,
+   "v1_tokens": 106877,
+   "v2_tokens": 56498,
+   "v1_tok_por_palabra": 5.69980267719055,
+   "v2_tok_por_palabra": 3.013065969814943
+  },
+  "markdown": {
+   "docs": 28,
+   "palabras": 7034,
+   "caracteres": 51082,
+   "v1_tokens": 27767,
+   "v2_tokens": 19275,
+   "v1_tok_por_palabra": 3.947540517486494,
+   "v2_tok_por_palabra": 2.740261586579471
+  },
+  "conversacion_proyecto": {
+   "docs": 400,
+   "palabras": 6117,
+   "caracteres": 38215,
+   "v1_tokens": 10770,
+   "v2_tokens": 9422,
+   "v1_tok_por_palabra": 1.7606669936243255,
+   "v2_tok_por_palabra": 1.5402975314696747
+  }
+ },
+ "casos": [
+  {
+   "texto": "x**2",
+   "v1": 4,
+   "v2": 3,
+   "ok": true,
+   "tokens_v2": [
+    "x",
+    "**",
+    "2"
+   ]
+  },
+  {
+   "texto": "y = x**2 + 3*x - 1",
+   "v1": 12,
+   "v2": 11,
+   "ok": true,
+   "tokens_v2": [
+    "y",
+    "Ġ=",
+    "Ġx",
+    "**",
+    "2",
+    "Ġ+",
+    "Ġ3",
+    "*",
+    "x",
+    "Ġ-",
+    "Ġ1"
+   ]
+  },
+  {
+   "texto": "{'a': 1, 'b': [1, 2, 3]}",
+   "v1": 19,
+   "v2": 16,
+   "ok": true,
+   "tokens_v2": [
+    "{",
+    "'",
+    "a",
+    "':",
+    "Ġ1",
+    ",",
+    "Ġ'",
+    "b",
+    "':",
+    "Ġ[",
+    "1",
+    ",",
+    "Ġ2",
+    ",",
+    "Ġ3",
+    "]}"
+   ]
+  },
+  {
+   "texto": "def f(n):\n    return n * 2\n",
+   "v1": 16,
+   "v2": 11,
+   "ok": true,
+   "tokens_v2": [
+    "def",
+    "Ġf",
+    "(",
+    "n",
+    "):",
+    "ĊĠĠĠ",
+    "Ġreturn",
+    "Ġn",
+    "Ġ*",
+    "Ġ2",
+    "Ċ"
+   ]
+  },
+  {
+   "texto": "if x == 0:\n\tprint('cero')",
+   "v1": 15,
+   "v2": 11,
+   "ok": true,
+   "tokens_v2": [
+    "if",
+    "Ġx",
+    "Ġ==",
+    "Ġ0",
+    ":",
+    "Ċ",
+    "ĉ",
+    "print",
+    "('",
+    "cero",
+    "')"
+   ]
+  },
+  {
+   "texto": "for i in range(10):\n    for j in range(i):\n        pass",
+   "v1": 28,
+   "v2": 17,
+   "ok": true,
+   "tokens_v2": [
+    "for",
+    "Ġi",
+    "Ġin",
+    "Ġrange",
+    "(",
+    "10",
+    "):",
+    "ĊĠĠĠ",
+    "Ġfor",
+    "Ġj",
+    "Ġin",
+    "Ġrange",
+    "(",
+    "i",
+    "):",
+    "ĊĠĠĠĠĠĠĠ",
+    "Ġpass"
+   ]
+  },
+  {
+   "texto": "[x**2 for x in range(1, 6)]",
+   "v1": 16,
+   "v2": 13,
+   "ok": true,
+   "tokens_v2": [
+    "[",
+    "x",
+    "**",
+    "2",
+    "Ġfor",
+    "Ġx",
+    "Ġin",
+    "Ġrange",
+    "(",
+    "1",
+    ",",
+    "Ġ6",
+    ")]"
+   ]
+  },
+  {
+   "texto": "a != b and c >= d or e <= f",
+   "v1": 15,
+   "v2": 11,
+   "ok": true,
+   "tokens_v2": [
+    "a",
+    "Ġ!=",
+    "Ġb",
+    "Ġand",
+    "Ġc",
+    "Ġ>=",
+    "Ġd",
+    "Ġor",
+    "Ġe",
+    "Ġ<=",
+    "Ġf"
+   ]
+  },
+  {
+   "texto": "SELECT nombre FROM clientes WHERE edad > 18;",
+   "v1": 17,
+   "v2": 9,
+   "ok": true,
+   "tokens_v2": [
+    "SELECT",
+    "Ġnombre",
+    "ĠFROM",
+    "Ġclientes",
+    "ĠWHERE",
+    "Ġedad",
+    "Ġ>",
+    "Ġ18",
+    ";"
+   ]
+  },
+  {
+   "texto": "console.log(`Hola ${nombre}`);",
+   "v1": 15,
+   "v2": 9,
+   "ok": true,
+   "tokens_v2": [
+    "console",
+    ".",
+    "log",
+    "(`",
+    "Hola",
+    "Ġ${",
+    "nombre",
+    "}",
+    "`);"
+   ]
+  },
+  {
+   "texto": "<div class=\"caja\">¡Hola!</div>",
+   "v1": 17,
+   "v2": 13,
+   "ok": true,
+   "tokens_v2": [
+    "<",
+    "div",
+    "Ġclass",
+    "=\"",
+    "ca",
+    "ja",
+    "\">",
+    "Â¡",
+    "Hola",
+    "!",
+    "</",
+    "div",
+    ">"
+   ]
+  },
+  {
+   "texto": "función, canción, ñandú, güiro, ¿Qué tal? ¡Genial! —dijo Ana—.",
+   "v1": 28,
+   "v2": 27,
+   "ok": true,
+   "tokens_v2": [
+    "fun",
+    "ciÃ³n",
+    ",",
+    "ĠcanciÃ³n",
+    ",",
+    "Ġ",
+    "Ã±",
+    "and",
+    "Ãº",
+    ",",
+    "Ġg",
+    "Ã¼",
+    "iro",
+    ",",
+    "ĠÂ¿",
+    "QuÃ©",
+    "Ġtal",
+    "?",
+    "ĠÂ¡",
+    "Gen",
+    "ial",
+    "!",
+    "ĠâĢĶ",
+    "di",
+    "jo",
+    "ĠAna",
+    "âĢĶ."
+   ]
+  },
+  {
+   "texto": "Él compró más café; tú también.",
+   "v1": 10,
+   "v2": 9,
+   "ok": true,
+   "tokens_v2": [
+    "Ãī",
+    "l",
+    "ĠcomprÃ³",
+    "ĠmÃ¡s",
+    "ĠcafÃ©",
+    ";",
+    "ĠtÃº",
+    "ĠtambiÃ©n",
+    "."
+   ]
+  },
+  {
+   "texto": "https://es.wikipedia.org/wiki/Chile#Historia",
+   "v1": 18,
+   "v2": 15,
+   "ok": true,
+   "tokens_v2": [
+    "https",
+    "://",
+    "es",
+    ".",
+    "wik",
+    "ipedia",
+    ".",
+    "org",
+    "/",
+    "wiki",
+    "/",
+    "Ch",
+    "ile",
+    "#",
+    "Historia"
+   ]
+  },
+  {
+   "texto": "pandas.DataFrame().groupby('a').sum()",
+   "v1": 22,
+   "v2": 12,
+   "ok": true,
+   "tokens_v2": [
+    "p",
+    "andas",
+    ".",
+    "DataFrame",
+    "().",
+    "group",
+    "by",
+    "('",
+    "a",
+    "').",
+    "sum",
+    "()"
+   ]
+  },
+  {
+   "texto": "np.array([[1, 2], [3, 4]]) @ np.eye(2)",
+   "v1": 29,
+   "v2": 23,
+   "ok": true,
+   "tokens_v2": [
+    "np",
+    ".",
+    "array",
+    "([",
+    "[",
+    "1",
+    ",",
+    "Ġ2",
+    "],",
+    "Ġ[",
+    "3",
+    ",",
+    "Ġ4",
+    "]",
+    "])",
+    "Ġ@",
+    "Ġnp",
+    ".",
+    "ey",
+    "e",
+    "(",
+    "2",
+    ")"
+   ]
+  },
+  {
+   "texto": "A -> B => C == D",
+   "v1": 10,
+   "v2": 7,
+   "ok": true,
+   "tokens_v2": [
+    "A",
+    "Ġ->",
+    "ĠB",
+    "Ġ=>",
+    "ĠC",
+    "Ġ==",
+    "ĠD"
+   ]
+  },
+  {
+   "texto": "    return x  # comentario",
+   "v1": 11,
+   "v2": 6,
+   "ok": true,
+   "tokens_v2": [
+    "ĠĠĠ",
+    "Ġreturn",
+    "Ġx",
+    "Ġ",
+    "Ġ#",
+    "Ġcomentario"
+   ]
+  },
+  {
+   "texto": "TEST-IA",
+   "v1": 5,
+   "v2": 3,
+   "ok": true,
+   "tokens_v2": [
+    "TEST",
+    "-",
+    "IA"
+   ]
+  },
+  {
+   "texto": "Corrige: ayer fui al mercado",
+   "v1": 10,
+   "v2": 6,
+   "ok": true,
+   "tokens_v2": [
+    "Corrige",
+    ":",
+    "Ġayer",
+    "Ġfui",
+    "Ġal",
+    "Ġmercado"
+   ]
+  }
+ ],
+ "chequeos": {
+  "«**» es un solo token (con o sin espacio delante)": true,
+  "«==» es un solo token (con o sin espacio delante)": true,
+  "«!=» es un solo token (con o sin espacio delante)": true,
+  "«->» es un solo token (con o sin espacio delante)": true,
+  "indentación de 4 espacios cabe en 1-2 tokens": true,
+  "«ñ», «á», «¿» existen como tokens": true,
+  "x**2 en ≤ 3 tokens": true
+ },
+ "ok": true
+}

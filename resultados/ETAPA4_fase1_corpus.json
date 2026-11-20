@@ -1,0 +1,285 @@
+{
+ "evaluaciones": {
+  "ddgs_raw_eval.jsonl": 1080,
+  "evaluacion.jsonl": 2140,
+  "evaluacion_ampliada.jsonl": 6790,
+  "experto_eval.jsonl": 3156,
+  "experto_eval_B.jsonl": 4604,
+  "experto_eval_B2.jsonl": 4604,
+  "redaccion_eval.jsonl": 2588,
+  "sft_eval.jsonl": 12542,
+  "sft_eval_real.jsonl": 1534,
+  "etapa1/sft_eval_real.jsonl": 1534
+ },
+ "ngramas_unicos": 231422,
+ "titulos_reservados": 2798,
+ "fuentes": {
+  "wiki": {
+   "tokens": 600001614,
+   "shards": [
+    {
+     "archivo": "wiki_000.bin",
+     "tokens": 100000213
+    },
+    {
+     "archivo": "wiki_001.bin",
+     "tokens": 100007944
+    },
+    {
+     "archivo": "wiki_002.bin",
+     "tokens": 100001003
+    },
+    {
+     "archivo": "wiki_003.bin",
+     "tokens": 100000218
+    },
+    {
+     "archivo": "wiki_004.bin",
+     "tokens": 100004707
+    },
+    {
+     "archivo": "wiki_005.bin",
+     "tokens": 99987529
+    }
+   ],
+   "docs_leidos": 741259,
+   "descartes": {
+    "corto": 135243,
+    "TITULO_RESERVADO": 813,
+    "CONTAMINADO (n-grama de evaluación)": 12888,
+    "duplicado_exacto": 19,
+    "presupuesto_lleno": 198
+   },
+   "segundos": 268
+  },
+  "web_latam": {
+   "tokens": 1350000350,
+   "shards": [
+    {
+     "archivo": "web_latam_000.bin",
+     "tokens": 100000154
+    },
+    {
+     "archivo": "web_latam_001.bin",
+     "tokens": 100000458
+    },
+    {
+     "archivo": "web_latam_002.bin",
+     "tokens": 100001072
+    },
+    {
+     "archivo": "web_latam_003.bin",
+     "tokens": 100000113
+    },
+    {
+     "archivo": "web_latam_004.bin",
+     "tokens": 100000316
+    },
+    {
+     "archivo": "web_latam_005.bin",
+     "tokens": 100000992
+    },
+    {
+     "archivo": "web_latam_006.bin",
+     "tokens": 100001014
+    },
+    {
+     "archivo": "web_latam_007.bin",
+     "tokens": 100000175
+    },
+    {
+     "archivo": "web_latam_008.bin",
+     "tokens": 100000088
+    },
+    {
+     "archivo": "web_latam_009.bin",
+     "tokens": 100014336
+    },
+    {
+     "archivo": "web_latam_010.bin",
+     "tokens": 100000726
+    },
+    {
+     "archivo": "web_latam_011.bin",
+     "tokens": 100000000
+    },
+    {
+     "archivo": "web_latam_012.bin",
+     "tokens": 100000171
+    },
+    {
+     "archivo": "web_latam_013.bin",
+     "tokens": 49980735
+    }
+   ],
+   "docs_leidos": 11519500,
+   "descartes": {
+    "corto": 81879,
+    "listas": 12113,
+    "relleno": 472,
+    "idioma": 4380,
+    "pocas_letras": 69,
+    "CONTAMINADO (n-grama de evaluación)": 708,
+    "simbolos": 42,
+    "no_espanol": 342,
+    "longitud_de_palabra": 61,
+    "duplicado_exacto": 1006,
+    "lineas_repetidas": 10,
+    "presupuesto_lleno": 656
+   },
+   "segundos": 3397
+  },
+  "web_otros": {
+   "tokens": 1650001767,
+   "shards": [
+    {
+     "archivo": "web_otros_000.bin",
+     "tokens": 100000116
+    },
+    {
+     "archivo": "web_otros_001.bin",
+     "tokens": 100002083
+    },
+    {
+     "archivo": "web_otros_002.bin",
+     "tokens": 100000335
+    },
+    {
+     "archivo": "web_otros_003.bin",
+     "tokens": 100002076
+    },
+    {
+     "archivo": "web_otros_004.bin",
+     "tokens": 100011039
+    },
+    {
+     "archivo": "web_otros_005.bin",
+     "tokens": 100001083
+    },
+    {
+     "archivo": "web_otros_006.bin",
+     "tokens": 100000412
+    },
+    {
+     "archivo": "web_otros_007.bin",
+     "tokens": 100001905
+    },
+    {
+     "archivo": "web_otros_008.bin",
+     "tokens": 100001291
+    },
+    {
+     "archivo": "web_otros_009.bin",
+     "tokens": 100000835
+    },
+    {
+     "archivo": "web_otros_010.bin",
+     "tokens": 100000167
+    },
+    {
+     "archivo": "web_otros_011.bin",
+     "tokens": 100000278
+    },
+    {
+     "archivo": "web_otros_012.bin",
+     "tokens": 100000322
+    },
+    {
+     "archivo": "web_otros_013.bin",
+     "tokens": 100001577
+    },
+    {
+     "archivo": "web_otros_014.bin",
+     "tokens": 100000233
+    },
+    {
+     "archivo": "web_otros_015.bin",
+     "tokens": 100000867
+    },
+    {
+     "archivo": "web_otros_016.bin",
+     "tokens": 49977148
+    }
+   ],
+   "docs_leidos": 11519500,
+   "descartes": {
+    "corto": 85908,
+    "listas": 21354,
+    "idioma": 10961,
+    "simbolos": 87,
+    "relleno": 551,
+    "CONTAMINADO (n-grama de evaluación)": 1005,
+    "duplicado_exacto": 396,
+    "no_espanol": 649,
+    "longitud_de_palabra": 72,
+    "pocas_letras": 141,
+    "lineas_repetidas": 7,
+    "sin_puntuacion": 24,
+    "presupuesto_lleno": 677
+   },
+   "segundos": 3397
+  },
+  "codigo": {
+   "tokens": 400001189,
+   "shards": [
+    {
+     "archivo": "codigo_000.bin",
+     "tokens": 100006494
+    },
+    {
+     "archivo": "codigo_001.bin",
+     "tokens": 100000743
+    },
+    {
+     "archivo": "codigo_002.bin",
+     "tokens": 100000331
+    },
+    {
+     "archivo": "codigo_003.bin",
+     "tokens": 99993621
+    }
+   ],
+   "docs_leidos": 1143936,
+   "descartes": {
+    "licencia": 402893,
+    "autogenerado": 35537,
+    "tamano": 67075,
+    "secretos": 414,
+    "CONTAMINADO (n-grama de evaluación)": 27,
+    "duplicado_exacto": 247,
+    "pocos_alfanumericos": 56,
+    "lineas_largas": 100,
+    "cuota_de_lenguaje": 375470,
+    "presupuesto_lleno": 392
+   },
+   "segundos": 336,
+   "caracteres_por_lenguaje": {
+    "HTML": 100805931,
+    "C++": 50409576,
+    "Java": 100800852,
+    "C#": 67200146,
+    "Python": 282089522,
+    "TypeScript": 57233853,
+    "C": 50412438,
+    "JavaScript": 201615434,
+    "PHP": 33602656,
+    "Markdown": 166967243,
+    "CSS": 50400250,
+    "SQL": 11799639,
+    "GO": 50400280,
+    "Shell": 16682517
+   }
+  }
+ },
+ "validacion": {
+  "tokens": 8164645,
+  "shards": [
+   {
+    "archivo": "val_000.bin",
+    "tokens": 8164645
+   }
+  ]
+ },
+ "total_tokens_entrenamiento": 4000004920,
+ "segundos_totales": 4006
+}

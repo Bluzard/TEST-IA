@@ -1,0 +1,40 @@
+
+Tokens por palabra y por 100 caracteres, v1 (16 k) vs v2 (24 k), sobre texto RESERVADO (no vio la muestra de entrenamiento):
+dominio                   docs   palabras   v1 tok/pal v2 tok/pal   cambio   v1 tok/100c v2 tok/100c
+wikipedia                  300     164315        1.599      1.571    -1.8%         25.75       25.29
+web                        300     110220        1.512      1.422    -5.9%         24.98       23.51
+codigo_python               22       8726        6.012      3.275   -45.5%         55.98       30.50
+codigo_js_sql_sh            63      18751        5.700      3.013   -47.1%         56.43       29.83
+markdown                    28       7034        3.948      2.740   -30.6%         54.36       37.73
+conversacion_proyecto      400       6117        1.761      1.540   -12.5%         28.18       24.66
+
+Símbolos, sintaxis de código y tildes (todos deben recuperarse EXACTAMENTE al decodificar):
+  OK  v1   4 -> v2   3 tokens  'x**2'                                             ['x', '**', '2']
+  OK  v1  12 -> v2  11 tokens  'y = x**2 + 3*x - 1'                               ['y', 'Ġ=', 'Ġx', '**', '2', 'Ġ+', 'Ġ3', '*', 'x', 'Ġ-', 'Ġ1']
+  OK  v1  19 -> v2  16 tokens  "{'a': 1, 'b': [1, 2, 3]}"                         
+  OK  v1  16 -> v2  11 tokens  'def f(n):\n    return n * 2\n'                    ['def', 'Ġf', '(', 'n', '):', 'ĊĠĠĠ', 'Ġreturn', 'Ġn', 'Ġ*', 'Ġ2', 'Ċ']
+  OK  v1  15 -> v2  11 tokens  "if x == 0:\n\tprint('cero')"                      ['if', 'Ġx', 'Ġ==', 'Ġ0', ':', 'Ċ', 'ĉ', 'print', "('", 'cero', "')"]
+  OK  v1  28 -> v2  17 tokens  'for i in range(10):\n    for j in range(i):\n   ' 
+  OK  v1  16 -> v2  13 tokens  '[x**2 for x in range(1, 6)]'                      
+  OK  v1  15 -> v2  11 tokens  'a != b and c >= d or e <= f'                      ['a', 'Ġ!=', 'Ġb', 'Ġand', 'Ġc', 'Ġ>=', 'Ġd', 'Ġor', 'Ġe', 'Ġ<=', 'Ġf']
+  OK  v1  17 -> v2   9 tokens  'SELECT nombre FROM clientes WHERE edad > 18;'     ['SELECT', 'Ġnombre', 'ĠFROM', 'Ġclientes', 'ĠWHERE', 'Ġedad', 'Ġ>', 'Ġ18', ';']
+  OK  v1  15 -> v2   9 tokens  'console.log(`Hola ${nombre}`);'                   ['console', '.', 'log', '(`', 'Hola', 'Ġ${', 'nombre', '}', '`);']
+  OK  v1  17 -> v2  13 tokens  '<div class="caja">¡Hola!</div>'                   
+  OK  v1  28 -> v2  27 tokens  'función, canción, ñandú, güiro, ¿Qué tal? ¡Gen'   
+  OK  v1  10 -> v2   9 tokens  'Él compró más café; tú también.'                  ['Ãī', 'l', 'ĠcomprÃ³', 'ĠmÃ¡s', 'ĠcafÃ©', ';', 'ĠtÃº', 'ĠtambiÃ©n', '.']
+  OK  v1  18 -> v2  15 tokens  'https://es.wikipedia.org/wiki/Chile#Historia'     
+  OK  v1  22 -> v2  12 tokens  "pandas.DataFrame().groupby('a').sum()"            ['p', 'andas', '.', 'DataFrame', '().', 'group', 'by', "('", 'a', "').", 'sum', '()']
+  OK  v1  29 -> v2  23 tokens  'np.array([[1, 2], [3, 4]]) @ np.eye(2)'           
+  OK  v1  10 -> v2   7 tokens  'A -> B => C == D'                                 ['A', 'Ġ->', 'ĠB', 'Ġ=>', 'ĠC', 'Ġ==', 'ĠD']
+  OK  v1  11 -> v2   6 tokens  '    return x  # comentario'                       ['ĠĠĠ', 'Ġreturn', 'Ġx', 'Ġ', 'Ġ#', 'Ġcomentario']
+  OK  v1   5 -> v2   3 tokens  'TEST-IA'                                          ['TEST', '-', 'IA']
+  OK  v1  10 -> v2   6 tokens  'Corrige: ayer fui al mercado'                     ['Corrige', ':', 'Ġayer', 'Ġfui', 'Ġal', 'Ġmercado']
+  OK  «**» es un solo token (con o sin espacio delante)
+  OK  «==» es un solo token (con o sin espacio delante)
+  OK  «!=» es un solo token (con o sin espacio delante)
+  OK  «->» es un solo token (con o sin espacio delante)
+  OK  indentación de 4 espacios cabe en 1-2 tokens
+  OK  «ñ», «á», «¿» existen como tokens
+  OK  x**2 en ≤ 3 tokens
+
+tokenizador verificado: SÍ

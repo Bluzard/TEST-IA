@@ -1,0 +1,3 @@
+shards elegidos: ['data/spa_Latn/train/001_00007.parquet', 'data/spa_Latn/train/003_00001.parquet']
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [02:24<02:24, 144.54s/it]Fetching 2 files: 100%|██████████| 2/2 [02:28<00:00, 61.92s/it] Fetching 2 files: 100%|██████████| 2/2 [02:28<00:00, 74.31s/it]
+fineweb-2 listo 149 s

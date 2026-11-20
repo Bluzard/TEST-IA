@@ -1,0 +1,4 @@
+  wiki 100 MB | 4s
+  web 140 MB | 79s
+  código 88 MB {'HTML': 5, 'C#': 4, 'Java': 5, 'TypeScript': 5, 'C': 3, 'JavaScript': 11, 'Python': 26, 'Markdown': 11, 'GO': 3, 'C++': 3, 'PHP': 2, 'CSS': 3, 'Shell': 4, 'SQL': 3} | 106s
+muestra: {'wiki': '100.0 MB', 'web': '140.0 MB', 'codigo': '88.0 MB', 'protocolo': '40.0 MB', 'gramatica_tecnica': '0.5 MB'} -> d:\Documentos\GitHub\TEST-IA\datos\v2\tok_muestra.txt (374 MB)

@@ -28,3 +28,8 @@ datos/sft_pool.jsonl
 
 # documentos de terceros / sin revisar
 *.pdf
+
+# Etapa 4, Fase 1: corpus y shards (decenas de GB; se regeneran con fase1_datos.py)
+datos/v2/*
+!datos/v2/tokenizador_v2.json
+!datos/v2/tokenizador_v2_sft.json

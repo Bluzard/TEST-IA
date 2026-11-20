@@ -1,0 +1,259 @@
+{
+ "evaluaciones": {
+  "ddgs_raw_eval.jsonl": 1080,
+  "evaluacion.jsonl": 2140,
+  "evaluacion_ampliada.jsonl": 6790,
+  "experto_eval.jsonl": 3156,
+  "experto_eval_B.jsonl": 4604,
+  "experto_eval_B2.jsonl": 4604,
+  "redaccion_eval.jsonl": 2588,
+  "sft_eval.jsonl": 12542,
+  "sft_eval_real.jsonl": 1534,
+  "etapa1/sft_eval_real.jsonl": 1534
+ },
+ "ngramas_unicos": 231422,
+ "titulos_reservados": 2798,
+ "fuentes": {
+  "wiki": {
+   "tokens": 600001614,
+   "shards": [
+    {
+     "archivo": "wiki_000.bin",
+     "tokens": 100000213
+    },
+    {
+     "archivo": "wiki_001.bin",
+     "tokens": 100007944
+    },
+    {
+     "archivo": "wiki_002.bin",
+     "tokens": 100001003
+    },
+    {
+     "archivo": "wiki_003.bin",
+     "tokens": 100000218
+    },
+    {
+     "archivo": "wiki_004.bin",
+     "tokens": 100004707
+    },
+    {
+     "archivo": "wiki_005.bin",
+     "tokens": 99987529
+    }
+   ],
+   "docs_leidos": 741259,
+   "descartes": {
+    "corto": 135243,
+    "TITULO_RESERVADO": 813,
+    "CONTAMINADO (n-grama de evaluación)": 12888,
+    "duplicado_exacto": 19,
+    "presupuesto_lleno": 198
+   },
+   "segundos": 271
+  },
+  "web_latam": {
+   "tokens": 779698452,
+   "shards": [
+    {
+     "archivo": "web_latam_000.bin",
+     "tokens": 100000324
+    },
+    {
+     "archivo": "web_latam_001.bin",
+     "tokens": 100000362
+    },
+    {
+     "archivo": "web_latam_002.bin",
+     "tokens": 100000070
+    },
+    {
+     "archivo": "web_latam_003.bin",
+     "tokens": 100000406
+    },
+    {
+     "archivo": "web_latam_004.bin",
+     "tokens": 100011592
+    },
+    {
+     "archivo": "web_latam_005.bin",
+     "tokens": 100000737
+    },
+    {
+     "archivo": "web_latam_006.bin",
+     "tokens": 100000434
+    },
+    {
+     "archivo": "web_latam_007.bin",
+     "tokens": 79684527
+    }
+   ],
+   "docs_leidos": 6720000,
+   "descartes": {
+    "corto": 46966,
+    "relleno": 273,
+    "listas": 7041,
+    "idioma": 2415,
+    "CONTAMINADO (n-grama de evaluación)": 417,
+    "pocas_letras": 30,
+    "no_espanol": 189,
+    "duplicado_exacto": 307,
+    "longitud_de_palabra": 35,
+    "simbolos": 31,
+    "lineas_repetidas": 6
+   },
+   "segundos": 2216
+  },
+  "web_otros": {
+   "tokens": 1650001805,
+   "shards": [
+    {
+     "archivo": "web_otros_000.bin",
+     "tokens": 100001844
+    },
+    {
+     "archivo": "web_otros_001.bin",
+     "tokens": 100001380
+    },
+    {
+     "archivo": "web_otros_002.bin",
+     "tokens": 100000117
+    },
+    {
+     "archivo": "web_otros_003.bin",
+     "tokens": 100000029
+    },
+    {
+     "archivo": "web_otros_004.bin",
+     "tokens": 100000817
+    },
+    {
+     "archivo": "web_otros_005.bin",
+     "tokens": 100001505
+    },
+    {
+     "archivo": "web_otros_006.bin",
+     "tokens": 100000079
+    },
+    {
+     "archivo": "web_otros_007.bin",
+     "tokens": 100000659
+    },
+    {
+     "archivo": "web_otros_008.bin",
+     "tokens": 100000021
+    },
+    {
+     "archivo": "web_otros_009.bin",
+     "tokens": 100000248
+    },
+    {
+     "archivo": "web_otros_010.bin",
+     "tokens": 100002547
+    },
+    {
+     "archivo": "web_otros_011.bin",
+     "tokens": 100000163
+    },
+    {
+     "archivo": "web_otros_012.bin",
+     "tokens": 100002889
+    },
+    {
+     "archivo": "web_otros_013.bin",
+     "tokens": 100000378
+    },
+    {
+     "archivo": "web_otros_014.bin",
+     "tokens": 100007442
+    },
+    {
+     "archivo": "web_otros_015.bin",
+     "tokens": 100002827
+    },
+    {
+     "archivo": "web_otros_016.bin",
+     "tokens": 49978860
+    }
+   ],
+   "docs_leidos": 6720000,
+   "descartes": {
+    "corto": 87187,
+    "listas": 20676,
+    "idioma": 10278,
+    "relleno": 537,
+    "CONTAMINADO (n-grama de evaluación)": 971,
+    "duplicado_exacto": 384,
+    "no_espanol": 616,
+    "pocas_letras": 141,
+    "simbolos": 102,
+    "longitud_de_palabra": 65,
+    "lineas_repetidas": 9,
+    "sin_puntuacion": 14,
+    "presupuesto_lleno": 635
+   },
+   "segundos": 2217
+  },
+  "codigo": {
+   "tokens": 326831174,
+   "shards": [
+    {
+     "archivo": "codigo_000.bin",
+     "tokens": 100004073
+    },
+    {
+     "archivo": "codigo_001.bin",
+     "tokens": 100010229
+    },
+    {
+     "archivo": "codigo_002.bin",
+     "tokens": 100000007
+    },
+    {
+     "archivo": "codigo_003.bin",
+     "tokens": 26816865
+    }
+   ],
+   "docs_leidos": 700258,
+   "descartes": {
+    "autogenerado": 21839,
+    "tamano": 41034,
+    "licencia": 246214,
+    "secretos": 258,
+    "CONTAMINADO (n-grama de evaluación)": 22,
+    "duplicado_exacto": 141,
+    "lineas_largas": 58,
+    "pocos_alfanumericos": 31,
+    "cuota_de_lenguaje": 178517
+   },
+   "segundos": 216,
+   "caracteres_por_lenguaje": {
+    "HTML": 100800536,
+    "C#": 67217406,
+    "Java": 100808975,
+    "TypeScript": 35052388,
+    "C": 50411291,
+    "JavaScript": 201601704,
+    "Python": 173424830,
+    "Markdown": 100730658,
+    "GO": 50408401,
+    "C++": 50400131,
+    "PHP": 33600876,
+    "CSS": 34898751,
+    "Shell": 10519058,
+    "SQL": 7424724
+   }
+  }
+ },
+ "validacion": {
+  "tokens": 6832788,
+  "shards": [
+   {
+    "archivo": "val_000.bin",
+    "tokens": 6832788
+   }
+  ]
+ },
+ "total_tokens_entrenamiento": 3356533045,
+ "segundos_totales": 2705
+}

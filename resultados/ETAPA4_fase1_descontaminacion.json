@@ -1,0 +1,26 @@
+{
+ "n=13": {
+  "ngramas_de_evaluacion": 231422,
+  "tokens_revisados": 4008169565,
+  "coincidencias": 0,
+  "por_fuente": {
+   "codigo": 0,
+   "val": 0,
+   "web_latam": 0,
+   "web_otros": 0,
+   "wiki": 0
+  }
+ },
+ "n=8": {
+  "ngramas_de_evaluacion": 242814,
+  "tokens_revisados": 4008169565,
+  "coincidencias": 327848,
+  "por_fuente": {
+   "codigo": 2780,
+   "val": 580,
+   "web_latam": 49621,
+   "web_otros": 44318,
+   "wiki": 230549
+  }
+ }
+}

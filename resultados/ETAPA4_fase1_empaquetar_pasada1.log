@@ -1,0 +1,222 @@
+descontaminación: 40,572 textos de evaluación en 10 archivos -> 231,422 n-gramas de 13 tokens y 2,798 títulos reservados (0s)
+  wiki 56/600 M | 20,952 docs | 22s
+  wiki 91/600 M | 40,960 docs | 38s
+  wiki 121/600 M | 62,059 docs | 51s
+  wiki 172/600 M | 102,988 docs | 73s
+  wiki 248/600 M | 185,057 docs | 106s
+  wiki 297/600 M | 246,583 docs | 126s
+  wiki 326/600 M | 287,079 docs | 141s
+  wiki 339/600 M | 307,821 docs | 147s
+  wiki 351/600 M | 328,341 docs | 153s
+  wiki 373/600 M | 369,450 docs | 163s
+  wiki 381/600 M | 389,702 docs | 166s
+  wiki 391/600 M | 409,866 docs | 170s
+  wiki 399/600 M | 430,186 docs | 174s
+  wiki 412/600 M | 451,327 docs | 182s
+  wiki 426/600 M | 471,738 docs | 190s
+  wiki 440/600 M | 491,563 docs | 197s
+  wiki 451/600 M | 512,258 docs | 202s
+  wiki 463/600 M | 532,693 docs | 207s
+  wiki 477/600 M | 553,215 docs | 213s
+  wiki 491/600 M | 574,293 docs | 218s
+  wiki 505/600 M | 594,618 docs | 225s
+  wiki 534/600 M | 635,787 docs | 242s
+  wiki 548/600 M | 656,239 docs | 248s
+  wiki 560/600 M | 676,855 docs | 255s
+  wiki 585/600 M | 717,716 docs | 265s
+  wiki 598/600 M | 737,737 docs | 270s
+wiki: 600 M tokens (6 shards) | descartes {'corto': 135243, 'TITULO_RESERVADO': 813, 'CONTAMINADO (n-grama de evaluación)': 12888, 'duplicado_exacto': 19, 'presupuesto_lleno': 198}
+  web_latam 2/1350 M | web_otros 12/1650 M | 20,617 docs | 11s
+  web_latam 5/1350 M | web_otros 23/1650 M | 41,161 docs | 22s
+  web_latam 7/1350 M | web_otros 36/1650 M | 61,855 docs | 32s
+  web_latam 10/1350 M | web_otros 48/1650 M | 82,597 docs | 41s
+  web_latam 12/1350 M | web_otros 63/1650 M | 103,334 docs | 50s
+  web_latam 16/1350 M | web_otros 84/1650 M | 143,428 docs | 66s
+  web_latam 18/1350 M | web_otros 95/1650 M | 164,013 docs | 74s
+  web_latam 20/1350 M | web_otros 107/1650 M | 184,556 docs | 84s
+  web_latam 22/1350 M | web_otros 119/1650 M | 205,079 docs | 94s
+  web_latam 24/1350 M | web_otros 132/1650 M | 225,634 docs | 104s
+  web_latam 26/1350 M | web_otros 145/1650 M | 246,201 docs | 113s
+  web_latam 28/1350 M | web_otros 157/1650 M | 266,815 docs | 122s
+  web_latam 30/1350 M | web_otros 169/1650 M | 287,458 docs | 131s
+  web_latam 32/1350 M | web_otros 181/1650 M | 308,047 docs | 140s
+  web_latam 34/1350 M | web_otros 192/1650 M | 328,631 docs | 149s
+  web_latam 38/1350 M | web_otros 216/1650 M | 368,783 docs | 170s
+  web_latam 41/1350 M | web_otros 228/1650 M | 389,362 docs | 180s
+  web_latam 43/1350 M | web_otros 240/1650 M | 409,790 docs | 190s
+  web_latam 45/1350 M | web_otros 252/1650 M | 430,371 docs | 200s
+  web_latam 47/1350 M | web_otros 264/1650 M | 450,882 docs | 209s
+  web_latam 49/1350 M | web_otros 277/1650 M | 471,362 docs | 218s
+  web_latam 51/1350 M | web_otros 290/1650 M | 491,877 docs | 228s
+  web_latam 53/1350 M | web_otros 303/1650 M | 512,342 docs | 238s
+  web_latam 55/1350 M | web_otros 315/1650 M | 532,818 docs | 249s
+  web_latam 58/1350 M | web_otros 327/1650 M | 553,278 docs | 260s
+  web_latam 60/1350 M | web_otros 340/1650 M | 573,700 docs | 271s
+  web_latam 62/1350 M | web_otros 352/1650 M | 594,118 docs | 281s
+  web_latam 65/1350 M | web_otros 364/1650 M | 614,570 docs | 291s
+  web_latam 67/1350 M | web_otros 375/1650 M | 634,908 docs | 300s
+  web_latam 69/1350 M | web_otros 388/1650 M | 655,588 docs | 310s
+  web_latam 71/1350 M | web_otros 399/1650 M | 676,204 docs | 319s
+  web_latam 73/1350 M | web_otros 411/1650 M | 696,876 docs | 331s
+  web_latam 75/1350 M | web_otros 421/1650 M | 717,626 docs | 341s
+  web_latam 78/1350 M | web_otros 432/1650 M | 738,220 docs | 351s
+  web_latam 83/1350 M | web_otros 454/1650 M | 778,269 docs | 369s
+  web_latam 85/1350 M | web_otros 465/1650 M | 798,837 docs | 378s
+  web_latam 88/1350 M | web_otros 475/1650 M | 819,295 docs | 387s
+  web_latam 90/1350 M | web_otros 486/1650 M | 839,786 docs | 396s
+  web_latam 92/1350 M | web_otros 498/1650 M | 860,276 docs | 405s
+  web_latam 95/1350 M | web_otros 509/1650 M | 880,744 docs | 416s
+  web_latam 97/1350 M | web_otros 520/1650 M | 901,218 docs | 426s
+  web_latam 100/1350 M | web_otros 532/1650 M | 921,742 docs | 437s
+  web_latam 102/1350 M | web_otros 543/1650 M | 942,256 docs | 453s
+  web_latam 105/1350 M | web_otros 555/1650 M | 962,670 docs | 469s
+  web_latam 107/1350 M | web_otros 566/1650 M | 983,200 docs | 485s
+  web_latam 109/1350 M | web_otros 578/1650 M | 1,003,676 docs | 500s
+  web_latam 112/1350 M | web_otros 589/1650 M | 1,024,123 docs | 515s
+  web_latam 114/1350 M | web_otros 601/1650 M | 1,044,597 docs | 531s
+  web_latam 117/1350 M | web_otros 613/1650 M | 1,065,042 docs | 548s
+  web_latam 119/1350 M | web_otros 625/1650 M | 1,085,474 docs | 565s
+  web_latam 124/1350 M | web_otros 650/1650 M | 1,127,372 docs | 598s
+  web_latam 127/1350 M | web_otros 662/1650 M | 1,147,723 docs | 613s
+  web_latam 129/1350 M | web_otros 675/1650 M | 1,168,065 docs | 628s
+  web_latam 131/1350 M | web_otros 689/1650 M | 1,188,346 docs | 642s
+  web_latam 134/1350 M | web_otros 702/1650 M | 1,208,698 docs | 657s
+  web_latam 136/1350 M | web_otros 714/1650 M | 1,229,099 docs | 675s
+  web_latam 139/1350 M | web_otros 727/1650 M | 1,249,491 docs | 692s
+  web_latam 141/1350 M | web_otros 739/1650 M | 1,269,885 docs | 708s
+  web_latam 148/1350 M | web_otros 776/1650 M | 1,331,405 docs | 752s
+  web_latam 150/1350 M | web_otros 789/1650 M | 1,351,960 docs | 765s
+  web_latam 152/1350 M | web_otros 800/1650 M | 1,372,626 docs | 778s
+  web_latam 154/1350 M | web_otros 812/1650 M | 1,393,317 docs | 795s
+  web_latam 157/1350 M | web_otros 824/1650 M | 1,413,933 docs | 809s
+  web_latam 159/1350 M | web_otros 835/1650 M | 1,434,398 docs | 823s
+  web_latam 162/1350 M | web_otros 846/1650 M | 1,454,864 docs | 836s
+  web_latam 164/1350 M | web_otros 858/1650 M | 1,475,363 docs | 848s
+  web_latam 167/1350 M | web_otros 869/1650 M | 1,495,844 docs | 861s
+  web_latam 169/1350 M | web_otros 881/1650 M | 1,516,361 docs | 874s
+  web_latam 172/1350 M | web_otros 892/1650 M | 1,536,779 docs | 886s
+  web_latam 174/1350 M | web_otros 904/1650 M | 1,557,210 docs | 900s
+  web_latam 177/1350 M | web_otros 916/1650 M | 1,577,662 docs | 914s
+  web_latam 179/1350 M | web_otros 928/1650 M | 1,598,099 docs | 928s
+  web_latam 182/1350 M | web_otros 940/1650 M | 1,618,565 docs | 942s
+  web_latam 184/1350 M | web_otros 952/1650 M | 1,639,067 docs | 955s
+  web_latam 187/1350 M | web_otros 964/1650 M | 1,659,500 docs | 968s
+  web_latam 190/1350 M | web_otros 976/1650 M | 1,679,863 docs | 981s
+  web_latam 192/1350 M | web_otros 988/1650 M | 1,700,349 docs | 993s
+  web_latam 195/1350 M | web_otros 1001/1650 M | 1,720,770 docs | 1006s
+  web_latam 197/1350 M | web_otros 1013/1650 M | 1,741,198 docs | 1021s
+  web_latam 200/1350 M | web_otros 1026/1650 M | 1,761,554 docs | 1035s
+  web_latam 202/1350 M | web_otros 1039/1650 M | 1,781,899 docs | 1054s
+  web_latam 207/1350 M | web_otros 1067/1650 M | 1,823,603 docs | 1089s
+  web_latam 209/1350 M | web_otros 1081/1650 M | 1,843,985 docs | 1105s
+  web_latam 212/1350 M | web_otros 1094/1650 M | 1,864,344 docs | 1121s
+  web_latam 214/1350 M | web_otros 1107/1650 M | 1,884,725 docs | 1138s
+  web_latam 217/1350 M | web_otros 1120/1650 M | 1,905,026 docs | 1156s
+  web_latam 219/1350 M | web_otros 1132/1650 M | 1,925,321 docs | 1174s
+  web_latam 222/1350 M | web_otros 1145/1650 M | 1,945,799 docs | 1190s
+  web_latam 224/1350 M | web_otros 1159/1650 M | 1,966,284 docs | 1207s
+  web_latam 226/1350 M | web_otros 1173/1650 M | 1,986,803 docs | 1222s
+  web_latam 228/1350 M | web_otros 1186/1650 M | 2,007,340 docs | 1236s
+  web_latam 230/1350 M | web_otros 1199/1650 M | 2,027,899 docs | 1249s
+  web_latam 232/1350 M | web_otros 1211/1650 M | 2,048,408 docs | 1266s
+  web_latam 235/1350 M | web_otros 1223/1650 M | 2,068,946 docs | 1283s
+  web_latam 238/1350 M | web_otros 1235/1650 M | 2,089,432 docs | 1299s
+  web_latam 240/1350 M | web_otros 1247/1650 M | 2,109,894 docs | 1315s
+  web_latam 243/1350 M | web_otros 1260/1650 M | 2,130,277 docs | 1330s
+  web_latam 245/1350 M | web_otros 1271/1650 M | 2,150,683 docs | 1344s
+  web_latam 248/1350 M | web_otros 1284/1650 M | 2,171,042 docs | 1358s
+  web_latam 251/1350 M | web_otros 1296/1650 M | 2,191,505 docs | 1370s
+  web_latam 253/1350 M | web_otros 1308/1650 M | 2,211,879 docs | 1385s
+  web_latam 258/1350 M | web_otros 1331/1650 M | 2,252,800 docs | 1415s
+  web_latam 261/1350 M | web_otros 1344/1650 M | 2,273,532 docs | 1430s
+  web_latam 263/1350 M | web_otros 1358/1650 M | 2,294,291 docs | 1444s
+  web_latam 265/1350 M | web_otros 1370/1650 M | 2,314,905 docs | 1457s
+  web_latam 267/1350 M | web_otros 1382/1650 M | 2,335,460 docs | 1468s
+  web_latam 269/1350 M | web_otros 1394/1650 M | 2,355,905 docs | 1479s
+  web_latam 271/1350 M | web_otros 1408/1650 M | 2,376,434 docs | 1492s
+  web_latam 273/1350 M | web_otros 1421/1650 M | 2,396,956 docs | 1506s
+  web_latam 275/1350 M | web_otros 1435/1650 M | 2,417,483 docs | 1519s
+  web_latam 277/1350 M | web_otros 1448/1650 M | 2,437,977 docs | 1530s
+  web_latam 279/1350 M | web_otros 1461/1650 M | 2,458,485 docs | 1542s
+  web_latam 282/1350 M | web_otros 1473/1650 M | 2,479,037 docs | 1553s
+  web_latam 284/1350 M | web_otros 1485/1650 M | 2,499,521 docs | 1564s
+  web_latam 286/1350 M | web_otros 1497/1650 M | 2,519,973 docs | 1574s
+  web_latam 288/1350 M | web_otros 1508/1650 M | 2,539,635 docs | 1587s
+  web_latam 290/1350 M | web_otros 1521/1650 M | 2,560,375 docs | 1599s
+  web_latam 291/1350 M | web_otros 1534/1650 M | 2,581,127 docs | 1611s
+  web_latam 293/1350 M | web_otros 1545/1650 M | 2,601,970 docs | 1622s
+  web_latam 295/1350 M | web_otros 1556/1650 M | 2,621,613 docs | 1632s
+  web_latam 298/1350 M | web_otros 1567/1650 M | 2,642,239 docs | 1642s
+  web_latam 300/1350 M | web_otros 1578/1650 M | 2,662,858 docs | 1652s
+  web_latam 302/1350 M | web_otros 1589/1650 M | 2,683,365 docs | 1663s
+  web_latam 304/1350 M | web_otros 1601/1650 M | 2,703,897 docs | 1675s
+  web_latam 307/1350 M | web_otros 1611/1650 M | 2,724,385 docs | 1691s
+  web_latam 309/1350 M | web_otros 1623/1650 M | 2,744,869 docs | 1707s
+  web_latam 312/1350 M | web_otros 1634/1650 M | 2,765,370 docs | 1723s
+  web_latam 315/1350 M | web_otros 1645/1650 M | 2,785,821 docs | 1737s
+  web_latam 317/1350 M | web_otros 1650/1650 M | 2,806,138 docs | 1746s
+  web_latam 342/1350 M | web_otros 1650/1650 M | 3,010,628 docs | 1775s
+  web_latam 356/1350 M | web_otros 1650/1650 M | 3,134,240 docs | 1791s
+  web_latam 366/1350 M | web_otros 1650/1650 M | 3,215,734 docs | 1802s
+  web_latam 376/1350 M | web_otros 1650/1650 M | 3,298,061 docs | 1813s
+  web_latam 386/1350 M | web_otros 1650/1650 M | 3,379,685 docs | 1824s
+  web_latam 393/1350 M | web_otros 1650/1650 M | 3,441,529 docs | 1832s
+  web_latam 396/1350 M | web_otros 1650/1650 M | 3,461,361 docs | 1834s
+  web_latam 398/1350 M | web_otros 1650/1650 M | 3,481,968 docs | 1836s
+  web_latam 401/1350 M | web_otros 1650/1650 M | 3,502,513 docs | 1839s
+  web_latam 411/1350 M | web_otros 1650/1650 M | 3,584,954 docs | 1850s
+  web_latam 425/1350 M | web_otros 1650/1650 M | 3,707,567 docs | 1864s
+  web_latam 435/1350 M | web_otros 1650/1650 M | 3,789,622 docs | 1875s
+  web_latam 437/1350 M | web_otros 1650/1650 M | 3,809,418 docs | 1877s
+  web_latam 442/1350 M | web_otros 1650/1650 M | 3,850,816 docs | 1882s
+  web_latam 445/1350 M | web_otros 1650/1650 M | 3,871,304 docs | 1884s
+  web_latam 447/1350 M | web_otros 1650/1650 M | 3,891,653 docs | 1887s
+  web_latam 450/1350 M | web_otros 1650/1650 M | 3,911,967 docs | 1889s
+  web_latam 460/1350 M | web_otros 1650/1650 M | 3,994,614 docs | 1900s
+  web_latam 486/1350 M | web_otros 1650/1650 M | 4,239,842 docs | 1924s
+  web_latam 492/1350 M | web_otros 1650/1650 M | 4,301,646 docs | 1930s
+  web_latam 501/1350 M | web_otros 1650/1650 M | 4,382,942 docs | 1939s
+  web_latam 521/1350 M | web_otros 1650/1650 M | 4,547,317 docs | 1960s
+  web_latam 530/1350 M | web_otros 1650/1650 M | 4,629,120 docs | 1970s
+  web_latam 542/1350 M | web_otros 1650/1650 M | 4,731,022 docs | 1982s
+  web_latam 547/1350 M | web_otros 1650/1650 M | 4,772,614 docs | 1987s
+  web_latam 557/1350 M | web_otros 1650/1650 M | 4,854,081 docs | 1997s
+  web_latam 563/1350 M | web_otros 1650/1650 M | 4,895,646 docs | 2002s
+  web_latam 565/1350 M | web_otros 1650/1650 M | 4,915,367 docs | 2004s
+  web_latam 570/1350 M | web_otros 1650/1650 M | 4,956,753 docs | 2009s
+  web_latam 575/1350 M | web_otros 1650/1650 M | 4,997,309 docs | 2014s
+  web_latam 600/1350 M | web_otros 1650/1650 M | 5,202,184 docs | 2036s
+  web_latam 608/1350 M | web_otros 1650/1650 M | 5,263,588 docs | 2045s
+  web_latam 620/1350 M | web_otros 1650/1650 M | 5,366,439 docs | 2058s
+  web_latam 625/1350 M | web_otros 1650/1650 M | 5,406,910 docs | 2063s
+  web_latam 633/1350 M | web_otros 1650/1650 M | 5,468,220 docs | 2070s
+  web_latam 645/1350 M | web_otros 1650/1650 M | 5,571,495 docs | 2082s
+  web_latam 650/1350 M | web_otros 1650/1650 M | 5,611,953 docs | 2087s
+  web_latam 658/1350 M | web_otros 1650/1650 M | 5,693,670 docs | 2095s
+  web_latam 677/1350 M | web_otros 1650/1650 M | 5,878,548 docs | 2114s
+  web_latam 689/1350 M | web_otros 1650/1650 M | 5,980,183 docs | 2125s
+  web_latam 709/1350 M | web_otros 1650/1650 M | 6,144,893 docs | 2146s
+  web_latam 725/1350 M | web_otros 1650/1650 M | 6,267,310 docs | 2161s
+  web_latam 730/1350 M | web_otros 1650/1650 M | 6,308,513 docs | 2167s
+  web_latam 732/1350 M | web_otros 1650/1650 M | 6,328,482 docs | 2168s
+  web_latam 736/1350 M | web_otros 1650/1650 M | 6,369,713 docs | 2173s
+  web_latam 739/1350 M | web_otros 1650/1650 M | 6,389,947 docs | 2176s
+  web_latam 746/1350 M | web_otros 1650/1650 M | 6,451,394 docs | 2183s
+  web_latam 762/1350 M | web_otros 1650/1650 M | 6,574,983 docs | 2199s
+  web_latam 769/1350 M | web_otros 1650/1650 M | 6,635,627 docs | 2206s
+web_latam: 780 M tokens (8 shards) | descartes {'corto': 46966, 'relleno': 273, 'listas': 7041, 'idioma': 2415, 'CONTAMINADO (n-grama de evaluación)': 417, 'pocas_letras': 30, 'no_espanol': 189, 'duplicado_exacto': 307, 'longitud_de_palabra': 35, 'simbolos': 31, 'lineas_repetidas': 6}
+web_otros: 1650 M tokens (17 shards) | descartes {'corto': 87187, 'listas': 20676, 'idioma': 10278, 'relleno': 537, 'CONTAMINADO (n-grama de evaluación)': 971, 'duplicado_exacto': 384, 'no_espanol': 616, 'pocas_letras': 141, 'simbolos': 102, 'longitud_de_palabra': 65, 'lineas_repetidas': 9, 'sin_puntuacion': 14, 'presupuesto_lleno': 635}
+  codigo 39/400 M | 41,238 docs | 20s
+  codigo 55/400 M | 61,582 docs | 29s
+  codigo 137/400 M | 143,496 docs | 74s
+  codigo 149/400 M | 164,604 docs | 80s
+  codigo 177/400 M | 205,455 docs | 96s
+  codigo 203/400 M | 266,279 docs | 114s
+  codigo 215/400 M | 307,987 docs | 124s
+  codigo 254/400 M | 430,931 docs | 154s
+  codigo 274/400 M | 491,822 docs | 169s
+  codigo 305/400 M | 593,984 docs | 194s
+  codigo 315/400 M | 635,508 docs | 204s
+codigo: 327 M tokens (4 shards) | descartes {'autogenerado': 21839, 'tamano': 41034, 'licencia': 246214, 'secretos': 258, 'CONTAMINADO (n-grama de evaluación)': 22, 'duplicado_exacto': 141, 'lineas_largas': 58, 'pocos_alfanumericos': 31, 'cuota_de_lenguaje': 178517}
+
+Corpus empaquetado: 3.357 B tokens de entrenamiento + 6.8 M de validación en 2705 s

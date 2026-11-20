@@ -1,0 +1,5 @@
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:23<01:55, 23.02s/it]Fetching 6 files:  33%|███▎      | 2/6 [00:27<00:48, 12.23s/it]Fetching 6 files:  50%|█████     | 3/6 [00:28<00:20,  6.78s/it]Fetching 6 files:  67%|██████▋   | 4/6 [00:28<00:08,  4.48s/it]Fetching 6 files:  83%|████████▎ | 5/6 [00:32<00:04,  4.13s/it]Fetching 6 files: 100%|██████████| 6/6 [00:47<00:00,  7.73s/it]Fetching 6 files: 100%|██████████| 6/6 [00:47<00:00,  7.87s/it]
+codigo extra listo 47 s
+fineweb-2 extra: ['data/spa_Latn/train/002_00004.parquet', 'data/spa_Latn/train/003_00031.parquet']
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [01:39<01:39, 99.08s/it]Fetching 2 files: 100%|██████████| 2/2 [01:43<00:00, 43.59s/it]Fetching 2 files: 100%|██████████| 2/2 [01:43<00:00, 51.91s/it]
+fineweb-2 extra listo 152 s

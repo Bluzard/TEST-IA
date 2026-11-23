@@ -17,11 +17,15 @@ OBJETIVOS = ("qkv", "proy", "fc1", "fc2")
 
 
 def _get(b, n):
+    if not hasattr(b, "mlp"):  # bloque del núcleo v2 (modelo_v2.BloqueV2): fc1/fc2 son atributos
+        return getattr(b, n)
     return {"qkv": b.qkv, "proy": b.proy, "fc1": b.mlp[0], "fc2": b.mlp[2]}[n]
 
 
 def _set(b, n, m):
-    if n == "qkv":
+    if not hasattr(b, "mlp"):
+        setattr(b, n, m)
+    elif n == "qkv":
         b.qkv = m
     elif n == "proy":
         b.proy = m

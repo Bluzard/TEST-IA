@@ -1,0 +1,8 @@
+  82,480 artículos (train-00000-of-00013.parquet)
+  172,810 artículos (train-00001-of-00013.parquet)
+Pool: 200,000 artículos -> d:\Documentos\GitHub\TEST-IA\datos\v2\sft\pool_v2.jsonl
+Pool 200,000 | entrenamiento 189,803 (excluidos 22 títulos de evaluación) | reservados 10,175
+Ejemplos reales de ddgs: {'buscar_ok': 1065, 'irrelevante': 180, 'vacio': 50}
+sft_train: 153,885 ejemplos {'buscar_ok': 88182, 'vacio': 20176, 'irrelevante': 20527, 'charla': 25000}
+sft_eval: 3,200 ejemplos {'buscar_ok': 831, 'irrelevante': 766, 'vacio': 803, 'charla': 800}
+sft_eval_real: 287 ejemplos {'buscar_ok': 222, 'irrelevante': 52, 'vacio': 13}

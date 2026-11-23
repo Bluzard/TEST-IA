@@ -1,17 +1,7 @@
-[codigo_c] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 23,855 ejemplos (0 descartados) | cuda
-  época 1/3 paso 1/1092 | pérdida 0.0237 | 2s
-  época 1/3 paso 50/1092 | pérdida 0.0008 | 24s
-  época 1/3 paso 100/1092 | pérdida 0.6928 | 47s
-  época 1/3 paso 150/1092 | pérdida 0.0118 | 71s
-  época 1/3 paso 200/1092 | pérdida 0.5194 | 93s
-  época 1/3 paso 250/1092 | pérdida 0.0011 | 117s
-  época 1/3 paso 300/1092 | pérdida 0.0083 | 141s
-  época 1/3 paso 350/1092 | pérdida 0.0013 | 165s
-  época 2/3 paso 400/1092 | pérdida 0.0007 | 188s
-  época 2/3 paso 450/1092 | pérdida 0.0011 | 212s
-  época 2/3 paso 500/1092 | pérdida 0.3229 | 235s
-  época 2/3 paso 550/1092 | pérdida 0.0008 | 258s
-  parada temprana en el paso 556/1092 (época 2): pérdida media reciente 0.0794 < 0.08
-[codigo_c] núcleo base intacto tras entrenar: True
-experto_codigo_c_v2.lora.pt -> experto_codigo_c_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
-[codigo_c] terminado en 4.3 min
+[codigo_d] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 23,855 ejemplos (0 descartados) | cuda
+  época 1/3 paso 1/1092 | pérdida 0.0390 | 2s
+  época 1/3 paso 50/1092 | pérdida 0.0001 | 22s
+  parada temprana en el paso 60/1092 (época 1): pérdida media reciente 0.0075 < 0.08
+[codigo_d] núcleo base intacto tras entrenar: True
+experto_codigo_d_v2.lora.pt -> experto_codigo_d_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[codigo_d] terminado en 0.4 min

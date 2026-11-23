@@ -1,0 +1,23 @@
+== 1. Etapa 1 · ddgs real (línea base v1: hechos 71,6 %, abstención 98,1 %)
+  buscar_ok    buscó=100.0%  respuesta_exacta=83.3%
+  irrelevante  buscó=100.0%  se_abstuvo=100.0%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 2. Simulado con artículos reservados
+  buscar_ok    buscó=100.0%  respuesta_exacta=91.0%
+  irrelevante  buscó=100.0%  se_abstuvo=100.0%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 3. Charla de TEST-IA (frases reservadas)
+  339 frases únicas | no busca 100.0% | fugas 0 | estricta micro 79.6% macro 79.9% | con equivalentes micro 79.6% macro 79.9%
+    mal [saludo]: 'ola' -> 'Creo que no capté tu mensaje. ¿Me lo dices con otras palabras?' (['ininteligible'])
+    mal [saludo]: 'aló' -> 'Perfecto. ¿Seguimos?' (['afirmacion'])
+    mal [saludo]: 'aquí estoy de nuevo' -> '¡Perfecto! Entonces aprovechemos el buen día. ¿Qué necesitas?' (['estado_usuario_bien'])
+    mal [estado]: '¿estás bien?' -> 'No, y por eso busco. Soy pequeño: sé poco por mí mismo y me apoyo en fuentes. Aun así puedo equivocarme, así que conviene contrastar lo importante.' (['limites'])
+    mal [estado_usuario_bien]: 'estoy contento' -> 'Lamento oír eso. ¿Quieres contarme qué pasó?' (['estado_usuario_mal'])
+    mal [estado_usuario_bien]: 'chévere, gracias' -> '¡Qué bien! Eso hay que celebrarlo. ¿Qué pasó?' (['alegria'])
+    mal [estado_usuario_mal]: 'estoy deprimido' -> 'Te entiendo. Dime qué necesitas y lo hacemos corto.' (['cansancio'])
+    mal [estado_usuario_mal]: 'no aguanto más este estrés' -> 'Perdón si me expliqué mal. ¿Qué parte quieres que aclare?' (['no_entendi'])
+    mal [estado_usuario_mal]: 'estoy bajoneado' -> 'Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?' (['cansancio'])
+    mal [cansancio]: 'dormí muy poco' -> 'No te entendí del todo. ¿Puedes escribirlo de otra forma o contarme qué necesitas?' (['ininteligible'])
+    mal [cansancio]: 'estoy hecha pedazos' -> '¡Qué bien! Eso hay que celebrarlo. ¿Qué pasó?' (['alegria'])
+    mal [alegria]: 'me fue muy bien hoy' -> '¡Perfecto! Entonces aprovechemos el buen día. ¿Qué necesitas?' (['estado_usuario_bien'])
+listo en 563 s -> D:\Documentos\GitHub\TEST-IA\resultados\ETAPA4_eval_v2c.json

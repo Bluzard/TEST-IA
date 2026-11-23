@@ -22,14 +22,15 @@ from protocolo_v2 import CONTEXTO_V2, FormatoV2
 RAIZ = Path(__file__).parent
 
 
-def cargar_base(ruta, vocab_base_texto=24000):
+def cargar_base(ruta, vocab_base_texto=24000, reiniciar_etiquetas=True):
     d = torch.load(ruta, map_location="cpu", weights_only=False)
     cfg = ConfigV2(**d["config"]) if "config" in d else ConfigV2()
     m = NucleoV2(cfg)
     m.load_state_dict(d["pesos"])
     with torch.no_grad():
         E = m.tok.weight
-        E[vocab_base_texto:] = E[:vocab_base_texto].mean(0) + 0.02 * torch.randn(cfg.vocab - vocab_base_texto, E.shape[1])
+        if reiniciar_etiquetas:  # al continuar un SFT ya hecho, las etiquetas ya están entrenadas y NO se reinician
+            E[vocab_base_texto:] = E[:vocab_base_texto].mean(0) + 0.02 * torch.randn(cfg.vocab - vocab_base_texto, E.shape[1])
     return m, cfg
 
 
@@ -87,6 +88,7 @@ def main():
     ap.add_argument("--epocas", type=int, default=3)
     ap.add_argument("--lote_tokens", type=int, default=32768)
     ap.add_argument("--lr", type=float, default=2e-4)
+    ap.add_argument("--continuar", action="store_true", help="la base ya es un SFT: no reiniciar las filas de las etiquetas")
     ap.add_argument("--max", type=int, default=0)
     ap.add_argument("--semilla", type=int, default=0)
     ap.add_argument("--dispositivo", default="cuda")
@@ -96,7 +98,7 @@ def main():
     rng = random.Random(a.semilla)
     disp = a.dispositivo
     fmt = FormatoV2()
-    modelo, cfg = cargar_base(a.base)
+    modelo, cfg = cargar_base(a.base, reiniciar_etiquetas=not a.continuar)
     assert fmt.vocab == cfg.vocab
     modelo.to(disp).train()
     filas = [json.loads(l) for ruta in a.datos for l in open(ruta, encoding="utf-8")]

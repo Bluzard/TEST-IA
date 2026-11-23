@@ -1,0 +1,52 @@
+{
+ "etapas": {
+  "microsft": {
+   "estado": "ok",
+   "segundos": 1053,
+   "fin": "2026-11-23 14:11:50",
+   "codigo": 0
+  },
+  "exportar": {
+   "estado": "ok",
+   "segundos": 11,
+   "fin": "2026-11-23 14:12:02",
+   "codigo": 0
+  },
+  "evaluar": {
+   "estado": "ok",
+   "segundos": 565,
+   "fin": "2026-11-23 14:21:27",
+   "codigo": 0
+  },
+  "lora_redaccion": {
+   "estado": "ok",
+   "segundos": 46,
+   "fin": "2026-11-23 14:22:49",
+   "codigo": 0
+  },
+  "lora_codigo": {
+   "estado": "ok",
+   "segundos": 33,
+   "fin": "2026-11-23 14:23:22",
+   "codigo": 0
+  },
+  "verificar_lora_codigo": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 14:23:26",
+   "codigo": 0
+  },
+  "verificar_lora_redaccion": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 14:23:30",
+   "codigo": 0
+  },
+  "expertos": {
+   "estado": "ok",
+   "segundos": 1425,
+   "fin": "2026-11-23 14:47:16",
+   "codigo": 0
+  }
+ }
+}

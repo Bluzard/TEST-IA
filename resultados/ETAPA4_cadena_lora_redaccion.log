@@ -1,0 +1,19 @@
+[redaccion] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 11,189 ejemplos (0 descartados) | cuda
+  época 1/6 paso 1/714 | pérdida 1.9033 | 2s
+  época 1/6 paso 50/714 | pérdida 0.0228 | 21s
+  época 1/6 paso 100/714 | pérdida 0.6969 | 39s
+  época 2/6 paso 150/714 | pérdida 0.8943 | 59s
+  época 2/6 paso 200/714 | pérdida 0.2422 | 78s
+  época 3/6 paso 250/714 | pérdida 0.5892 | 97s
+  época 3/6 paso 300/714 | pérdida 0.5454 | 116s
+  época 3/6 paso 350/714 | pérdida 0.4191 | 135s
+  época 4/6 paso 400/714 | pérdida 0.4378 | 154s
+  época 4/6 paso 450/714 | pérdida 0.4252 | 173s
+  época 5/6 paso 500/714 | pérdida 0.3854 | 192s
+  época 5/6 paso 550/714 | pérdida 0.0008 | 211s
+  época 6/6 paso 600/714 | pérdida 0.3516 | 231s
+  época 6/6 paso 650/714 | pérdida 0.3951 | 250s
+  época 6/6 paso 700/714 | pérdida 0.0258 | 269s
+[redaccion] núcleo base intacto tras entrenar: True
+experto_redaccion_v2.lora.pt -> experto_redaccion_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[redaccion] terminado en 4.6 min

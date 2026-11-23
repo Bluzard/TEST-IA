@@ -1,0 +1,71 @@
+{
+ "bin": "D:\\Documentos\\GitHub\\TEST-IA\\modelos\\experimentos\\nucleo_v2_sft.bin",
+ "real": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.8333333333333334
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "simulado": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.9166666666666666
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 0.9966666666666667
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "charla": {
+  "no_busco": 1.0,
+  "respuesta_valida": 0.46,
+  "n": 300,
+  "ejemplos_malos": [
+   [
+    "eres increíble",
+    "Me alegra sacarte una sonrisa."
+   ],
+   [
+    "soy Isabel",
+    "¡Qué lindo! Gracias. Sigamos."
+   ],
+   [
+    "esa respuesta no me sirve",
+    "Muchas gracias, me alegra servir. ¿Algo más en que te ayude?"
+   ],
+   [
+    "jeje",
+    "¡Hasta luego! Aquí estaré cuando me necesites."
+   ],
+   [
+    "¿quién te entrenó?",
+    "Soy TEST-IA, un modelo de lenguaje pequeño en español. Si no sé algo, lo busco."
+   ],
+   [
+    "esa respuesta no me sirve",
+    "Muchas gracias, me alegra servir. ¿Algo más en que te ayude?"
+   ],
+   [
+    "eres increíble",
+    "Me alegra sacarte una sonrisa."
+   ],
+   [
+    "soy María",
+    "¡Qué lindo! Gracias. Sigamos."
+   ]
+  ]
+ },
+ "segundos": 538
+}

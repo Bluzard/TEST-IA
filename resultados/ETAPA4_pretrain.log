@@ -1,0 +1,237 @@
+reanudado desde ckpt_024359.pt: paso 24,359
+v2-A 157.7 M | corpus 4.000 B tokens | tramo 1: 97,655 pasos a 512 | tramo 2: 24,414 pasos a 1.024 | total 122,069 pasos = 4.000 B tokens
+{'paso': 24500, 'tokens_M': 802.8, 'T': 512, 'loss': 3.3208, 'gnorm': 0.517, 'gnorm_max': 0.767, 'lr': 0.0005480860738265234, 'tok_s': 23178, 'vram_pico_GB': 11.91, 'eta_h': 38.3, 't_h': 9.74}
+{'paso': 25000, 'tokens_M': 819.2, 'T': 512, 'loss': 3.3288, 'gnorm': 0.52, 'gnorm_max': 0.647, 'lr': 0.00054601972216636, 'tok_s': 23173, 'vram_pico_GB': 11.91, 'eta_h': 38.1, 't_h': 9.93}
+{'paso': 25500, 'tokens_M': 835.6, 'T': 512, 'loss': 3.3323, 'gnorm': 0.519, 'gnorm_max': 0.636, 'lr': 0.000543917600716171, 'tok_s': 23155, 'vram_pico_GB': 11.91, 'eta_h': 38.0, 't_h': 10.13}
+{'paso': 26000, 'tokens_M': 852.0, 'T': 512, 'loss': 3.3268, 'gnorm': 0.526, 'gnorm_max': 0.732, 'lr': 0.000541780057557336, 'tok_s': 23146, 'vram_pico_GB': 11.91, 'eta_h': 37.8, 't_h': 10.33}
+{'paso': 26500, 'tokens_M': 868.4, 'T': 512, 'loss': 3.3098, 'gnorm': 0.522, 'gnorm_max': 0.63, 'lr': 0.000539607446636565, 'tok_s': 23148, 'vram_pico_GB': 11.91, 'eta_h': 37.6, 't_h': 10.52}
+{'paso': 27000, 'tokens_M': 884.7, 'T': 512, 'loss': 3.3023, 'gnorm': 0.526, 'gnorm_max': 1.001, 'lr': 0.0005374001277072899, 'tok_s': 23152, 'vram_pico_GB': 11.91, 'eta_h': 37.4, 't_h': 10.72}
+[checkpoint] ckpt_027000.pt | val rápida (1 M tokens): nll 3.3310 ppl 27.97
+{'paso': 27500, 'tokens_M': 901.1, 'T': 512, 'loss': 3.3112, 'gnorm': 0.53, 'gnorm_max': 0.972, 'lr': 0.000535158466270095, 'tok_s': 23158, 'vram_pico_GB': 11.91, 'eta_h': 37.2, 't_h': 10.93}
+{'paso': 28000, 'tokens_M': 917.5, 'T': 512, 'loss': 3.3125, 'gnorm': 0.53, 'gnorm_max': 0.705, 'lr': 0.0005328828335121945, 'tok_s': 23156, 'vram_pico_GB': 11.91, 'eta_h': 37.0, 't_h': 11.12}
+{'paso': 28500, 'tokens_M': 933.9, 'T': 512, 'loss': 3.3252, 'gnorm': 0.527, 'gnorm_max': 0.642, 'lr': 0.0005305736062459698, 'tok_s': 23141, 'vram_pico_GB': 11.91, 'eta_h': 36.8, 't_h': 11.32}
+{'paso': 29000, 'tokens_M': 950.3, 'T': 512, 'loss': 3.29, 'gnorm': 0.523, 'gnorm_max': 0.627, 'lr': 0.0005282311668465744, 'tok_s': 23143, 'vram_pico_GB': 11.91, 'eta_h': 36.6, 't_h': 11.52}
+{'paso': 29500, 'tokens_M': 966.7, 'T': 512, 'loss': 3.3028, 'gnorm': 0.528, 'gnorm_max': 0.747, 'lr': 0.0005258559031886183, 'tok_s': 23152, 'vram_pico_GB': 11.91, 'eta_h': 36.4, 't_h': 11.71}
+{'paso': 30000, 'tokens_M': 983.0, 'T': 512, 'loss': 3.2905, 'gnorm': 0.531, 'gnorm_max': 0.63, 'lr': 0.0005234482085819411, 'tok_s': 23158, 'vram_pico_GB': 11.91, 'eta_h': 36.2, 't_h': 11.91}
+[checkpoint] ckpt_030000.pt | val rápida (1 M tokens): nll 3.3122 ppl 27.45
+{'paso': 30500, 'tokens_M': 999.4, 'T': 512, 'loss': 3.2883, 'gnorm': 0.528, 'gnorm_max': 0.611, 'lr': 0.0005210084817064859, 'tok_s': 23154, 'vram_pico_GB': 11.91, 'eta_h': 36.0, 't_h': 12.12}
+{'paso': 31000, 'tokens_M': 1015.8, 'T': 512, 'loss': 3.3017, 'gnorm': 0.529, 'gnorm_max': 0.645, 'lr': 0.0005185371265462832, 'tok_s': 23141, 'vram_pico_GB': 11.91, 'eta_h': 35.8, 't_h': 12.32}
+{'paso': 31500, 'tokens_M': 1032.2, 'T': 512, 'loss': 3.2985, 'gnorm': 0.555, 'gnorm_max': 1.816, 'lr': 0.0005160345523225573, 'tok_s': 23141, 'vram_pico_GB': 11.91, 'eta_h': 35.6, 't_h': 12.51}
+{'paso': 32000, 'tokens_M': 1048.6, 'T': 512, 'loss': 3.2955, 'gnorm': 0.533, 'gnorm_max': 0.872, 'lr': 0.0005135011734259649, 'tok_s': 23151, 'vram_pico_GB': 11.91, 'eta_h': 35.4, 't_h': 12.71}
+{'paso': 32500, 'tokens_M': 1065.0, 'T': 512, 'loss': 3.2879, 'gnorm': 0.534, 'gnorm_max': 0.822, 'lr': 0.0005109374093479777, 'tok_s': 23156, 'vram_pico_GB': 11.91, 'eta_h': 35.2, 't_h': 12.91}
+{'paso': 33000, 'tokens_M': 1081.3, 'T': 512, 'loss': 3.2822, 'gnorm': 0.539, 'gnorm_max': 0.644, 'lr': 0.0005083436846114208, 'tok_s': 23152, 'vram_pico_GB': 11.91, 'eta_h': 35.0, 't_h': 13.1}
+[checkpoint] ckpt_033000.pt | val rápida (1 M tokens): nll 3.2983 ppl 27.07
+{'paso': 33500, 'tokens_M': 1097.7, 'T': 512, 'loss': 3.2972, 'gnorm': 0.534, 'gnorm_max': 0.618, 'lr': 0.0005057204287001777, 'tok_s': 23141, 'vram_pico_GB': 11.91, 'eta_h': 34.8, 't_h': 13.31}
+{'paso': 34000, 'tokens_M': 1114.1, 'T': 512, 'loss': 3.2776, 'gnorm': 0.53, 'gnorm_max': 0.62, 'lr': 0.0005030680759880743, 'tok_s': 23142, 'vram_pico_GB': 11.91, 'eta_h': 34.6, 't_h': 13.5}
+{'paso': 34500, 'tokens_M': 1130.5, 'T': 512, 'loss': 3.2751, 'gnorm': 0.534, 'gnorm_max': 0.654, 'lr': 0.000500387065666952, 'tok_s': 23148, 'vram_pico_GB': 11.91, 'eta_h': 34.4, 't_h': 13.7}
+{'paso': 35000, 'tokens_M': 1146.9, 'T': 512, 'loss': 3.2539, 'gnorm': 0.533, 'gnorm_max': 0.607, 'lr': 0.0004976778416739444, 'tok_s': 23152, 'vram_pico_GB': 11.91, 'eta_h': 34.2, 't_h': 13.9}
+{'paso': 35500, 'tokens_M': 1163.3, 'T': 512, 'loss': 3.2714, 'gnorm': 0.534, 'gnorm_max': 0.614, 'lr': 0.0004949408526179673, 'tok_s': 23150, 'vram_pico_GB': 11.91, 'eta_h': 34.0, 't_h': 14.09}
+{'paso': 36000, 'tokens_M': 1179.6, 'T': 512, 'loss': 3.2651, 'gnorm': 0.542, 'gnorm_max': 0.72, 'lr': 0.0004921765517054354, 'tok_s': 23132, 'vram_pico_GB': 11.91, 'eta_h': 33.9, 't_h': 14.29}
+[checkpoint] ckpt_036000.pt | val rápida (1 M tokens): nll 3.2865 ppl 26.75
+{'paso': 36500, 'tokens_M': 1196.0, 'T': 512, 'loss': 3.2668, 'gnorm': 0.545, 'gnorm_max': 0.912, 'lr': 0.0004893853966652184, 'tok_s': 23139, 'vram_pico_GB': 11.91, 'eta_h': 33.7, 't_h': 14.5}
+{'paso': 37000, 'tokens_M': 1212.4, 'T': 512, 'loss': 3.2603, 'gnorm': 0.533, 'gnorm_max': 0.613, 'lr': 0.000486567849672847, 'tok_s': 23147, 'vram_pico_GB': 11.91, 'eta_h': 33.5, 't_h': 14.69}
+{'paso': 37500, 'tokens_M': 1228.8, 'T': 512, 'loss': 3.2583, 'gnorm': 0.537, 'gnorm_max': 0.84, 'lr': 0.0004837243772739831, 'tok_s': 23149, 'vram_pico_GB': 11.91, 'eta_h': 33.3, 't_h': 14.89}
+{'paso': 38000, 'tokens_M': 1245.2, 'T': 512, 'loss': 3.2687, 'gnorm': 0.534, 'gnorm_max': 0.59, 'lr': 0.000480855450307167, 'tok_s': 23150, 'vram_pico_GB': 11.91, 'eta_h': 33.1, 't_h': 15.09}
+{'paso': 38500, 'tokens_M': 1261.6, 'T': 512, 'loss': 3.2716, 'gnorm': 0.545, 'gnorm_max': 0.997, 'lr': 0.00047796154382585306, 'tok_s': 23134, 'vram_pico_GB': 11.91, 'eta_h': 32.9, 't_h': 15.28}
+{'paso': 39000, 'tokens_M': 1278.0, 'T': 512, 'loss': 3.2578, 'gnorm': 0.54, 'gnorm_max': 0.675, 'lr': 0.00047504313701974724, 'tok_s': 23140, 'vram_pico_GB': 11.91, 'eta_h': 32.7, 't_h': 15.48}
+[checkpoint] ckpt_039000.pt | val rápida (1 M tokens): nll 3.2718 ppl 26.36
+{'paso': 39500, 'tokens_M': 1294.3, 'T': 512, 'loss': 3.2475, 'gnorm': 0.538, 'gnorm_max': 0.639, 'lr': 0.0004721007131354608, 'tok_s': 23149, 'vram_pico_GB': 11.91, 'eta_h': 32.5, 't_h': 15.69}
+{'paso': 40000, 'tokens_M': 1310.7, 'T': 512, 'loss': 3.2523, 'gnorm': 0.537, 'gnorm_max': 0.692, 'lr': 0.0004691347593964909, 'tok_s': 23104, 'vram_pico_GB': 11.91, 'eta_h': 32.3, 't_h': 15.88}
+{'paso': 40500, 'tokens_M': 1327.1, 'T': 512, 'loss': 3.2223, 'gnorm': 0.54, 'gnorm_max': 0.726, 'lr': 0.0004661457669225436, 'tok_s': 23149, 'vram_pico_GB': 11.91, 'eta_h': 32.1, 't_h': 16.08}
+{'paso': 41000, 'tokens_M': 1343.5, 'T': 512, 'loss': 3.256, 'gnorm': 0.542, 'gnorm_max': 0.689, 'lr': 0.0004631342306482117, 'tok_s': 23132, 'vram_pico_GB': 11.91, 'eta_h': 31.9, 't_h': 16.28}
+{'paso': 41500, 'tokens_M': 1359.9, 'T': 512, 'loss': 3.2422, 'gnorm': 0.536, 'gnorm_max': 0.636, 'lr': 0.00046010064924102, 'tok_s': 23138, 'vram_pico_GB': 11.91, 'eta_h': 31.7, 't_h': 16.47}
+{'paso': 42000, 'tokens_M': 1376.3, 'T': 512, 'loss': 3.2431, 'gnorm': 0.54, 'gnorm_max': 0.644, 'lr': 0.00045704552501885353, 'tok_s': 23148, 'vram_pico_GB': 11.91, 'eta_h': 31.5, 't_h': 16.67}
+[checkpoint] ckpt_042000.pt | val rápida (1 M tokens): nll 3.2611 ppl 26.08
+{'paso': 42500, 'tokens_M': 1392.6, 'T': 512, 'loss': 3.2352, 'gnorm': 0.548, 'gnorm_max': 0.909, 'lr': 0.00045396936386678054, 'tok_s': 23147, 'vram_pico_GB': 11.91, 'eta_h': 31.3, 't_h': 16.88}
+{'paso': 43000, 'tokens_M': 1409.0, 'T': 512, 'loss': 3.2362, 'gnorm': 0.541, 'gnorm_max': 0.593, 'lr': 0.0004508726751532858, 'tok_s': 23150, 'vram_pico_GB': 11.91, 'eta_h': 31.1, 't_h': 17.07}
+{'paso': 43500, 'tokens_M': 1425.4, 'T': 512, 'loss': 3.2414, 'gnorm': 0.544, 'gnorm_max': 0.623, 'lr': 0.00044775597164592554, 'tok_s': 23132, 'vram_pico_GB': 11.91, 'eta_h': 30.9, 't_h': 17.27}
+{'paso': 44000, 'tokens_M': 1441.8, 'T': 512, 'loss': 3.2399, 'gnorm': 0.552, 'gnorm_max': 0.65, 'lr': 0.00044461976942642084, 'tok_s': 23139, 'vram_pico_GB': 11.91, 'eta_h': 30.7, 't_h': 17.47}
+{'paso': 44500, 'tokens_M': 1458.2, 'T': 512, 'loss': 3.2457, 'gnorm': 0.565, 'gnorm_max': 1.462, 'lr': 0.00044146458780520206, 'tok_s': 23152, 'vram_pico_GB': 11.91, 'eta_h': 30.5, 't_h': 17.66}
+{'paso': 45000, 'tokens_M': 1474.6, 'T': 512, 'loss': 3.2364, 'gnorm': 0.553, 'gnorm_max': 0.671, 'lr': 0.0004382909492354181, 'tok_s': 22534, 'vram_pico_GB': 11.91, 'eta_h': 31.1, 't_h': 17.86}
+[checkpoint] ckpt_045000.pt | val rápida (1 M tokens): nll 3.2469 ppl 25.71
+{'paso': 45500, 'tokens_M': 1490.9, 'T': 512, 'loss': 3.2232, 'gnorm': 0.55, 'gnorm_max': 0.611, 'lr': 0.00043509937922642597, 'tok_s': 18475, 'vram_pico_GB': 11.91, 'eta_h': 37.7, 't_h': 18.11}
+{'paso': 46000, 'tokens_M': 1507.3, 'T': 512, 'loss': 3.2343, 'gnorm': 0.551, 'gnorm_max': 0.628, 'lr': 0.0004318904062567734, 'tok_s': 18456, 'vram_pico_GB': 11.91, 'eta_h': 37.5, 't_h': 18.36}
+{'paso': 46500, 'tokens_M': 1523.7, 'T': 512, 'loss': 3.2175, 'gnorm': 0.56, 'gnorm_max': 0.713, 'lr': 0.00042866456168669064, 'tok_s': 22051, 'vram_pico_GB': 11.91, 'eta_h': 31.2, 't_h': 18.6}
+{'paso': 47000, 'tokens_M': 1540.1, 'T': 512, 'loss': 3.2363, 'gnorm': 0.558, 'gnorm_max': 0.631, 'lr': 0.000425422379670105, 'tok_s': 21557, 'vram_pico_GB': 11.91, 'eta_h': 31.7, 't_h': 18.8}
+{'paso': 47500, 'tokens_M': 1556.5, 'T': 512, 'loss': 3.2149, 'gnorm': 0.563, 'gnorm_max': 0.7, 'lr': 0.00042216439706619177, 'tok_s': 18098, 'vram_pico_GB': 11.91, 'eta_h': 37.5, 't_h': 19.05}
+{'paso': 48000, 'tokens_M': 1572.9, 'T': 512, 'loss': 3.2105, 'gnorm': 0.567, 'gnorm_max': 0.702, 'lr': 0.00041889115335047903, 'tok_s': 18431, 'vram_pico_GB': 11.91, 'eta_h': 36.6, 't_h': 19.29}
+[checkpoint] ckpt_048000.pt | val rápida (1 M tokens): nll 3.2375 ppl 25.47
+{'paso': 48500, 'tokens_M': 1589.2, 'T': 512, 'loss': 3.221, 'gnorm': 0.563, 'gnorm_max': 0.637, 'lr': 0.00041560319052551747, 'tok_s': 19024, 'vram_pico_GB': 11.91, 'eta_h': 35.2, 't_h': 19.56}
+{'paso': 49000, 'tokens_M': 1605.6, 'T': 512, 'loss': 3.2322, 'gnorm': 0.568, 'gnorm_max': 0.626, 'lr': 0.00041230105303113266, 'tok_s': 22422, 'vram_pico_GB': 11.91, 'eta_h': 29.7, 't_h': 19.77}
+{'paso': 49500, 'tokens_M': 1622.0, 'T': 512, 'loss': 3.2198, 'gnorm': 0.575, 'gnorm_max': 0.813, 'lr': 0.0004089852876542736, 'tok_s': 18229, 'vram_pico_GB': 11.91, 'eta_h': 36.2, 't_h': 20.0}
+{'paso': 50000, 'tokens_M': 1638.4, 'T': 512, 'loss': 3.2088, 'gnorm': 0.57, 'gnorm_max': 0.806, 'lr': 0.0004056564434384726, 'tok_s': 17793, 'vram_pico_GB': 11.91, 'eta_h': 36.9, 't_h': 20.26}
+{'paso': 50500, 'tokens_M': 1654.8, 'T': 512, 'loss': 3.2202, 'gnorm': 0.572, 'gnorm_max': 0.673, 'lr': 0.0004023150715929314, 'tok_s': 20968, 'vram_pico_GB': 11.91, 'eta_h': 31.1, 't_h': 20.48}
+{'paso': 51000, 'tokens_M': 1671.2, 'T': 512, 'loss': 3.2295, 'gnorm': 0.58, 'gnorm_max': 0.776, 'lr': 0.000398961725401249, 'tok_s': 21978, 'vram_pico_GB': 11.91, 'eta_h': 29.4, 't_h': 20.69}
+[checkpoint] ckpt_051000.pt | val rápida (1 M tokens): nll 3.2273 ppl 25.21
+{'paso': 51500, 'tokens_M': 1687.6, 'T': 512, 'loss': 3.2072, 'gnorm': 0.579, 'gnorm_max': 0.861, 'lr': 0.00039559696012980537, 'tok_s': 21974, 'vram_pico_GB': 11.91, 'eta_h': 29.2, 't_h': 20.9}
+{'paso': 52000, 'tokens_M': 1703.9, 'T': 512, 'loss': 3.2173, 'gnorm': 0.578, 'gnorm_max': 0.659, 'lr': 0.00039222133293581775, 'tok_s': 21974, 'vram_pico_GB': 11.91, 'eta_h': 29.0, 't_h': 21.11}
+{'paso': 52500, 'tokens_M': 1720.3, 'T': 512, 'loss': 3.2094, 'gnorm': 0.584, 'gnorm_max': 0.918, 'lr': 0.0003888354027750829, 'tok_s': 21970, 'vram_pico_GB': 11.91, 'eta_h': 28.8, 't_h': 21.32}
+{'paso': 53000, 'tokens_M': 1736.7, 'T': 512, 'loss': 3.2004, 'gnorm': 0.582, 'gnorm_max': 0.73, 'lr': 0.00038543973030942226, 'tok_s': 21976, 'vram_pico_GB': 11.91, 'eta_h': 28.6, 't_h': 21.52}
+{'paso': 53500, 'tokens_M': 1753.1, 'T': 512, 'loss': 3.1984, 'gnorm': 0.59, 'gnorm_max': 0.813, 'lr': 0.0003820348778138441, 'tok_s': 21976, 'vram_pico_GB': 11.91, 'eta_h': 28.4, 't_h': 21.73}
+{'paso': 54000, 'tokens_M': 1769.5, 'T': 512, 'loss': 3.1985, 'gnorm': 0.586, 'gnorm_max': 0.686, 'lr': 0.0003786214090834393, 'tok_s': 21984, 'vram_pico_GB': 11.91, 'eta_h': 28.2, 't_h': 21.94}
+[checkpoint] ckpt_054000.pt | val rápida (1 M tokens): nll 3.2150 ppl 24.90
+{'paso': 54500, 'tokens_M': 1785.9, 'T': 512, 'loss': 3.1891, 'gnorm': 0.59, 'gnorm_max': 0.667, 'lr': 0.0003751998893400241, 'tok_s': 21971, 'vram_pico_GB': 11.91, 'eta_h': 28.0, 't_h': 22.15}
+{'paso': 55000, 'tokens_M': 1802.2, 'T': 512, 'loss': 3.2079, 'gnorm': 0.587, 'gnorm_max': 0.687, 'lr': 0.00037177088513854807, 'tok_s': 20895, 'vram_pico_GB': 11.91, 'eta_h': 29.2, 't_h': 22.36}
+{'paso': 55500, 'tokens_M': 1818.6, 'T': 512, 'loss': 3.1789, 'gnorm': 0.602, 'gnorm_max': 0.704, 'lr': 0.0003683349642732803, 'tok_s': 22175, 'vram_pico_GB': 11.91, 'eta_h': 27.3, 't_h': 22.58}
+{'paso': 56000, 'tokens_M': 1835.0, 'T': 512, 'loss': 3.2031, 'gnorm': 0.606, 'gnorm_max': 0.7, 'lr': 0.0003648926956837912, 'tok_s': 22802, 'vram_pico_GB': 11.91, 'eta_h': 26.4, 't_h': 22.78}
+{'paso': 56500, 'tokens_M': 1851.4, 'T': 512, 'loss': 3.1925, 'gnorm': 0.606, 'gnorm_max': 0.831, 'lr': 0.0003614446493607438, 'tok_s': 21020, 'vram_pico_GB': 11.91, 'eta_h': 28.4, 't_h': 22.99}
+{'paso': 57000, 'tokens_M': 1867.8, 'T': 512, 'loss': 3.1781, 'gnorm': 0.612, 'gnorm_max': 0.851, 'lr': 0.0003579913962515113, 'tok_s': 21935, 'vram_pico_GB': 11.91, 'eta_h': 27.0, 't_h': 23.19}
+[checkpoint] ckpt_057000.pt | val rápida (1 M tokens): nll 3.2053 ppl 24.66
+{'paso': 57500, 'tokens_M': 1884.2, 'T': 512, 'loss': 3.1954, 'gnorm': 0.606, 'gnorm_max': 0.746, 'lr': 0.00035453350816563693, 'tok_s': 17867, 'vram_pico_GB': 11.91, 'eta_h': 32.9, 't_h': 23.43}
+{'paso': 58000, 'tokens_M': 1900.5, 'T': 512, 'loss': 3.2039, 'gnorm': 0.611, 'gnorm_max': 0.734, 'lr': 0.0003510715576801498, 'tok_s': 17716, 'vram_pico_GB': 11.91, 'eta_h': 32.9, 't_h': 23.68}
+{'paso': 58500, 'tokens_M': 1916.9, 'T': 512, 'loss': 3.1952, 'gnorm': 0.646, 'gnorm_max': 3.105, 'lr': 0.0003476061180447547, 'tok_s': 20816, 'vram_pico_GB': 11.91, 'eta_h': 27.8, 't_h': 23.92}
+{'paso': 59000, 'tokens_M': 1933.3, 'T': 512, 'loss': 3.1904, 'gnorm': 0.611, 'gnorm_max': 0.686, 'lr': 0.00034413776308690964, 'tok_s': 18104, 'vram_pico_GB': 11.91, 'eta_h': 31.7, 't_h': 24.16}
+{'paso': 59500, 'tokens_M': 1949.7, 'T': 512, 'loss': 3.1706, 'gnorm': 0.619, 'gnorm_max': 0.814, 'lr': 0.00034066706711680914, 'tok_s': 18640, 'vram_pico_GB': 11.91, 'eta_h': 30.6, 't_h': 24.41}
+{'paso': 60000, 'tokens_M': 1966.1, 'T': 512, 'loss': 3.1925, 'gnorm': 0.628, 'gnorm_max': 0.803, 'lr': 0.00033719460483228535, 'tok_s': 22063, 'vram_pico_GB': 11.91, 'eta_h': 25.6, 't_h': 24.64}
+[checkpoint] ckpt_060000.pt | val rápida (1 M tokens): nll 3.1928 ppl 24.36
+{'paso': 60500, 'tokens_M': 1982.5, 'T': 512, 'loss': 3.18, 'gnorm': 0.62, 'gnorm_max': 0.699, 'lr': 0.00033372095122364745, 'tok_s': 22899, 'vram_pico_GB': 11.91, 'eta_h': 24.5, 't_h': 24.85}
+{'paso': 61000, 'tokens_M': 1998.8, 'T': 512, 'loss': 3.1841, 'gnorm': 0.625, 'gnorm_max': 0.87, 'lr': 0.0003302466814784704, 'tok_s': 23190, 'vram_pico_GB': 11.91, 'eta_h': 24.0, 't_h': 25.05}
+{'paso': 61500, 'tokens_M': 2015.2, 'T': 512, 'loss': 3.184, 'gnorm': 0.624, 'gnorm_max': 0.712, 'lr': 0.00032677237088635317, 'tok_s': 23176, 'vram_pico_GB': 11.91, 'eta_h': 23.8, 't_h': 25.24}
+{'paso': 62000, 'tokens_M': 2031.6, 'T': 512, 'loss': 3.1817, 'gnorm': 0.622, 'gnorm_max': 0.673, 'lr': 0.00032329859474365804, 'tok_s': 23170, 'vram_pico_GB': 11.91, 'eta_h': 23.6, 't_h': 25.44}
+{'paso': 62500, 'tokens_M': 2048.0, 'T': 512, 'loss': 3.1754, 'gnorm': 0.63, 'gnorm_max': 0.818, 'lr': 0.0003198259282582502, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 23.4, 't_h': 25.64}
+{'paso': 63000, 'tokens_M': 2064.4, 'T': 512, 'loss': 3.1683, 'gnorm': 0.629, 'gnorm_max': 0.706, 'lr': 0.0003163549464542513, 'tok_s': 23173, 'vram_pico_GB': 11.91, 'eta_h': 23.2, 't_h': 25.83}
+[checkpoint] ckpt_063000.pt | val rápida (1 M tokens): nll 3.1803 ppl 24.06
+{'paso': 63500, 'tokens_M': 2080.8, 'T': 512, 'loss': 3.1774, 'gnorm': 0.625, 'gnorm_max': 0.705, 'lr': 0.0003128862240768239, 'tok_s': 23186, 'vram_pico_GB': 11.91, 'eta_h': 23.0, 't_h': 26.04}
+{'paso': 64000, 'tokens_M': 2097.2, 'T': 512, 'loss': 3.1649, 'gnorm': 0.625, 'gnorm_max': 0.737, 'lr': 0.0003094203354970016, 'tok_s': 23176, 'vram_pico_GB': 11.91, 'eta_h': 22.8, 't_h': 26.24}
+{'paso': 64500, 'tokens_M': 2113.5, 'T': 512, 'loss': 3.1581, 'gnorm': 0.635, 'gnorm_max': 0.713, 'lr': 0.0003059578546165812, 'tok_s': 23169, 'vram_pico_GB': 11.91, 'eta_h': 22.6, 't_h': 26.43}
+{'paso': 65000, 'tokens_M': 2129.9, 'T': 512, 'loss': 3.1551, 'gnorm': 0.636, 'gnorm_max': 0.729, 'lr': 0.00030249935477309357, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 22.4, 't_h': 26.63}
+{'paso': 65500, 'tokens_M': 2146.3, 'T': 512, 'loss': 3.1526, 'gnorm': 0.646, 'gnorm_max': 0.763, 'lr': 0.0002990454086448662, 'tok_s': 23178, 'vram_pico_GB': 11.91, 'eta_h': 22.2, 't_h': 26.82}
+{'paso': 66000, 'tokens_M': 2162.7, 'T': 512, 'loss': 3.1671, 'gnorm': 0.645, 'gnorm_max': 0.8, 'lr': 0.00029559658815619597, 'tok_s': 23187, 'vram_pico_GB': 11.91, 'eta_h': 22.0, 't_h': 27.02}
+[checkpoint] ckpt_066000.pt | val rápida (1 M tokens): nll 3.1709 ppl 23.83
+{'paso': 66500, 'tokens_M': 2179.1, 'T': 512, 'loss': 3.1757, 'gnorm': 0.643, 'gnorm_max': 0.77, 'lr': 0.0002921534643826474, 'tok_s': 23173, 'vram_pico_GB': 11.91, 'eta_h': 21.8, 't_h': 27.23}
+{'paso': 67000, 'tokens_M': 2195.5, 'T': 512, 'loss': 3.1584, 'gnorm': 0.652, 'gnorm_max': 0.754, 'lr': 0.0002887166074564897, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 21.6, 't_h': 27.42}
+{'paso': 67500, 'tokens_M': 2211.8, 'T': 512, 'loss': 3.1568, 'gnorm': 0.653, 'gnorm_max': 0.736, 'lr': 0.00028528658647229135, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 21.4, 't_h': 27.62}
+{'paso': 68000, 'tokens_M': 2228.2, 'T': 512, 'loss': 3.1351, 'gnorm': 0.663, 'gnorm_max': 0.877, 'lr': 0.00028186396939268644, 'tok_s': 23177, 'vram_pico_GB': 11.91, 'eta_h': 21.2, 't_h': 27.82}
+{'paso': 68500, 'tokens_M': 2244.6, 'T': 512, 'loss': 3.1514, 'gnorm': 0.663, 'gnorm_max': 0.741, 'lr': 0.00027844932295432767, 'tok_s': 23183, 'vram_pico_GB': 11.91, 'eta_h': 21.0, 't_h': 28.01}
+{'paso': 69000, 'tokens_M': 2261.0, 'T': 512, 'loss': 3.1397, 'gnorm': 0.659, 'gnorm_max': 0.72, 'lr': 0.00027504321257404316, 'tok_s': 23172, 'vram_pico_GB': 11.91, 'eta_h': 20.8, 't_h': 28.21}
+[checkpoint] ckpt_069000.pt | val rápida (1 M tokens): nll 3.1597 ppl 23.56
+{'paso': 69500, 'tokens_M': 2277.4, 'T': 512, 'loss': 3.1487, 'gnorm': 0.668, 'gnorm_max': 0.864, 'lr': 0.0002716462022552114, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 20.7, 't_h': 28.41}
+{'paso': 70000, 'tokens_M': 2293.8, 'T': 512, 'loss': 3.1368, 'gnorm': 0.673, 'gnorm_max': 0.757, 'lr': 0.00026825885449437007, 'tok_s': 23169, 'vram_pico_GB': 11.91, 'eta_h': 20.5, 't_h': 28.61}
+{'paso': 70500, 'tokens_M': 2310.1, 'T': 512, 'loss': 3.149, 'gnorm': 0.674, 'gnorm_max': 1.035, 'lr': 0.000264881730188075, 'tok_s': 23178, 'vram_pico_GB': 11.91, 'eta_h': 20.3, 't_h': 28.81}
+{'paso': 71000, 'tokens_M': 2326.5, 'T': 512, 'loss': 3.1387, 'gnorm': 0.669, 'gnorm_max': 0.856, 'lr': 0.0002615153885400236, 'tok_s': 23182, 'vram_pico_GB': 11.91, 'eta_h': 20.1, 't_h': 29.0}
+{'paso': 71500, 'tokens_M': 2342.9, 'T': 512, 'loss': 3.1482, 'gnorm': 0.675, 'gnorm_max': 0.843, 'lr': 0.0002581603869684584, 'tok_s': 23175, 'vram_pico_GB': 11.91, 'eta_h': 19.9, 't_h': 29.2}
+{'paso': 72000, 'tokens_M': 2359.3, 'T': 512, 'loss': 3.1278, 'gnorm': 0.676, 'gnorm_max': 0.814, 'lr': 0.00025481728101386686, 'tok_s': 23167, 'vram_pico_GB': 11.91, 'eta_h': 19.7, 't_h': 29.4}
+[checkpoint] ckpt_072000.pt | val rápida (1 M tokens): nll 3.1497 ppl 23.33
+{'paso': 72500, 'tokens_M': 2375.7, 'T': 512, 'loss': 3.1316, 'gnorm': 0.675, 'gnorm_max': 0.766, 'lr': 0.00025148662424699165, 'tok_s': 23169, 'vram_pico_GB': 11.91, 'eta_h': 19.5, 't_h': 29.6}
+{'paso': 73000, 'tokens_M': 2392.1, 'T': 512, 'loss': 3.1191, 'gnorm': 0.68, 'gnorm_max': 0.776, 'lr': 0.0002481689681771673, 'tok_s': 23176, 'vram_pico_GB': 11.91, 'eta_h': 19.3, 't_h': 29.8}
+{'paso': 73500, 'tokens_M': 2408.4, 'T': 512, 'loss': 3.123, 'gnorm': 0.686, 'gnorm_max': 0.757, 'lr': 0.00024486486216099783, 'tok_s': 23181, 'vram_pico_GB': 11.91, 'eta_h': 19.1, 't_h': 29.99}
+{'paso': 74000, 'tokens_M': 2424.8, 'T': 512, 'loss': 3.1386, 'gnorm': 0.694, 'gnorm_max': 0.988, 'lr': 0.00024157485331139145, 'tok_s': 23173, 'vram_pico_GB': 11.91, 'eta_h': 18.9, 't_h': 30.19}
+{'paso': 74500, 'tokens_M': 2441.2, 'T': 512, 'loss': 3.1226, 'gnorm': 0.688, 'gnorm_max': 0.783, 'lr': 0.00023829948640696636, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 18.7, 't_h': 30.39}
+{'paso': 75000, 'tokens_M': 2457.6, 'T': 512, 'loss': 3.1313, 'gnorm': 0.687, 'gnorm_max': 0.745, 'lr': 0.00023503930380184301, 'tok_s': 23167, 'vram_pico_GB': 11.91, 'eta_h': 18.5, 't_h': 30.58}
+[checkpoint] ckpt_075000.pt | val rápida (1 M tokens): nll 3.1382 ppl 23.06
+{'paso': 75500, 'tokens_M': 2474.0, 'T': 512, 'loss': 3.1235, 'gnorm': 0.69, 'gnorm_max': 0.764, 'lr': 0.00023179484533583812, 'tok_s': 23177, 'vram_pico_GB': 11.91, 'eta_h': 18.3, 't_h': 30.8}
+{'paso': 76000, 'tokens_M': 2490.4, 'T': 512, 'loss': 3.1273, 'gnorm': 0.694, 'gnorm_max': 0.805, 'lr': 0.00022856664824507498, 'tok_s': 23175, 'vram_pico_GB': 11.91, 'eta_h': 18.1, 't_h': 31.0}
+{'paso': 76500, 'tokens_M': 2506.8, 'T': 512, 'loss': 3.1072, 'gnorm': 0.703, 'gnorm_max': 0.803, 'lr': 0.0002253552470730246, 'tok_s': 23160, 'vram_pico_GB': 11.91, 'eta_h': 17.9, 't_h': 31.19}
+{'paso': 77000, 'tokens_M': 2523.1, 'T': 512, 'loss': 3.1183, 'gnorm': 0.702, 'gnorm_max': 0.793, 'lr': 0.0002221611735819931, 'tok_s': 23165, 'vram_pico_GB': 11.91, 'eta_h': 17.7, 't_h': 31.39}
+{'paso': 77500, 'tokens_M': 2539.5, 'T': 512, 'loss': 3.1244, 'gnorm': 0.704, 'gnorm_max': 1.1, 'lr': 0.00021898495666506902, 'tok_s': 23164, 'vram_pico_GB': 11.91, 'eta_h': 17.5, 't_h': 31.59}
+{'paso': 78000, 'tokens_M': 2555.9, 'T': 512, 'loss': 3.1231, 'gnorm': 0.706, 'gnorm_max': 0.931, 'lr': 0.00021582712225854712, 'tok_s': 23171, 'vram_pico_GB': 11.91, 'eta_h': 17.3, 't_h': 31.78}
+[checkpoint] ckpt_078000.pt | val rápida (1 M tokens): nll 3.1300 ppl 22.87
+{'paso': 78500, 'tokens_M': 2572.3, 'T': 512, 'loss': 3.1095, 'gnorm': 0.707, 'gnorm_max': 0.781, 'lr': 0.00021268819325483967, 'tok_s': 23171, 'vram_pico_GB': 11.91, 'eta_h': 17.1, 't_h': 31.99}
+{'paso': 79000, 'tokens_M': 2588.7, 'T': 512, 'loss': 3.1144, 'gnorm': 0.729, 'gnorm_max': 1.258, 'lr': 0.00020956868941589358, 'tok_s': 23168, 'vram_pico_GB': 11.91, 'eta_h': 16.9, 't_h': 32.18}
+{'paso': 79500, 'tokens_M': 2605.1, 'T': 512, 'loss': 3.1321, 'gnorm': 0.715, 'gnorm_max': 0.936, 'lr': 0.000206469127287125, 'tok_s': 23161, 'vram_pico_GB': 11.91, 'eta_h': 16.7, 't_h': 32.38}
+{'paso': 80000, 'tokens_M': 2621.4, 'T': 512, 'loss': 3.094, 'gnorm': 0.714, 'gnorm_max': 0.803, 'lr': 0.0002033900201118871, 'tok_s': 23160, 'vram_pico_GB': 11.91, 'eta_h': 16.5, 't_h': 32.58}
+{'paso': 80500, 'tokens_M': 2637.8, 'T': 512, 'loss': 3.1001, 'gnorm': 0.717, 'gnorm_max': 0.838, 'lr': 0.0002003318777464838, 'tok_s': 23169, 'vram_pico_GB': 11.91, 'eta_h': 16.3, 't_h': 32.77}
+{'paso': 81000, 'tokens_M': 2654.2, 'T': 512, 'loss': 3.086, 'gnorm': 0.73, 'gnorm_max': 0.856, 'lr': 0.00019729520657574504, 'tok_s': 23171, 'vram_pico_GB': 11.91, 'eta_h': 16.1, 't_h': 32.97}
+[checkpoint] ckpt_081000.pt | val rápida (1 M tokens): nll 3.1171 ppl 22.58
+{'paso': 81500, 'tokens_M': 2670.6, 'T': 512, 'loss': 3.1076, 'gnorm': 0.722, 'gnorm_max': 0.787, 'lr': 0.00019428050942917668, 'tok_s': 23042, 'vram_pico_GB': 11.91, 'eta_h': 16.0, 't_h': 33.18}
+{'paso': 82000, 'tokens_M': 2687.0, 'T': 512, 'loss': 3.0929, 'gnorm': 0.728, 'gnorm_max': 0.881, 'lr': 0.00019128828549769893, 'tok_s': 23166, 'vram_pico_GB': 11.91, 'eta_h': 15.7, 't_h': 33.37}
+{'paso': 82500, 'tokens_M': 2703.4, 'T': 512, 'loss': 3.1023, 'gnorm': 0.73, 'gnorm_max': 0.784, 'lr': 0.000188319030250988, 'tok_s': 23151, 'vram_pico_GB': 11.91, 'eta_h': 15.6, 't_h': 33.57}
+{'paso': 83000, 'tokens_M': 2719.7, 'T': 512, 'loss': 3.0938, 'gnorm': 0.732, 'gnorm_max': 1.024, 'lr': 0.0001853732353554325, 'tok_s': 23147, 'vram_pico_GB': 11.91, 'eta_h': 15.4, 't_h': 33.77}
+{'paso': 83500, 'tokens_M': 2736.1, 'T': 512, 'loss': 3.1028, 'gnorm': 0.739, 'gnorm_max': 0.83, 'lr': 0.0001824513885927213, 'tok_s': 23174, 'vram_pico_GB': 11.91, 'eta_h': 15.1, 't_h': 33.96}
+{'paso': 84000, 'tokens_M': 2752.5, 'T': 512, 'loss': 3.1057, 'gnorm': 0.746, 'gnorm_max': 0.864, 'lr': 0.00017955397377907313, 'tok_s': 23172, 'vram_pico_GB': 11.91, 'eta_h': 15.0, 't_h': 34.16}
+[checkpoint] ckpt_084000.pt | val rápida (1 M tokens): nll 3.1053 ppl 22.32
+{'paso': 84500, 'tokens_M': 2768.9, 'T': 512, 'loss': 3.0864, 'gnorm': 0.744, 'gnorm_max': 0.809, 'lr': 0.00017668147068512413, 'tok_s': 23162, 'vram_pico_GB': 11.91, 'eta_h': 14.8, 't_h': 34.36}
+{'paso': 85000, 'tokens_M': 2785.3, 'T': 512, 'loss': 3.1078, 'gnorm': 0.746, 'gnorm_max': 0.861, 'lr': 0.00017383435495648423, 'tok_s': 23147, 'vram_pico_GB': 11.91, 'eta_h': 14.6, 't_h': 34.56}
+{'paso': 85500, 'tokens_M': 2801.7, 'T': 512, 'loss': 3.0959, 'gnorm': 0.744, 'gnorm_max': 0.864, 'lr': 0.00017101309803497716, 'tok_s': 23142, 'vram_pico_GB': 11.91, 'eta_h': 14.4, 't_h': 34.76}
+{'paso': 86000, 'tokens_M': 2818.0, 'T': 512, 'loss': 3.0892, 'gnorm': 0.756, 'gnorm_max': 0.905, 'lr': 0.00016821816708057665, 'tok_s': 23172, 'vram_pico_GB': 11.91, 'eta_h': 14.2, 't_h': 34.95}
+{'paso': 86500, 'tokens_M': 2834.4, 'T': 512, 'loss': 3.0662, 'gnorm': 0.755, 'gnorm_max': 1.021, 'lr': 0.00016545002489405083, 'tok_s': 23166, 'vram_pico_GB': 11.91, 'eta_h': 14.0, 't_h': 35.15}
+{'paso': 87000, 'tokens_M': 2850.8, 'T': 512, 'loss': 3.0689, 'gnorm': 0.76, 'gnorm_max': 0.916, 'lr': 0.00016270912984032944, 'tok_s': 23154, 'vram_pico_GB': 11.91, 'eta_h': 13.8, 't_h': 35.35}
+[checkpoint] ckpt_087000.pt | val rápida (1 M tokens): nll 3.0941 ppl 22.07
+{'paso': 87500, 'tokens_M': 2867.2, 'T': 512, 'loss': 3.1035, 'gnorm': 0.762, 'gnorm_max': 1.041, 'lr': 0.000159995935772605, 'tok_s': 23138, 'vram_pico_GB': 11.91, 'eta_h': 13.6, 't_h': 35.55}
+{'paso': 88000, 'tokens_M': 2883.6, 'T': 512, 'loss': 3.0819, 'gnorm': 0.761, 'gnorm_max': 0.841, 'lr': 0.00015731089195718126, 'tok_s': 23124, 'vram_pico_GB': 11.91, 'eta_h': 13.4, 't_h': 35.75}
+{'paso': 88500, 'tokens_M': 2900.0, 'T': 512, 'loss': 3.071, 'gnorm': 0.765, 'gnorm_max': 1.108, 'lr': 0.00015465444299908086, 'tok_s': 23106, 'vram_pico_GB': 11.91, 'eta_h': 13.2, 't_h': 35.95}
+{'paso': 89000, 'tokens_M': 2916.4, 'T': 512, 'loss': 3.0794, 'gnorm': 0.776, 'gnorm_max': 1.211, 'lr': 0.00015202702876842539, 'tok_s': 22329, 'vram_pico_GB': 11.91, 'eta_h': 13.5, 't_h': 36.15}
+{'paso': 89500, 'tokens_M': 2932.7, 'T': 512, 'loss': 3.0668, 'gnorm': 0.77, 'gnorm_max': 0.975, 'lr': 0.00014942908432759883, 'tok_s': 22671, 'vram_pico_GB': 11.91, 'eta_h': 13.1, 't_h': 36.35}
+{'paso': 90000, 'tokens_M': 2949.1, 'T': 512, 'loss': 3.0626, 'gnorm': 0.776, 'gnorm_max': 0.932, 'lr': 0.000146861039859208, 'tok_s': 22233, 'vram_pico_GB': 11.91, 'eta_h': 13.1, 't_h': 36.56}
+[checkpoint] ckpt_090000.pt | val rápida (1 M tokens): nll 3.0841 ppl 21.85
+{'paso': 90500, 'tokens_M': 2965.5, 'T': 512, 'loss': 3.0765, 'gnorm': 0.772, 'gnorm_max': 0.852, 'lr': 0.00014432332059484963, 'tok_s': 22391, 'vram_pico_GB': 11.91, 'eta_h': 12.8, 't_h': 36.77}
+{'paso': 91000, 'tokens_M': 2981.9, 'T': 512, 'loss': 3.0653, 'gnorm': 0.778, 'gnorm_max': 0.941, 'lr': 0.00014181634674469859, 'tok_s': 22469, 'vram_pico_GB': 11.91, 'eta_h': 12.6, 't_h': 36.97}
+{'paso': 91500, 'tokens_M': 2998.3, 'T': 512, 'loss': 3.0549, 'gnorm': 0.777, 'gnorm_max': 0.906, 'lr': 0.00013934053342792694, 'tok_s': 22552, 'vram_pico_GB': 11.91, 'eta_h': 12.3, 't_h': 37.17}
+{'paso': 92000, 'tokens_M': 3014.7, 'T': 512, 'loss': 3.0619, 'gnorm': 0.782, 'gnorm_max': 0.845, 'lr': 0.0001368962906039662, 'tok_s': 22465, 'vram_pico_GB': 11.91, 'eta_h': 12.2, 't_h': 37.37}
+{'paso': 92500, 'tokens_M': 3031.0, 'T': 512, 'loss': 3.0697, 'gnorm': 0.79, 'gnorm_max': 0.973, 'lr': 0.0001344840230046237, 'tok_s': 22730, 'vram_pico_GB': 11.91, 'eta_h': 11.8, 't_h': 37.58}
+{'paso': 93000, 'tokens_M': 3047.4, 'T': 512, 'loss': 3.075, 'gnorm': 0.794, 'gnorm_max': 1.273, 'lr': 0.00013210413006706486, 'tok_s': 23149, 'vram_pico_GB': 11.91, 'eta_h': 11.4, 't_h': 37.77}
+[checkpoint] ckpt_093000.pt | val rápida (1 M tokens): nll 3.0751 ppl 21.65
+{'paso': 93500, 'tokens_M': 3063.8, 'T': 512, 'loss': 3.0551, 'gnorm': 0.787, 'gnorm_max': 0.883, 'lr': 0.00012975700586767243, 'tok_s': 23134, 'vram_pico_GB': 11.91, 'eta_h': 11.2, 't_h': 37.98}
+{'paso': 94000, 'tokens_M': 3080.2, 'T': 512, 'loss': 3.0599, 'gnorm': 0.794, 'gnorm_max': 0.938, 'lr': 0.00012744303905679226, 'tok_s': 23131, 'vram_pico_GB': 11.91, 'eta_h': 11.0, 't_h': 38.17}
+{'paso': 94500, 'tokens_M': 3096.6, 'T': 512, 'loss': 3.0523, 'gnorm': 0.796, 'gnorm_max': 0.907, 'lr': 0.0001251626127943791, 'tok_s': 23146, 'vram_pico_GB': 11.91, 'eta_h': 10.8, 't_h': 38.37}
+{'paso': 95000, 'tokens_M': 3113.0, 'T': 512, 'loss': 3.0345, 'gnorm': 0.795, 'gnorm_max': 0.903, 'lr': 0.00012291610468655035, 'tok_s': 23145, 'vram_pico_GB': 11.91, 'eta_h': 10.6, 't_h': 38.57}
+{'paso': 95500, 'tokens_M': 3129.3, 'T': 512, 'loss': 3.0575, 'gnorm': 0.813, 'gnorm_max': 0.887, 'lr': 0.00012070388672306005, 'tok_s': 23144, 'vram_pico_GB': 11.91, 'eta_h': 10.4, 't_h': 38.76}
+{'paso': 96000, 'tokens_M': 3145.7, 'T': 512, 'loss': 3.057, 'gnorm': 0.793, 'gnorm_max': 0.868, 'lr': 0.00011852632521570247, 'tok_s': 23131, 'vram_pico_GB': 11.91, 'eta_h': 10.3, 't_h': 38.96}
+[checkpoint] ckpt_096000.pt | val rápida (1 M tokens): nll 3.0631 ppl 21.39
+{'paso': 96500, 'tokens_M': 3162.1, 'T': 512, 'loss': 3.0362, 'gnorm': 0.81, 'gnorm_max': 1.037, 'lr': 0.00011638378073765634, 'tok_s': 23127, 'vram_pico_GB': 11.91, 'eta_h': 10.1, 't_h': 39.17}
+{'paso': 97000, 'tokens_M': 3178.5, 'T': 512, 'loss': 3.0613, 'gnorm': 0.806, 'gnorm_max': 0.863, 'lr': 0.00011427660806377903, 'tok_s': 23147, 'vram_pico_GB': 11.91, 'eta_h': 9.9, 't_h': 39.36}
+{'paso': 97500, 'tokens_M': 3194.9, 'T': 512, 'loss': 3.0385, 'gnorm': 0.816, 'gnorm_max': 0.968, 'lr': 0.00011220515611186065, 'tok_s': 23151, 'vram_pico_GB': 11.91, 'eta_h': 9.7, 't_h': 39.56}
+=== paso 97,655: empieza el tramo 2 (ventanas de 1.024, micro-lote 4 × 8 acumulaciones) ===
+{'paso': 98000, 'tokens_M': 3211.3, 'T': 1024, 'loss': 2.9854, 'gnorm': 0.806, 'gnorm_max': 0.925, 'lr': 0.00011016976788484846, 'tok_s': 17904, 'vram_pico_GB': 11.91, 'eta_h': 12.2, 't_h': 39.8}
+{'paso': 98500, 'tokens_M': 3227.6, 'T': 1024, 'loss': 2.9933, 'gnorm': 0.794, 'gnorm_max': 0.886, 'lr': 0.0001081707804140504, 'tok_s': 17873, 'vram_pico_GB': 11.91, 'eta_h': 12.0, 't_h': 40.05}
+{'paso': 99000, 'tokens_M': 3244.0, 'T': 1024, 'loss': 2.9893, 'gnorm': 0.805, 'gnorm_max': 0.927, 'lr': 0.0001062085247033275, 'tok_s': 17873, 'vram_pico_GB': 11.91, 'eta_h': 11.7, 't_h': 40.31}
+[checkpoint] ckpt_099000.pt | val rápida (1 M tokens): nll 3.0573 ppl 21.27
+{'paso': 99500, 'tokens_M': 3260.4, 'T': 1024, 'loss': 2.9926, 'gnorm': 0.808, 'gnorm_max': 1.251, 'lr': 0.00010428332567428428, 'tok_s': 17890, 'vram_pico_GB': 11.91, 'eta_h': 11.5, 't_h': 40.57}
+{'paso': 100000, 'tokens_M': 3276.8, 'T': 1024, 'loss': 2.9891, 'gnorm': 0.804, 'gnorm_max': 0.945, 'lr': 0.00010239550211246658, 'tok_s': 17904, 'vram_pico_GB': 11.91, 'eta_h': 11.2, 't_h': 40.82}
+{'paso': 100500, 'tokens_M': 3293.2, 'T': 1024, 'loss': 2.9724, 'gnorm': 0.799, 'gnorm_max': 0.949, 'lr': 0.0001005453666145749, 'tok_s': 17873, 'vram_pico_GB': 11.91, 'eta_h': 11.0, 't_h': 41.08}
+{'paso': 101000, 'tokens_M': 3309.6, 'T': 1024, 'loss': 2.981, 'gnorm': 0.8, 'gnorm_max': 0.87, 'lr': 9.873322553670321e-05, 'tok_s': 17567, 'vram_pico_GB': 11.91, 'eta_h': 10.9, 't_h': 41.34}
+{'paso': 101500, 'tokens_M': 3326.0, 'T': 1024, 'loss': 2.9657, 'gnorm': 0.808, 'gnorm_max': 0.954, 'lr': 9.695937894361037e-05, 'tok_s': 17719, 'vram_pico_GB': 11.91, 'eta_h': 10.6, 't_h': 41.6}
+{'paso': 102000, 'tokens_M': 3342.3, 'T': 1024, 'loss': 2.9869, 'gnorm': 0.805, 'gnorm_max': 1.056, 'lr': 9.52241205590339e-05, 'tok_s': 17396, 'vram_pico_GB': 11.91, 'eta_h': 10.5, 't_h': 41.86}
+[checkpoint] ckpt_102000.pt | val rápida (1 M tokens): nll 3.0526 ppl 21.17
+{'paso': 102500, 'tokens_M': 3358.7, 'T': 1024, 'loss': 2.9639, 'gnorm': 0.811, 'gnorm_max': 0.884, 'lr': 9.352773771705346e-05, 'tok_s': 17355, 'vram_pico_GB': 11.91, 'eta_h': 10.3, 't_h': 42.13}
+{'paso': 103000, 'tokens_M': 3375.1, 'T': 1024, 'loss': 2.9612, 'gnorm': 0.803, 'gnorm_max': 0.899, 'lr': 9.187051131451236e-05, 'tok_s': 17573, 'vram_pico_GB': 11.91, 'eta_h': 9.9, 't_h': 42.39}
+{'paso': 103500, 'tokens_M': 3391.5, 'T': 1024, 'loss': 2.9781, 'gnorm': 0.808, 'gnorm_max': 0.877, 'lr': 9.025271576450522e-05, 'tok_s': 17493, 'vram_pico_GB': 11.91, 'eta_h': 9.7, 't_h': 42.65}
+{'paso': 104000, 'tokens_M': 3407.9, 'T': 1024, 'loss': 2.9699, 'gnorm': 0.818, 'gnorm_max': 0.974, 'lr': 8.867461895093881e-05, 'tok_s': 17335, 'vram_pico_GB': 11.91, 'eta_h': 9.5, 't_h': 42.91}
+{'paso': 104500, 'tokens_M': 3424.3, 'T': 1024, 'loss': 2.9731, 'gnorm': 0.809, 'gnorm_max': 1.033, 'lr': 8.713648218417461e-05, 'tok_s': 17859, 'vram_pico_GB': 11.91, 'eta_h': 9.0, 't_h': 43.17}
+{'paso': 105000, 'tokens_M': 3440.6, 'T': 1024, 'loss': 2.9454, 'gnorm': 0.819, 'gnorm_max': 0.949, 'lr': 8.563856015775915e-05, 'tok_s': 17927, 'vram_pico_GB': 11.91, 'eta_h': 8.7, 't_h': 43.43}
+[checkpoint] ckpt_105000.pt | val rápida (1 M tokens): nll 3.0413 ppl 20.93
+{'paso': 105500, 'tokens_M': 3457.0, 'T': 1024, 'loss': 2.947, 'gnorm': 0.83, 'gnorm_max': 1.39, 'lr': 8.41811009062507e-05, 'tok_s': 17923, 'vram_pico_GB': 11.91, 'eta_h': 8.4, 't_h': 43.69}
+{'paso': 106000, 'tokens_M': 3473.4, 'T': 1024, 'loss': 2.9747, 'gnorm': 0.82, 'gnorm_max': 0.929, 'lr': 8.276434576414813e-05, 'tok_s': 17907, 'vram_pico_GB': 11.91, 'eta_h': 8.2, 't_h': 43.95}
+{'paso': 106500, 'tokens_M': 3489.8, 'T': 1024, 'loss': 2.9623, 'gnorm': 0.819, 'gnorm_max': 0.893, 'lr': 8.138852932592938e-05, 'tok_s': 18186, 'vram_pico_GB': 11.91, 'eta_h': 7.8, 't_h': 44.2}
+{'paso': 107000, 'tokens_M': 3506.2, 'T': 1024, 'loss': 2.9708, 'gnorm': 0.829, 'gnorm_max': 0.896, 'lr': 8.0053879407206e-05, 'tok_s': 17923, 'vram_pico_GB': 11.91, 'eta_h': 7.7, 't_h': 44.45}
+{'paso': 107500, 'tokens_M': 3522.6, 'T': 1024, 'loss': 2.9519, 'gnorm': 0.818, 'gnorm_max': 0.917, 'lr': 7.876061700700008e-05, 'tok_s': 17921, 'vram_pico_GB': 11.91, 'eta_h': 7.4, 't_h': 44.71}
+{'paso': 108000, 'tokens_M': 3538.9, 'T': 1024, 'loss': 2.9603, 'gnorm': 0.837, 'gnorm_max': 1.446, 'lr': 7.750895627114998e-05, 'tok_s': 17911, 'vram_pico_GB': 11.91, 'eta_h': 7.1, 't_h': 44.96}
+[checkpoint] ckpt_108000.pt | val rápida (1 M tokens): nll 3.0338 ppl 20.78
+{'paso': 108500, 'tokens_M': 3555.3, 'T': 1024, 'loss': 2.9601, 'gnorm': 0.824, 'gnorm_max': 0.887, 'lr': 7.62991044568508e-05, 'tok_s': 17823, 'vram_pico_GB': 11.91, 'eta_h': 6.9, 't_h': 45.23}
+{'paso': 109000, 'tokens_M': 3571.7, 'T': 1024, 'loss': 2.9552, 'gnorm': 0.827, 'gnorm_max': 0.897, 'lr': 7.513126189833557e-05, 'tok_s': 17179, 'vram_pico_GB': 11.91, 'eta_h': 6.9, 't_h': 45.49}
+{'paso': 109500, 'tokens_M': 3588.1, 'T': 1024, 'loss': 2.9532, 'gnorm': 0.827, 'gnorm_max': 0.909, 'lr': 7.400562197370275e-05, 'tok_s': 17892, 'vram_pico_GB': 11.91, 'eta_h': 6.4, 't_h': 45.74}
+{'paso': 110000, 'tokens_M': 3604.5, 'T': 1024, 'loss': 2.9482, 'gnorm': 0.832, 'gnorm_max': 0.9, 'lr': 7.292237107289553e-05, 'tok_s': 17691, 'vram_pico_GB': 11.91, 'eta_h': 6.2, 't_h': 46.0}
+{'paso': 110500, 'tokens_M': 3620.9, 'T': 1024, 'loss': 2.9478, 'gnorm': 0.839, 'gnorm_max': 0.897, 'lr': 7.18816885668384e-05, 'tok_s': 17917, 'vram_pico_GB': 11.91, 'eta_h': 5.9, 't_h': 46.25}
+{'paso': 111000, 'tokens_M': 3637.2, 'T': 1024, 'loss': 2.9511, 'gnorm': 0.828, 'gnorm_max': 0.904, 'lr': 7.088374677773578e-05, 'tok_s': 17909, 'vram_pico_GB': 11.91, 'eta_h': 5.6, 't_h': 46.5}
+[checkpoint] ckpt_111000.pt | val rápida (1 M tokens): nll 3.0270 ppl 20.64
+{'paso': 111500, 'tokens_M': 3653.6, 'T': 1024, 'loss': 2.9344, 'gnorm': 0.846, 'gnorm_max': 1.128, 'lr': 6.992871095053794e-05, 'tok_s': 17914, 'vram_pico_GB': 11.91, 'eta_h': 5.4, 't_h': 46.77}
+{'paso': 112000, 'tokens_M': 3670.0, 'T': 1024, 'loss': 2.9281, 'gnorm': 0.845, 'gnorm_max': 1.296, 'lr': 6.901673922557895e-05, 'tok_s': 17930, 'vram_pico_GB': 11.91, 'eta_h': 5.1, 't_h': 47.02}
+{'paso': 112500, 'tokens_M': 3686.4, 'T': 1024, 'loss': 2.9565, 'gnorm': 0.85, 'gnorm_max': 1.479, 'lr': 6.814798261239051e-05, 'tok_s': 17918, 'vram_pico_GB': 11.91, 'eta_h': 4.9, 't_h': 47.27}
+{'paso': 113000, 'tokens_M': 3702.8, 'T': 1024, 'loss': 2.9329, 'gnorm': 0.84, 'gnorm_max': 0.921, 'lr': 6.732258496469741e-05, 'tok_s': 17909, 'vram_pico_GB': 11.91, 'eta_h': 4.6, 't_h': 47.53}
+{'paso': 113500, 'tokens_M': 3719.2, 'T': 1024, 'loss': 2.959, 'gnorm': 0.843, 'gnorm_max': 0.948, 'lr': 6.654068295659698e-05, 'tok_s': 17927, 'vram_pico_GB': 11.91, 'eta_h': 4.4, 't_h': 47.78}
+{'paso': 114000, 'tokens_M': 3735.6, 'T': 1024, 'loss': 2.9414, 'gnorm': 0.848, 'gnorm_max': 1.239, 'lr': 6.580240605992802e-05, 'tok_s': 17926, 'vram_pico_GB': 11.91, 'eta_h': 4.1, 't_h': 48.04}
+[checkpoint] ckpt_114000.pt | val rápida (1 M tokens): nll 3.0218 ppl 20.53
+{'paso': 114500, 'tokens_M': 3751.9, 'T': 1024, 'loss': 2.9546, 'gnorm': 0.854, 'gnorm_max': 1.042, 'lr': 6.510787652283211e-05, 'tok_s': 17914, 'vram_pico_GB': 11.91, 'eta_h': 3.8, 't_h': 48.3}
+{'paso': 115000, 'tokens_M': 3768.3, 'T': 1024, 'loss': 2.9424, 'gnorm': 0.848, 'gnorm_max': 0.947, 'lr': 6.445720934951103e-05, 'tok_s': 17907, 'vram_pico_GB': 11.91, 'eta_h': 3.6, 't_h': 48.55}
+{'paso': 115500, 'tokens_M': 3784.7, 'T': 1024, 'loss': 2.944, 'gnorm': 0.852, 'gnorm_max': 0.975, 'lr': 6.385051228118359e-05, 'tok_s': 17930, 'vram_pico_GB': 11.91, 'eta_h': 3.3, 't_h': 48.81}
+{'paso': 116000, 'tokens_M': 3801.1, 'T': 1024, 'loss': 2.9619, 'gnorm': 0.849, 'gnorm_max': 0.939, 'lr': 6.328788577824542e-05, 'tok_s': 17924, 'vram_pico_GB': 11.91, 'eta_h': 3.1, 't_h': 49.06}
+{'paso': 116500, 'tokens_M': 3817.5, 'T': 1024, 'loss': 2.9369, 'gnorm': 0.861, 'gnorm_max': 2.054, 'lr': 6.276942300363399e-05, 'tok_s': 17913, 'vram_pico_GB': 11.91, 'eta_h': 2.8, 't_h': 49.32}
+{'paso': 117000, 'tokens_M': 3833.9, 'T': 1024, 'loss': 2.9337, 'gnorm': 0.859, 'gnorm_max': 1.225, 'lr': 6.229520980740224e-05, 'tok_s': 17905, 'vram_pico_GB': 11.91, 'eta_h': 2.6, 't_h': 49.57}
+[checkpoint] ckpt_117000.pt | val rápida (1 M tokens): nll 3.0204 ppl 20.50
+{'paso': 117500, 'tokens_M': 3850.2, 'T': 1024, 'loss': 2.9415, 'gnorm': 0.86, 'gnorm_max': 0.967, 'lr': 6.186532471250303e-05, 'tok_s': 17930, 'vram_pico_GB': 11.91, 'eta_h': 2.3, 't_h': 49.83}
+{'paso': 118000, 'tokens_M': 3866.6, 'T': 1024, 'loss': 2.949, 'gnorm': 0.862, 'gnorm_max': 1.318, 'lr': 6.147983890178677e-05, 'tok_s': 17925, 'vram_pico_GB': 11.91, 'eta_h': 2.1, 't_h': 50.09}
+{'paso': 118500, 'tokens_M': 3883.0, 'T': 1024, 'loss': 2.9363, 'gnorm': 0.856, 'gnorm_max': 0.922, 'lr': 6.113881620621473e-05, 'tok_s': 17910, 'vram_pico_GB': 11.91, 'eta_h': 1.8, 't_h': 50.34}
+{'paso': 119000, 'tokens_M': 3899.4, 'T': 1024, 'loss': 2.9255, 'gnorm': 0.867, 'gnorm_max': 1.344, 'lr': 6.0842313094289364e-05, 'tok_s': 17903, 'vram_pico_GB': 11.91, 'eta_h': 1.6, 't_h': 50.6}
+{'paso': 119500, 'tokens_M': 3915.8, 'T': 1024, 'loss': 2.947, 'gnorm': 0.854, 'gnorm_max': 0.914, 'lr': 6.059037866270402e-05, 'tok_s': 17927, 'vram_pico_GB': 11.91, 'eta_h': 1.3, 't_h': 50.85}
+{'paso': 120000, 'tokens_M': 3932.2, 'T': 1024, 'loss': 2.9454, 'gnorm': 0.862, 'gnorm_max': 0.928, 'lr': 6.038305462821317e-05, 'tok_s': 17921, 'vram_pico_GB': 11.91, 'eta_h': 1.1, 't_h': 51.1}
+[checkpoint] ckpt_120000.pt | val rápida (1 M tokens): nll 3.0180 ppl 20.45
+{'paso': 120500, 'tokens_M': 3948.5, 'T': 1024, 'loss': 2.9328, 'gnorm': 0.864, 'gnorm_max': 0.938, 'lr': 6.0220375320724846e-05, 'tok_s': 17907, 'vram_pico_GB': 11.91, 'eta_h': 0.8, 't_h': 51.37}
+{'paso': 121000, 'tokens_M': 3964.9, 'T': 1024, 'loss': 2.9427, 'gnorm': 0.865, 'gnorm_max': 0.997, 'lr': 6.010236767761586e-05, 'tok_s': 17903, 'vram_pico_GB': 11.91, 'eta_h': 0.5, 't_h': 51.62}
+{'paso': 121500, 'tokens_M': 3981.3, 'T': 1024, 'loss': 2.9434, 'gnorm': 0.87, 'gnorm_max': 0.94, 'lr': 6.0029051239271605e-05, 'tok_s': 17929, 'vram_pico_GB': 11.91, 'eta_h': 0.3, 't_h': 51.87}
+{'paso': 122000, 'tokens_M': 3997.7, 'T': 1024, 'loss': 2.9452, 'gnorm': 0.874, 'gnorm_max': 0.95, 'lr': 6.0000438145850305e-05, 'tok_s': 17921, 'vram_pico_GB': 11.91, 'eta_h': 0.0, 't_h': 52.13}
+{'paso': 122069, 'tokens_M': 4000.0, 'T': 1024, 'loss': 2.9452, 'gnorm': 0.87, 'gnorm_max': 0.988, 'lr': 6.0000000089417536e-05, 'tok_s': 0, 'vram_pico_GB': 11.91, 'eta_h': 0.0, 't_h': 52.16}
+entrenamiento terminado; validación completa…
+val completa (8.2 M tokens) | embedding fp32 (master) : nll 3.0084 ppl 20.255
+val completa (8.2 M tokens) | embedding fp16          : nll 3.0084 ppl 20.255
+val completa (8.2 M tokens) | embedding int8 por fila : nll 3.0093 ppl 20.273
+documento escrito: D:\Documentos\GitHub\TEST-IA\estudios\ETAPA4_FASE2_pretrain.md

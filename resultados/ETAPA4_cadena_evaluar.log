@@ -1,0 +1,19 @@
+== 1. Etapa 1 · ddgs real (línea base v1: hechos 71,6 %, abstención 98,1 %)
+  buscar_ok    buscó=100.0%  respuesta_exacta=83.3%
+  irrelevante  buscó=100.0%  se_abstuvo=98.1%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 2. Simulado con artículos reservados
+  buscar_ok    buscó=100.0%  respuesta_exacta=91.7%
+  irrelevante  buscó=100.0%  se_abstuvo=99.7%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 3. Charla de TEST-IA (frases reservadas)
+  no busca 100.0% | respuesta válida 46.0% (300 frases)
+    mal: 'eres increíble' -> 'Me alegra sacarte una sonrisa.'
+    mal: 'soy Isabel' -> '¡Qué lindo! Gracias. Sigamos.'
+    mal: 'esa respuesta no me sirve' -> 'Muchas gracias, me alegra servir. ¿Algo más en que te ayude?'
+    mal: 'jeje' -> '¡Hasta luego! Aquí estaré cuando me necesites.'
+    mal: '¿quién te entrenó?' -> 'Soy TEST-IA, un modelo de lenguaje pequeño en español. Si no sé algo, lo busco.'
+    mal: 'esa respuesta no me sirve' -> 'Muchas gracias, me alegra servir. ¿Algo más en que te ayude?'
+    mal: 'eres increíble' -> 'Me alegra sacarte una sonrisa.'
+    mal: 'soy María' -> '¡Qué lindo! Gracias. Sigamos.'
+listo en 538 s -> D:\Documentos\GitHub\TEST-IA\resultados\ETAPA4_eval_v2.json

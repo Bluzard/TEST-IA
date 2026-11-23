@@ -1,0 +1,6 @@
+experto_codigo_v2.lora.pt -> experto_codigo_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+    6 tokens | PyTorch(+LoRA)↔motor 3.7e-04 | el LoRA cambia los logits en 1.0e+00 | mismo token: True | OK
+   12 tokens | PyTorch(+LoRA)↔motor 3.8e-04 | el LoRA cambia los logits en 7.7e-01 | mismo token: True | OK
+   15 tokens | PyTorch(+LoRA)↔motor 2.0e-04 | el LoRA cambia los logits en 9.9e-01 | mismo token: True | OK
+   44 tokens | PyTorch(+LoRA)↔motor 7.4e-04 | el LoRA cambia los logits en 1.1e+00 | mismo token: True | OK
+verificación LoRA: TODO CORRECTO

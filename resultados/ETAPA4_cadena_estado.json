@@ -1,0 +1,69 @@
+{
+ "etapas": {
+  "comprobar": {
+   "estado": "ok",
+   "fin": "2026-11-23 06:08:57"
+  },
+  "sft_humo": {
+   "estado": "ok",
+   "segundos": 16,
+   "fin": "2026-11-23 06:09:13",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_sft_humo.log"
+  },
+  "sft": {
+   "estado": "ok",
+   "segundos": 7317,
+   "fin": "2026-11-23 08:11:11",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_sft.log"
+  },
+  "exportar": {
+   "estado": "ok",
+   "segundos": 10,
+   "fin": "2026-11-23 08:11:21",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_exportar.log"
+  },
+  "evaluar": {
+   "estado": "ok",
+   "segundos": 540,
+   "fin": "2026-11-23 08:20:21",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_evaluar.log"
+  },
+  "lora_codigo": {
+   "estado": "ok",
+   "segundos": 306,
+   "fin": "2026-11-23 08:25:27",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_lora_codigo.log"
+  },
+  "lora_redaccion": {
+   "estado": "ok",
+   "segundos": 280,
+   "fin": "2026-11-23 08:30:07",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_lora_redaccion.log"
+  },
+  "verificar_lora_codigo": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 08:30:11",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_verificar_lora_codigo.log"
+  },
+  "verificar_lora_redaccion": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 08:30:15",
+   "codigo": 0,
+   "log": "resultados/ETAPA4_cadena_verificar_lora_redaccion.log"
+  }
+ },
+ "esperando": {
+  "pid": 18968,
+  "desde": "2026-11-22 23:44:33"
+ },
+ "terminado": "2026-11-23 08:30:15"
+}

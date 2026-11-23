@@ -74,8 +74,39 @@ def _texto(fmt, ids):
     return fmt.tok.decode([i for i in ids if i not in (fmt.fin, fmt.herramienta, fmt.asistente, fmt.usuario)]).strip()
 
 
+def _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizacion):
+    """Consultas de hora/fecha (reloj del equipo), clima y datos en vivo (solo con --v2): cada parte se resuelve y se unen sin repetir.
+    Las búsquedas se hacen con un turno de herramienta normal: pregunta + «B: consulta» + resultados -> el núcleo responde."""
+    from tiempo_real import lugar
+
+    traza, respuestas = ["[tiempo real]"], []
+    for tipo, valor in partes:
+        if tipo == "texto":
+            respuestas.append(valor)
+            continue
+        resultados = buscador(valor)
+        traza += [f"B: {valor}", "[herramienta] " + resultados.replace("\n", " | ")]
+        pregunta_modelo = f"¿Cómo está el {valor}?" if valor.startswith("clima ") else pregunta
+        ids = fmt.ids_prompt(pregunta_modelo) + fmt.texto(" B: " + valor) + [fmt.herramienta] + fmt.ids_tras_herramienta(resultados, MAX_TOKENS_RESULTADOS)
+        nuevo, _ = generar_lote(modelo, fmt, [ids], dispositivo, penalizacion, max_nuevos=100)[0]
+        r = _texto(fmt, nuevo).removeprefix("R:").strip()
+        traza.append("R: " + r)
+        if not r or r.startswith("No tengo información"):  # los resultados no traen el dato: se dice y se apunta a la mejor fuente
+            import re
+
+            m = re.match(r"\s*1\.\s*(.+?):", resultados)
+            fuente = f" Fuente que encontré: {m.group(1).strip()}." if m else ""
+            if valor.startswith("clima "):
+                lug = " ".join(w if w in ("de", "del", "la", "las", "los", "el") else w.capitalize() for w in valor.removeprefix("clima ").split())
+                r = f"No pude leer la temperatura actual de {lug} en los resultados.{fuente}"
+            else:
+                r = f"No pude leer ese dato en los resultados.{fuente}"
+        respuestas.append(r)
+    return " ".join(respuestas), traza
+
+
 def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizacion=1.1, max_busquedas=2, modo=None,
-              memoria=None, trabajo=None):
+              memoria=None, trabajo=None, extras=False):
     """Bucle completo: capa 1 (Python) -> núcleo [+ experto] -> herramienta. Devuelve (respuesta, traza).
 
     modo="codigo": el experto de código está activo en este turno: herramientas B: (base local de conceptos y ddgs en modo
@@ -85,6 +116,12 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
     exacta = capa1(pregunta, memoria)
     if exacta is not None:
         return exacta, ["[capa 1, sin IA]"]
+    if extras:  # v2: hora/fecha del reloj, clima con lugar y datos en vivo (tiempo_real.py)
+        from tiempo_real import dividir
+
+        partes = dividir(pregunta)
+        if partes:
+            return _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizacion)
     if modo:  # con cualquier experto activo: sin penalización por repetición (copiar código o texto repite tokens)
         penalizacion = 1.0
     ids = fmt.ids_prompt(trabajo.contextualizar(pregunta) if trabajo else pregunta)
@@ -157,17 +194,18 @@ class Sesion:
     """
 
     def __init__(self, modelo, fmt, dispositivo, motor=False, experto=None, expertos=None, pen=1.1, memoria=True, buscador=buscar_web,
-                 ruta_memoria=None, vida_tibia=None):
+                 ruta_memoria=None, vida_tibia=None, v2=False):
         from memoria import Memoria, MemoriaTrabajo
 
         self.modelo, self.fmt, self.disp, self.motor, self.pen, self.buscador = modelo, fmt, dispositivo, motor, pen, buscador
+        self.v2 = v2  # núcleo v2c: enrutador ampliado y consultas de tiempo real (hora, clima, datos en vivo)
         self.enr, self._lora, self.expertos = None, None, dict(expertos or {})
         if experto and "codigo" not in self.expertos:
             self.expertos["codigo"] = experto
         if self.expertos:  # el enrutador despierta, cambia o duerme al experto turno a turno
-            from enrutador import Enrutador
+            from enrutador import Enrutador, EnrutadorV2
 
-            self.enr = Enrutador()
+            self.enr = EnrutadorV2() if v2 else Enrutador()
             if motor:
                 if vida_tibia:
                     modelo.vida_tibia(vida_tibia)
@@ -216,12 +254,14 @@ class Sesion:
         elif self.enr:
             self._lora.activar(self.modelo, modo == self._nombre_unico)
         r, traza = responder(self.modelo, self.fmt, p, self.disp, buscador=self.buscador, penalizacion=self.pen, modo=modo,
-                             memoria=self.memoria, trabajo=self.trabajo)
+                             memoria=self.memoria, trabajo=self.trabajo, extras=self.v2)
         if self.trabajo:
             self.trabajo.registrar(p, r)
         if imprimir:
             print(f"P: {p}" + (f"   [experto: {modo or 'dormido'}]" if self.enr else ""))
-            for t in traza:
+            for t in traza:  # la traza solo muestra lo que pasó de más (B:/E:/herramienta); la respuesta final se imprime una sola vez
+                if t == r or (t.startswith("R:") and t.removeprefix("R:").strip() == r):
+                    continue
                 print("   ", t)
             print(f"R: {r}\n")
         return r, traza, modo
@@ -272,7 +312,7 @@ def main():
         expertos["codigo"] = args.experto
     if args.redaccion:
         expertos["redaccion"] = args.redaccion
-    sesion = Sesion(modelo, fmt, disp, motor=args.motor, expertos=expertos, pen=args.pen, memoria=not args.sin_memoria)
+    sesion = Sesion(modelo, fmt, disp, motor=args.motor, expertos=expertos, pen=args.pen, memoria=not args.sin_memoria, v2=args.v2)
     if args.preguntas:
         for p in args.preguntas:
             sesion.atender(p, imprimir=True)

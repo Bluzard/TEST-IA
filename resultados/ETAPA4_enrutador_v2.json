@@ -1,0 +1,138 @@
+{
+ "v1": {
+  "codigo": {
+   "total": 0.7797235023041474,
+   "por_tipo": {
+    "concepto": 0.64,
+    "concepto_ejemplo": 0.653,
+    "concepto_reservado": 0.615,
+    "doc_ok": 0.881,
+    "doc_abst": 0.908,
+    "ejec_ok": 1.0,
+    "ejec_error": 1.0,
+    "ejec_nameerror": 1.0,
+    "error_interp": 1.0
+   }
+  },
+  "redaccion": {
+   "total": 0.9438596491228071,
+   "por_tipo": {
+    "ortografia_ok": 1.0,
+    "ortografia": 1.0,
+    "ortografia_signos": 1.0,
+    "tono_formal": 1.0,
+    "tono_cercano": 1.0,
+    "tono_conciso": 1.0,
+    "tono_claro": 1.0,
+    "gramatica_reservada": 0.778,
+    "gramatica_ejemplo": 0.891,
+    "gramatica": 0.947,
+    "cola_inexistente": 0.571,
+    "cola_abst": 0.933
+   }
+  },
+  "falsos_positivos": {
+   "negativos_dificiles": {
+    "n": 30,
+    "falsos": 7,
+    "tasa": 0.2333,
+    "ejemplos": [
+     "¿Qué clase de música te gusta?",
+     "Necesito una lista de compras para el asado.",
+     "El objeto de la reunión es acordar fechas.",
+     "¿Cómo funciona un método de estudio eficaz?",
+     "¿Qué es una base de datos de clientes en una tienda?"
+    ]
+   },
+   "charla (339 frases reservadas)": {
+    "n": 339,
+    "falsos": 11,
+    "tasa": 0.0324,
+    "ejemplos": [
+     "¿qué tipo de cosas puedes hacer?",
+     "hazlo más sencillo",
+     "tengo un problema con mi código",
+     "¿puedes revisar mi código?",
+     "¿me explicas un error de código?"
+    ]
+   },
+   "hechos (ddgs real, 287 preguntas)": {
+    "n": 287,
+    "falsos": 2,
+    "tasa": 0.007,
+    "ejemplos": [
+     "Dime algo sobre Argumento de Eckmann-Hilton.",
+     "¿Qué me puedes decir de Código Civil de España?"
+    ]
+   }
+  }
+ },
+ "v2": {
+  "codigo": {
+   "total": 0.9152073732718894,
+   "por_tipo": {
+    "concepto": 0.941,
+    "concepto_ejemplo": 1.0,
+    "concepto_reservado": 0.615,
+    "doc_ok": 0.881,
+    "doc_abst": 0.908,
+    "ejec_ok": 1.0,
+    "ejec_error": 1.0,
+    "ejec_nameerror": 1.0,
+    "error_interp": 1.0
+   }
+  },
+  "redaccion": {
+   "total": 0.9649122807017544,
+   "por_tipo": {
+    "ortografia_ok": 1.0,
+    "ortografia": 1.0,
+    "ortografia_signos": 1.0,
+    "tono_formal": 1.0,
+    "tono_cercano": 1.0,
+    "tono_conciso": 1.0,
+    "tono_claro": 1.0,
+    "gramatica_reservada": 0.889,
+    "gramatica_ejemplo": 0.945,
+    "gramatica": 0.973,
+    "cola_inexistente": 0.571,
+    "cola_abst": 0.933
+   }
+  },
+  "falsos_positivos": {
+   "negativos_dificiles": {
+    "n": 30,
+    "falsos": 7,
+    "tasa": 0.2333,
+    "ejemplos": [
+     "¿Qué clase de música te gusta?",
+     "Necesito una lista de compras para el asado.",
+     "El objeto de la reunión es acordar fechas.",
+     "¿Cómo funciona un método de estudio eficaz?",
+     "¿Qué es una base de datos de clientes en una tienda?"
+    ]
+   },
+   "charla (339 frases reservadas)": {
+    "n": 339,
+    "falsos": 11,
+    "tasa": 0.0324,
+    "ejemplos": [
+     "¿qué tipo de cosas puedes hacer?",
+     "hazlo más sencillo",
+     "tengo un problema con mi código",
+     "¿puedes revisar mi código?",
+     "¿me explicas un error de código?"
+    ]
+   },
+   "hechos (ddgs real, 287 preguntas)": {
+    "n": 287,
+    "falsos": 2,
+    "tasa": 0.007,
+    "ejemplos": [
+     "Dime algo sobre Argumento de Eckmann-Hilton.",
+     "¿Qué me puedes decir de Código Civil de España?"
+    ]
+   }
+  }
+ }
+}

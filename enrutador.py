@@ -312,3 +312,72 @@ def evaluar3(n_por_clase=1500):
 
 if __name__ == "__main__":
     evaluar()
+
+
+# ---------------------------------------------------------------- enrutador v2 (núcleo v2c; v1 no cambia)
+_ARTICULOS_V2 = r"(?:un |una |el |la |los |las )?"
+_MARCOS_V2 = [re.compile(p) for p in (
+    r"(?:podrias|puedes) (?:explicarme|aclararme|contarme|decirme|resumirme)(?: que (?:es|significa))? (.+)",
+    r"necesito (?:entender|comprender|saber que es|que me expliques) (.+)",
+    r"(?:cuentame|dime|hablame|explicame)(?: con calma)? (?:que es|que significa|sobre|de que trata|de|algo sobre) (.+)",
+    r"(.+?) ?: ?que es", r"que (?:quiere decir|significa|es|se entiende por|se quiere decir con) (?:la palabra )?(.+)",
+    r"(?:ponme|dame|muestrame|tienes|quisiera) (?:un )?ejemplo de (.+)", r"(?:me explicas|me aclaras|ayuda con|ayudame con|explicame|ayudame a entender) (.+)",
+    r"(?:quisiera|quiero|me gustaria) (?:saber que es|entender|repasar|aprender) (.+)", r"(?:no se|no tengo claro) (?:que es )?(.+?)(?:, me (?:explicas|ayudas))?", r"recuerdame (.+)")]
+_CIERRES_V2 = re.compile(r"\s*(?:,? ?por favor|en codigo|en programacion|al programar|en python|en el codigo)$")
+_PISTA_CODIGO_V2 = re.compile(r"\b(en codigo|en programacion|al programar|en el codigo|de programacion)\b")
+_REDACCION_FRASES_V2 = [re.compile(p) for p in (
+    r"\b(dilo|dimelo|hazlo|ponlo|escribelo|explicalo|dame una version|reformulalo|reformula esto|reescribe esto)\b.{0,30}\b(mas (claro|clara|claridad|facil|sencillo|sencilla|simple|corto|breve|formal|cercano|amable|conciso)|palabras (mas )?(simples|sencillas)|se entienda mejor|facil de (leer|entender))\b",
+    r"\bmas (claro|clara) ?, por favor\b", r"\b(simplificalo|simplifica|aclara|aclarame) (esto|este texto|el texto|esta frase)\b", r"\bfaltas? de ortografia\b",
+    r"\b(esta|estan) (bien|mal) escrit[oa]s?\b", r"\bcorrige (esto|este|esta|mi)\b")]
+_LEX = {}
+
+
+def _lexicos_v2():
+    """Términos de conceptos de programación y de gramática del ENTRENAMIENTO de los expertos (nunca de evaluación)."""
+    if not _LEX:
+        cod, gram = set(), set()
+        for archivo, destino, sufijo, tipos in (("experto_train_B2.jsonl", cod, "programacion", ("concepto", "concepto_ejemplo")),
+                                                 ("redaccion_train.jsonl", gram, "gramatica", ("gramatica", "gramatica_ejemplo"))):
+            ruta = RAIZ / "datos" / archivo
+            if ruta.exists():
+                for linea in open(ruta, encoding="utf-8"):
+                    r = json.loads(linea)
+                    if r["tipo"] in tipos and r.get("consulta"):
+                        t = _n(r["consulta"]).strip()
+                        destino.add(t.removesuffix(" " + sufijo).strip())
+        gram |= {_n(f[0]) for f in FICHAS_GRAMATICA}
+        _LEX["codigo"], _LEX["gram"] = cod - {""}, gram - {""}
+    return _LEX["codigo"], _LEX["gram"]
+
+
+def _termino_v2(mensaje):
+    n = _n(mensaje).strip(" ¿?¡!.\n")
+    for m in _MARCOS_V2:
+        g = m.fullmatch(n)
+        if g:
+            t = _CIERRES_V2.sub("", g.group(1)).strip()
+            return re.sub(r"^(?:un|una|el|la|los|las) ", "", t), n
+    return None, n
+
+
+class EnrutadorV2(Enrutador):
+    """Enrutador para el núcleo v2c: las mismas reglas de v1 + formulaciones naturales que antes se escapaban a charla.
+
+    Código: pregunta de definición («¿Podrías explicarme X?», «Necesito entender X», «¿Qué quiere decir X en código?», «Cuéntame qué es X», «X: ¿qué es?»,
+    «Ponme un ejemplo de X») donde X es un concepto de programación conocido o la frase trae una pista («en código», «al programar»): +3.
+    Redacción: reescrituras de tono/claridad («Dilo de forma más clara», «Hazlo más fácil de leer»…), faltas de ortografía y definiciones de gramática conocidas: +3.
+    Los negativos de v1 (listas de compras, «¿Qué es un árbol genealógico?»…) no cambian: X debe estar en el léxico de entrenamiento o llevar pista explícita."""
+
+    @staticmethod
+    def puntajes(mensaje):
+        sc = Enrutador.puntajes(mensaje)
+        cod, gram = _lexicos_v2()
+        t, n = _termino_v2(mensaje)
+        if t:
+            if t in cod or _PISTA_CODIGO_V2.search(n):
+                sc["codigo"] += 3
+            if t in gram:
+                sc["redaccion"] += 3
+        if any(p.search(n) for p in _REDACCION_FRASES_V2):
+            sc["redaccion"] += 3
+        return sc

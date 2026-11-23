@@ -1,0 +1,13 @@
+{
+ "nota": "respaldo \u00edntegro de la producci\u00f3n v1 (copias; los originales siguen en modelos/)",
+ "sha256": {
+  "nucleo_sft_v3.pt": "a867d741e0e65aa752757080fd4957abb871df6de75c0ef3e3a8fbd1c176717d",
+  "nucleo_sft_v3.bin": "17ecdbdaafba9c61ad0f08a633982118c0e205b130839b27fa5fc27204e0b540",
+  "experto_codigo.lora": "b57032631efdcdb6eec0c883207bad64a23e91f65eb21792095bdfb2110278c6",
+  "experto_redaccion.lora": "3ec614b0ba4ecd5538d2557730c914506054adfd618c77711b19e3ed54696018",
+  "nucleo_sft_v3.vocab.json": "7f35e88daf6facc1480b61de032f8dbe3d505da1cae9625b0c1171a1c40d13e2",
+  "NUCLEO_BASE.json": "7f955d6b7d8b8d72b3750dccc84323c0c1573167c15fa27f0c8702e184af47fe",
+  "EXPERTO_CODIGO.json": "de2b2aac094cc33e2e8c8c134916e967ae1ec1b3594bcc5d5d9ba557f767f392",
+  "EXPERTO_REDACCION.json": "f26cf132d4f50119a769484ecf1f7ef13e6cbba3849f9d79c30a59ac666ad900"
+ }
+}

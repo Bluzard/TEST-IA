@@ -33,3 +33,7 @@ datos/sft_pool.jsonl
 datos/v2/*
 !datos/v2/tokenizador_v2.json
 !datos/v2/tokenizador_v2_sft.json
+
+# respaldo de v1 (copias; los originales ya están versionados): solo el manifiesto
+modelos/v1_respaldo/*
+!modelos/v1_respaldo/SHA256_v1.json

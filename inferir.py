@@ -5,6 +5,8 @@ agrega los resultados y le devuelve el turno al modelo).
 Penalización por repetición: solo sobre tokens que el modelo ya generó en este turno
 (no sobre la pregunta ni los resultados, para no impedir que copie datos).
 
+  python inferir.py                                # chat interactivo con v2c (producción: modelos/nucleo_v2c_sft.bin + expertos de código y redacción)
+  python inferir.py --v1 --motor --experto modelos/experto_codigo.lora   # respaldo de v1
   python inferir.py "¿Qué es el Teide?"            # uno a uno con búsqueda web real (ddgs)
   python inferir.py --experto modelos/experto_codigo.lora --motor   # sin preguntas: chat interactivo
   python inferir.py --evaluar                      # mide en sft_eval.jsonl con resultados simulados
@@ -270,38 +272,41 @@ class Sesion:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("preguntas", nargs="*")
-    ap.add_argument("--modelo", default=str(RAIZ / "modelos" / "nucleo_sft_v3.pt"))
+    ap.add_argument("--modelo", default=None, help="v2c (defecto): modelos/nucleo_v2c_sft.bin; con --v1: modelos/nucleo_sft_v3.pt")
     ap.add_argument("--motor", action="store_true", help="usar el motor C++ (motor.dll) en vez de PyTorch")
     ap.add_argument("--experto", default=None, help="adaptador del experto de código (.lora con --motor, .lora.pt con PyTorch); "
                     "las preguntas se tratan como una conversación y el enrutador lo despierta o duerme")
     ap.add_argument("--sin-memoria", action="store_true", help="desactiva la memoria externa (datos/memoria.json) y la de trabajo")
     ap.add_argument("--redaccion", default=None, help="adaptador del experto de redacción (.lora; requiere --motor junto a --experto)")
-    ap.add_argument("--v2", action="store_true", help="núcleo v2c (EXPERIMENTAL: modelos/experimentos/, tokenizador 24k, int8 atado): implica --motor y carga ambos expertos")
-    ap.add_argument("--sin-expertos", action="store_true", help="con --v2: solo el núcleo, sin adaptadores")
+    ap.add_argument("--v1", action="store_true", help="núcleo v1 (respaldo: modelos/nucleo_sft_v3.*, tokenizador v1, expertos v1 si se indican con --experto/--redaccion)")
+    ap.add_argument("--v2", action="store_true", help="(obsoleto: v2c es el modelo por defecto)")
+    ap.add_argument("--sin-expertos", action="store_true", help="solo el núcleo, sin adaptadores (v2c)")
     ap.add_argument("--evaluar", action="store_true")
     ap.add_argument("--datos", default=str(RAIZ / "datos" / "sft_eval.jsonl"), help="conjunto de evaluación (sft_eval_real.jsonl = ddgs real)")
     ap.add_argument("--pen", type=float, default=1.1, help="penalización por repetición (1.0 = ninguna)")
     args = ap.parse_args()
     disp = elegir_dispositivo()
-    if args.v2:  # v2c experimental: no pisa nada de v1; los adaptadores v2 (LORA0002) solo se usan con el núcleo v2
+    args.v2 = not args.v1  # producción: v2c (tokenizador 24k, int8 atado, expertos LORA0002). --v1 abre el respaldo de v1
+    if args.v2:
         from protocolo_v2 import FormatoV2
 
-        exp = RAIZ / "modelos" / "experimentos"
+        prod = RAIZ / "modelos"
         args.motor = True
-        if args.modelo == str(RAIZ / "modelos" / "nucleo_sft_v3.pt"):
-            args.modelo = str(exp / "nucleo_v2c_sft.bin")
+        args.modelo = args.modelo or str(prod / "nucleo_v2c_sft.bin")
         if not args.sin_expertos:
-            args.experto = args.experto or str(exp / "experto_codigo_g_v2.lora")
-            args.redaccion = args.redaccion or str(exp / "experto_redaccion_f_v2.lora")
+            args.experto = args.experto or str(prod / "experto_codigo_g_v2.lora")
+            args.redaccion = args.redaccion or str(prod / "experto_redaccion_f_v2.lora")
         from motor_cpp import MotorCpp
 
         modelo, fmt = MotorCpp(args.modelo), FormatoV2()
-        print(f"[v2c experimental] núcleo {Path(args.modelo).name} | expertos: {', '.join(Path(x).name for x in (args.experto, args.redaccion) if x) or 'ninguno'}", flush=True)
+        print(f"[v2c] núcleo {Path(args.modelo).name} | expertos: {', '.join(Path(x).name for x in (args.experto, args.redaccion) if x) or 'ninguno'}", flush=True)
     elif args.motor:  # motor C++ nativo: lee el .bin exportado con exportar_cpp.py (capa1 y ddgs siguen en Python)
         from motor_cpp import MotorCpp
 
+        args.modelo = args.modelo or str(RAIZ / "modelos" / "nucleo_sft_v3.pt")
         modelo, fmt = MotorCpp(Path(args.modelo).with_suffix(".bin")), Formato()
     else:
+        args.modelo = args.modelo or str(RAIZ / "modelos" / "nucleo_sft_v3.pt")
         modelo, fmt = cargar(args.modelo, disp)
     if args.evaluar:
         for tipo, m in evaluar(modelo, fmt, disp, ruta=args.datos, n_por_tipo=300, penalizacion=args.pen).items():

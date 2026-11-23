@@ -1,0 +1,40 @@
+{
+ "version": "v2c",
+ "parametros": 157700000.0,
+ "archivos": {
+  "nucleo_v2c_sft.bin": {
+   "bytes": 54938928,
+   "sha256": "4c0772e6dec81df863ddf27ab00838ea2242add0ebd1f3acee154d022bb3bc41"
+  },
+  "nucleo_v2c_sft.vocab.json": {
+   "bytes": 1681455,
+   "sha256": "7a3375c1482c57cc25d90b15ed043927d81e260784b1a0f40909f9a200e2aab4"
+  },
+  "experto_codigo_g_v2.lora": {
+   "bytes": 7929888,
+   "sha256": "e70d28fecbe2e5d98cd7a1530ce5756ac46e1d1706c9ce263ee76ef27ea82d3a"
+  },
+  "experto_redaccion_f_v2.lora": {
+   "bytes": 7929888,
+   "sha256": "21b8beb3558111a7d4ded9936e3f6f0208fbaa25fa046f82f80f0ab741b614b4"
+  }
+ },
+ "metricas_motor_cpp": {
+  "hechos_ddgs_real": 0.838,
+  "abstencion": 1.0,
+  "codigo_forzado": 0.827,
+  "codigo_extremo_a_extremo": 0.803,
+  "redaccion_forzada": 0.642,
+  "redaccion_extremo_a_extremo": 0.639,
+  "charla_339": 0.799,
+  "enrutador_codigo": 0.915,
+  "enrutador_redaccion": 0.965
+ },
+ "ram_pico_mb": {
+  "nucleo": 127,
+  "dos_lora": 143
+ },
+ "palabras_s": 118,
+ "base_pt": "modelos/experimentos/nucleo_v2c_sft.pt (sha256 2f572f16…c821a648)",
+ "cierre": "estudios/ETAPA4_CIERRE.md"
+}

@@ -1,0 +1,10 @@
+nucleo_v2b_sft.pt (631 MB) -> nucleo_v2b_sft.bin (54.9 MB) + nucleo_v2b_sft.vocab.json
+    10 tokens | PyTorch↔.bin 3.9e-04 | .bin↔motor 6.5e-05 | PyTorch↔motor 4.0e-04 | mismo token siguiente: True | OK
+    23 tokens | PyTorch↔.bin 8.5e-04 | .bin↔motor 1.4e-04 | PyTorch↔motor 8.4e-04 | mismo token siguiente: True | OK
+    23 tokens | PyTorch↔.bin 4.9e-04 | .bin↔motor 1.1e-04 | PyTorch↔motor 5.8e-04 | mismo token siguiente: True | OK
+    13 tokens | PyTorch↔.bin 1.6e-04 | .bin↔motor 3.4e-05 | PyTorch↔motor 1.6e-04 | mismo token siguiente: True | OK
+     8 tokens | PyTorch↔.bin 1.6e-04 | .bin↔motor 4.2e-05 | PyTorch↔motor 1.5e-04 | mismo token siguiente: True | OK
+    20 tokens | PyTorch↔.bin 8.2e-04 | .bin↔motor 8.2e-05 | PyTorch↔motor 8.2e-04 | mismo token siguiente: True | OK
+   361 tokens | PyTorch↔.bin 3.7e-04 | .bin↔motor 1.4e-04 | PyTorch↔motor 4.5e-04 | mismo token siguiente: True | OK
+   129 tokens | PyTorch↔.bin 8.7e-05 | .bin↔motor 2.1e-05 | PyTorch↔motor 8.6e-05 | mismo token siguiente: True | OK
+verificación: TODO CORRECTO

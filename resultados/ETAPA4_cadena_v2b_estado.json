@@ -1,0 +1,58 @@
+{
+ "etapas": {
+  "sft_humo": {
+   "estado": "ok",
+   "segundos": 9,
+   "fin": "2026-11-23 10:50:30",
+   "codigo": 0
+  },
+  "sft": {
+   "estado": "ok",
+   "segundos": 4681,
+   "fin": "2026-11-23 12:08:30",
+   "codigo": 0
+  },
+  "exportar": {
+   "estado": "ok",
+   "segundos": 17,
+   "fin": "2026-11-23 12:08:48",
+   "codigo": 0
+  },
+  "evaluar": {
+   "estado": "ok",
+   "segundos": 578,
+   "fin": "2026-11-23 12:18:26",
+   "codigo": 0
+  },
+  "lora_codigo": {
+   "estado": "ok",
+   "segundos": 691,
+   "fin": "2026-11-23 12:29:57",
+   "codigo": 0
+  },
+  "lora_redaccion": {
+   "estado": "ok",
+   "segundos": 294,
+   "fin": "2026-11-23 12:34:50",
+   "codigo": 0
+  },
+  "verificar_lora_codigo": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 12:34:54",
+   "codigo": 0
+  },
+  "verificar_lora_redaccion": {
+   "estado": "ok",
+   "segundos": 4,
+   "fin": "2026-11-23 12:34:59",
+   "codigo": 0
+  },
+  "expertos": {
+   "estado": "ok",
+   "segundos": 1515,
+   "fin": "2026-11-23 13:00:14",
+   "codigo": 0
+  }
+ }
+}

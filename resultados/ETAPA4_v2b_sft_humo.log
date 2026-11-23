@@ -1,0 +1,3 @@
+157.7 M parámetros | 128 ejemplos (0 descartados por largo), 0.0 M tokens | cuda
+  época 1/1 paso 1/3 | pérdida 3.4032 | gnorm 20.90 | lr 3.1e-06 | 2s
+Guardado en D:\Documentos\GitHub\TEST-IA\modelos\experimentos\_humo_v2b.pt (3s)

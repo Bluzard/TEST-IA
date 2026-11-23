@@ -1,0 +1,26 @@
+[codigo_b] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 14,000 ejemplos (0 descartados) | cuda
+  época 1/5 paso 1/1065 | pérdida 0.0001 | 2s
+  época 1/5 paso 50/1065 | pérdida 0.0009 | 31s
+  época 1/5 paso 100/1065 | pérdida 0.5051 | 56s
+  época 1/5 paso 150/1065 | pérdida 0.5143 | 80s
+  época 1/5 paso 200/1065 | pérdida 0.0013 | 106s
+  época 2/5 paso 250/1065 | pérdida 0.2317 | 129s
+  época 2/5 paso 300/1065 | pérdida 0.0308 | 153s
+  época 2/5 paso 350/1065 | pérdida 0.0016 | 184s
+  época 2/5 paso 400/1065 | pérdida 0.3175 | 214s
+  época 3/5 paso 450/1065 | pérdida 0.0004 | 252s
+  época 3/5 paso 500/1065 | pérdida 0.0003 | 290s
+  época 3/5 paso 550/1065 | pérdida 0.3409 | 325s
+  época 3/5 paso 600/1065 | pérdida 0.0007 | 359s
+  época 4/5 paso 650/1065 | pérdida 0.3012 | 392s
+  época 4/5 paso 700/1065 | pérdida 0.0009 | 424s
+  época 4/5 paso 750/1065 | pérdida 0.0006 | 460s
+  época 4/5 paso 800/1065 | pérdida 0.0073 | 497s
+  época 4/5 paso 850/1065 | pérdida 0.2719 | 533s
+  época 5/5 paso 900/1065 | pérdida 0.0009 | 568s
+  época 5/5 paso 950/1065 | pérdida 0.0002 | 604s
+  época 5/5 paso 1000/1065 | pérdida 0.0212 | 642s
+  época 5/5 paso 1050/1065 | pérdida 0.2424 | 674s
+[codigo_b] núcleo base intacto tras entrenar: True
+experto_codigo_b_v2.lora.pt -> experto_codigo_b_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[codigo_b] terminado en 11.4 min

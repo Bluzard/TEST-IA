@@ -40,10 +40,16 @@ def main():
     ap.add_argument("--bin", default=str(EXP / "nucleo_v2_sft.bin"))
     ap.add_argument("--solo", default=None)
     ap.add_argument("--salida", default=str(RAIZ / "resultados" / "ETAPA4_expertos_v2.json"))
+    ap.add_argument("--lora_codigo", default=None)
+    ap.add_argument("--lora_redaccion", default=None)
     a = ap.parse_args()
     fmt = FormatoV2()
     motor = MotorCpp(a.bin)
     out = {}
+    if a.lora_codigo:
+        EXPERTOS["codigo"]["lora"] = Path(a.lora_codigo)
+    if a.lora_redaccion:
+        EXPERTOS["redaccion"]["lora"] = Path(a.lora_redaccion)
     for nombre, cfg in EXPERTOS.items():
         if a.solo and a.solo != nombre:
             continue

@@ -1,0 +1,181 @@
+{
+ "bin": "D:\\Documentos\\GitHub\\TEST-IA\\modelos\\experimentos\\nucleo_v2b_sft.bin",
+ "real": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.8378378378378378
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 0.9807692307692307
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "simulado": {
+  "buscar_ok": {
+   "buscó": 1.0,
+   "respuesta_exacta": 0.8766666666666667
+  },
+  "irrelevante": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  },
+  "vacio": {
+   "buscó": 1.0,
+   "se_abstuvo": 1.0
+  }
+ },
+ "charla": {
+  "n_frases": 339,
+  "no_busco": 1.0,
+  "fugas": 0,
+  "estricta_micro": 0.799410029498525,
+  "estricta_macro": 0.7974155474155474,
+  "equivalentes_micro": 0.799410029498525,
+  "equivalentes_macro": 0.7974155474155474,
+  "por_intencion": {
+   "risa": 0.5,
+   "tiempo_real": 0.5,
+   "estado_usuario_mal": 0.556,
+   "ininteligible": 0.571,
+   "despedida": 0.6,
+   "alegria": 0.625,
+   "imagenes": 0.625,
+   "creador": 0.625,
+   "hora_fecha": 0.625,
+   "queja": 0.667,
+   "saludo": 0.7,
+   "estado_usuario_bien": 0.75,
+   "cansancio": 0.75,
+   "internet": 0.75,
+   "memoria": 0.75,
+   "sentimientos": 0.75,
+   "gracias": 0.778,
+   "capacidades": 0.778,
+   "limites": 0.778,
+   "afirmacion": 0.8,
+   "me_llamo": 0.833,
+   "acciones": 0.833,
+   "nombre": 0.875,
+   "ayuda_redaccion": 0.875,
+   "opinion": 0.875,
+   "clima": 0.875,
+   "buenos_dias": 0.889,
+   "estado": 0.889,
+   "quien_eres": 0.889,
+   "no_entendi": 0.889,
+   "cumplido": 0.9,
+   "buenas_tardes": 1.0,
+   "buenas_noches": 1.0,
+   "aburrido": 1.0,
+   "chiste": 1.0,
+   "curiosidad": 1.0,
+   "ayuda_general": 1.0,
+   "ayuda_codigo": 1.0,
+   "tema_libre": 1.0
+  },
+  "respuesta_valida": 0.799410029498525,
+  "ejemplos_malos": [
+   [
+    "saludo",
+    "ola",
+    "No te entendí del todo. ¿Puedes escribirlo de otra forma o contarme qué necesitas?",
+    [
+     "ininteligible"
+    ]
+   ],
+   [
+    "saludo",
+    "aló",
+    "¡Me alegra! ¿En qué te ayudo?",
+    [
+     "estado_usuario_bien"
+    ]
+   ],
+   [
+    "saludo",
+    "aquí estoy de nuevo",
+    "¡Perfecto! Entonces aprovechemos el buen día. ¿Qué necesitas?",
+    [
+     "estado_usuario_bien"
+    ]
+   ],
+   [
+    "buenos_dias",
+    "ya amaneció",
+    "¡Hasta pronto! Que tengas un buen día.",
+    [
+     "despedida"
+    ]
+   ],
+   [
+    "estado",
+    "¿estás bien?",
+    "No lo sé todo, ni de cerca. Lo que no sé lo busco, y si no lo encuentro, te lo digo.",
+    [
+     "limites"
+    ]
+   ],
+   [
+    "estado_usuario_bien",
+    "estoy contento",
+    "¡Qué bien! Eso hay que celebrarlo. ¿Qué pasó?",
+    [
+     "alegria"
+    ]
+   ],
+   [
+    "estado_usuario_bien",
+    "chévere, gracias",
+    "¡Qué buena noticia! Me alegro mucho por ti.",
+    [
+     "alegria"
+    ]
+   ],
+   [
+    "estado_usuario_mal",
+    "estoy deprimido",
+    "Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?",
+    [
+     "cansancio"
+    ]
+   ],
+   [
+    "estado_usuario_mal",
+    "estoy muy estresado",
+    "Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?",
+    [
+     "cansancio"
+    ]
+   ],
+   [
+    "estado_usuario_mal",
+    "no aguanto más este estrés",
+    "Perdón si me expliqué mal. ¿Qué parte quieres que aclare?",
+    [
+     "no_entendi"
+    ]
+   ],
+   [
+    "estado_usuario_mal",
+    "estoy bajoneado",
+    "Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?",
+    [
+     "cansancio"
+    ]
+   ],
+   [
+    "cansancio",
+    "dormí muy poco",
+    "No puedo hacer eso: solo trabajo con texto y no controlo dispositivos ni cuentas. Si quieres, te ayudo a redactarlo o a planearlo.",
+    [
+     "acciones"
+    ]
+   ]
+  ]
+ },
+ "segundos": 577
+}

@@ -1,0 +1,23 @@
+== 1. Etapa 1 · ddgs real (línea base v1: hechos 71,6 %, abstención 98,1 %)
+  buscar_ok    buscó=100.0%  respuesta_exacta=83.8%
+  irrelevante  buscó=100.0%  se_abstuvo=98.1%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 2. Simulado con artículos reservados
+  buscar_ok    buscó=100.0%  respuesta_exacta=87.7%
+  irrelevante  buscó=100.0%  se_abstuvo=100.0%
+  vacio        buscó=100.0%  se_abstuvo=100.0%
+== 3. Charla de TEST-IA (frases reservadas)
+  339 frases únicas | no busca 100.0% | fugas 0 | estricta micro 79.9% macro 79.7% | con equivalentes micro 79.9% macro 79.7%
+    mal [saludo]: 'ola' -> 'No te entendí del todo. ¿Puedes escribirlo de otra forma o contarme qué necesitas?' (['ininteligible'])
+    mal [saludo]: 'aló' -> '¡Me alegra! ¿En qué te ayudo?' (['estado_usuario_bien'])
+    mal [saludo]: 'aquí estoy de nuevo' -> '¡Perfecto! Entonces aprovechemos el buen día. ¿Qué necesitas?' (['estado_usuario_bien'])
+    mal [buenos_dias]: 'ya amaneció' -> '¡Hasta pronto! Que tengas un buen día.' (['despedida'])
+    mal [estado]: '¿estás bien?' -> 'No lo sé todo, ni de cerca. Lo que no sé lo busco, y si no lo encuentro, te lo digo.' (['limites'])
+    mal [estado_usuario_bien]: 'estoy contento' -> '¡Qué bien! Eso hay que celebrarlo. ¿Qué pasó?' (['alegria'])
+    mal [estado_usuario_bien]: 'chévere, gracias' -> '¡Qué buena noticia! Me alegro mucho por ti.' (['alegria'])
+    mal [estado_usuario_mal]: 'estoy deprimido' -> 'Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?' (['cansancio'])
+    mal [estado_usuario_mal]: 'estoy muy estresado' -> 'Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?' (['cansancio'])
+    mal [estado_usuario_mal]: 'no aguanto más este estrés' -> 'Perdón si me expliqué mal. ¿Qué parte quieres que aclare?' (['no_entendi'])
+    mal [estado_usuario_mal]: 'estoy bajoneado' -> 'Suena a que necesitas descansar. ¿Te ayudo con algo rápido para que puedas parar?' (['cansancio'])
+    mal [cansancio]: 'dormí muy poco' -> 'No puedo hacer eso: solo trabajo con texto y no controlo dispositivos ni cuentas. Si quieres, te ayudo a redactarlo o a planearlo.' (['acciones'])
+listo en 577 s -> D:\Documentos\GitHub\TEST-IA\resultados\ETAPA4_eval_v2b.json

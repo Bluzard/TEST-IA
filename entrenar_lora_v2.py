@@ -35,6 +35,7 @@ def main():
     ap.add_argument("--lote_tokens", type=int, default=16384)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--warmup", type=int, default=30)
+    ap.add_argument("--parar_perdida", type=float, default=0.0, help="parada temprana: se detiene cuando la media de las últimas 30 pérdidas baja de este valor (0 = desactivada)")
     ap.add_argument("--max", type=int, default=0)
     ap.add_argument("--semilla", type=int, default=0)
     ap.add_argument("--dispositivo", default="cuda")
@@ -62,7 +63,10 @@ def main():
     pasos = a.epocas * len(lotes(datos, a.lote_tokens, random.Random(0)))
     opt = torch.optim.AdamW(lora.parametros_lora(modelo), lr=a.lr, betas=(0.9, 0.95), weight_decay=0.0)
     paso, t0 = 0, time.time()
+    reciente, parar = [], False
     for ep in range(a.epocas):
+        if parar:
+            break
         for grupo in lotes(datos, a.lote_tokens, rng):
             x, y, m = tensores(grupo, fmt.relleno, disp)
             paso += 1
@@ -75,6 +79,11 @@ def main():
             perd.backward()
             torch.nn.utils.clip_grad_norm_(lora.parametros_lora(modelo), 1.0)
             opt.step()
+            reciente = (reciente + [perd.item()])[-30:]
+            if a.parar_perdida and paso >= 60 and len(reciente) == 30 and sum(reciente) / 30 < a.parar_perdida:
+                print(f"  parada temprana en el paso {paso}/{pasos} (época {ep + 1}): pérdida media reciente {sum(reciente) / 30:.4f} < {a.parar_perdida}", flush=True)
+                parar = True
+                break
             if paso % 50 == 0 or paso == 1:
                 print(f"  época {ep + 1}/{a.epocas} paso {paso}/{pasos} | pérdida {perd.item():.4f} | {time.time() - t0:.0f}s", flush=True)
     modelo.eval()

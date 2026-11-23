@@ -1,0 +1,186 @@
+{
+ "disco": {
+  "v1": {
+   "nucleo_mb": 41.253084,
+   "codigo_mb": 2.621472,
+   "redaccion_mb": 2.621472,
+   "vocab_mb": 1.124737
+  },
+  "v2c": {
+   "nucleo_mb": 54.938928,
+   "codigo_mb": 7.929888,
+   "redaccion_mb": 7.929888,
+   "vocab_mb": 1.681455
+  }
+ },
+ "medidas": [
+  {
+   "version": "v1",
+   "lora": null,
+   "conjunto": "general",
+   "carga_s": 0.08451860002242029,
+   "ram_base_mb": 40.423424,
+   "ram_pico_mb": 109.654016,
+   "prefill_ms": 50.0933,
+   "prompt_tokens": 119.08,
+   "ms_token": 1.5235070175438596,
+   "tokens_s": 656.3803044453068,
+   "palabras_s": 427.22297008633126,
+   "palabras_por_token": 0.6508771929824562,
+   "tokens_generados_medio": 25.90909090909091,
+   "muestra": [
+    " R: Subotai Ba'atur o Subodei (c. 1176-1248) fue el principal estratega y teniente de Gengis Kan y de Ogodei Kan.",
+    " R: Michael Garrett Shanks (Vancouver, Canadá; 15 de diciembre de 1970) es un actor canadiense famoso por interpretar al Dr."
+   ],
+   "hilos": "all"
+  },
+  {
+   "version": "v2c",
+   "lora": null,
+   "conjunto": "general",
+   "carga_s": 0.017790299985790625,
+   "ram_base_mb": 41.877504,
+   "ram_pico_mb": 126.500864,
+   "prefill_ms": 201.91174999999998,
+   "prompt_tokens": 113.88,
+   "ms_token": 5.5766137432188065,
+   "tokens_s": 179.32029113832846,
+   "palabras_s": 117.7093411993006,
+   "palabras_por_token": 0.6564195298372514,
+   "tokens_generados_medio": 25.136363636363637,
+   "muestra": [
+    " R: Subotai Ba'atur o Subodei (c. 1176-1248) fue el principal estratega y teniente de Gengis Kan y de Ogodei Kan.",
+    " R: Michael Garrett Shanks (Vancouver, Canadá; 15 de diciembre de 1970) es un actor canadiense famoso por interpretar al Dr."
+   ],
+   "hilos": "all"
+  },
+  {
+   "version": "v1",
+   "lora": null,
+   "conjunto": "general",
+   "carga_s": 0.010267199977533892,
+   "ram_base_mb": 39.530496,
+   "ram_pico_mb": 104.800256,
+   "prefill_ms": 159.6644,
+   "prompt_tokens": 119.08,
+   "ms_token": 6.497842807017544,
+   "tokens_s": 153.89722861870703,
+   "palabras_s": 100.16819617112336,
+   "palabras_por_token": 0.6508771929824562,
+   "tokens_generados_medio": 25.90909090909091,
+   "muestra": [
+    " R: Subotai Ba'atur o Subodei (c. 1176-1248) fue el principal estratega y teniente de Gengis Kan y de Ogodei Kan.",
+    " R: Michael Garrett Shanks (Vancouver, Canadá; 15 de diciembre de 1970) es un actor canadiense famoso por interpretar al Dr."
+   ],
+   "hilos": "1"
+  },
+  {
+   "version": "v2c",
+   "lora": null,
+   "conjunto": "general",
+   "carga_s": 0.016019999980926514,
+   "ram_base_mb": 41.357312,
+   "ram_pico_mb": 123.240448,
+   "prefill_ms": 637.1030499999999,
+   "prompt_tokens": 113.88,
+   "ms_token": 25.052991320072334,
+   "tokens_s": 39.91539322487231,
+   "palabras_s": 26.201243653939688,
+   "palabras_por_token": 0.6564195298372514,
+   "tokens_generados_medio": 25.136363636363637,
+   "muestra": [
+    " R: Subotai Ba'atur o Subodei (c. 1176-1248) fue el principal estratega y teniente de Gengis Kan y de Ogodei Kan.",
+    " R: Michael Garrett Shanks (Vancouver, Canadá; 15 de diciembre de 1970) es un actor canadiense famoso por interpretar al Dr."
+   ],
+   "hilos": "1"
+  },
+  {
+   "version": "v1",
+   "lora": "codigo",
+   "conjunto": "experto",
+   "carga_s": 0.01021559999207966,
+   "ram_base_mb": 41.254912,
+   "ram_pico_mb": 111.894528,
+   "prefill_ms": 44.5565,
+   "prompt_tokens": 70.88,
+   "ms_token": 1.9302632054176072,
+   "tokens_s": 518.0640635916037,
+   "palabras_s": 354.3417861585912,
+   "palabras_por_token": 0.6839729119638827,
+   "tokens_generados_medio": 20.136363636363637,
+   "muestra": [
+    " R: Una variable local existe solo dentro de la función donde se crea.",
+    " R: Imprime 3.0."
+   ],
+   "lora_carga_ms": 6.33819997892715,
+   "lora_mb": 2.62144,
+   "hilos": "all"
+  },
+  {
+   "version": "v2c",
+   "lora": "codigo",
+   "conjunto": "experto",
+   "carga_s": 0.017330600006971508,
+   "ram_base_mb": 42.917888,
+   "ram_pico_mb": 135.798784,
+   "prefill_ms": 150.7374,
+   "prompt_tokens": 62.6,
+   "ms_token": 5.9443473913043485,
+   "tokens_s": 168.22704565733218,
+   "palabras_s": 120.31890874187454,
+   "palabras_por_token": 0.7152173913043478,
+   "tokens_generados_medio": 20.90909090909091,
+   "muestra": [
+    " R: Una variable local existe solo dentro de la función donde se crea.",
+    " R: Imprime 3.0."
+   ],
+   "lora_carga_ms": 3.9373000035993755,
+   "lora_mb": 7.929856,
+   "hilos": "all"
+  },
+  {
+   "version": "v1",
+   "lora": "dos",
+   "conjunto": "experto",
+   "carga_s": 0.010432899987790734,
+   "ram_base_mb": 41.291776,
+   "ram_pico_mb": 114.8928,
+   "prefill_ms": 40.06845,
+   "prompt_tokens": 70.88,
+   "ms_token": 1.578992776523702,
+   "tokens_s": 633.3151201626091,
+   "palabras_s": 433.17038692837593,
+   "palabras_por_token": 0.6839729119638827,
+   "tokens_generados_medio": 20.136363636363637,
+   "muestra": [
+    " R: Una variable local existe solo dentro de la función donde se crea.",
+    " R: Imprime 3.0."
+   ],
+   "lora_carga_ms": 14.888900012010708,
+   "lora_mb": 5.24288,
+   "hilos": "all"
+  },
+  {
+   "version": "v2c",
+   "lora": "dos",
+   "conjunto": "experto",
+   "carga_s": 0.017025800014380366,
+   "ram_base_mb": 43.126784,
+   "ram_pico_mb": 142.901248,
+   "prefill_ms": 153.2382,
+   "prompt_tokens": 62.6,
+   "ms_token": 5.927243695652174,
+   "tokens_s": 168.7124827908683,
+   "palabras_s": 120.6661018221645,
+   "palabras_por_token": 0.7152173913043478,
+   "tokens_generados_medio": 20.90909090909091,
+   "muestra": [
+    " R: Una variable local existe solo dentro de la función donde se crea.",
+    " R: Imprime 3.0."
+   ],
+   "lora_carga_ms": 7.940700015751645,
+   "lora_mb": 15.859712,
+   "hilos": "all"
+  }
+ ]
+}

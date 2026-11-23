@@ -103,7 +103,7 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
             consulta = texto.removeprefix("B:").strip()
             resultados = buscar_memoria(consulta, memoria) or (buscador(consulta, modo=modo) if modo else buscador(consulta))
             tope = TOPE_EXPERTO if modo else MAX_TOKENS_RESULTADOS
-        tope = min(tope, max(40, 400 - len(ids) - len(nuevo)))  # la ventana es de 512: lo que sobre tras el contexto y la respuesta
+        tope = min(tope, max(40, getattr(fmt, "ventana", 512) - 112 - len(ids) - len(nuevo)))  # lo que sobre de la ventana (512 en v1, 1024 en v2) tras el contexto y la respuesta
         traza.append("[herramienta] " + resultados.replace("\n", " | "))
         ids = ids + nuevo + fmt.ids_tras_herramienta(resultados, tope)
     return SIN_INFO, traza
@@ -236,12 +236,28 @@ def main():
                     "las preguntas se tratan como una conversación y el enrutador lo despierta o duerme")
     ap.add_argument("--sin-memoria", action="store_true", help="desactiva la memoria externa (datos/memoria.json) y la de trabajo")
     ap.add_argument("--redaccion", default=None, help="adaptador del experto de redacción (.lora; requiere --motor junto a --experto)")
+    ap.add_argument("--v2", action="store_true", help="núcleo v2c (EXPERIMENTAL: modelos/experimentos/, tokenizador 24k, int8 atado): implica --motor y carga ambos expertos")
+    ap.add_argument("--sin-expertos", action="store_true", help="con --v2: solo el núcleo, sin adaptadores")
     ap.add_argument("--evaluar", action="store_true")
     ap.add_argument("--datos", default=str(RAIZ / "datos" / "sft_eval.jsonl"), help="conjunto de evaluación (sft_eval_real.jsonl = ddgs real)")
     ap.add_argument("--pen", type=float, default=1.1, help="penalización por repetición (1.0 = ninguna)")
     args = ap.parse_args()
     disp = elegir_dispositivo()
-    if args.motor:  # motor C++ nativo: lee el .bin exportado con exportar_cpp.py (capa1 y ddgs siguen en Python)
+    if args.v2:  # v2c experimental: no pisa nada de v1; los adaptadores v2 (LORA0002) solo se usan con el núcleo v2
+        from protocolo_v2 import FormatoV2
+
+        exp = RAIZ / "modelos" / "experimentos"
+        args.motor = True
+        if args.modelo == str(RAIZ / "modelos" / "nucleo_sft_v3.pt"):
+            args.modelo = str(exp / "nucleo_v2c_sft.bin")
+        if not args.sin_expertos:
+            args.experto = args.experto or str(exp / "experto_codigo_g_v2.lora")
+            args.redaccion = args.redaccion or str(exp / "experto_redaccion_f_v2.lora")
+        from motor_cpp import MotorCpp
+
+        modelo, fmt = MotorCpp(args.modelo), FormatoV2()
+        print(f"[v2c experimental] núcleo {Path(args.modelo).name} | expertos: {', '.join(Path(x).name for x in (args.experto, args.redaccion) if x) or 'ninguno'}", flush=True)
+    elif args.motor:  # motor C++ nativo: lee el .bin exportado con exportar_cpp.py (capa1 y ddgs siguen en Python)
         from motor_cpp import MotorCpp
 
         modelo, fmt = MotorCpp(Path(args.modelo).with_suffix(".bin")), Formato()

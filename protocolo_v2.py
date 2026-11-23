@@ -12,6 +12,8 @@ CONTEXTO_V2 = 1024
 
 
 class FormatoV2(Formato):
+    ventana = CONTEXTO_V2  # ventana de contexto del núcleo v2 (el bucle de herramientas la usa para recortar los resultados)
+
     def __init__(self):
         self.tok = Tokenizer.from_file(str(TOK_V2_SFT))
         self.usuario, self.asistente, self.herramienta, self.fin = (self.tok.token_to_id(e) for e in ETIQUETAS)

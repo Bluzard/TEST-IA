@@ -64,10 +64,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--articulos", type=int, default=200000)
     ap.add_argument("--ejemplos", type=int, default=125000)
-    ap.add_argument("--charla", type=int, default=25000)
+    ap.add_argument("--charla", type=int, default=25000)  # con charla_v2 ampliada (≈1.300 frases base de entrenamiento) 30.000 da ≈ 23 repeticiones por frase con prefijos/erratas
     ap.add_argument("--eval", type=int, default=800, help="ejemplos de evaluación por tipo principal")
     ap.add_argument("--rep_real", type=int, default=3)
     ap.add_argument("--semilla", type=int, default=0)
+    ap.add_argument("--sufijo", default="", help="sufijo de los archivos de salida (p. ej. _v2b) para no pisar los anteriores")
     a = ap.parse_args()
 
     if not POOL.exists():
@@ -98,7 +99,7 @@ def main():
     eval_real = ejemplos_reales(DATOS / "ddgs_raw_eval.jsonl", random.Random(5)) if (DATOS / "ddgs_raw_eval.jsonl").exists() else []
     SALIDA.mkdir(parents=True, exist_ok=True)
     for nombre, f_ in (("sft_train", filas), ("sft_eval", eval_sim + eval_charla), ("sft_eval_real", eval_real)):
-        with open(SALIDA / f"{nombre}.jsonl", "w", encoding="utf-8") as f:
+        with open(SALIDA / f"{nombre}{a.sufijo if nombre != 'sft_eval_real' else ''}.jsonl", "w", encoding="utf-8") as f:
             for r in f_:
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
         print(f"{nombre}: {len(f_):,} ejemplos {dict(Counter(r['tipo'] for r in f_))}", flush=True)

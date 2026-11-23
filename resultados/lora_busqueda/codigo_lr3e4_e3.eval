@@ -1,0 +1,1 @@
+{"lora": "modelos/experimentos/experto_codigo_lr3e4_v2.lora", "rapida": 40, "puntaje": 0.26666666666666666, "tipos": {"concepto": 0.3, "concepto_ejemplo": 0.4, "concepto_reservado": 0.575, "doc_ok": 0.0, "doc_abst": 0.95, "ejec_ok": 0.0, "ejec_error": 0.0, "ejec_nameerror": 0.1, "error_interp": 0.075}, "segundos": 166}

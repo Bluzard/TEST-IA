@@ -31,7 +31,7 @@ INTENCIONES = {
         ["¿cómo estás?", "¿cómo andas?", "¿qué tal estás?", "¿cómo te va?", "¿todo bien?", "¿cómo has estado?", "¿qué tal todo?", "¿cómo te sientes hoy?", "¿cómo va tu día?", "¿cómo estás hoy?"],
         ["Bien, gracias por preguntar. ¿Y tú?", "Todo bien por aquí. ¿Y tú, cómo vas?", "Sin quejas: no tengo cuerpo al que le duela nada. ¿Y tú?", "Bien, listo para ayudarte. ¿Cómo estás tú?", "Muy bien, gracias. ¿Qué tal tu día?"]),
     "estado_usuario_bien": (
-        ["estoy bien", "bien, gracias", "todo bien", "bien y tú", "muy bien, gracias por preguntar", "excelente", "de maravilla", "estoy muy bien, ¿y tú?", "bien, ¿y tú qué tal?"],
+        ["estoy bien", "bien, gracias", "bien y tú", "muy bien, gracias por preguntar", "excelente", "de maravilla", "estoy muy bien, ¿y tú?", "bien, ¿y tú qué tal?"],
         ["¡Me alegra! ¿En qué te ayudo?", "Qué bueno. Dime en qué te puedo ayudar.", "Me alegra saberlo. ¿Qué hacemos?", "¡Perfecto! Entonces aprovechemos el buen día. ¿Qué necesitas?"]),
     "estado_usuario_mal": (
         ["estoy mal", "no me siento bien", "estoy triste", "tuve un mal día", "me siento mal", "estoy deprimido", "hoy no es mi día", "estoy muy estresado", "estoy agobiado", "me siento solo", "estoy preocupado", "estoy ansioso"],
@@ -125,16 +125,60 @@ INTENCIONES = {
         ["Claro, con gusto. ¿De qué quieres hablar?", "Dale, charlemos. ¿Tienes algún tema en mente?"]),
 }
 
+
+# Segunda versión: paráfrasis adicionales (charla_v2_extra) e intenciones fuera de charla. La reserva de evaluación se decide sobre la frase base.
+from charla_v2_extra import EXTRA as _EXTRA
+
+for _k, _v in _EXTRA.items():
+    if isinstance(_v, tuple):
+        INTENCIONES[_k] = (list(_v[0]), list(_v[1]))
+    else:
+        _fs = INTENCIONES[_k][0]
+        _vistas = {re.sub(r"\W+", " ", f.lower()).strip() for f in _fs}
+        for _f in _v:
+            _n = re.sub(r"\W+", " ", _f.lower()).strip()
+            if _n not in _vistas:
+                _vistas.add(_n)
+                _fs.append(_f)
+
+PREFIJOS = ["oye, ", "disculpa, ", "TEST-IA, ", "una cosa: ", "mira, ", "dime, ", "por cierto, ", "eh, ", "ok, ", "bueno, ", "hey, ", "pues "]
+SUFIJOS = [", por favor", ", ¿sí?", " porfa", ", TEST-IA", " :)", "!", " gracias"]
+
 SIN_TILDES = str.maketrans("áéíóúÁÉÍÓÚ", "aeiouAEIOU")
 NOMBRES = ["Ana", "Luis", "María", "Carlos", "Sofía", "Javier", "Valentina", "Diego", "Camila", "Mateo", "Lucía", "Andrés", "Daniela", "Felipe", "Isabel", "Tomás", "Paula", "Nicolás"]
 
 
+def _norm(f):
+    """Normaliza sin tildes ni signos, para que «buenos días» y «buenos dias» sean la misma frase base."""
+    f = "".join(c for c in unicodedata.normalize("NFD", f.lower()) if unicodedata.category(c) != "Mn")
+    return re.sub(r"\W+", " ", f).strip()
+
+
+# Frases ambiguas entre intenciones: se dejan solo en una (la primera de cada par)
+for _k, _f in (("saludo", "buen día"), ("ininteligible", "hola hola"), ("gracias", "excelente, gracias")):
+    INTENCIONES[_k] = ([f for f in INTENCIONES[_k][0] if _norm(f) != _norm(_f)], INTENCIONES[_k][1])
+
+
+def _reservadas():
+    """Reserva estratificada: en cada intención, el 20 % de frases base con menor hash (mínimo 6) queda fuera del entrenamiento."""
+    res = set()
+    for fs, _ in INTENCIONES.values():
+        orden = sorted({_norm(f) for f in fs}, key=lambda x: hashlib.md5(x.encode()).hexdigest())
+        res.update(orden[:max(6, round(0.2 * len(orden)))])
+    return res
+
+
+_RESERVADAS = _reservadas()
+
+
 def es_eval(frase):
-    return int(hashlib.md5(re.sub(r"\W+", " ", frase.lower()).encode()).hexdigest(), 16) % 5 == 0  # 20 % de las frases
+    return _norm(frase) in _RESERVADAS
 
 
 def variar(frase, rng):
     f = frase
+    if "{n}" not in f and len(f) > 3 and rng.random() < 0.12:  # prefijo/sufijo aplicado DESPUÉS de la reserva por frase base
+        f = rng.choice(PREFIJOS) + f[0].lower() + f[1:] if rng.random() < 0.6 else f.rstrip("?!.") + rng.choice(SUFIJOS)
     r = rng.random()
     if r < 0.12:
         f = f.replace("¿", "").replace("¡", "")

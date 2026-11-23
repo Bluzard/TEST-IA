@@ -34,6 +34,7 @@ def main():
     ap.add_argument("--epocas", type=int, default=3)
     ap.add_argument("--lote_tokens", type=int, default=16384)
     ap.add_argument("--lr", type=float, default=1e-3)
+    ap.add_argument("--warmup", type=int, default=30)
     ap.add_argument("--max", type=int, default=0)
     ap.add_argument("--semilla", type=int, default=0)
     ap.add_argument("--dispositivo", default="cuda")
@@ -65,7 +66,7 @@ def main():
         for grupo in lotes(datos, a.lote_tokens, rng):
             x, y, m = tensores(grupo, fmt.relleno, disp)
             paso += 1
-            lr = a.lr * min(1, paso / 30) * (0.1 + 0.9 * 0.5 * (1 + math.cos(math.pi * paso / pasos)))
+            lr = a.lr * min(1, paso / a.warmup) * (0.1 + 0.9 * 0.5 * (1 + math.cos(math.pi * paso / pasos)))
             for g in opt.param_groups:
                 g["lr"] = lr
             with torch.autocast(disp, dtype=torch.bfloat16):

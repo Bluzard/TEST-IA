@@ -1,0 +1,7 @@
+[codigo_f] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 25,525 ejemplos (0 descartados) | cuda
+  época 1/4 paso 1/1572 | pérdida 0.0381 | 2s
+  época 1/4 paso 50/1572 | pérdida 0.0021 | 22s
+  parada temprana en el paso 72/1572 (época 1): pérdida media reciente 0.0099 < 0.01
+[codigo_f] núcleo base intacto tras entrenar: True
+experto_codigo_f_v2.lora.pt -> experto_codigo_f_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[codigo_f] terminado en 0.5 min

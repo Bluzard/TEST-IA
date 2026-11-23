@@ -1,0 +1,8 @@
+{
+ "nota": "candidatos v2c congelados como buenos (no se reentrenan); en modelos/experimentos/",
+ "archivos": {
+  "experto_redaccion_f_v2.lora": "21b8beb3558111a7d4ded9936e3f6f0208fbaa25fa046f82f80f0ab741b614b4",
+  "nucleo_v2c_sft.bin": "4c0772e6dec81df863ddf27ab00838ea2242add0ebd1f3acee154d022bb3bc41"
+ },
+ "redaccion_puntaje": 0.642
+}

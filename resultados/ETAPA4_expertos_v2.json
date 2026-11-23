@@ -1,0 +1,482 @@
+{
+ "codigo": {
+  "base": {
+   "concepto": {
+    "n": 405,
+    "herr": 0.2,
+    "consulta": 0.0,
+    "exacta": 0.04691358024691358,
+    "sim95": 0.04691358024691358,
+    "busca": 0.2
+   },
+   "concepto_ejemplo": {
+    "n": 72,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "concepto_reservado": {
+    "n": 130,
+    "herr": 0.2,
+    "consulta": 0.0,
+    "exacta": 0.06153846153846154,
+    "sim95": 0.06153846153846154,
+    "busca": 0.2
+   },
+   "doc_ok": {
+    "n": 59,
+    "herr": 0.23728813559322035,
+    "consulta": 0.0,
+    "exacta": 0.01694915254237288,
+    "sim95": 0.01694915254237288,
+    "busca": 0.23728813559322035
+   },
+   "doc_abst": {
+    "n": 119,
+    "herr": 0.24369747899159663,
+    "consulta": 0.0,
+    "exacta": 0.24369747899159663,
+    "sim95": 0.24369747899159663,
+    "busca": 0.24369747899159663
+   },
+   "ejec_ok": {
+    "n": 150,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "ejec_error": {
+    "n": 80,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "ejec_nameerror": {
+    "n": 10,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "error_interp": {
+    "n": 60,
+    "herr": 0.7833333333333333,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.21666666666666667
+   },
+   "_puntaje": 0.041010963702149406
+  },
+  "experto": {
+   "concepto": {
+    "n": 405,
+    "herr": 0.9925925925925926,
+    "consulta": 0.5037037037037037,
+    "exacta": 0.6518518518518519,
+    "sim95": 0.6814814814814815,
+    "busca": 0.9925925925925926
+   },
+   "concepto_ejemplo": {
+    "n": 72,
+    "herr": 1.0,
+    "consulta": 0.9722222222222222,
+    "exacta": 0.5972222222222222,
+    "sim95": 0.5972222222222222,
+    "busca": 1.0
+   },
+   "concepto_reservado": {
+    "n": 130,
+    "herr": 0.9692307692307692,
+    "consulta": 0.33076923076923076,
+    "exacta": 0.5,
+    "sim95": 0.5692307692307692,
+    "busca": 0.9692307692307692
+   },
+   "doc_ok": {
+    "n": 59,
+    "herr": 0.9661016949152542,
+    "consulta": 0.03389830508474576,
+    "exacta": 0.0847457627118644,
+    "sim95": 0.0847457627118644,
+    "busca": 0.9661016949152542
+   },
+   "doc_abst": {
+    "n": 119,
+    "herr": 0.9831932773109243,
+    "consulta": 0.40336134453781514,
+    "exacta": 0.9327731092436975,
+    "sim95": 0.9327731092436975,
+    "busca": 0.9831932773109243
+   },
+   "ejec_ok": {
+    "n": 150,
+    "herr": 0.8666666666666667,
+    "consulta": 0.46,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "ejec_error": {
+    "n": 80,
+    "herr": 0.85,
+    "consulta": 0.3875,
+    "exacta": 0.1,
+    "sim95": 0.125,
+    "busca": 0.0
+   },
+   "ejec_nameerror": {
+    "n": 10,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 0.9,
+    "sim95": 0.9,
+    "busca": 0.0
+   },
+   "error_interp": {
+    "n": 60,
+    "herr": 0.7166666666666667,
+    "consulta": 0.0,
+    "exacta": 0.3333333333333333,
+    "sim95": 0.38333333333333336,
+    "busca": 0.2833333333333333
+   },
+   "_puntaje": 0.4555473643736632
+  },
+  "grupos": {
+   "ortografia": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "tono": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "gramatica": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "ddgs": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "abstencion": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   }
+  },
+  "general_activo": {
+   "buscar_ok": {
+    "buscó": 1.0,
+    "respuesta_exacta": 0.8018018018018018
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 0.9230769230769231
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "general_dormido": {
+   "buscar_ok": {
+    "buscó": 1.0,
+    "respuesta_exacta": 0.8333333333333334
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 0.9807692307692307
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "segundos": 870
+ },
+ "redaccion": {
+  "base": {
+   "ortografia_ok": {
+    "n": 12,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "ortografia": {
+    "n": 108,
+    "herr": 0.9814814814814815,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.018518518518518517
+   },
+   "ortografia_signos": {
+    "n": 4,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "tono_formal": {
+    "n": 60,
+    "herr": 0.75,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.23333333333333334
+   },
+   "tono_cercano": {
+    "n": 40,
+    "herr": 0.6,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.375
+   },
+   "tono_conciso": {
+    "n": 40,
+    "herr": 0.95,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.05
+   },
+   "tono_claro": {
+    "n": 40,
+    "herr": 0.9,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.025,
+    "busca": 0.1
+   },
+   "gramatica_reservada": {
+    "n": 54,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "gramatica_ejemplo": {
+    "n": 55,
+    "herr": 0.09090909090909091,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.09090909090909091
+   },
+   "gramatica": {
+    "n": 113,
+    "herr": 0.0,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "cola_inexistente": {
+    "n": 14,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 1.0
+   },
+   "cola_abst": {
+    "n": 30,
+    "herr": 0.7,
+    "consulta": 0.0,
+    "exacta": 0.7,
+    "sim95": 0.7,
+    "busca": 0.7
+   },
+   "_puntaje": 0.14166666666666666
+  },
+  "experto": {
+   "ortografia_ok": {
+    "n": 12,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 0.08333333333333333,
+    "sim95": 0.08333333333333333,
+    "busca": 0.0
+   },
+   "ortografia": {
+    "n": 108,
+    "herr": 0.9907407407407407,
+    "consulta": 0.0,
+    "exacta": 0.12037037037037036,
+    "sim95": 0.39814814814814814,
+    "busca": 0.0
+   },
+   "ortografia_signos": {
+    "n": 4,
+    "herr": 0.75,
+    "consulta": 0.0,
+    "exacta": 0.0,
+    "sim95": 0.0,
+    "busca": 0.0
+   },
+   "tono_formal": {
+    "n": 60,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 0.45,
+    "sim95": 0.45,
+    "busca": 0.0
+   },
+   "tono_cercano": {
+    "n": 40,
+    "herr": 0.975,
+    "consulta": 0.0,
+    "exacta": 0.5,
+    "sim95": 0.5,
+    "busca": 0.025
+   },
+   "tono_conciso": {
+    "n": 40,
+    "herr": 1.0,
+    "consulta": 0.0,
+    "exacta": 0.275,
+    "sim95": 0.325,
+    "busca": 0.0
+   },
+   "tono_claro": {
+    "n": 40,
+    "herr": 0.975,
+    "consulta": 0.0,
+    "exacta": 0.3,
+    "sim95": 0.45,
+    "busca": 0.0
+   },
+   "gramatica_reservada": {
+    "n": 54,
+    "herr": 0.7592592592592593,
+    "consulta": 0.48148148148148145,
+    "exacta": 0.3888888888888889,
+    "sim95": 0.4074074074074074,
+    "busca": 0.7592592592592593
+   },
+   "gramatica_ejemplo": {
+    "n": 55,
+    "herr": 0.9818181818181818,
+    "consulta": 0.8909090909090909,
+    "exacta": 0.4727272727272727,
+    "sim95": 0.4727272727272727,
+    "busca": 0.9818181818181818
+   },
+   "gramatica": {
+    "n": 113,
+    "herr": 0.9026548672566371,
+    "consulta": 0.8584070796460177,
+    "exacta": 0.7876106194690266,
+    "sim95": 0.8495575221238938,
+    "busca": 0.9026548672566371
+   },
+   "cola_inexistente": {
+    "n": 14,
+    "herr": 1.0,
+    "consulta": 0.21428571428571427,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 1.0
+   },
+   "cola_abst": {
+    "n": 30,
+    "herr": 1.0,
+    "consulta": 0.06666666666666667,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 1.0
+   },
+   "_puntaje": 0.4548663254968565
+  },
+  "grupos": {
+   "ortografia": {
+    "n": 124,
+    "puntaje": 0.11290322580645161,
+    "tipos": {
+     "ortografia": 0.1204,
+     "ortografia_signos": 0.0,
+     "ortografia_ok": 0.0833
+    }
+   },
+   "tono": {
+    "n": 180,
+    "puntaje": 0.3888888888888889,
+    "tipos": {
+     "tono_formal": 0.45,
+     "tono_cercano": 0.5,
+     "tono_conciso": 0.275,
+     "tono_claro": 0.3
+    }
+   },
+   "gramatica": {
+    "n": 222,
+    "puntaje": 0.6486486486486487,
+    "tipos": {
+     "gramatica": 0.8496,
+     "gramatica_reservada": 0.4074,
+     "gramatica_ejemplo": 0.4727
+    }
+   },
+   "ddgs": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "abstencion": {
+    "n": 44,
+    "puntaje": 1.0,
+    "tipos": {
+     "cola_inexistente": 1.0,
+     "cola_abst": 1.0
+    }
+   }
+  },
+  "general_activo": {
+   "buscar_ok": {
+    "buscó": 1.0,
+    "respuesta_exacta": 0.8108108108108109
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 0.9423076923076923
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "general_dormido": {
+   "buscar_ok": {
+    "buscó": 1.0,
+    "respuesta_exacta": 0.8333333333333334
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 0.9807692307692307
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "segundos": 640
+ }
+}

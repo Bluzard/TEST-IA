@@ -126,3 +126,17 @@ python variedad_v2.py && python entrenar_lora_v2.py --nombre codigo_g … --min_
 python evaluar_expertos_v2.py · evaluar_extremo_v2.py · evaluar_enrutador_v2.py · benchmark_v2.py
 ```
 Cada paso está documentado en `estudios/ETAPA4_FASE*.md` y sus logs en `resultados/ETAPA4_*`.
+
+## 8. Addendum (misma fecha): reglas de búsqueda de respaldo en la capa de inferencia
+
+Solo para v2c y solo en el flujo interactivo (`inferir.responder(..., extras=True)`); los evaluadores no pasan por ahí y sus métricas no cambian
+(`evaluar_v2.py` sobre producción: hechos 83,3 %, abstención 100 %/100 %, simulado 91,0 %, charla 79,9 %, idénticas a antes del cambio; `resultados/ETAPA4_eval_v2c_final.json`).
+
+1. **Abstención sin búsqueda previa** → se fuerza una búsqueda en ddgs con la pregunta limpia de rodeos («quería saber…», «me gustaría saber…», «sabes…», «dime…») y se le devuelven los resultados
+   al núcleo; si tras buscar no hay evidencia, se mantiene la abstención.
+2. **Orden de buscar sobre el turno anterior** («¿puedes buscarlo?», «búscalo», «investígalo», «búscalo en internet») → busca la última consulta informativa de la sesión; sin tema previo pide el tema.
+3. En esas búsquedas forzadas se restauran **tildes y mayúsculas con evidencia de los resultados** (el núcleo se abstiene con «ley de morgan en matematicas» y responde con «ley de Morgan en matemáticas») y se aplica una
+   **reparación de cita**: la respuesta se sustituye por la oración exacta de los resultados más parecida; si ninguna se parece (< 0,75) se mantiene la abstención. Motivo: tras un fragmento truncado el núcleo cambiaba
+   palabras («formuladas» → «ordenadas») y seguía con texto incoherente.
+
+Límite: la reparación de cita solo cubre las búsquedas forzadas; en las búsquedas que emite el propio núcleo la copia de términos poco frecuentes sigue siendo su límite conocido. Módulo: `respaldo_busqueda.py`.

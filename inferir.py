@@ -107,8 +107,30 @@ def _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizac
     return " ".join(respuestas), traza
 
 
+def _busqueda_forzada(modelo, fmt, pregunta_modelo, consulta, dispositivo, buscador, penalizacion, traza, etiqueta):
+    """Búsqueda que decide la capa de inferencia (no el núcleo): ddgs con `consulta` y turno de herramienta normal (pregunta + B: + resultados) para que el núcleo
+    responda con evidencia. Devuelve la respuesta del núcleo (puede ser la abstención si los resultados no alcanzan)."""
+    resultados = buscador(consulta)
+    traza += [f"[{etiqueta}] B: {consulta}", "[herramienta] " + resultados.replace("\n", " | ")]
+    from respaldo_busqueda import normalizar_con_resultados  # tildes y mayúsculas restauradas con evidencia de los resultados (el núcleo es sensible a ellas)
+
+    pregunta_modelo = normalizar_con_resultados(pregunta_modelo, resultados)
+    ids = fmt.ids_prompt(pregunta_modelo) + fmt.texto(" B: " + consulta) + [fmt.herramienta] + fmt.ids_tras_herramienta(resultados, MAX_TOKENS_RESULTADOS)
+    nuevo, _ = generar_lote(modelo, fmt, [ids], dispositivo, penalizacion, max_nuevos=100)[0]
+    r = _texto(fmt, nuevo).removeprefix("R:").strip()
+    traza.append("R: " + r)
+    if r and not r.startswith("No tengo información"):  # cita fiel: oración exacta de los resultados, o abstención si lo copiado no es fiable
+        from respaldo_busqueda import reparar_cita
+
+        fiel = reparar_cita(r, resultados)
+        if fiel != r:
+            traza.append("[cita reparada con el texto de los resultados]" if fiel else "[respuesta no fiable: no coincide con los resultados]")
+        r = fiel or SIN_INFO
+    return r
+
+
 def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizacion=1.1, max_busquedas=2, modo=None,
-              memoria=None, trabajo=None, extras=False):
+              memoria=None, trabajo=None, extras=False, contexto_busqueda=None):
     """Bucle completo: capa 1 (Python) -> núcleo [+ experto] -> herramienta. Devuelve (respuesta, traza).
 
     modo="codigo": el experto de código está activo en este turno: herramientas B: (base local de conceptos y ddgs en modo
@@ -124,6 +146,16 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
         partes = dividir(pregunta)
         if partes:
             return _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizacion)
+    if extras:  # v2c: «¿puedes buscarlo?» / «búscalo» -> busca la última consulta informativa de la sesión (respaldo_busqueda.py)
+        from respaldo_busqueda import es_orden_buscar, limpiar
+
+        if es_orden_buscar(pregunta):
+            if not contexto_busqueda:
+                return "Dime qué quieres que busque y lo busco.", ["[orden de buscar sin tema previo]"]
+            limpia, consulta = limpiar(contexto_busqueda)
+            traza = []
+            r = _busqueda_forzada(modelo, fmt, limpia, consulta, dispositivo, buscador, penalizacion, traza, "orden de buscar")
+            return (r if r and not r.startswith("No tengo información") else SIN_INFO), traza
     if modo:  # con cualquier experto activo: sin penalización por repetición (copiar código o texto repite tokens)
         penalizacion = 1.0
     ids = fmt.ids_prompt(trabajo.contextualizar(pregunta) if trabajo else pregunta)
@@ -133,7 +165,15 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
         texto = _texto(fmt, nuevo)
         traza.append(texto)
         if parada != fmt.herramienta or texto.startswith("R:"):  # «R: …» ya es la respuesta, aunque cierre con <herramienta>
-            return texto.removeprefix("R:").strip(), traza
+            respuesta = texto.removeprefix("R:").strip()
+            if extras and respuesta.startswith("No tengo información") and len(traza) == 1:  # abstención sin haber buscado nada: respaldo automático
+                from respaldo_busqueda import informativa, limpiar
+
+                if informativa(pregunta):
+                    limpia, consulta = limpiar(pregunta)
+                    r = _busqueda_forzada(modelo, fmt, limpia, consulta, dispositivo, buscador, penalizacion, traza, "búsqueda de respaldo")
+                    return (r if r and not r.startswith("No tengo información") else SIN_INFO), traza
+            return respuesta, traza
         if modo == "codigo" and texto.startswith("E:"):
             from sandbox import ejecutar_codigo
 
@@ -238,6 +278,7 @@ class Sesion:
         self.memoria = (Memoria(ruta_memoria) if ruta_memoria else Memoria()) if memoria else None
         self.trabajo = MemoriaTrabajo(fmt.tok) if memoria else None
         self.colisiones = 0
+        self.ultima_info = None  # última pregunta informativa (con búsqueda o abstención): referente de «¿puedes buscarlo?» (solo v2c)
 
     def estados(self):
         """{experto: 'activo'|'tibio'|'frío'} (solo motor C++)."""
@@ -256,7 +297,13 @@ class Sesion:
         elif self.enr:
             self._lora.activar(self.modelo, modo == self._nombre_unico)
         r, traza = responder(self.modelo, self.fmt, p, self.disp, buscador=self.buscador, penalizacion=self.pen, modo=modo,
-                             memoria=self.memoria, trabajo=self.trabajo, extras=self.v2)
+                             memoria=self.memoria, trabajo=self.trabajo, extras=self.v2,
+                             contexto_busqueda=self.ultima_info)
+        if self.v2:
+            from respaldo_busqueda import es_orden_buscar
+
+            if not es_orden_buscar(p) and any(t.startswith("B:") or t.startswith("[búsqueda de respaldo]") for t in traza):
+                self.ultima_info = p
         if self.trabajo:
             self.trabajo.registrar(p, r)
         if imprimir:

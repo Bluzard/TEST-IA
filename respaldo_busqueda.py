@@ -77,13 +77,19 @@ def normalizar_con_resultados(pregunta, resultados):
 
     def mejor(w):
         cand = formas.get(_n(w))
-        if not cand or w in cand:  # sin evidencia, o la forma tal como se escribió ya aparece en los resultados («las», «ley»): no se toca
+        if w != _n(w):  # ya trae tilde: no se toca (solo se restauran palabras escritas sin tilde)
             return w
-        # preferir una forma distinta de «todo minúscula sin tilde» (tilde o mayúscula inicial) si el texto original la tiene; entre ellas, la más frecuente
-        especiales = {f: c for f, c in cand.items() if f != _n(f) or f[:1].isupper()}
-        if w == w.lower() and _n(w) == w and especiales:
-            return max(especiales, key=especiales.get)
-        return w
+        if not cand:  # sin evidencia en los resultados: corrector determinista del proyecto (léxico de 193 k formas), solo si cambia únicamente la tilde
+            try:
+                from corrector import corregir_palabra
+
+                c = corregir_palabra(w)
+                return c if c != w and _n(c) == _n(w) else w
+            except Exception:
+                return w
+        # gana la forma más frecuente en los resultados («las» frente a «Las» de inicio de oración); a igualdad, la que lleva tilde y luego la capitalizada
+        f = max(cand, key=lambda x: (cand[x], x != _n(x), x[:1].isupper()))
+        return f[:1].upper() + f[1:] if w[:1].isupper() else f
 
     palabras = re.findall(r"\w+|\W+", pregunta)
     salida, primero = [], True
@@ -110,7 +116,7 @@ def _oraciones(resultados):
     return out
 
 
-def reparar_cita(respuesta, resultados, minimo=0.75):
+def reparar_cita(respuesta, resultados, consulta=None, minimo=0.9):
     """El núcleo copia fragmentos, pero con tokens técnicos o poco frecuentes puede cambiar una palabra («formuladas» -> «ordenadas») o seguir inventando tras
     un fragmento truncado. En las búsquedas forzadas por la capa de inferencia se alinea la primera oración de la respuesta con la oración más parecida de los
     resultados y se devuelve esa oración EXACTA; si ninguna se parece (>= `minimo`), devuelve None (la respuesta no es fiable: se mantiene la abstención)."""
@@ -118,10 +124,93 @@ def reparar_cita(respuesta, resultados, minimo=0.75):
 
     if not respuesta:
         return None
+    plano = re.sub(r"\s+", " ", resultados)
+    if re.sub(r"\s+", " ", respuesta.strip()) in plano:  # ya es una cita literal: no se toca (el separador de oraciones puede cortar abreviaturas)
+        return respuesta
     primera = re.split(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡0-9])", respuesta.strip())[0]
+    candidatas = _oraciones(resultados)
+    if not candidatas:  # resultados sin oraciones comparables (cifras, nombres sueltos): no hay contra qué verificar, se deja la respuesta
+        return respuesta
     mejor, ratio = None, 0.0
-    for o in _oraciones(resultados):
+    for o in candidatas:
         r = SequenceMatcher(None, primera.lower(), o.lower()).ratio()
         if r > ratio:
             mejor, ratio = o, r
-    return mejor if mejor and ratio >= minimo else None
+    if mejor and ratio >= minimo:
+        return mejor
+    # la respuesta del núcleo no es fiable (muy distinta de cualquier oración): se elige la oración de los resultados que responde a la consulta, si la hay
+    return _extractiva(resultados, consulta) if consulta else None
+
+
+RE_CONTENIDO = re.compile(
+    r"^(?:(?:que|cual(?:es)?)\s+(?:es|son|fue|fueron|era|significa|quiere decir|se entiende por)\s+\w+"
+    r"|quien(?:es)?\s+(?:es|son|fue|fueron|era|descubrio|escribio|invento|fundo|pinto|compuso|gano|creo|dirigio|dijo)\s+\w+"
+    r"|donde\s+(?:queda|esta|estan|nacio|vivio|se encuentra)\s+\w+"
+    r"|cuando\s+(?:fue|nacio|murio|se fundo|ocurrio|termino|empezo|comenzo|se descubrio)\s+\w+"
+    r"|cuanto[sa]?\s+\w+\s+(?:tiene|mide|pesa|hay|miden|dura|cuesta)\b"
+    r"|como\s+(?:se llama|funciona|se hace|se dice|se escribe|se forma)\s+\w+"
+    r"|por que\s+(?:es|son|se|los|las|el|la)\s+\w+"
+    r"|(?:dime|cuentame|explicame|hablame)\s+(?:la|el|los|las|de|del|sobre|que es|cual|quien)\s+\w+"
+    r"|(?:queria|quisiera|quiero|me gustaria|necesito)\s+(?:saber|conocer|averiguar)\s+\w+)")
+RE_PROMETE = re.compile(r"\b(?:buscarlo|buscarla|lo busco|la busco|te lo busco|busco el pronostico|intento buscarlo|prefiero buscarlo|y lo busco|y busco)\b")
+
+
+def contenido(pregunta):
+    """Pregunta de contenido (qué/cuál/quién/cómo…, «dime…», «quería saber…»), no una consulta sobre las capacidades del asistente («¿puedes buscar en internet?»)."""
+    limpia, _ = limpiar(pregunta)
+    return bool(RE_CONTENIDO.match(_n(limpia).strip(" ¿?¡!")) or RE_CONTENIDO.match(_n(pregunta).strip(" ¿?¡!")))
+
+
+def promete_buscar(respuesta):
+    """Respuesta de charla que desvía con «puedo buscarlo / lo busco» en lugar de buscar."""
+    return bool(RE_PROMETE.search(_n(respuesta)))
+
+
+# La pregunta habla del propio asistente («¿quién eres?», «¿cuál es tu nombre?», «¿qué puedes hacer?»): esas SÍ son charla y no se buscan
+RE_SOBRE_ASISTENTE = re.compile(r"\b(?:eres|erez|tu|tus|ti|te|tienes|puedes|sabes|haces|estas|opinas|piensas|crees|sientes|prefieres|quieres|llamas|creo|hizo|entreno|programo|desarrollo|"
+                                r"construyo|inventaron|test ?ia|asistente|robot|bot|ia)\b")
+_CHARLA_RESPUESTAS = set()
+
+
+def sobre_asistente(pregunta):
+    return bool(RE_SOBRE_ASISTENTE.search(_n(pregunta)))
+
+
+def es_charla_plantilla(respuesta):
+    """La respuesta es una de las plantillas de charla del SFT (charla_v2): una pregunta de contenido que la recibe no fue entendida como consulta."""
+    if not _CHARLA_RESPUESTAS:
+        import charla_v2
+
+        for _, (_, rs) in charla_v2.INTENCIONES.items():
+            for r in rs:
+                _CHARLA_RESPUESTAS.add(_n(r.split("{n}")[0]).strip())
+    t = _n(respuesta).strip()
+    return any(t.startswith(r) for r in _CHARLA_RESPUESTAS if len(r) >= 12)
+
+
+PARADAS = {"de", "del", "la", "el", "los", "las", "un", "una", "en", "y", "o", "que", "es", "son", "por", "para", "con", "al", "se", "a", "su", "sus", "lo"}
+
+
+def _palabras_clave(consulta):
+    return {w for w in re.findall(r"\w+", _n(consulta)) if w not in PARADAS and len(w) > 2}
+
+
+def _extractiva(resultados, consulta):
+    """Mejor oración de los resultados para la consulta: debe contener todas (o 3/4 de) las palabras clave; a igualdad gana la de un resultado anterior."""
+    claves = _palabras_clave(consulta)
+    if not claves:
+        return None
+    mejor, mejor_puntaje = None, 0.0
+    for rango, linea in enumerate(re.split(r"\n| \| ", resultados)):
+        cuerpo = re.sub(r"^\s*\d+\.\s*[^:]{0,160}:\s*", "", linea.strip())
+        for o in re.split(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÑ¿¡0-9])", cuerpo):
+            o = o.strip()
+            if not 40 <= len(o) <= 400:
+                continue
+            presentes = len(claves & set(re.findall(r"\w+", _n(o))))
+            if presentes < max(1, int(0.75 * len(claves) + 0.999)):
+                continue
+            puntaje = presentes + 0.5 / (rango + 1)
+            if puntaje > mejor_puntaje:
+                mejor, mejor_puntaje = o, puntaje
+    return mejor

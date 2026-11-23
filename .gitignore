@@ -37,3 +37,6 @@ datos/v2/*
 # respaldo de v1 (copias; los originales ya están versionados): solo el manifiesto
 modelos/v1_respaldo/*
 !modelos/v1_respaldo/SHA256_v1.json
+
+# señales vacías de coordinación entre procesos
+resultados/*.flag

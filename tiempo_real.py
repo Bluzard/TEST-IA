@@ -21,7 +21,7 @@ def _n(t):
 
 
 RE_HORA = re.compile(r"\b(que hora (es|son|tienes)|la hora|me das la hora|decirme la hora|hora actual)\b")
-RE_FECHA = re.compile(r"\b(que (dia|fecha) (es|es hoy|estamos|tenemos|cae)|fecha de hoy|fecha actual|a que (dia|fecha) estamos|en que (dia|fecha|mes|ano) estamos|que dia es hoy)\b")
+RE_FECHA = re.compile(r"\b(que (dia|fecha) (es|es hoy|estamos|tenemos|cae)|que ano es|fecha de hoy|fecha actual|a que (dia|fecha) estamos|en que (dia|fecha|mes|ano) estamos|que dia es hoy)\b")
 RE_CLIMA = re.compile(r"\b(clima|temperatura|pronostico|llover|lluvia|llueve|lloviendo|nevar|nieve|hace (frio|calor)|hara (frio|calor|sol)|grados|tiempo (hace|hara|esta))\b")
 RE_VIVO = re.compile(r"\b(dolar|euro|bitcoin|cotizacion|noticias?|titulares?|partido|resultado del|precio del (oro|petroleo|cobre|dolar)|bolsa de)\b")
 # lugar: «en Santiago de Chile», «aquí en Valparaíso», «de Lima»; se corta en conjunciones/puntuación

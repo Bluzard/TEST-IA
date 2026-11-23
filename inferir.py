@@ -122,7 +122,7 @@ def _busqueda_forzada(modelo, fmt, pregunta_modelo, consulta, dispositivo, busca
     if r and not r.startswith("No tengo información"):  # cita fiel: oración exacta de los resultados, o abstención si lo copiado no es fiable
         from respaldo_busqueda import reparar_cita
 
-        fiel = reparar_cita(r, resultados)
+        fiel = reparar_cita(r, resultados, consulta)
         if fiel != r:
             traza.append("[cita reparada con el texto de los resultados]" if fiel else "[respuesta no fiable: no coincide con los resultados]")
         r = fiel or SIN_INFO
@@ -158,7 +158,9 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
             return (r if r and not r.startswith("No tengo información") else SIN_INFO), traza
     if modo:  # con cualquier experto activo: sin penalización por repetición (copiar código o texto repite tokens)
         penalizacion = 1.0
-    ids = fmt.ids_prompt(trabajo.contextualizar(pregunta) if trabajo else pregunta)
+    pregunta_ctx = trabajo.contextualizar(pregunta) if trabajo else pregunta
+    ids = fmt.ids_prompt(pregunta_ctx)
+    buscado = None  # v2c: resultados web de este turno (para restaurar tildes/mayúsculas y reparar la cita)
     traza = []
     for _ in range(max_busquedas + 1):
         nuevo, parada = generar_lote(modelo, fmt, [ids], dispositivo, penalizacion, max_nuevos=140 if modo else 100)[0]
@@ -166,13 +168,25 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
         traza.append(texto)
         if parada != fmt.herramienta or texto.startswith("R:"):  # «R: …» ya es la respuesta, aunque cierre con <herramienta>
             respuesta = texto.removeprefix("R:").strip()
-            if extras and respuesta.startswith("No tengo información") and len(traza) == 1:  # abstención sin haber buscado nada: respaldo automático
-                from respaldo_busqueda import informativa, limpiar
+            if extras and len(traza) == 1:  # sin haber buscado nada: abstención, o charla que promete buscar («puedo buscarlo…») ante una pregunta de contenido
+                from respaldo_busqueda import contenido, es_charla_plantilla, informativa, limpiar, promete_buscar, sobre_asistente
+                from tiempo_real import RE_CLIMA, _n as _norm
 
-                if informativa(pregunta):
+                abstiene = respuesta.startswith("No tengo información")
+                # respuesta de charla («Soy TEST-IA…», «puedo buscarlo…») a una pregunta de contenido sobre el mundo: el núcleo no la entendió como consulta
+                desvia = ((promete_buscar(respuesta) or es_charla_plantilla(respuesta)) and contenido(pregunta) and not sobre_asistente(pregunta)
+                          and not RE_CLIMA.search(_norm(pregunta)))  # sin lugar, el clima se pregunta, no se busca
+                if (abstiene or desvia) and informativa(pregunta):
                     limpia, consulta = limpiar(pregunta)
                     r = _busqueda_forzada(modelo, fmt, limpia, consulta, dispositivo, buscador, penalizacion, traza, "búsqueda de respaldo")
                     return (r if r and not r.startswith("No tengo información") else SIN_INFO), traza
+            if extras and buscado is not None and respuesta and not respuesta.startswith("No tengo información"):  # cita fiel también cuando buscó el propio núcleo
+                from respaldo_busqueda import reparar_cita
+
+                fiel = reparar_cita(respuesta, buscado, consulta)
+                if fiel != respuesta:
+                    traza.append("[cita reparada con el texto de los resultados]" if fiel else "[respuesta no fiable: no coincide con los resultados]")
+                respuesta = fiel or SIN_INFO
             return respuesta, traza
         if modo == "codigo" and texto.startswith("E:"):
             from sandbox import ejecutar_codigo
@@ -180,7 +194,16 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
             resultados, tope = ejecutar_codigo(texto.removeprefix("E:").strip()), TOPE_EJECUCION
         else:
             consulta = texto.removeprefix("B:").strip()
-            resultados = buscar_memoria(consulta, memoria) or (buscador(consulta, modo=modo) if modo else buscador(consulta))
+            resultados = buscar_memoria(consulta, memoria)
+            en_web = not resultados
+            if en_web:
+                resultados = buscador(consulta, modo=modo) if modo else buscador(consulta)
+            if extras and modo is None and en_web and len(traza) == 1:  # v2c, primera búsqueda web del núcleo: tildes/mayúsculas con evidencia y contexto rehecho
+                from respaldo_busqueda import normalizar_con_resultados
+
+                buscado = resultados
+                pregunta_ctx = normalizar_con_resultados(pregunta_ctx, resultados)
+                ids = fmt.ids_prompt(pregunta_ctx)
             tope = TOPE_EXPERTO if modo else MAX_TOKENS_RESULTADOS
         tope = min(tope, max(40, getattr(fmt, "ventana", 512) - 112 - len(ids) - len(nuevo)))  # lo que sobre de la ventana (512 en v1, 1024 en v2) tras el contexto y la respuesta
         traza.append("[herramienta] " + resultados.replace("\n", " | "))

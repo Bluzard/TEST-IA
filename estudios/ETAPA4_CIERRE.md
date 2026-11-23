@@ -139,4 +139,19 @@ Solo para v2c y solo en el flujo interactivo (`inferir.responder(..., extras=Tru
    **reparación de cita**: la respuesta se sustituye por la oración exacta de los resultados más parecida; si ninguna se parece (< 0,75) se mantiene la abstención. Motivo: tras un fragmento truncado el núcleo cambiaba
    palabras («formuladas» → «ordenadas») y seguía con texto incoherente.
 
-Límite: la reparación de cita solo cubre las búsquedas forzadas; en las búsquedas que emite el propio núcleo la copia de términos poco frecuentes sigue siendo su límite conocido. Módulo: `respaldo_busqueda.py`.
+4. **Extensión a todas las búsquedas de v2c** (también cuando el propio núcleo emite `B:`): se restauran tildes/mayúsculas (evidencia de los resultados y, sin ella, el corrector determinista del proyecto)
+   y se repara la cita; una respuesta que ya es una cita literal de los resultados no se toca. Medido sobre las 287 preguntas reales de ddgs pasando por `responder()` completo:
+
+   | | sin reglas (v1 y base) | con reglas (v2c) |
+   |---|---|---|
+   | hechos (respuesta exacta, 222) | 185 (83,3 %) | **208 (93,7 %)** |
+   | abstención en irrelevantes (52) y vacíos (13) | 52 + 13 | **52 + 13 (100 %)** |
+   | abstenciones indebidas | 0 | 3 |
+
+5. **Hallazgo — la charla ampliada interfiere con preguntas de contenido con otra forma.** «¿Cuál es la capital de Perú?» (incluso con tildes perfectas) recibía la plantilla `tiempo_real` («No tengo datos en vivo…») y
+   «¿Quién fue Gabriela Mistral?» recibía la presentación de TEST-IA; los benchmarks no lo veían porque las preguntas de hechos usan «Explícame…» / «¿Qué es…?». Mitigación en la capa de inferencia: si el núcleo responde
+   una plantilla de charla a una **pregunta de contenido sobre el mundo** (marcos «qué/cuál es…», «quién fue…», «dónde queda…», «cuántos … tiene…», «dime la/el…»; no sobre el propio asistente ni clima sin lugar) sin haber buscado, se fuerza la búsqueda.
+   De las 339 frases de charla reservadas, solo 5 disparan búsqueda y las 5 son datos en vivo legítimos (dólar, resultados, inflación). **La causa de fondo está en los datos del SFT y se corregiría con un micro-SFT que añada preguntas de
+   contenido con esas formas** (queda como trabajo pendiente).
+
+Nota: ddgs devuelve resultados distintos entre llamadas; con resultados sin evidencia el núcleo se abstiene (comportamiento correcto), así que la misma pregunta puede responder o abstenerse según el momento.

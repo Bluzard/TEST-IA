@@ -1,0 +1,6 @@
+== codigo: núcleo SIN adaptador (línea base)
+   puntaje 66.3%
+== codigo: CON adaptador (experto_codigo_g_v2.lora, carga 12 ms)
+   puntaje 82.7% (v1: 82.2%)
+== codigo listo en 996 s
+{"codigo": {"base": 0.6630823429108204, "experto": 0.8265587134945727}}

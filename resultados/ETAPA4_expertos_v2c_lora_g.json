@@ -1,0 +1,210 @@
+{
+ "codigo": {
+  "base": {
+   "concepto": {
+    "n": 405,
+    "herr": 0.5753086419753086,
+    "consulta": 0.5308641975308642,
+    "exacta": 0.39012345679012345,
+    "sim95": 0.4024691358024691,
+    "busca": 0.5753086419753086
+   },
+   "concepto_ejemplo": {
+    "n": 72,
+    "herr": 0.5972222222222222,
+    "consulta": 0.5972222222222222,
+    "exacta": 0.5972222222222222,
+    "sim95": 0.5972222222222222,
+    "busca": 0.5972222222222222
+   },
+   "concepto_reservado": {
+    "n": 130,
+    "herr": 0.4846153846153846,
+    "consulta": 0.35384615384615387,
+    "exacta": 0.24615384615384617,
+    "sim95": 0.26153846153846155,
+    "busca": 0.4846153846153846
+   },
+   "doc_ok": {
+    "n": 59,
+    "herr": 0.559322033898305,
+    "consulta": 0.0847457627118644,
+    "exacta": 0.06779661016949153,
+    "sim95": 0.0847457627118644,
+    "busca": 0.559322033898305
+   },
+   "doc_abst": {
+    "n": 119,
+    "herr": 0.7478991596638656,
+    "consulta": 0.5462184873949579,
+    "exacta": 0.7394957983193278,
+    "sim95": 0.7394957983193278,
+    "busca": 0.7478991596638656
+   },
+   "ejec_ok": {
+    "n": 150,
+    "herr": 1.0,
+    "consulta": 0.9933333333333333,
+    "exacta": 0.9933333333333333,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "ejec_error": {
+    "n": 80,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "ejec_nameerror": {
+    "n": 10,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "error_interp": {
+    "n": 60,
+    "herr": 0.95,
+    "consulta": 0.0,
+    "exacta": 0.9166666666666666,
+    "sim95": 0.9166666666666666,
+    "busca": 0.0
+   },
+   "_puntaje": 0.6630823429108204
+  },
+  "experto": {
+   "concepto": {
+    "n": 405,
+    "herr": 0.9901234567901235,
+    "consulta": 0.9111111111111111,
+    "exacta": 0.7777777777777778,
+    "sim95": 0.7851851851851852,
+    "busca": 0.9901234567901235
+   },
+   "concepto_ejemplo": {
+    "n": 72,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 1.0
+   },
+   "concepto_reservado": {
+    "n": 130,
+    "herr": 0.9,
+    "consulta": 0.6,
+    "exacta": 0.5307692307692308,
+    "sim95": 0.5615384615384615,
+    "busca": 0.9
+   },
+   "doc_ok": {
+    "n": 59,
+    "herr": 0.9152542372881356,
+    "consulta": 0.22033898305084745,
+    "exacta": 0.1864406779661017,
+    "sim95": 0.23728813559322035,
+    "busca": 0.9152542372881356
+   },
+   "doc_abst": {
+    "n": 119,
+    "herr": 0.9831932773109243,
+    "consulta": 0.7394957983193278,
+    "exacta": 0.9831932773109243,
+    "sim95": 0.9831932773109243,
+    "busca": 0.9831932773109243
+   },
+   "ejec_ok": {
+    "n": 150,
+    "herr": 1.0,
+    "consulta": 0.9933333333333333,
+    "exacta": 0.9933333333333333,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "ejec_error": {
+    "n": 80,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "ejec_nameerror": {
+    "n": 10,
+    "herr": 1.0,
+    "consulta": 1.0,
+    "exacta": 1.0,
+    "sim95": 1.0,
+    "busca": 0.0
+   },
+   "error_interp": {
+    "n": 60,
+    "herr": 0.9833333333333333,
+    "consulta": 0.0,
+    "exacta": 0.9166666666666666,
+    "sim95": 0.9166666666666666,
+    "busca": 0.0
+   },
+   "_puntaje": 0.8265587134945727
+  },
+  "grupos": {
+   "ortografia": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "tono": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "gramatica": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "ddgs": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   },
+   "abstencion": {
+    "n": 0,
+    "puntaje": null,
+    "tipos": {}
+   }
+  },
+  "general_activo": {
+   "buscar_ok": {
+    "buscó": 0.9954954954954955,
+    "respuesta_exacta": 0.8378378378378378
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "general_dormido": {
+   "buscar_ok": {
+    "buscó": 1.0,
+    "respuesta_exacta": 0.8333333333333334
+   },
+   "irrelevante": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   },
+   "vacio": {
+    "buscó": 1.0,
+    "se_abstuvo": 1.0
+   }
+  },
+  "segundos": 996
+ }
+}

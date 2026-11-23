@@ -1,0 +1,25 @@
+[codigo_g] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 26,293 ejemplos (0 descartados) | cuda
+  época 1/4 paso 1/1588 | pérdida 0.0288 | 2s
+  época 1/4 paso 50/1588 | pérdida 0.0003 | 23s
+  época 1/4 paso 100/1588 | pérdida 0.0052 | 45s
+  época 1/4 paso 150/1588 | pérdida 0.0001 | 66s
+  época 1/4 paso 200/1588 | pérdida 0.0002 | 86s
+  época 1/4 paso 250/1588 | pérdida 0.0002 | 106s
+  época 1/4 paso 300/1588 | pérdida 0.0002 | 126s
+  época 1/4 paso 350/1588 | pérdida 0.0350 | 146s
+  época 2/4 paso 400/1588 | pérdida 0.0034 | 166s
+  época 2/4 paso 450/1588 | pérdida 0.0259 | 186s
+  época 2/4 paso 500/1588 | pérdida 0.0052 | 206s
+  época 2/4 paso 550/1588 | pérdida 0.0001 | 226s
+  época 2/4 paso 600/1588 | pérdida 0.0052 | 247s
+  época 2/4 paso 650/1588 | pérdida 0.0444 | 268s
+  época 2/4 paso 700/1588 | pérdida 0.0102 | 289s
+  época 2/4 paso 750/1588 | pérdida 0.0001 | 310s
+  época 3/4 paso 800/1588 | pérdida 0.0003 | 331s
+  época 3/4 paso 850/1588 | pérdida 0.0022 | 351s
+  época 3/4 paso 900/1588 | pérdida 0.0001 | 372s
+  época 3/4 paso 950/1588 | pérdida 0.0006 | 393s
+  parada temprana en el paso 1000/1588 (época 3): pérdida media reciente 0.0079 < 0.01
+[codigo_g] núcleo base intacto tras entrenar: True
+experto_codigo_g_v2.lora.pt -> experto_codigo_g_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[codigo_g] terminado en 6.9 min

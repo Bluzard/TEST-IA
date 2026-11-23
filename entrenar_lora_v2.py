@@ -36,6 +36,7 @@ def main():
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--warmup", type=int, default=30)
     ap.add_argument("--parar_perdida", type=float, default=0.0, help="parada temprana: se detiene cuando la media de las últimas 30 pérdidas baja de este valor (0 = desactivada)")
+    ap.add_argument("--min_pasos", type=int, default=0, help="la parada temprana no puede dispararse antes de este paso")
     ap.add_argument("--max", type=int, default=0)
     ap.add_argument("--semilla", type=int, default=0)
     ap.add_argument("--dispositivo", default="cuda")
@@ -80,7 +81,7 @@ def main():
             torch.nn.utils.clip_grad_norm_(lora.parametros_lora(modelo), 1.0)
             opt.step()
             reciente = (reciente + [perd.item()])[-30:]
-            if a.parar_perdida and paso >= 60 and len(reciente) == 30 and sum(reciente) / 30 < a.parar_perdida:
+            if a.parar_perdida and paso >= max(60, a.min_pasos) and len(reciente) == 30 and sum(reciente) / 30 < a.parar_perdida:
                 print(f"  parada temprana en el paso {paso}/{pasos} (época {ep + 1}): pérdida media reciente {sum(reciente) / 30:.4f} < {a.parar_perdida}", flush=True)
                 parar = True
                 break

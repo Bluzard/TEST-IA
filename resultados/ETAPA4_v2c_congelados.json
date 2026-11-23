@@ -1,8 +1,30 @@
 {
- "nota": "candidatos v2c congelados como buenos (no se reentrenan); en modelos/experimentos/",
- "archivos": {
+ "nota": "artefactos v2c GANADORES congelados (no se reentrenan ni se modifican); viven en modelos/experimentos/ hasta validar benchmarks de sistema",
+ "sha256": {
+  "nucleo_v2c_sft.pt": "2f572f166d3a6afb9180129dcafb970b827c818dbf3dc3f45eec2357c821a648",
+  "nucleo_v2c_sft.bin": "4c0772e6dec81df863ddf27ab00838ea2242add0ebd1f3acee154d022bb3bc41",
+  "nucleo_v2c_sft.vocab.json": "7a3375c1482c57cc25d90b15ed043927d81e260784b1a0f40909f9a200e2aab4",
+  "experto_codigo_g_v2.lora": "e70d28fecbe2e5d98cd7a1530ce5756ac46e1d1706c9ce263ee76ef27ea82d3a",
   "experto_redaccion_f_v2.lora": "21b8beb3558111a7d4ded9936e3f6f0208fbaa25fa046f82f80f0ab741b614b4",
-  "nucleo_v2c_sft.bin": "4c0772e6dec81df863ddf27ab00838ea2242add0ebd1f3acee154d022bb3bc41"
+  "tokenizador_v2_sft.json": "7a3375c1482c57cc25d90b15ed043927d81e260784b1a0f40909f9a200e2aab4"
  },
- "redaccion_puntaje": 0.642
+ "metricas_motor_cpp": {
+  "codigo_g": 0.827,
+  "redaccion_f": 0.642,
+  "hechos": 0.838,
+  "abstencion": 1.0,
+  "charla_339": 0.799,
+  "v1": {
+   "codigo": 0.822,
+   "redaccion": 0.562,
+   "hechos": 0.716,
+   "abstencion": 0.981
+  }
+ },
+ "v1_intacto": {
+  "nucleo_sft_v3.pt": "a867d741e0e65aa752757080fd4957abb871df6de75c0ef3e3a8fbd1c176717d",
+  "nucleo_sft_v3.bin": "17ecdbdaafba9c61ad0f08a633982118c0e205b130839b27fa5fc27204e0b540",
+  "experto_codigo.lora": "b57032631efdcdb6eec0c883207bad64a23e91f65eb21792095bdfb2110278c6",
+  "experto_redaccion.lora": "3ec614b0ba4ecd5538d2557730c914506054adfd618c77711b19e3ed54696018"
+ }
 }

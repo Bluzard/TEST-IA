@@ -14,6 +14,7 @@ import unicodedata
 from pathlib import Path
 
 import llm
+from relevancia import ORDEN_ABSTENCION, filtrar
 
 RAIZ = Path(__file__).parent
 SISTEMA = ("Eres TEST-IA. Responde en español, en una o dos frases, SOLO con lo que digan los resultados de búsqueda, copiando el dato tal como aparece. "
@@ -39,7 +40,7 @@ def main():
         lista = lista[:a.n] if a.n else lista
         ok = 0
         for c in lista:
-            msg = [{"role": "system", "content": SISTEMA}, {"role": "user", "content": f"{c['pregunta']}\n\nResultados de búsqueda:\n{c.get('resultados') or '(sin resultados)'}"}]
+            msg = [{"role": "system", "content": SISTEMA}, {"role": "user", "content": f"{c['pregunta']}\n\nResultados de búsqueda:\n{filtrar(c['consulta'], c.get('resultados') or '')}"}]
             r = _n(llm.chat(msg, modelo=a.modelo, temperatura=0.0, max_tokens=200).get("content") or "")
             abst = bool(ABSTENCION.search(r))
             ok += (not abst and _n(c["gold"]) in r) if tipo == "buscar_ok" else abst

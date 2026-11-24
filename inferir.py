@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 import llm
+from relevancia import filtrar
 from herramientas import buscar_memoria, buscar_web, capa1
 
 RAIZ = Path(__file__).parent
@@ -119,7 +120,7 @@ class Sesion:
         from sandbox import ejecutar_codigo
 
         traza = []
-        ejecutores = {"buscar_web": lambda consulta: self.buscador(consulta), "recordar": self._recordar, "ejecutar_python": ejecutar_codigo}
+        ejecutores = {"buscar_web": lambda consulta: filtrar(consulta, self.buscador(consulta)), "recordar": self._recordar, "ejecutar_python": ejecutar_codigo}
         from datetime import datetime
 
         ahora = datetime.now()

@@ -30,11 +30,45 @@ RE_LUGAR_MIN = re.compile(r"\b(?:en|para)\s+((?:[a-záéíóúñ]+)(?:\s+de(?:l)
 NO_LUGAR = {"hoy", "mañana", "manana", "este", "esta", "ese", "esa", "casa", "internet", "general", "serio", "verdad", "realidad", "total", "este momento"}
 
 
+RE_FALTA = re.compile(r"\b(?:cuantos dias (?:faltan|quedan|hay) (?:para|hasta)|cuanto (?:falta|queda) para|cuantos dias para)\s+(?:el\s+|la\s+)?(.+?)\s*[?.!]*$")
+FECHAS_FIJAS = {"navidad": (12, 25), "nochebuena": (12, 24), "ano nuevo": (1, 1), "nochevieja": (12, 31), "fin de ano": (12, 31), "halloween": (10, 31),
+                "San valentin": (2, 14), "san valentin": (2, 14), "fiestas patrias": (9, 18)}
+
+
+def dias_hasta(pregunta, ahora=None):
+    """«¿Cuántos días faltan para Navidad / el 3 de marzo?» -> respuesta con el reloj del equipo, o None."""
+    from datetime import date
+
+    m = RE_FALTA.search(_n(pregunta))
+    if not m:
+        return None
+    objetivo, hoy = m.group(1).strip(), (ahora or datetime.now()).date()
+    md = FECHAS_FIJAS.get(objetivo)
+    if md is None:
+        mm = re.match(r"(?:dia\s+)?(\d{1,2}) de ([a-z]+)", objetivo)
+        meses = [_n(x) for x in MESES]
+        if not mm or mm.group(2) not in meses:
+            return None
+        md = (meses.index(mm.group(2)) + 1, int(mm.group(1)))
+    mes, dia = md if md[0] <= 12 else (md[1], md[0])
+    try:
+        f = date(hoy.year, mes, dia)
+        if f < hoy:
+            f = date(hoy.year + 1, mes, dia)
+    except ValueError:
+        return None
+    n = (f - hoy).days
+    nombre = {"ano nuevo": "Año Nuevo", "fin de ano": "fin de año"}.get(objetivo, objetivo.capitalize() if md in FECHAS_FIJAS.values() else None) or f"el {dia} de {MESES[mes - 1]}"
+    cuando = "Es hoy" if n == 0 else f"Faltan {n} día{'s' if n != 1 else ''}"
+    return f"{cuando} para {nombre} ({f.day} de {MESES[f.month - 1]} de {f.year}), según el reloj de este equipo."
+
+
 def hora_fecha(pregunta, ahora=None):
     """Respuesta determinista con el reloj del equipo, o None si no se pregunta la hora ni la fecha."""
     t = _n(pregunta)
+    falta = dias_hasta(pregunta, ahora)
     quiere_hora, quiere_fecha = bool(RE_HORA.search(t)), bool(RE_FECHA.search(t))
-    if not (quiere_hora or quiere_fecha):
+    if not (quiere_hora or quiere_fecha or falta):
         return None
     d = ahora or datetime.now()
     partes = []
@@ -42,7 +76,9 @@ def hora_fecha(pregunta, ahora=None):
         partes.append(f"Son las {d:%H:%M}")
     if quiere_fecha:
         partes.append(f"Hoy es {DIAS[d.weekday()]} {d.day} de {MESES[d.month - 1]} de {d.year}")
-    return " y ".join(partes) + " (según el reloj de este equipo)."
+    if not partes:
+        return falta
+    return " y ".join(partes) + " (según el reloj de este equipo)." + (" " + falta if falta else "")
 
 
 def lugar(pregunta):

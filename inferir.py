@@ -8,10 +8,11 @@ Orden por turno: capa 1 (cuentas exactas y órdenes de memoria, sin IA) -> promp
 """
 import argparse
 import json
+import re
 from pathlib import Path
 
 import llm
-from relevancia import filtrar
+from relevancia import ORDEN_ABSTENCION, filtrar
 from herramientas import buscar_memoria, buscar_web, capa1
 
 RAIZ = Path(__file__).parent
@@ -23,6 +24,7 @@ SISTEMA = (
     "Para datos que cambian, hechos que no conozcas con seguridad, definiciones precisas o cualquier duda sobre el mundo, usa la herramienta buscar_web "
     "y responde SOLO con lo que digan los resultados, copiando el dato tal como aparece y nombrando la fuente. Si los resultados no traen la respuesta, dilo: no inventes. "
     "Usa recordar para lo que el usuario te pidió guardar. Usa ejecutar_python (solo `import math`) para cálculos y para comprobar código antes de darlo por bueno. "
+    "Si te piden reescribir un texto (más formal, más claro, más cercano), responde SOLO con el texto reescrito y cambia de verdad el registro: formal = usted, sin saludos ni interjecciones, frases completas. "
     "No uses herramientas para saludos ni charla. Responde breve, salvo que te pidan detalle."
 )
 
@@ -51,6 +53,19 @@ def _tiempo_real(pregunta, partes, buscador, modelo=None):
         r = (llm.chat(msg, modelo=modelo, temperatura=0.1).get("content") or "").strip()
         respuestas.append(r or "No pude leer ese dato en los resultados.")
     return " ".join(respuestas), traza
+
+
+RE_INFORMATIVA = re.compile(r"^\W*(?:que (?:es|son|significa|fue|fueron)|quien(?:es)? (?:es|son|fue|fueron|era)|cual (?:es|fue|era) (?:el|la|los|las)|cuando (?:fue|nacio|murio|se)|donde (?:esta|queda|nacio)|"
+                            r"cuentame sobre|hablame de|que me puedes decir de|definicion de|que quiere decir|que es lo que)", re.I)
+RE_SOBRE_ASISTENTE = re.compile(r"\b(?:tu|te|eres|tus|contigo|mi|mis)\b")
+
+
+def es_informativa(p):
+    """Pregunta de contenido sobre el mundo: se busca SIEMPRE antes de responder (un 3B no llama a la herramienta por su cuenta y alucina)."""
+    from tiempo_real import _n
+
+    t = _n(p).strip()
+    return bool(RE_INFORMATIVA.search(t)) and not RE_SOBRE_ASISTENTE.search(t) and len(t) < 160
 
 
 class Sesion:
@@ -128,6 +143,14 @@ class Sesion:
         recuerdo = buscar_memoria(p, self.memoria) if self.memoria else ""
         if recuerdo:
             contexto += f"\n[Memoria del usuario: {recuerdo}]"
+        elif es_informativa(p):  # búsqueda obligatoria (fichas locales + ddgs), filtrada por relevancia
+            consulta = re.sub(r"^\W*(?:que (?:es|son|significa|fue|fueron|me puedes decir de|quiere decir)|quien(?:es)? (?:es|son|fue|fueron|era)|cuentame sobre|hablame de|definicion de)\s*(?:el |la |los |las |un |una )?",
+                              "", __import__("tiempo_real")._n(p)).strip(" ¿?!.") or p
+            res = filtrar(consulta, self.buscador(consulta))
+            if res == ORDEN_ABSTENCION:  # una palabra suelta a veces no devuelve nada: se reintenta con la pregunta completa
+                res = filtrar(consulta, self.buscador(p.strip(" ¿?!.")))
+            traza.append(f"[búsqueda obligatoria] {consulta} -> {res.replace(chr(10), ' | ')[:160]}")
+            contexto += f"\n[Resultados de búsqueda para «{consulta}»; responde solo con ellos]\n{res}"
         self.mensajes.append({"role": "user", "content": f"{p}\n\n{contexto}"})
         r = llm.agente(self.mensajes, HERRAMIENTAS, ejecutores, modelo=self.modelo, traza=traza)
         self._recortar()

@@ -16,7 +16,15 @@ Fecha: 2026-11-24. Decisión: usar solo el modelo de 3B (Ollama), sin modelos ma
 
 Las cifras no son directamente comparables: la del 3B es más permisiva (basta con mencionar el dato esperado). Sin filtro, el 3B respondía con lo primero que veía aunque no tratara de la consulta («brilibri» -> «Bribri»). `relevancia.py` exige que una raíz de 5 letras de algún término de la consulta aparezca en los resultados; si no, se ordena abstenerse sin gastar una llamada al modelo (no pierde ningún caso con respuesta). Un simple «Sin resultados» no bastaba: el 3B lo ignoraba (irrelevante 71,2 %).
 
+## Pendientes resueltos (misma jornada)
+- **Fecha:** el 3B ignoraba la fecha del contexto. `tiempo_real.dias_hasta` responde «¿cuántos días faltan para Navidad / el 3 de marzo?» con el reloj del equipo, sin IA, y se combina con «qué hora es».
+- **Alucinación en definiciones:** el 3B no llama a la búsqueda por su cuenta («¿qué es un hiato?» respondía un disparate). Las preguntas de contenido («qué es», «quién fue», «cuéntame sobre»…) ahora buscan SIEMPRE antes de responder (con reintento usando la pregunta completa) y pasan por el filtro de relevancia.
+- **Reescritura formal:** regla en el prompt del sistema; «oye mandame el informe ya» -> «Por favor, envíe el informe ya.»
+
+## Prueba rápida de extremo a extremo (7 mensajes, sin cifras)
+Bien: tristeza con empatía y sin chiste, chiste, código con prueba en el sandbox, corrector de capa 1, prompt de SDXL, definición con búsqueda. Mal: «¿qué es lo que más te gusta?» responde con la abstención (el prompt la fuerza demasiado).
+
 ## Limitaciones vistas
-- Con búsqueda abierta, el 3B llegó a afirmar un dato falso (ganador del mundial 2022: «Francia»); con instrucciones de citar tal cual se abstiene.
-- Ignora la fecha del contexto («¿cuántos días faltan para Navidad?» pide la fecha).
-- Pendiente: evaluar charla, código y redacción de extremo a extremo; el LoRA con PEFT sobre el 3B no se hizo.
+- Con búsqueda abierta y sin filtro, el 3B llegó a afirmar un dato falso (ganador del mundial 2022: «Francia»).
+- No se midieron charla, código y redacción con conjuntos reservados; el LoRA con PEFT sobre el 3B no se hizo.
+- `tiempo_real.py`: la búsqueda de clima y datos en vivo no pasa por el filtro de relevancia.

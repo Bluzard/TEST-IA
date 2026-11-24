@@ -1,7 +1,5 @@
-﻿torch>=2.7
-numpy
-datasets
-tokenizers
-
 ddgs
-psutil
+torch>=2.7
+transformers
+sentencepiece
+sacremoses

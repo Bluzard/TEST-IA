@@ -1,0 +1,7 @@
+[extraccion_delta] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 1,248 ejemplos (0 descartados) | cuda
+  época 1/5 paso 1/110 | pérdida 6.9498 | 20s
+  época 3/5 paso 50/110 | pérdida 2.3578 | 3153s
+  época 5/5 paso 100/110 | pérdida 1.6317 | 5854s
+[extraccion_delta] núcleo base intacto tras entrenar: True
+experto_extraccion_delta_v2.lora.pt -> experto_extraccion_delta_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[extraccion_delta] terminado en 104.8 min

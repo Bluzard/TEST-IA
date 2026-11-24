@@ -40,6 +40,7 @@ class MotorCpp:
         except AttributeError:
             pass
         self.rutas_ranuras = {}   # nombre -> (ranura, ruta); para recargar un experto que se enfrió
+        self.ruta_en_ranura = {}  # ranura -> ruta del .lora que contiene ahora (varios expertos pueden compartir ranura: se recarga si no es el pedido)
         self.h = self.lib.nucleo_cargar(str(ruta_bin).encode())
         if not self.h:
             raise RuntimeError(f"No se pudo cargar {ruta_bin}")
@@ -96,6 +97,7 @@ class MotorCpp:
         r = self.lib.nucleo_lora_cargar_ranura(self.h, str(ruta).encode(), ranura)
         if r != 0:
             raise RuntimeError(f"no se pudo cargar {ruta} en la ranura {ranura} (código {r}: -1 no abre, -2 formato, -3 no calza, -4 ranura inválida)")
+        self.ruta_en_ranura[ranura] = str(ruta)
         return (time.perf_counter() - t) * 1000
 
     def seleccionar(self, nombre):
@@ -106,6 +108,9 @@ class MotorCpp:
             return "dormido"
         ranura, ruta = self.rutas_ranuras[nombre]
         recargado = False
+        if self.ruta_en_ranura.get(ranura, ruta) != ruta:  # la ranura la ocupa otro experto que comparte ranura: se pone el pedido (≈ 4 ms)
+            self.cargar_ranura(ruta, ranura)
+            recargado = True
         if self.lib.nucleo_lora_seleccionar(self.h, ranura) != 0:  # estaba frío
             self.cargar_ranura(ruta, ranura)
             self.lib.nucleo_lora_seleccionar(self.h, ranura)
@@ -117,7 +122,10 @@ class MotorCpp:
         return self.lib.nucleo_lora_turno(self.h)
 
     def estado(self, nombre):
-        return self.ESTADOS[self.lib.nucleo_lora_estado(self.h, self.rutas_ranuras[nombre][0])]
+        ranura, ruta = self.rutas_ranuras[nombre]
+        if self.ruta_en_ranura.get(ranura, ruta) != ruta:  # la ranura contiene a otro experto que la comparte: este está frío
+            return self.ESTADOS[0]
+        return self.ESTADOS[self.lib.nucleo_lora_estado(self.h, ranura)]
 
     def vida(self, nombre):
         return self.lib.nucleo_lora_vida(self.h, self.rutas_ranuras[nombre][0])

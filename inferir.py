@@ -107,6 +107,38 @@ def _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizac
     return " ".join(respuestas), traza
 
 
+def escribir_cuerpo_imagen(modelo, fmt, k, idea_en, dispositivo):
+    """Opción B del experto de imagen: el prompt EMPIEZA con la idea del usuario (ya en inglés) y el núcleo solo la CONTINÚA con estilo, luz y cámara, forzando ese comienzo.
+    La idea nunca pasa por el modelo, así que no se pierde. Devuelve (cuerpo, continuación_del_núcleo)."""
+    import re
+
+    from imagen_fichas import FICHAS_IMAGEN, buscar_ficha_imagen
+    from imagen_formato import limpiar_cuerpo
+
+    natural = FICHAS_IMAGEN[k]["estilo"] == "natural"
+    inicio = idea_en.strip().rstrip(" .,;")
+    if not natural:  # etiquetas: sin artículo inicial y en minúsculas, salvo lo que va entre comillas
+        inicio = re.sub(r"^(?:an?|the)\s+", "", inicio, flags=re.I)
+        inicio = re.sub(r'("[^"]*")|([^"]+)', lambda m: m.group(1) or m.group(2).lower(), inicio)
+    ficha = buscar_ficha_imagen(k) or ""
+    pedido = f"write a prompt for {FICHAS_IMAGEN[k]['nombres'][0]}: {idea_en.strip()}"
+    ids = fmt.ids_prompt(pedido) + fmt.texto(f" B: {k}") + [fmt.herramienta] + fmt.ids_tras_herramienta(ficha, 330) + fmt.texto(" R: " + inicio)
+    nuevo, _ = generar_lote(modelo, fmt, [ids], dispositivo, 1.15, max_nuevos=130)[0]
+    cont = _texto(fmt, nuevo)
+    cont = limpiar_cuerpo(cont) if cont else ""
+    if natural:  # la continuación se corta en la última oración completa
+        m = list(re.finditer(r"[.!?](?=\s|$)", cont))
+        cont = cont[:m[-1].end()] if m else ""
+    else:  # etiquetas: se corta en la última coma
+        cont = cont[:cont.rfind(",")] if "," in cont else ""
+    cont = re.sub(r"^[\s,.;:]+", "", cont)
+    base = re.sub(r"\W+", " ", inicio.lower()).strip()
+    if cont and base and base in re.sub(r"\W+", " ", cont.lower()):  # no repetir la idea
+        cont = ""
+    sep = ". " if natural else ", "
+    return (inicio + (sep + cont if cont else ("." if natural else ""))), cont
+
+
 def _busqueda_forzada(modelo, fmt, pregunta_modelo, consulta, dispositivo, buscador, penalizacion, traza, etiqueta):
     """Búsqueda que decide la capa de inferencia (no el núcleo): ddgs con `consulta` y turno de herramienta normal (pregunta + B: + resultados) para que el núcleo
     responda con evidencia. Devuelve la respuesta del núcleo (puede ser la abstención si los resultados no alcanzan)."""
@@ -130,23 +162,23 @@ def _busqueda_forzada(modelo, fmt, pregunta_modelo, consulta, dispositivo, busca
 
 
 def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizacion=1.1, max_busquedas=2, modo=None,
-              memoria=None, trabajo=None, extras=False, contexto_busqueda=None):
+              memoria=None, trabajo=None, extras=False, contexto_busqueda=None, modelo_imagen_previo=None, idea_literal=True, continuacion_nucleo=False, idea_imagen_previa=None):
     """Bucle completo: capa 1 (Python) -> núcleo [+ experto] -> herramienta. Devuelve (respuesta, traza).
 
     modo="codigo": el experto de código está activo en este turno: herramientas B: (base local de conceptos y ddgs en modo
     código) y E: (sandbox de Python), con sus topes de tokens, y sin penalización por repetición (copiar código repite tokens).
     memoria: Memoria externa (guardado en capa 1 y primera fuente de B:). trabajo: MemoriaTrabajo (referente de los seguimientos).
     """
-    exacta = capa1(pregunta, memoria)
+    exacta = capa1(pregunta, memoria) if modo != "imagen" else None  # un pedido de prompt de imagen no es una cuenta ni una orden de memoria
     if exacta is not None:
         return exacta, ["[capa 1, sin IA]"]
-    if extras:  # v2: hora/fecha del reloj, clima con lugar y datos en vivo (tiempo_real.py)
+    if extras and modo != "imagen":  # v2: hora/fecha del reloj, clima con lugar y datos en vivo (tiempo_real.py); «lluvia» en un prompt de imagen no es una consulta de clima
         from tiempo_real import dividir
 
         partes = dividir(pregunta)
         if partes:
             return _tiempo_real(modelo, fmt, pregunta, partes, dispositivo, buscador, penalizacion)
-    if extras:  # v2c: «¿puedes buscarlo?» / «búscalo» -> busca la última consulta informativa de la sesión (respaldo_busqueda.py)
+    if extras and modo != "imagen":  # v2c: «¿puedes buscarlo?» / «búscalo» -> busca la última consulta informativa de la sesión (respaldo_busqueda.py)
         from respaldo_busqueda import es_orden_buscar, limpiar
 
         if es_orden_buscar(pregunta):
@@ -157,13 +189,85 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
             r = _busqueda_forzada(modelo, fmt, limpia, consulta, dispositivo, buscador, penalizacion, traza, "orden de buscar")
             return (r if r and not r.startswith("No tengo información") else SIN_INFO), traza
     if modo:  # con cualquier experto activo: sin penalización por repetición (copiar código o texto repite tokens)
-        penalizacion = 1.0
+        penalizacion = 1.15 if modo == "imagen" else 1.0  # el prompt de imagen es texto nuevo, no una copia: sin penalización entra en bucles («8k, 8k, 8k…»)
+    nota_entrada = []
+    if modo == "imagen":  # sin modelo destino (ni nombrado ahora ni usado antes en la sesión) no se escribe nada: se pregunta, con texto fijo (el núcleo lo reproducía corrupto)
+        from imagen_compactar import preparar_entrada
+        from imagen_fichas import resolver_modelo
+        from imagen_vocab import PREGUNTA_MODELO
+
+        k_pedido = resolver_modelo(pregunta)
+        if k_pedido is None and not modelo_imagen_previo:
+            return PREGUNTA_MODELO[0], ["[falta el modelo destino]"]
+        # entradas largas (JSON anidado, especificaciones de escena): no caben en la ventana del núcleo (1.024 tokens); se compactan sin perder lo visual (imagen_compactar.py)
+        pregunta, resumen, obj_json = preparar_entrada(pregunta, fmt.tok)
+        if resumen:
+            nota_entrada.append("[" + resumen + "]")
+            if k_pedido and resolver_modelo(pregunta) is None:  # el modelo estaba dentro del JSON: se conserva como prefijo
+                pregunta = f"prompt para {k_pedido}:\n{pregunta}"
+        if obj_json is None and idea_literal and (k_pedido or modelo_imagen_previo):
+            # opción B: la idea del usuario se traduce al inglés y encabeza el prompt; el núcleo solo añade estilo, luz y cámara (imagen_idea.py)
+            from imagen_fichas import FICHAS_IMAGEN
+            from imagen_formato import formatear
+            from imagen_idea import idea_en_ingles
+
+            k_dest = k_pedido or modelo_imagen_previo
+            from enrutador import _SEGUIMIENTO_IMG, _n as _nn
+            import re as _re_
+
+            _RE_CAMBIO = _re_.compile(r"^(?:mas|menos|sin|con|pero|mucho|un\s+poco|bien|de\s+(?:noche|dia)|en\s+(?:estilo|modo|version|blanco)|estilo|realista|oscur|clar|colorid|detall|cinemat|artistic)")
+            from imagen_idea import modificador_de_seguimiento
+
+            mod_previo = modificador_de_seguimiento(pregunta) if idea_imagen_previa else ""
+            # seguimiento = el mensaje solo pide un cambio (vacío, o corto y empezando por «más/menos/sin/con/pero…»); una idea nueva con «para qwen» no lo es
+            es_seguimiento = bool(idea_imagen_previa) and bool(_SEGUIMIENTO_IMG.search(_nn(pregunta))) and (not mod_previo or (len(mod_previo.split()) <= 6 and bool(_RE_CAMBIO.match(_nn(mod_previo)))))
+            if es_seguimiento:  # «otra versión más oscura», «ahora para sdxl»: se modifica la idea anterior, no se empieza otra
+                mod = modificador_de_seguimiento(pregunta)
+                mod_en, idioma, idea = idea_en_ingles(mod, traducir=True) if mod else ("", "en", "")
+                en = idea_imagen_previa + (", " + mod_en[:1].lower() + mod_en[1:] if mod_en else "")
+                idioma = "seguimiento"
+            else:
+                en, idioma, idea = idea_en_ingles(pregunta, traducir=True)
+            sin_traducir = idioma == "es" and en.lower().strip(" .") == idea.lower().strip(" .")  # no hay traductor instalado: se usa el camino anterior
+            if en and not sin_traducir:
+                if continuacion_nucleo:  # EXPERIMENTAL: el núcleo continúa la idea (medido: incoherente); por defecto se enriquece con vocabulario curado (imagen_idea.enriquecer)
+                    cuerpo, cont = escribir_cuerpo_imagen(modelo, fmt, k_dest, en, dispositivo)
+                else:
+                    from imagen_idea import enriquecer
+
+                    import random as _rnd
+
+                    cuerpo = enriquecer(k_dest, en, variante=_rnd.randrange(1, 10**6) if (idioma == "seguimiento" and not mod_previo) else 0)  # «otra versión»: mismo contenido, otra luz/composición/calidad
+                return (formatear(k_dest, cuerpo, con_texto='"' in cuerpo, limpiar=False),
+                        nota_entrada + [f"[idea {'traducida del español' if idioma == 'es' else ('modificada a partir de la anterior' if idioma == 'seguimiento' else 'en inglés')}: {en}]", f"B: {k_dest}", "[herramienta] ficha", "R: " + cuerpo, f"[modelo imagen: {k_dest}]"])
+        if obj_json is not None:
+            # especificación completa (ya es un plan de render): el núcleo no la usa con fidelidad (medido), así que se COMPONE el prompt con sus propios campos y se aplica el formato del modelo
+            from imagen_compactar import a_etiquetas, componer_json
+            from imagen_fichas import FICHAS_IMAGEN
+            from imagen_formato import formatear
+
+            k_dest = k_pedido or modelo_imagen_previo
+            comp, _ = componer_json(obj_json, fmt.tok, 420)
+            cuerpo = comp if FICHAS_IMAGEN[k_dest]["estilo"] == "natural" else a_etiquetas(comp)
+            return (formatear(k_dest, cuerpo, con_texto='"' in cuerpo),
+                    nota_entrada + [f"[composición determinista con los campos de la especificación (el núcleo no la sigue con fidelidad)]", f"[modelo imagen: {k_dest}]"])
+        if k_pedido is None:  # sin modelo nombrado pero con uno previo en la sesión: se consulta SU ficha y el núcleo solo escribe el cuerpo del prompt
+            from imagen_fichas import buscar_ficha_imagen
+            from imagen_formato import formatear
+
+            ficha = buscar_ficha_imagen(modelo_imagen_previo) or ""
+            ids0 = fmt.ids_prompt(pregunta) + fmt.texto(" B: " + modelo_imagen_previo) + [fmt.herramienta] + fmt.ids_tras_herramienta(ficha, 330)
+            nuevo0, _ = generar_lote(modelo, fmt, [ids0], dispositivo, 1.15, max_nuevos=280)[0]
+            cuerpo = _texto(fmt, nuevo0).removeprefix("R:").strip()
+            return (formatear(modelo_imagen_previo, cuerpo, con_texto='"' in cuerpo),
+                    nota_entrada + [f"B: {modelo_imagen_previo}", "[herramienta] ficha (modelo de la sesión)", "R: " + cuerpo, f"[modelo imagen: {modelo_imagen_previo}]"])
     pregunta_ctx = trabajo.contextualizar(pregunta) if trabajo else pregunta
     ids = fmt.ids_prompt(pregunta_ctx)
     buscado = None  # v2c: resultados web de este turno (para restaurar tildes/mayúsculas y reparar la cita)
-    traza = []
+    traza = list(nota_entrada)
+    k_img = None  # modelo de imagen consultado en este turno (experto de prompts de imagen)
     for _ in range(max_busquedas + 1):
-        nuevo, parada = generar_lote(modelo, fmt, [ids], dispositivo, penalizacion, max_nuevos=140 if modo else 100)[0]
+        nuevo, parada = generar_lote(modelo, fmt, [ids], dispositivo, penalizacion, max_nuevos=280 if modo == "imagen" else (140 if modo else 100))[0]
         texto = _texto(fmt, nuevo)
         traza.append(texto)
         if parada != fmt.herramienta or texto.startswith("R:"):  # «R: …» ya es la respuesta, aunque cierre con <herramienta>
@@ -187,8 +291,23 @@ def responder(modelo, fmt, pregunta, dispositivo, buscador=buscar_web, penalizac
                 if fiel != respuesta:
                     traza.append("[cita reparada con el texto de los resultados]" if fiel else "[respuesta no fiable: no coincide con los resultados]")
                 respuesta = fiel or SIN_INFO
+            if modo == "imagen" and respuesta:  # el núcleo escribió el cuerpo del prompt; la capa determinista añade prefijo de calidad y prompt negativo según la ficha
+                from imagen_fichas import resolver_modelo
+                from imagen_formato import formatear
+
+                k_img = k_img or resolver_modelo(pregunta) or modelo_imagen_previo  # si el núcleo no consultó la ficha, se usa el modelo nombrado (o el de la sesión)
+                if k_img:
+                    respuesta = formatear(k_img, respuesta, con_texto='"' in respuesta)
+                    traza.append(f"[modelo imagen: {k_img}]")
             return respuesta, traza
-        if modo == "codigo" and texto.startswith("E:"):
+        if modo == "imagen":  # B: <modelo> -> ficha local del modelo (no hay búsqueda web)
+            from imagen_fichas import buscar_ficha_imagen, resolver_modelo
+
+            consulta = texto.removeprefix("B:").strip()
+            k_img = resolver_modelo(consulta) or k_img
+            resultados = buscar_ficha_imagen(consulta) or ""
+            tope = 330
+        elif modo == "codigo" and texto.startswith("E:"):
             from sandbox import ejecutar_codigo
 
             resultados, tope = ejecutar_codigo(texto.removeprefix("E:").strip()), TOPE_EJECUCION
@@ -259,24 +378,27 @@ class Sesion:
     """
 
     def __init__(self, modelo, fmt, dispositivo, motor=False, experto=None, expertos=None, pen=1.1, memoria=True, buscador=buscar_web,
-                 ruta_memoria=None, vida_tibia=None, v2=False):
+                 ruta_memoria=None, vida_tibia=None, v2=False, idea_literal=True, continuacion_nucleo=False):
         from memoria import Memoria, MemoriaTrabajo
 
         self.modelo, self.fmt, self.disp, self.motor, self.pen, self.buscador = modelo, fmt, dispositivo, motor, pen, buscador
+        self.continuacion_nucleo = continuacion_nucleo
+        self.idea_literal = idea_literal  # experto de imagen: la idea del usuario se traduce y encabeza el prompt (imagen_idea.py)
         self.v2 = v2  # núcleo v2c: enrutador ampliado y consultas de tiempo real (hora, clima, datos en vivo)
         self.enr, self._lora, self.expertos = None, None, dict(expertos or {})
         if experto and "codigo" not in self.expertos:
             self.expertos["codigo"] = experto
         if self.expertos:  # el enrutador despierta, cambia o duerme al experto turno a turno
-            from enrutador import Enrutador, EnrutadorV2
+            from enrutador import Enrutador, EnrutadorV2, EnrutadorV3
 
-            self.enr = EnrutadorV2() if v2 else Enrutador()
+            self.enr = (EnrutadorV3() if "imagen" in self.expertos else EnrutadorV2()) if v2 else Enrutador()
             if motor:
                 if vida_tibia:
                     modelo.vida_tibia(vida_tibia)
                 for i, (nombre, ruta) in enumerate(self.expertos.items()):
-                    modelo.registrar_experto(nombre, ruta, i)
-                    modelo.cargar_ranura(ruta, i)  # entran tibios
+                    modelo.registrar_experto(nombre, ruta, i % 2)  # con 3 expertos (código, redacción, imagen) el tercero comparte ranura y se recarga al pedirlo (≈ 4 ms)
+                    if i < 2:
+                        modelo.cargar_ranura(ruta, i)  # entran tibios
                 modelo.seleccionar(None)
             else:
                 if len(self.expertos) > 1:
@@ -301,6 +423,8 @@ class Sesion:
         self.memoria = (Memoria(ruta_memoria) if ruta_memoria else Memoria()) if memoria else None
         self.trabajo = MemoriaTrabajo(fmt.tok) if memoria else None
         self.colisiones = 0
+        self.ultima_idea_imagen = None  # idea (en inglés) del último pedido de prompt: un «otra versión más oscura» la modifica
+        self.ultimo_modelo_imagen = None  # modelo de imagen del último pedido de prompt (un «otra versión» sin modelo reutiliza el anterior)
         self.ultima_info = None  # última pregunta informativa (con búsqueda o abstención): referente de «¿puedes buscarlo?» (solo v2c)
 
     def estados(self):
@@ -312,6 +436,8 @@ class Sesion:
         if self.memoria:
             self.memoria.enfriar()  # cada turno todos los recuerdos bajan 1
         modo = self.enr.paso(p) if self.enr else None
+        if modo and modo not in self.expertos:  # el enrutador pidió un dominio sin adaptador cargado
+            modo = None
         if self.enr and self.motor:
             self.modelo.turno()           # los expertos tibios pierden 1 de vida; al llegar a 0 se descargan
             self.modelo.seleccionar(modo)  # cambio de experto = asignación de puntero (recarga solo si estaba frío)
@@ -321,7 +447,12 @@ class Sesion:
             self._lora.activar(self.modelo, modo == self._nombre_unico)
         r, traza = responder(self.modelo, self.fmt, p, self.disp, buscador=self.buscador, penalizacion=self.pen, modo=modo,
                              memoria=self.memoria, trabajo=self.trabajo, extras=self.v2,
-                             contexto_busqueda=self.ultima_info)
+                             contexto_busqueda=self.ultima_info, modelo_imagen_previo=self.ultimo_modelo_imagen, idea_literal=self.idea_literal, continuacion_nucleo=self.continuacion_nucleo, idea_imagen_previa=self.ultima_idea_imagen)
+        for t in traza:
+            if t.startswith("[idea ") and ": " in t:
+                self.ultima_idea_imagen = t.split(": ", 1)[1].rstrip("]")
+            if t.startswith("[modelo imagen: "):
+                self.ultimo_modelo_imagen = t[len("[modelo imagen: "):-1]
         if self.v2:
             from respaldo_busqueda import es_orden_buscar
 
@@ -339,6 +470,42 @@ class Sesion:
         return r, traza, modo
 
 
+def preparar_mensaje(t, leer_linea=None):
+    """Prepara lo que el usuario escribe o pega: 1) «@ruta» se sustituye por el contenido del archivo (las consolas de Windows cortan una línea pegada a ≈ 4.000 caracteres);
+    2) un JSON pegado en varias líneas se completa leyendo líneas hasta cerrar las llaves; 3) un texto que es un literal de cadena JSON («"{\\n  \\"a\\": 1}"») se desescapa."""
+    import re
+
+    def desescapar(x):
+        s = x.strip()
+        if len(s) > 2 and s[0] == '"' and s[-1] == '"':
+            try:
+                v = json.loads(s)
+                if isinstance(v, str):
+                    return v
+            except ValueError:
+                pass
+        return x
+
+    def archivo(m):
+        ruta = Path(m.group(1).strip('"'))
+        for base in (Path.cwd(), RAIZ):
+            c = ruta if ruta.is_absolute() else base / ruta
+            if c.is_file():
+                return desescapar(c.read_text(encoding="utf-8"))
+        return m.group(0)
+
+    t = re.sub(r'@("[^"]+"|[^\s"]+)', archivo, t)
+    if leer_linea is not None:
+        n = 0
+        while (t.count("{") - t.count("}") > 0 or t.count("[") - t.count("]") > 0) and n < 3000:
+            try:
+                t += "\n" + leer_linea()
+            except EOFError:
+                break
+            n += 1
+    return desescapar(t)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("preguntas", nargs="*")
@@ -347,6 +514,10 @@ def main():
     ap.add_argument("--experto", default=None, help="adaptador del experto de código (.lora con --motor, .lora.pt con PyTorch); "
                     "las preguntas se tratan como una conversación y el enrutador lo despierta o duerme")
     ap.add_argument("--sin-memoria", action="store_true", help="desactiva la memoria externa (datos/memoria.json) y la de trabajo")
+    ap.add_argument("--imagen", action="store_true", help="activa el experto de prompts de imagen (EXPERIMENTAL, usa modelos/experimentos/experto_imagen_d_v2.lora)")
+    ap.add_argument("--sin-traductor", action="store_true", help="experto de imagen: no conservar/traducir la idea del usuario (usa solo la generación del núcleo, sin cargar el traductor)")
+    ap.add_argument("--continuacion-nucleo", action="store_true", help="experto de imagen (EXPERIMENTAL): el núcleo continúa la idea del usuario en vez del enriquecimiento curado (medido: incoherente)")
+    ap.add_argument("--imagen_lora", default=None, help="ruta de otro adaptador .lora para el experto de prompts de imagen (implica --imagen)")
     ap.add_argument("--redaccion", default=None, help="adaptador del experto de redacción (.lora; requiere --motor junto a --experto)")
     ap.add_argument("--v1", action="store_true", help="núcleo v1 (respaldo: modelos/nucleo_sft_v3.*, tokenizador v1, expertos v1 si se indican con --experto/--redaccion)")
     ap.add_argument("--v2", action="store_true", help="(obsoleto: v2c es el modelo por defecto)")
@@ -366,6 +537,8 @@ def main():
         if not args.sin_expertos:
             args.experto = args.experto or str(prod / "experto_codigo_g_v2.lora")
             args.redaccion = args.redaccion or str(prod / "experto_redaccion_f_v2.lora")
+            if not (args.imagen or args.imagen_lora) and (prod / "experto_imagen_v2.lora").exists():
+                args.imagen_lora = str(prod / "experto_imagen_v2.lora")
         from motor_cpp import MotorCpp
 
         modelo, fmt = MotorCpp(args.modelo), FormatoV2()
@@ -387,23 +560,36 @@ def main():
         expertos["codigo"] = args.experto
     if args.redaccion:
         expertos["redaccion"] = args.redaccion
-    sesion = Sesion(modelo, fmt, disp, motor=args.motor, expertos=expertos, pen=args.pen, memoria=not args.sin_memoria, v2=args.v2)
+    if args.imagen or args.imagen_lora:
+        expertos["imagen"] = args.imagen_lora or str(RAIZ / "modelos" / "experimentos" / "experto_imagen_d_v2.lora")
+    sesion = Sesion(modelo, fmt, disp, motor=args.motor, expertos=expertos, pen=args.pen, memoria=not args.sin_memoria, v2=args.v2, idea_literal=not args.sin_traductor, continuacion_nucleo=args.continuacion_nucleo)
+
+    def atender(p):
+        try:
+            sesion.atender(p, imprimir=True)
+        except ValueError as e:  # entrada que no cabe en la ventana del núcleo (1.024 tokens) fuera del modo imagen
+            if "demasiado largo" not in str(e):
+                raise
+            print(f"El texto es demasiado largo para el núcleo (máximo ≈ 900 tokens, unos 3.000 caracteres). Para especificaciones largas de prompts de imagen arranca con --imagen y pasa el archivo con @ruta.\n")
+
     if args.preguntas:
         for p in args.preguntas:
-            sesion.atender(p, imprimir=True)
+            atender(preparar_mensaje(p))
         return
     # sin preguntas por argumento: chat interactivo (una sola conversación: enrutador y memorias conservan su estado entre turnos)
-    print("Chat interactivo. Escribe tu pregunta; «salir» (o Ctrl+C / Ctrl+Z) para terminar.\n")
+    print("Chat interactivo. Escribe tu pregunta; «salir» (o Ctrl+C / Ctrl+Z) para terminar.")
+    print("Textos largos: escribe @ruta/al/archivo.json (la consola de Windows corta las líneas pegadas a ~4.000 caracteres); también se acepta pegar un JSON en varias líneas.\n")
     while True:
         try:
             p = input("Tú> ").strip()
+            p = preparar_mensaje(p, leer_linea=lambda: input(""))
         except (EOFError, KeyboardInterrupt):
             print()
             break
         if p.lower() in ("salir", "exit", "quit"):
             break
         if p:
-            sesion.atender(p, imprimir=True)
+            atender(p)
 
 
 if __name__ == "__main__":

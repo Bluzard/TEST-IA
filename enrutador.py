@@ -381,3 +381,93 @@ class EnrutadorV2(Enrutador):
         if any(p.search(n) for p in _REDACCION_FRASES_V2):
             sc["redaccion"] += 3
         return sc
+
+
+# ---------------------------------------------------------------- dominio «imagen» (experto de prompts de imagen; solo EnrutadorV2)
+_VERBOS_PEDIDO_IMG = re.compile(r"\b(haz|hazme|genera|generame|escribe|escribeme|crea|creame|necesito|quiero|dame|ayudame|ayudame con|redacta|write|make|generate|create|need|give me)\b")
+_PALABRAS_IMG = re.compile(r"\b(imagen|imagenes|image|images|foto|fotos|ilustracion|render|dibujo|wallpaper|poster|cartel|retrato|portrait|picture|arte|artwork)\b")
+_JSON_IMG = re.compile(r'"(subject|sujeto|lighting|aspect_ratio|style|estilo|camera|camara|setting|entorno|mood|ambiente|palette|paleta)"\s*:|^\s*(subject|sujeto|lighting|luz|style|estilo|setting|entorno|camera|camara|mood|ambiente)\s*:', re.M | re.I)
+
+
+_SEGUIMIENTO_IMG = re.compile(r"\b(otra (version|variante|opcion)|otro (prompt|estilo)|mas (realista|oscuro|claro|detallado|corto|largo|cinematografico|artistico|colorido)|menos (oscuro|detallado)|"
+                              r"ahora (para|en|con)|pero (con|en|mas|menos)|cambia(lo)? (el|la|a)|hazlo (mas|menos|en)|sin texto|con texto|en otro modelo|para (flux|sdxl|pony|illustrious|qwen|z ?-?image))\b")
+
+
+def puntaje_imagen(texto):
+    """Puntaje de que el mensaje pida un PROMPT para un generador de imágenes (Flux, Z-Image, Qwen-Image, SD…), en cualquier forma de entrada (texto, JSON, YAML, viñetas).
+    Alias de modelo (+2, +1 más si está al inicio, seguido de «:»/«->» o tras «para/for/con»), palabra «prompt» (+2, +1 con verbo de pedido o «prompt de/para»),
+    pedido de imagen sin modelo («quiero una imagen de…», +2), palabras de imagen (+1), lista con viñetas (+1) y claves de escena en JSON/YAML (+3)."""
+    from imagen_fichas import _INDICE
+
+    n = _n(texto)
+    s = 0
+    hay_prompt = bool(re.search(r"\bprompts?\b", n))
+    alias = [a for a in _INDICE if len(a) >= 3 and re.search(r"(?<![a-z0-9])" + re.escape(a) + r"(?![a-z0-9])", n)]  # «sd» solo no cuenta; «sd 1.5», «sdxl», «flux»… sí
+    if hay_prompt:
+        s += 2
+        if _VERBOS_PEDIDO_IMG.search(n) or re.search(r"\bprompts? (de|para|for|of)\b", n):
+            s += 1
+    if alias:
+        s += 2
+        a0 = re.escape(max(alias, key=len))
+        if n.lstrip().startswith(max(alias, key=len)) or re.search(r"(?:^|\W)(?:para|for|con|with|en|de)\s+" + a0 + r"\b", n) or re.search(a0 + r"\s*(?::|->|=>|\n)", n):
+            s += 1
+    if _PALABRAS_IMG.search(n):
+        s += 1
+        if not hay_prompt and _VERBOS_PEDIDO_IMG.search(n):  # «quiero una imagen de…», «genera una imagen de…»
+            s += 1
+    if len(re.findall(r"^\s*[-*•]\s+\S", texto, re.M)) >= 3:
+        s += 1
+    if len(_JSON_IMG.findall(texto)) >= 2:
+        s += 3
+    return s
+
+
+class EnrutadorV3(EnrutadorV2):
+    """EnrutadorV2 + dominio «imagen» (tres expertos exclusivos). El prompt de imagen manda sobre código/redacción cuando su puntaje es el mayor (p. ej. «prompt para flux» con palabras de redacción en el texto)."""
+
+    DOMINIOS = ("codigo", "redaccion", "imagen")
+    UMBRAL_IMAGEN = 3
+
+    @staticmethod
+    def puntajes(mensaje):
+        sc = EnrutadorV2.puntajes(mensaje)
+        sc["imagen"] = puntaje_imagen(mensaje)
+        if sc["imagen"] >= EnrutadorV3.UMBRAL_IMAGEN:  # un pedido de prompt de imagen no es una tarea de código/redacción aunque el texto traiga palabras de esos dominios
+            sc["codigo"] = min(sc["codigo"], 1)
+            sc["redaccion"] = min(sc["redaccion"], 1)
+        return sc
+
+    def _elegir(self, sc, mensaje):
+        if sc["imagen"] >= self.UMBRAL_IMAGEN:
+            return "imagen"
+        return Enrutador._elegir(self, {"codigo": sc["codigo"], "redaccion": sc["redaccion"]}, mensaje)
+
+    def paso(self, mensaje):
+        sc = self.puntajes(mensaje)
+        if self.activo is None:
+            self.activo = self._elegir(sc, mensaje)
+            self.sin_senal = 0
+            return self.activo
+        if sc["imagen"] >= self.UMBRAL_IMAGEN and self.activo != "imagen":
+            self.activo, self.sin_senal = "imagen", 0
+        elif self.activo == "imagen":
+            # un pedido de prompt es autocontenido: solo se mantiene si el mensaje trae señal de imagen o es un seguimiento claro («otra versión», «más realista», «ahora para sdxl»);
+            # cualquier otra cosa («hola», una pregunta de hechos) lo duerme de inmediato, para que el adaptador no convierta una charla en un prompt
+            if sc["imagen"] >= 1 or _SEGUIMIENTO_IMG.search(_n(mensaje)):
+                self.sin_senal = 0
+            else:
+                otro = self._elegir(sc, mensaje)
+                self.activo, self.sin_senal = (otro, 0) if otro else (None, 0)
+        else:
+            sub = {"codigo": sc["codigo"], "redaccion": sc["redaccion"]}
+            otro = "redaccion" if self.activo == "codigo" else "codigo"
+            if sub[otro] >= self.umbral and sub[otro] > sub[self.activo]:
+                self.activo, self.sin_senal = otro, 0
+            elif sub[self.activo] >= 1:
+                self.sin_senal = 0
+            else:
+                self.sin_senal += self.reposo if _autonomo(mensaje) else 1
+                if self.sin_senal >= self.reposo:
+                    self.activo = None
+        return self.activo

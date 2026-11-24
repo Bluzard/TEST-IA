@@ -1,0 +1,15 @@
+{
+ "pares": 382,
+ "variantes": {
+  "extraccion_a": {
+   "error": "entrenamiento"
+  },
+  "extraccion_b": {
+   "error": "entrenamiento"
+  }
+ },
+ "congelados": {
+  "verificados": 5,
+  "alterados": []
+ }
+}

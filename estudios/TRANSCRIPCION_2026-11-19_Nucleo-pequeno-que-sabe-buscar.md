@@ -1,8 +1,8 @@
 # Transcripción Completa de Sesión: Núcleo pequeño que sabe cuándo buscar
 
-> **Fecha:** 19 al 22 de noviembre de 2026
+> **Fecha:** 19 al 24 de noviembre de 2026
 > **Proyecto:** `TEST-IA`
-> **Tema central:** Análisis de una conversación con Gemini sobre por qué pesan las IA y construcción de un prototipo de núcleo pequeño que busca en un diccionario externo; continúa (turnos 32 en adelante) con la Etapa 3 (memoria externa con decay, experto de redacción, router de 3 estados, caché de 2 LoRA), el diseño del núcleo v2-A de 158 M y su Etapa 4: Fase 0 (motor C++), Fase 1 (tokenizador 24k y corpus de 4.000 M de tokens), piloto en GPU y preentrenamiento en curso.
+> **Tema central:** Análisis de una conversación con Gemini sobre por qué pesan las IA y construcción de un prototipo de núcleo pequeño que busca en un diccionario externo; continúa (turnos 32 en adelante) con la Etapa 3 (memoria externa con decay, experto de redacción, router de 3 estados, caché de 2 LoRA), el diseño del núcleo v2-A de 158 M y su Etapa 4: Fase 0 (motor C++), Fase 1 (tokenizador 24k y corpus de 4.000 M de tokens), piloto en GPU y preentrenamiento; el anexo final resume el cierre de la Etapa 4 (v2c en producción), la Etapa 5 (experto de prompts de imagen) y la Etapa 6 (extracción de escena, resultado negativo).
 > **Documentos generados:** datos.py, modelo.py, herramientas.py, entrenar.py, evaluar.py, conversar.py, ampliar_diccionario.py, comparar.py, exportar_bitnet.py, medir_recursos.py, preparar_pc.ps1, README.md; (turnos 32+) memoria.py, corrector.py, enrutador.py, motor.cpp, fase0_nucleo_v2.py, fase1_datos.py, modelo_v2.py, piloto_v2.py, pretrain_v2.py, estudios/ETAPA3_CIERRE.md, ETAPA4_DISENO_nucleo_v2.md, ETAPA4_FASE1_datos.md
 
 ---
@@ -2465,3 +2465,38 @@ si y luego deja todo listo para que cuando termine el preentrenamiento siga lo q
 ### Asistente
 
 Primero actualizo la transcripción con lo ocurrido desde el último anexo, y luego hago el commit y el push.
+
+---
+
+## Anexo — Lo ocurrido del 22 al 24 de noviembre (resumen)
+
+> **Nota:** este anexo **no es textual**. Se reconstruyó a partir de los documentos de `estudios/` y del historial de git, porque los turnos de esos días no se copiaron a esta transcripción. Las cifras salen de esos documentos.
+
+### Etapa 4: del preentrenamiento al cierre (22–23 de noviembre)
+
+- **Cadena automática** (`cadena_v2.py`): al terminar el preentrenamiento (perplejidad de validación 20,26) corrió sola el SFT (7.317 s), la exportación, la evaluación y los dos LoRA. Núcleo v2 + SFT: hechos 83,3 % (v1: 71,6 %), abstención 99,0 %.
+- **v2b** (SFT conjunto con charla ampliada y copia técnica): charla 79,7 % (de 53,6 %), hechos 83,8 %. Los LoRA de código y redacción quedaron por debajo de v1 (54,5 % y 38,8 %): el límite estaba en el núcleo.
+- **v2c** (micro-SFT con 42 % de habilidades y 58 % de repaso, y LoRA con parada temprana, formulaciones variadas y mínimo de pasos): `ejec_ok` 99,3 %, tono formal 98,3 %, abstención 100 %. LoRA de código 82,7 % (v1: 82,2 %) y de redacción 64,2 % (v1: 56,2 %). Artefactos ganadores congelados con SHA-256.
+- **Integración:** `EnrutadorV2` (código 91,5 %, redacción 96,5 %, sin falsos positivos nuevos), tiempo real (hora, clima, datos en vivo) y consola limpia. `inferir.py` usa v2c por defecto y `--v1` conserva el respaldo íntegro.
+- **Cierre oficial (23-nov)**, documentado en `ETAPA4_CIERRE.md`. Frente a v1, v2c es unas 3,7 veces más lento (179 tok/s) y usa unos 28 MB más de RAM (143 MB con 2 LoRA).
+- **Mejoras finales:** búsqueda de respaldo, restauración de tildes y mayúsculas, y reparación de citas. Hechos por `responder()`: 83,3 % → 93,7 %; abstención 100 %.
+- **Límites que quedaron:** `doc_ok` de código 23,7 % (v1: 59,3 %), porque el núcleo copia mal términos técnicos ingleses raros; `tono_conciso` 22,5 %; ortografía exacta ≈ 15 %; la charla sigue siendo de plantillas.
+
+### Etapa 5: experto de prompts de imagen (experimental, 23-nov)
+
+- Recibe una petición mal redactada, en JSON o en viñetas, en español o inglés, y devuelve un prompt en inglés con el formato del modelo destino (Flux, Z-Image, Qwen-Image, SDXL, SD 1.5, Pony, Illustrious). Se activa con `--imagen`.
+- **`EnrutadorV3`** con tres dominios: detecta el 93,6 % de los pedidos de imagen, con 0 falsos positivos en 656 negativos, sin cambiar código ni redacción.
+- **Hallazgo:** el núcleo v2c no es fiable generando prompts largos a partir de una idea (ejemplo: «gato dormido en una ventana lluviosa» → gato en un campo de lavanda). Por eso la idea **no pasa por el modelo**: se traduce (opus-mt-es-en), se enriquece con vocabulario curado y se formatea de forma determinista. Sobre 400 entradas reservadas: 100 % de las palabras de la idea llegan al prompt, 157 ms por pedido.
+- Las especificaciones largas (JSON de más de 1.000 tokens) se componen sin pasar por el núcleo.
+- Datos con licencia abierta (73.364 filas de entrenamiento). Detalle en `ETAPA5_experto_imagen.md`.
+
+### Etapa 6: extracción de escena (24-nov)
+
+- Se probó un experto del núcleo v2c (LoRA) que extrae el estado de una escena a partir de cada turno. Datos: 382 turnos sintéticos generados con Mistral (1.248 ejemplos de entrenamiento y 58 de evaluación). Se compararon también modelos Qwen locales (`probar_modelos_extraccion.cjs`).
+- **Resultado negativo:** no supera a la línea base «copiar el estado anterior» (escena exacta 87,9–89,7 % en ambos). La variante B memoriza, y el formato delta (solo lo que cambia) colapsó a contestar siempre «sin cambios». Latencia 2,6–4,4 s por turno, frente a 31–44 s de Mistral.
+- **Decisión:** `SCENE_EXTRACTOR=core` queda desactivado (por defecto `llm`). Este camino necesita muchos más datos, turnos reales del usuario y campos libres resueltos de forma determinista. Detalle en `ETAPA6_extraccion.md`.
+- **Arquitectura vigente** (memoria del proyecto): Mistral hace el rol y la extracción, y el núcleo hace el resto, sin Rocinante.
+
+### Estado del repositorio al 24-nov
+
+Último commit: `fa40ca7` (23-nov). Sin commitear están las Etapas 5 y 6 (scripts `imagen_*.py`, `extractor_*.py`, `servicio_escenas.py`, `resultados/ETAPA5_*` y `ETAPA6_*`), más cambios en `enrutador.py`, `inferir.py` y `motor_cpp.py`.

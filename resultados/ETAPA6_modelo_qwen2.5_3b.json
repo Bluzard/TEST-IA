@@ -1,0 +1,24 @@
+{
+ "modelo": "qwen2.5:3b",
+ "turnos": 58,
+ "aceptadas_por_reducer": 30,
+ "fallos_json": 0,
+ "seg_por_turno_media": 7,
+ "campos": {
+  "char.posture": 0.38,
+  "char.support": 0.79,
+  "char.restraint": 1,
+  "char.asleep": 1,
+  "char.expression_F1": 0.29,
+  "char.action_F1": 0.86,
+  "user.posture": 0.4,
+  "user.support": 0.74,
+  "user.restraint": 1,
+  "user.asleep": 1,
+  "user.expression_F1": 0.62,
+  "user.action_F1": 0.95,
+  "arrangement": 0.02,
+  "contactos_exacto": 0.33,
+  "contactos_F1": 0.38
+ }
+}

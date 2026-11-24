@@ -1,0 +1,8 @@
+[extraccion_a] LoRA r=16 α=32.0: 3,964,928 parámetros (7.9 MB fp16) | 1,248 ejemplos (0 descartados) | cuda
+  época 1/8 paso 1/184 | pérdida 8.5321 | 16s
+  época 3/8 paso 50/184 | pérdida 2.3271 | 1726s
+  época 5/8 paso 100/184 | pérdida 1.6948 | 2763s
+  época 7/8 paso 150/184 | pérdida 1.3559 | 3811s
+[extraccion_a] núcleo base intacto tras entrenar: True
+experto_extraccion_a_v2.lora.pt -> experto_extraccion_a_v2.lora: r=16, alpha=32.0, matrices=['qkv', 'proy', 'fc1', 'fc2'], 22 capas, 7.93 MB
+[extraccion_a] terminado en 74.0 min

@@ -4,7 +4,7 @@
 > **Proyecto:** `TEST-IA` · carpeta `adaptacion/`
 > **Tema central:** análisis del planteamiento de inteligencia (PDF de la conversación con Gemini) y laboratorio experimental con el homeostato de Ashby para probarlo.
 > **Documentos generados:** scripts y resultados en `adaptacion/` (ver la lista de archivos más abajo).
-> **Nota:** la transcripción omite los mensajes internos del sistema; los avisos de tareas terminadas aparecen como «Aviso automático». Incluye la continuación con el plan de tres pasos y la subida a GitHub; el último mensaje de esa subida no alcanza a quedar dentro.
+> **Nota:** la transcripción omite los mensajes internos del sistema; los avisos de tareas terminadas aparecen como «Aviso automático». Incluye la continuación (plan de tres pasos, subida a GitHub, entorno componible y discusión sobre conocimiento externo); el último pedido (esta actualización) no se incluye como turno.
 
 ---
 
@@ -87,13 +87,37 @@ Resultado: descubre tanto como el caos, con una fracción de las caídas, y es e
 | 2 | `capas.py` | Con unidades internas que solo sobreviven cooperando, ¿surge la organización en partes? | La cooperación es obligatoria (aislado: 0/40; en todos los que llegan, las internas quedan unidas a una periférica). Pero no surgen módulos: todos terminan como un solo grupo conectado, y la poda gradual no poda. Con 3P+3I nadie llega. |
 | 3 | `meta.py` | Si el sujeto ajusta sus propias reglas (amplitud de cambio, aspiración), ¿cruza más rápido ríos nuevos? | No: sin tendencia en 6 ríos seguidos. La preferencia de amplitud termina casi pareja y la aspiración apenas baja (87–88 %). Con ríos totalmente al azar no hay un método que transferir (No Free Lunch). |
 
-## 8. Frentes abiertos
+## 8. Entorno componible y conocimiento externo
 
-1. Ríos donde el entorno sea sostenible (hoy un tercio termina saturado aunque cuente como caída).
-2. Un mundo con zonas independientes del río, donde conectar todo con todo importe ruido, para que los módulos tengan ventaja.
-3. Familias de ríos que compartan estructura, para que exista un método que aprender.
+**Prueba (`entorno_componible.py`, solo validación corta).** El río ofrece piezas con física propia (2 anclas que sienten el río y 2 apoyos que lo empujan). Un «puente» es un apoyo con signo negativo alimentado por un ancla puesta sobre la misma parte del río. Cuando una unidad del sujeto cae, cambia al azar sus conexiones y la colocación de su pieza.
+- Al calibrar hubo que ajustar dos cosas:
+  - piezas rápidas (`D=5`, `G=4`), porque con piezas lentas el lazo del puente oscilaba;
+  - la crecida actúa solo sobre el río (fuerza 0,3).
+- Con eso, saltar aguanta ~81 % de las crecidas y el puente ~98 %.
+- Validación con 20 vidas: «satisfecho» pasa el 63 % del tiempo con un puente armado (por azar sería 27 %) y se cae 1 vez en el último tramo (sin piezas: 38). Al cambiar el terreno conserva su puente en 7 de 12 casos. Las diferencias en puentes genuinos todavía no son firmes; la prueba larga quedó pendiente.
 
-## 9. Archivos en `adaptacion/`
+**Aclaración del usuario sobre la intención.** Lo que se busca es saber si darle conocimiento externo («qué es un puente y cómo se hace») le permite resolver más rápido, sin usar LLM, y que el sistema vaya creciendo. El plan de Gemini se tomó demasiado al pie de la letra.
+
+**Conclusiones teóricas (sin código):**
+- **Un plano concreto reduce el espacio de búsqueda.** Sirve en contextos parecidos a donde nació, pero no en contextos distintos.
+- **Para «necesito algo similar a un puente» en otro contexto hay que transferir la forma, no las piezas.** Es decir, roles y relaciones: «algo que siente el problema en un punto, conectado a algo que empuja en contra en ese mismo punto». Eso es razonamiento por analogía (*structure mapping*).
+- **La evaluación no es absoluta:** la aspiración es un umbral, no un óptimo, y la confianza en un plano depende del contexto donde se ganó.
+- **El conocimiento crecería como una biblioteca de planos** (propios o externos), y todos pasan por la misma prueba: la necesidad.
+- **Dónde se guarda lo aprendido.** Hoy vive en la configuración actual, el repertorio, las piezas colocadas y las reglas, y **se pierde al terminar cada ejecución**. Para que crezca, debería ir a disco, en SQLite:
+  - `contextos` con la huella del contexto como vector, para buscar por similitud (`sqlite-vec` o numpy);
+  - `planos` con su contenido: vector si es concreto, grafo en JSON si es abstracto;
+  - `confianza` por plano y por contexto.
+- **Esto retoma la idea original de TEST-IA:** un núcleo pequeño y fijo, con la memoria fuera de él.
+
+## 9. Frentes abiertos
+
+1. Prueba larga del entorno componible (100 vidas, 300.000 pasos, con cambio de terreno).
+2. Comparar el sujeto con y sin plano: correcto, incorrecto (signo cambiado) y parcial.
+3. Biblioteca de planos persistente en SQLite, indexada por la huella del contexto.
+4. Abstraer planos a partir de éxitos propios (de la configuración concreta a la forma de roles y relaciones).
+5. Pendientes de antes: ríos con entorno sostenible, un mundo donde los módulos tengan ventaja y familias de ríos con estructura compartida.
+
+## 10. Archivos en `adaptacion/`
 
 | Script | Resultados |
 |---|---|
@@ -113,6 +137,7 @@ Resultado: descubre tanto como el caos, con una fracción de las caídas, y es e
 | `saturacion.py` | `resultados_saturacion.txt` |
 | `capas.py` | `resultados_capas.txt` |
 | `meta.py` | `resultados_meta.txt` |
+| `entorno_componible.py` | (validación corta en la transcripción) |
 
 Para correr cualquiera, desde `TEST-IA`: `.venv/bin/python adaptacion/<script>.py`
 
@@ -1394,6 +1419,413 @@ Falta que termine el paso 3, la meta-adaptación, para que el commit incluya sus
 3. hago push, creo el PR y lo fusiono en `main`.
 
 Antes del commit también actualizo el resumen de la transcripción con los pasos 1 a 3, para que el repo quede con todo. Te aviso cuando esté hecho.
+
+---
+
+## Turno 40 — Aviso automático
+
+_Background command "Correr paso 3 (meta-adaptación) en segundo plano" completed (exit code 0)_
+
+### Asistente
+
+La transcripción quedó actualizada: 39 turnos y ningún token. Antes de subir, reviso que la carpeta no contenga datos personales.
+
+La transcripción quedó actualizada: 39 turnos y ningún token. Antes de subir, reviso que la carpeta no contenga datos personales.
+
+Están listos los 30 archivos, todos nuevos y dentro de `adaptacion/`. Hago el commit y el push de la rama.
+
+PR creado: https://github.com/Bluzard/TEST-IA/pull/1. Lo fusiono en `main`, como pediste.
+
+La carpeta `adaptacion/` ya está en `main` de tu repo. Además terminaron los tres pasos del plan.
+
+## GitHub
+
+- **PR:** https://github.com/Bluzard/TEST-IA/pull/1, fusionado en `main` (commit `4ac53ca`).
+- **Qué subí:** 30 archivos nuevos, todos dentro de `adaptacion/`: 18 scripts, 15 archivos de resultados y la transcripción. No se modificó nada más del repo.
+- **Identidad:** firmado con tu identidad de trabajo, como confirmaste.
+- **Antes de subir** revisé que no hubiera tokens ni correos en los archivos.
+- **La rama `adaptacion`** quedó en GitHub; no la borré porque no lo pediste.
+
+Para las próximas actualizaciones uso el mismo procedimiento: clono el repo en una carpeta temporal, copio encima la carpeta `adaptacion/` del Mac, y hago PR y merge. Tu carpeta TEST-IA local sigue sin ser repositorio. Dejé ese procedimiento en mi memoria del proyecto.
+
+## Resultados de los tres pasos
+
+1. **Saturación como caída:** tu diseño sigue encontrando puentes genuinos (11/100) sin depender de «romper el río», e iguala al caos. Pierde la ventaja en caídas totales, pero la conserva al final de la vida (39 contra 208 en el último tramo). Aun así, un tercio de las vidas termina con el entorno saturado.
+2. **Cooperación obligatoria:** las unidades aisladas no llegan nunca, así que la cooperación es necesaria. Pero no surgen módulos: los que llegan terminan todos conectados en un solo grupo.
+3. **Meta-adaptación:** no apareció. Con ríos completamente al azar no hay un método que se pueda transferir de uno a otro.
+
+El resumen de la transcripción ya incluye estos tres pasos, y quedaron tres frentes abiertos:
+- ríos donde el entorno se pueda sostener;
+- un mundo con zonas del río independientes, donde los módulos tengan ventaja;
+- familias de ríos que compartan estructura, para que exista un método que aprender.
+
+---
+
+## Turno 41 — Usuario
+
+puedes colocar aqui el .git para hacer pull?
+
+### Asistente
+
+Se puede, pero primero reviso qué choca: la carpeta del Mac tiene una versión anterior del proyecto, y si conecto el `.git` del remoto, git va a querer reemplazar los archivos que existen en ambos lados. Comparo sin tocar nada.
+
+Alineo la carpeta con GitHub sin respaldo, como elegiste.
+
+La carpeta TEST-IA del Mac ya es un repositorio conectado a GitHub, y `git pull` funciona: respondió «Already up to date».
+
+- **Rama:** `main`, siguiendo a `origin/main`. Está en el último commit, el merge del PR #1 con `adaptacion/`.
+- **Archivos agregados:** se bajaron los 296 archivos de las etapas 4 a 7 que estaban en GitHub.
+- **Archivos reemplazados:** `README.md`, `herramientas.py` y `requirements.txt` quedaron con la versión de GitHub, sin respaldo de la versión del Mac, como elegiste.
+- **Archivos sin seguimiento:** los 10 scripts viejos del «núcleo pequeño» (`datos.py`, `modelo.py`, `entrenar.py`, etc.) siguen en la carpeta, pero git no los sigue. Aparecen con `??` en `git status`. Los modelos `.pt` y los PDF no aparecen, porque el `.gitignore` del repo los excluye.
+
+Desde ahora, para traer cambios basta con `git pull` en la carpeta. Para subir cambios uso rama, PR y merge, ya no la copia temporal. Actualicé mi memoria del proyecto con este cambio.
+
+Si quieres que esos 10 scripts viejos dejen de aparecer en `git status`, puedo borrarlos o moverlos a otra carpeta. Dime cuál prefieres.
+
+---
+
+## Turno 42 — Usuario
+
+<pasted_content id="c383">
+Resumen de la evolución del planteamiento
+Cierre de la etapa de ríos simulados: El mecanismo base del homeostato quedó validado (necesidad interna + nivel de aspiración al 90 % + exploración proporcional al fallo reciente + castigo duro c=0.5 + repertorio opcional que apaga la búsqueda al estar satisfecho). Seguir ajustando constantes sobre ríos lineales pierde sentido porque el principio de adaptación ya está demostrado.   
+TRANSCRIPCION_2026-11-25_Inteligencia-como-adaptacion-homeostato.md
++ 1
+
+Exclusión total de modelos de lenguaje (LLMs): Se descarta incorporar Qwen o cualquier LLM como traductor o generador de opciones. El núcleo debe permanecer 100 % libre de LLMs, operando únicamente mediante acoplamiento estructural, señales sensoriales y dinámica plástica.
+
+Cómo entra la «información extra» sin LLM: El conocimiento externo (como el equivalente a saber qué es un puente y cómo se construye) no entra como texto descriptivo, sino como estructura componible en el entorno (primitivas, piezas o variables observables del mundo con reglas físicas/relacionales) sobre las cuales el sujeto puede actuar y acoplarse por necesidad.
+
+Siguiente salto experimental: Pasar de un entorno numérico ciego (donde el sujeto solo mueve pesos internos hasta amortiguar perturbaciones) a un entorno abierto con elementos componibles, donde el núcleo de aspiración/reorganización descubra cómo ensamblar soluciones usando las piezas disponibles en el terreno sin que nadie le indique el objetivo ni la receta.
+
+Bloque listo para entregar a Claude
+Puedes copiar y pegar exactamente este bloque en tu sesión con Claude en TEST-IA:
+
+Markdown
+### Contexto y cambio de etapa en `adaptacion/`
+
+Damos por cerrada la etapa de simulación con ríos lineales en `adaptacion/`. El diseño del núcleo adaptativo quedó validado en sus principios fundamentales:
+- **Necesidad interna** con nivel de aspiración (90 % de viabilidad).
+- **Exploración proporcional al fallo reciente** y **castigo duro** (confianza x 0.5 al fallar).
+- **Memoria como repertorio opcional** que apaga la exploración al alcanzar el estado «Satisfecho» (>= 90 %) y la reactiva si la viabilidad cae.
+
+**Decisión de arquitectura:**
+1. **Sin LLMs:** No vamos a acoplar Qwen ni ningún modelo de lenguaje. El sistema debe mantenerse 100 % puro (sin procesamiento de texto ni predicción de tokens).
+2. **Manejo de información extra sin lenguaje:** Queremos probar cómo el núcleo aprovecha «información extra» del entorno (el equivalente a tener disponibles materiales o reglas sobre cómo funciona un puente, sin darle la solución ni un objetivo explícito). Sin LLM, esa información se representa como **estructura componible del entorno**: elementos/piezas observables con propiedades propias que el sujeto puede combinar o manipular al explorar.
+
+### Nuevo experimento a construir en `adaptacion/`
+
+Diseña un entorno nuevo y minimalista en Python (`entorno_componible.py`) conectado a nuestro núcleo validado (`Satisfecho 90 %`), cumpliendo estas condiciones:
+
+1. **Sin objetivo explícito ni premio externo:** Sigue rigiendo únicamente la necesidad interna (mantener variables esenciales en rango viable sin saturar el entorno).
+2. **Entorno con estructura componible (información extra):**
+   - En lugar de solo perturbaciones periódicas sobre variables lineales, el entorno ofrece **primitivas o elementos estructurales** (por ejemplo: bloques/nodos con propiedades como soporte, resistencia o acoplamiento) junto con sensores externos que permiten al sujeto percibir el estado de esos elementos.
+   - Existen formas directas pero inestables de sostenerse (equivalente a «saltar», ~75–85 % de viabilidad) y combinaciones estructurales de elementos del entorno que crean una estabilidad robusta (>= 90 %, equivalente a «ensamblar un puente»).
+3. **Condición de no-trampa:** Llevar el entorno a saturación sigue contando como fallo (descompensación).
+4. **Métricas a observar:**
+   - Si el núcleo «Satisfecho 90 %» logra descubrir y ensamblar combinaciones estructurales del entorno sin que nadie le explique qué es un puente ni le dé un premio por construirlo.
+   - Comparación contra el mismo entorno **sin acceso a los elementos componibles** (solo ajuste interno ciego) y contra **exploración aleatoria pura**.
+   - Si una estructura ensamblada en un entorno se reutiliza o adapta al cambiar las condiciones del terreno (exaptación estructural).
+
+Analiza primero cómo modelar de forma limpia estas primitivas componibles en Python antes de correr pruebas largas.
+</pasted_content id="c383">
+
+### Asistente
+
+Este plan marca un cambio de etapa: dejar los ríos lineales y pasar a un entorno con **piezas componibles**. El propio plan pide analizar primero cómo modelarlo antes de correr pruebas largas, así que sigo ese orden: primero el diseño, después una calibración corta para verificar que el entorno cumple lo que pide, y recién entonces las pruebas largas.
+
+## Diseño propuesto
+
+Mantengo el mismo núcleo, «satisfecho 90 %», y agrego al mundo **piezas con física propia** que el sujeto puede colocar. No sabe qué son ni para qué sirven.
+
+- **Anclas (2):** una pieza que, colocada sobre una parte del río, «siente» su estado: `ancla' = −D·ancla + G·río[j]`.
+- **Apoyos (2):** una pieza que se alimenta de un ancla y empuja una parte del río, con un signo que puede ser `+` o `−`: `apoyo' = −D·apoyo + G·ancla[f]`, y luego `río[j] += signo·G·apoyo`.
+
+**Qué es un puente aquí:** un apoyo que se alimenta de un ancla puesta **sobre la misma parte del río** que él empuja, y con signo **negativo**. Esa combinación frena al río desde el propio río. Ninguna pieza sola hace nada: un ancla sola solo observa, y un apoyo sin ancla no tiene qué empujar. Si se arman mal (signo positivo o partes del río cruzadas), pueden **desestabilizarlo**. El valor está en la combinación, no en las piezas.
+
+**Qué es saltar:** que el sujeto sostenga el río solo con sus conexiones internas, como en todas las pruebas anteriores.
+
+**Cómo actúa el sujeto:**
+- Ve el estado de las piezas a través de sus propias conexiones, que funcionan como sensores.
+- Cada una de sus 4 unidades tiene a cargo una pieza. Cuando una unidad cae, cambia al azar sus conexiones **y** dónde y cómo está puesta su pieza. Así la estructura se explora con el mismo mecanismo ciego de siempre, sin ninguna regla nueva.
+- La memoria guarda la configuración completa (conexiones + piezas). Recordar una solución también reconstruye la estructura.
+
+**Lo demás no cambia:** no hay objetivo ni premio, saturar el río o las piezas cuenta como caída, y siguen las crecidas.
+
+Lo escribo y calibro.
+
+Terminé el análisis y la validación corta. El entorno componible funciona: el sujeto arma puentes con las piezas sin que nadie le diga qué son, y lo hace bastante más seguido que por azar. Todavía no corrí ninguna prueba larga, como pedía el plan.
+
+## Validación corta (20 vidas, 100.000 pasos y luego un río nuevo)
+
+| Variante | Caídas | Caídas en el último tramo | Puentes genuinos | % del tiempo con un puente armado | Puente armado al final |
+|---|---|---|---|---|---|
+| Sin piezas (ajuste ciego) | 404 | 38 | 4/20 | 0 % | 0/20 |
+| Caos con piezas | 1607 | 4 | 8/20 | 50 % | 11/20 |
+| **Satisfecho con piezas** | 564 | **1** | **9/20** | **63 %** | **12/20** |
+
+Por puro azar, una colocación de piezas tiene un puente el **27 %** de las veces (calculado sobre las 729 colocaciones posibles).
+
+**Después de cambiar el terreno** (río nuevo, mismas piezas):
+
+| Variante | Caídas en el último tramo | Conservó su puente |
+|---|---|---|
+| Sin piezas | 80 | – |
+| Caos con piezas | 63 | 7/11 |
+| **Satisfecho con piezas** | **1** | **7/12** |
+
+## Lo que indica
+
+1. **El puente surge sin objetivo ni premio.** «Satisfecho» pasa el 63 % del tiempo con un puente armado, frente al 27 % que daría el azar. La explicación es la misma de siempre: con un puente es mucho más fácil mantenerse viable, así que esas configuraciones sobreviven y se conservan. Nadie le explicó qué es un puente; lo arma porque le sirve.
+2. **Con piezas se cae mucho menos al final:** 1 caída en el último tramo, contra 38 del ajuste ciego.
+3. **El caos también arma puentes (50 %), pero se cae casi 3 veces más.** La diferencia con tu núcleo está en el costo, igual que en los ríos lineales.
+4. **Exaptación estructural:** en el río nuevo, «satisfecho» conservó el puente que ya tenía en 7 de 12 casos y siguió casi sin caerse. La estructura del río anterior le sirvió en el nuevo.
+
+Son 20 vidas: las diferencias en puentes genuinos todavía no son firmes (p entre 0,18 y 1,0). Son una tendencia que confirmar.
+
+## Decisiones de diseño que tomé al calibrar
+
+- **Piezas rápidas (`D=5`, `G=4`).** Con piezas lentas, el lazo del puente reaccionaba tarde y oscilaba: hacía el río más inestable en vez de frenarlo.
+- **La crecida es del río.** Al sujeto le llega solo a través de lo que siente del río. Si lo empujara directamente, el puente no podría protegerlo.
+- **Fuerza de crecida 0,3**, para que saltar aguante ~81 % de las crecidas y el puente ~98 %, como pedía el plan.
+- **Existen configuraciones internas robustas sin piezas** (41 %). El puente no es la única forma de quedar robusto, pero hace que ser viable sea 6 veces más fácil.
+
+El código quedó en [entorno_componible.py](entorno_componible.py). Para calibrar: `--calibrar`; para las pruebas: `--rep`, `--vida` y `--cambio`.
+
+**Siguiente paso:** la prueba larga, con 100 vidas, 300.000 pasos por río y cambio de terreno, para confirmar estas tendencias con estadística. Tarda unos 15 minutos. ¿La corro? Cuando tengamos resultados, también puedo subir este archivo a GitHub con un PR.
+
+---
+
+## Turno 43 — Usuario
+
+aun no siento que me perdi con todo esto como si hubieras hecho algo distinto de lo que yo estaba planteando
+
+### Asistente
+
+Tienes razón en sentir eso, y creo que sé por qué. Te explico qué hice en simple y dónde probablemente me desvié.
+
+## Dónde creo que me alejé de tu planteamiento
+
+1. **Seguí al pie de la letra planes que venían de otra fuente.** Los dos últimos bloques que pegaste (el plan de tres pasos y el del entorno componible) los ejecuté tal cual, sin contrastarlos con lo que tú venías planteando. Debí haberlo hecho.
+2. **En el entorno componible yo diseñé el camino.** Inventé las piezas, su física, y decidí cuál combinación es «el puente». Eso se parece mucho a lo que rechazaste al principio: diseñarle el terreno al sujeto en vez de que él se adapte al terreno que haya.
+3. **Convertí tu metáfora en una meta medible.** El río, el salto y el puente eran tu forma de explicar la idea. Yo los transformé en configuraciones concretas y pasé a contar «puentes encontrados». Sin darme cuenta, volví a medir si resuelve un problema, cuando tu interés es la capacidad de adaptarse en sí, antes de cualquier problema.
+4. **Mucho ajuste técnico.** Calibraciones, constantes, estadística… Todo eso es necesario para que las pruebas sean confiables, pero puede tapar la idea central.
+
+## Lo que sí quedó demostrado, en tus términos
+
+- Un sistema **sin objetivo, sin predicción y sin sesgo**, movido solo por una **necesidad**, se reorganiza y logra mantenerse frente a lo desconocido: el homeostato.
+- Con tus reglas, ese sistema llega tan seguido como probar de todo, pero cayéndose mucho menos:
+  - la memoria como opción y no como obligación;
+  - explorar según lo que falla;
+  - exigirse un nivel (90 %);
+  - dejar de buscar cuando está satisfecho.
+- Lo que **no** logró: crecer en tamaño, organizarse en partes por sí solo, ni aprender a adaptarse más rápido de una vez a otra.
+
+## Para retomar bien
+
+Antes de hacer cualquier otra cosa, quiero entender qué esperabas tú. Algunas posibilidades:
+
+- **(a)** Volver a tu pregunta de fondo, la capacidad de adaptación en sí, y dejar de lado los puentes y las métricas de «resolver algo».
+- **(b)** Mantener el entorno componible, pero sin que yo decida qué es una buena estructura: que el terreno tenga elementos sin un propósito definido y ver qué hace el sujeto con ellos.
+- **(c)** Otra cosa que tenías en mente y que no capté.
+
+¿Qué parte sientes que no calza con lo que planteabas?
+
+---
+
+## Turno 44 — Usuario
+
+creo que fue mas que yo me confundi lo que hiciste no estaba mal, lo que buscaba es primero ver si al darle conocimiento de que es un puente este lograba realizarlo mas rapido en si es basicamente decir si puede tomar data "externa" y ver si le sirve para resolver el problema, luego era que no quiero usar llm con esto si no que esto vaya creciendo y de ahi nacio esa instruccion que gemini me dio para ti.
+
+### Asistente
+
+Gracias por aclararlo. Ahora entiendo mejor la intención:
+
+1. **La pregunta:** si le doy al sistema **conocimiento externo**, por ejemplo «qué es un puente», ¿lo usa para resolver más rápido? Es decir, ¿puede aprovechar información que no descubrió él mismo?
+2. **La condición:** sin LLM. El conocimiento tiene que entrar de otra forma, y el sistema tiene que poder ir creciendo a partir de eso.
+
+Lo que hice hasta ahora preparó el terreno: ya existe un mundo con piezas donde «un puente» es algo concreto. Pero falta lo central: **todavía no le di conocimiento a nadie**. El sujeto descubrió los puentes solo, a ciegas. Lo que corresponde es comparar el mismo sujeto **con y sin** ese conocimiento.
+
+## Cómo propongo representar el conocimiento sin LLM
+
+Como un **plano**: una colocación de piezas que el sujeto recibe desde afuera, como quien le enseña a alguien «así se arma un puente». Para mantenerlo coherente con tu diseño:
+- **El plano entra como una opción más en su repertorio, no como una orden.** Cuando cae, puede usarlo o no, igual que con sus propios recuerdos.
+- **Dice cómo poner las piezas, no cómo mover su propio cuerpo.** El sujeto sigue teniendo que adaptar sus conexiones internas.
+- **Se evalúa con las mismas reglas que todo lo demás:** si funciona gana confianza, y si falla la pierde rápido (castigo duro).
+
+## Qué compararía
+
+| Variante | Qué se le da |
+|---|---|
+| Sin conocimiento | Nada (lo de ahora) |
+| Plano correcto | Cómo armar el puente |
+| Plano incorrecto | Un «puente» mal armado (signo cambiado), para ver si descarta información falsa |
+| Plano parcial | Solo la mitad (por ejemplo, dónde poner las anclas), para ver si completa lo que falta |
+
+**Qué mediría:**
+- cuánto tarda en tener un puente funcionando;
+- cuánto se cae mientras tanto;
+- si conserva el plano correcto;
+- si abandona el incorrecto.
+
+El caso del plano incorrecto me parece clave para lo de «ir creciendo». Un sistema que acepta todo lo que le dan es frágil; uno que **pone a prueba** la información y se queda solo con lo que le sirve puede crecer sumando conocimiento externo sin romperse.
+
+¿Te hace sentido así, o el conocimiento que imaginabas era de otro tipo, por ejemplo una regla general en vez de un plano concreto?
+
+---
+
+## Turno 45 — Usuario
+
+claro entiendo solo que esta idea es para contextos nuevos por ejemplo porque esta muy bien que encontrara como hacer un puente solo teniendo piezas pero si hubiera sabido de antemano que es y como se hace podria haberlo hecho mas rapido? o en otro contexto podria decir tipo necesito algo similar a un puente, entiendo que algunas de estas son cosas mas complejas pero claro resulto que gemini lo tomo como algo absoluto. El conocimiento podria ser plano aun que podria ser que frente a un problema tenga cierta evaluacion pero cada problema tiene una solucion mejor que otra entonces esa evaluacion no podria ser absoluta. diria que principalmente seria plano. Todo teorico porque no entrenare nada ahora
+
+### Asistente
+
+Entendido: lo vemos en teoría, sin código. Voy por partes.
+
+## 1. ¿Con un plano lo habría hecho más rápido?
+
+Muy probablemente sí, y ya tenemos dos indicios en los datos:
+- **Copiar las soluciones de otros** (variante c2) redujo las caídas de 288 a 170. Eso es, en la práctica, recibir planos de afuera.
+- **La experiencia en un río parecido** redujo las caídas unas 10 veces.
+
+La razón de fondo es simple: el sujeto busca a ciegas, y un plano **reduce el espacio de búsqueda**. En vez de probar entre 729 colocaciones de piezas, prueba primero una. Si funciona, ahorra casi toda la búsqueda; si no, pierde poco, porque tu regla de desconfiar rápido lo hace descartarlo de inmediato.
+
+Pero esos mismos datos marcan el límite: **en un río distinto, la experiencia casi no ayudó**. Un plano concreto sirve en contextos parecidos a aquel donde nació.
+
+## 2. «Necesito algo similar a un puente» en otro contexto
+
+Esta es la parte más interesante, y es donde un plano concreto no alcanza. Si el nuevo contexto tiene otras piezas u otro terreno, el plano «ancla en la parte 1, apoyo en la parte 1, signo negativo» no significa nada.
+
+Lo que sí se puede transferir es la **forma** del puente, no sus piezas:
+
+> «Algo que **siente** el problema en un punto, conectado a algo que **empuja en contra** en ese mismo punto».
+
+Esa descripción no menciona anclas, apoyos ni ríos. Habla de **roles y relaciones**. Frente a un problema nuevo, el sujeto ya no buscaría a ciegas entre todas las combinaciones, sino entre las formas de **asignar esos roles** a lo que tenga disponible: ¿qué cosa de aquí puede sentir?, ¿qué cosa puede empujar? Esa búsqueda es muchísimo más chica.
+
+Eso es, en esencia, lo que en ciencia cognitiva se llama **razonamiento por analogía** (la teoría de *structure mapping* de Gentner): reconocer que dos problemas comparten la misma estructura de relaciones aunque sus elementos sean distintos.
+
+Esto también explica por qué falló la meta-adaptación: los ríos eran completamente al azar entre sí, así que no compartían ninguna estructura. Con planos de relaciones, dos problemas pueden ser distintos en todo lo concreto y aun así compartir la forma.
+
+## 3. La evaluación no es absoluta
+
+Estoy de acuerdo, y tu diseño ya lo respeta en dos niveles:
+- **La aspiración es un umbral, no un óptimo.** Busca lo *suficientemente bueno* para la necesidad, no «la mejor solución». Un plano no tiene que ser el mejor; tiene que servir aquí.
+- **La confianza en algo es local.** Un plano puede funcionar en un contexto y fallar en otro. Lo coherente es que cada plano lleve su confianza **según dónde la ganó**, no una nota universal. «El puente me sirvió en ríos así» es distinto de «el puente es bueno».
+
+## 4. Cómo crecería sin LLM
+
+Juntando todo, el conocimiento sería una **biblioteca de planos**:
+
+```
+plano = forma (roles + relaciones) + confianza según contexto
+
+origen:  propio  → se abstrae de un éxito («esto que armé, ¿qué forma tenía?»)
+         externo → alguien lo entrega
+uso:     ante una necesidad, es una opción más; se asignan sus roles a lo disponible
+destino: si sirve, gana confianza en ese contexto; si falla, la pierde rápido
+```
+
+El crecimiento viene de que **todo plano, propio o ajeno, pasa por la misma prueba**: la necesidad. Así el sistema puede recibir información externa sin volverse frágil. Lo que no sirve se descarta solo, y lo que sirve se acumula.
+
+Lo más difícil de construir, cuando quieras llevarlo a la práctica, sería el paso de **abstraer**: que el sistema convierta un éxito concreto («ancla 1, apoyo 1, signo −») en una forma general («sensor y actuador opuestos sobre el mismo punto»). La parte de usar planos ya entregados es mucho más directa.
+
+---
+
+## Turno 46 — Usuario
+
+creo que concuerdo aun que quedo por el momento en donde se almacena lo que va aprendiendo?
+
+### Asistente
+
+Buena pregunta, porque hoy la respuesta tiene un hueco importante.
+
+## Dónde se guarda hoy
+
+En el sistema actual, lo aprendido vive en cuatro lugares:
+
+1. **En su forma actual (el «cuerpo»):** sus conexiones internas `W`, es decir, cómo está conectado ahora mismo. Por eso hasta el caos mejoró al pasar a un río parecido: llegó con la forma que ya le servía.
+2. **En su repertorio (la memoria):** una lista de configuraciones que funcionaron. Cada una lleva su confianza y su tasa de éxito: cuántas veces la usó y cuántas le sirvió.
+3. **En el mundo:** las piezas que colocó. Si armó un puente, el puente queda en el río aunque el sujeto lo olvide. Es conocimiento guardado **fuera** de él, en el entorno.
+4. **En sus reglas:** la aspiración y la preferencia de amplitud de cambio, en las variantes de meta-adaptación.
+
+**El hueco:** todo eso vive solo en la memoria del programa mientras corre. **Cuando termina, se pierde.** Cada prueba parte de cero. Lo único que queda en disco son los archivos de resultados, y eso es lo que aprendimos *nosotros*, no el sistema.
+
+## Dónde debería guardarse para que crezca
+
+En el diseño teórico que conversamos, lo separaría en capas según cuánto duran:
+
+| Capa | Qué guarda | Dónde |
+|---|---|---|
+| **Estado actual** | Cómo está conectado ahora | En memoria, mientras vive |
+| **Experiencias** | Soluciones concretas que le funcionaron, con su confianza | Archivo en disco |
+| **Planos** | Formas abstractas («sensor y actuador opuestos sobre un mismo punto»), propias o externas, con su confianza según contexto | Archivo en disco |
+
+Esto conecta con tu idea original de TEST-IA: **un núcleo pequeño con la memoria fuera de él**, como el diccionario en SQLite o el `memoria.json` de tus primeras versiones. Aquí aparece de nuevo, pero con otro rol:
+- **el núcleo** (el mecanismo de reorganizarse ante una necesidad) queda **pequeño y fijo**;
+- **lo aprendido** crece **afuera**, en un archivo que no tiene límite de tamaño y que sobrevive entre ejecuciones.
+
+## La pieza que falta: cómo encontrar lo guardado
+
+Guardar es fácil; lo difícil es **recuperar lo que corresponde**. Si la biblioteca tiene cientos de planos, ¿cómo sabe el sujeto cuál probar primero en un río nuevo?
+
+Sin lenguaje ni etiquetas, la única opción es indexar por **cómo se siente el contexto**: una especie de huella de lo que el sujeto percibe, como qué tan fuerte y seguido lo empujan, o qué partes se mueven juntas. Así, «la confianza según contexto» pasa a ser «este plano me sirvió cuando el mundo se sentía así». Ante algo nuevo, prueba primero lo que funcionó en contextos que se sentían parecido.
+
+Es la misma idea de la analogía, pero desde la percepción: no reconoce «esto es un río», sino «esto se siente como aquello donde el puente me sirvió».
+
+---
+
+## Turno 47 — Usuario
+
+los planos no pueden guardarse en algo vectorial como se planteo anteriormente en sqlite?
+
+### Asistente
+
+Sí, encaja bien. Y no necesita ningún modelo de lenguaje ni de *embeddings*, porque los vectores salen directamente de lo que el sistema siente y hace. Pero conviene separar dos cosas que se guardarían: **la clave** para encontrar un plano y **el plano mismo**. Funcionan distinto.
+
+## 1. La clave: la huella del contexto → vectorial, perfecto
+
+La huella de «cómo se siente el mundo» ya es un vector de números: qué tan fuerte y seguido lo empujan, qué partes se mueven juntas, cuánto tarda en calmarse. Eso calza exactamente con una búsqueda vectorial:
+
+> «Estoy en este contexto → busco en la base los contextos más parecidos → ¿qué planos me sirvieron ahí?»
+
+En SQLite se puede hacer de dos formas:
+- con la extensión **`sqlite-vec`**, que agrega búsqueda por similitud;
+- o guardando los vectores como datos binarios y comparándolos con numpy. Para cientos o pocos miles de registros es instantáneo y no requiere instalar nada.
+
+## 2. El plano: depende de qué tipo sea
+
+- **Plano concreto** («ancla en la parte 1, apoyo en la parte 1, signo −»): **ya es un vector**. De hecho, el código actual guarda cada solución como un vector aplanado de conexiones + piezas. Se guarda tal cual.
+- **Plano abstracto** («sensor y actuador opuestos sobre un mismo punto»): es una **estructura de relaciones**, un pequeño grafo. Se puede guardar sin problema, por ejemplo como JSON. Lo delicado es **compararlo** como vector: la misma forma puede escribirse de muchas maneras según cómo numeres los roles («sensor = 1, actuador = 2» o al revés). Dos vectores distintos que en realidad son el mismo plano. Para buscarlos por similitud habría que llevarlos primero a una forma canónica, o describirlos con rasgos que no dependan del orden: cuántos lazos tiene, de qué signo, de qué largo.
+
+Por eso, la búsqueda vectorial conviene hacerla sobre **los contextos**, y los planos se recuperan a través de ellos.
+
+## Cómo quedaría en SQLite (en teoría)
+
+```
+contextos   (id, huella VECTOR)                       ← búsqueda por similitud
+planos      (id, tipo [concreto|abstracto], contenido, origen [propio|externo])
+confianza   (plano_id, contexto_id, intentos, logros, confianza_reciente)
+```
+
+**Cómo se usaría:**
+1. Llega una necesidad: se calcula la huella del contexto actual.
+2. Se buscan los contextos más parecidos (vectorial).
+3. Se toman los planos con mejor confianza **en esos contextos**.
+4. Son opciones, no órdenes: se prueban con las reglas de siempre, y el resultado actualiza la tabla `confianza` en ese contexto.
+
+La tabla `confianza` es la que hace que **la evaluación no sea absoluta**, como planteaste: un mismo plano puede tener confianza alta en un tipo de río y baja en otro.
+
+Hay un detalle a favor: es la misma idea de tu TEST-IA original, un núcleo pequeño con la memoria en SQLite. Solo cambia lo que se guarda: antes eran definiciones de palabras, aquí son formas de resolver necesidades.
+
+---
+
+## Turno 48 — Usuario
+
+actualiza la transcripcion de este chat y luego haz pr y merge
+
+### Asistente
+
+Primero actualizo el resumen con lo nuevo: el entorno componible y la discusión teórica sobre el conocimiento externo y los planos.
 
 ---
 

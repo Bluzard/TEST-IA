@@ -1,0 +1,35 @@
+=== Transferencia · 50 vidas · 300000 pasos por río ===
+variante                  río                       fallos      T1     puente
+caos (sin memoria)        1 (primer río)              1206     336       9/50
+                          parecido · con experiencia      1098      75       9/50
+                          parecido · sin experiencia      2187     506       4/50
+                          distinto · con experiencia      1406     230       9/50
+                          distinto · sin experiencia      1804     519      10/50
+
+tu regla + castigo duro   1 (primer río)               276     158       3/50
+                          parecido · con experiencia       150      22       5/50
+                          parecido · sin experiencia       344     176       4/50
+                          distinto · con experiencia       226     121       4/50
+                          distinto · sin experiencia       255     168       5/50
+
+aspiración 90 %           1 (primer río)               410     219       8/50
+                          parecido · con experiencia        88      14       3/50
+                          parecido · sin experiencia       442     232       8/50
+                          distinto · con experiencia       345     228       4/50
+                          distinto · sin experiencia       285     194       7/50
+
+satisfecho 90 %           1 (primer río)               318     219      10/50
+                          parecido · con experiencia        39       7       6/50
+                          parecido · sin experiencia       370     232       2/50
+                          distinto · con experiencia       180     154       6/50
+                          distinto · sin experiencia       265     194       5/50
+
+Fisher, puentes con vs sin experiencia (p < 0.05 = difícil que sea azar):
+  caos (sin memoria)        parecido    9 vs   4   p = 0.234
+  caos (sin memoria)        distinto    9 vs  10   p = 1.000
+  tu regla + castigo duro   parecido    5 vs   4   p = 1.000
+  tu regla + castigo duro   distinto    4 vs   5   p = 1.000
+  aspiración 90 %           parecido    3 vs   8   p = 0.200
+  aspiración 90 %           distinto    4 vs   7   p = 0.525
+  satisfecho 90 %           parecido    6 vs   2   p = 0.269
+  satisfecho 90 %           distinto    6 vs   5   p = 1.000

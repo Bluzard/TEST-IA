@@ -1,0 +1,5 @@
+variante              revisitas  no llegó C      E3  llega      E4  llega  p_recordar final
+castigo c=0.8 p=100          48      8/120     252  36/40     553  36/40              0.73
+fallo histórico              86     10/120     340  33/40     878  30/40              0.36
+fallo reciente              267     13/120     913  33/40    1382  36/40              0.47
+rápida vs lenta             521     17/120    1178  33/40     585  34/40              0.50

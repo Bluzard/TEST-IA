@@ -1,0 +1,10 @@
+Río: crecida cada ~3000 pasos, dura 300 (fuerza 0.15); perturbación normal 0.25. Vida 300000 pasos en 6 tramos, 20 repeticiones.
+Fallos por tramo (mediana) · puente = último tramo sin fallos · margen = robustez final
+
+variante                   T1     T2     T3     T4     T5     T6    puente   margen  soluciones
+sin memoria               188     48     57     77     42    108     3/20   -0.428        33.9
+castigo duro c=0.5         89     20     16     15     22     17     3/20   -0.325         3.7
+castigo suave c=0.95      132     28     18     20     20     26     0/20   -0.314         2.1
+fallo histórico            98     26     22     20     28     22     0/20   -0.202         5.2
+fallo reciente            106     19     18     12     22     16     2/20   -0.314         4.4
+rápida vs lenta           112     26     14     13     15     14     0/20   -0.167         6.6

@@ -1,0 +1,5 @@
+=== Puente · 40 repeticiones · intento = 1000 pasos ===
+variante                       T1     T2     T3     T4     T5     T6  fallos total    puente  soluciones
+tu regla + castigo duro       160     18     20     18     14     13           276     3/40         8.9
++ aspiración 90 %             219     17      7     13     12      6           410     7/40        11.9
++ aspiración 95 %             229     28     14     20      8      7           398     8/40        14.1

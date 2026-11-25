@@ -1,0 +1,14 @@
+=== Puente · 100 vidas por variante ===
+variante                    fallos total     T1     T6    puente  soluciones
+caos (sin memoria)                  1610    419     72    17/100        36.8
+tu regla + castigo duro              282    170     13     4/100         8.4
+aspiración 90 %                      354    212      7    15/100        11.4
+satisfecho 90 %                      324    212      3    17/100        10.1
+
+Fisher (p < 0.05 = difícil que sea azar):
+  caos (sin memoria)       vs tu regla + castigo duro   17 vs   4   p = 0.005
+  caos (sin memoria)       vs aspiración 90 %           17 vs  15   p = 0.847
+  caos (sin memoria)       vs satisfecho 90 %           17 vs  17   p = 1.000
+  tu regla + castigo duro  vs aspiración 90 %            4 vs  15   p = 0.014
+  tu regla + castigo duro  vs satisfecho 90 %            4 vs  17   p = 0.005
+  aspiración 90 %          vs satisfecho 90 %           15 vs  17   p = 0.847

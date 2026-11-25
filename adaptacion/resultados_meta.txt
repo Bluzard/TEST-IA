@@ -1,0 +1,28 @@
+=== Meta-adaptación · 40 sujetos · 6 ríos distintos seguidos · 100000 pasos por río ===
+
+caídas por río (mediana)
+variante              río 1    río 2    río 3    río 4    río 5    río 6
+fijo                    338      417      413      410      486      430
+meta amplitud           424      444      401      418      498      424
+meta aspiración         337      422      417      423      446      420
+meta ambas              418      428      412      410      490      420
+
+pasos hasta la primera estabilidad (mediana)
+variante              río 1    río 2    río 3    río 4    río 5    río 6
+fijo                   2818     4023     4618     2293    59712     2492
+meta amplitud          7453     5110     3760     1490    28442     4090
+meta aspiración        2818     4982     6461     5273    32245     6432
+meta ambas             7453     4243     4942     2512    32993     1707
+
+puentes por río
+variante              río 1    río 2    río 3    río 4    río 5    río 6
+fijo                   8/40     3/40     5/40     5/40     2/40     7/40
+meta amplitud          5/40     6/40     3/40     2/40     2/40     3/40
+meta aspiración        8/40     4/40     3/40     5/40     3/40     5/40
+meta ambas             6/40     4/40     2/40     2/40     2/40     8/40
+
+Reglas al final (promedio de los sujetos):
+  fijo               aspiración 90%   preferencia de amplitud: (no la ajusta: siempre toda la fila)
+  meta amplitud      aspiración 90%   preferencia de amplitud: k=1:15%  k=2:20%  k=3:15%  k=4:22%  k=5:18%  k=6:10%
+  meta aspiración    aspiración 87%   preferencia de amplitud: (no la ajusta: siempre toda la fila)
+  meta ambas         aspiración 88%   preferencia de amplitud: k=1:15%  k=2:22%  k=3:13%  k=4:19%  k=5:21%  k=6:10%

@@ -1,0 +1,19 @@
+=== Puente · 100 vidas · saturar el entorno ¿cuenta como caída? ===
+variante                  regla     caídas    T6   puente  saturado  estable  genuino
+caos (sin memoria)        no          1610    72   17/100    27/100   48/100   13/100
+tu regla + castigo duro   no           282    13    4/100    33/100   47/100    3/100
+aspiración 90 %           no           354     7   15/100    32/100   51/100   11/100
+satisfecho 90 %           no           324     3   17/100    28/100   51/100   12/100
+
+caos (sin memoria)        sí          1268   208   13/100    35/100   44/100   13/100
+tu regla + castigo duro   sí          1213   105    6/100    34/100   50/100    6/100
+aspiración 90 %           sí          1220    94    8/100    33/100   51/100    8/100
+satisfecho 90 %           sí          1220    39   11/100    31/100   52/100   11/100
+
+Fisher, puentes genuinos con la regla (p < 0.05 = difícil que sea azar):
+  caos (sin memoria)       vs tu regla + castigo duro   13 vs   6   p = 0.146
+  caos (sin memoria)       vs aspiración 90 %           13 vs   8   p = 0.357
+  caos (sin memoria)       vs satisfecho 90 %           13 vs  11   p = 0.828
+  tu regla + castigo duro  vs aspiración 90 %            6 vs   8   p = 0.783
+  tu regla + castigo duro  vs satisfecho 90 %            6 vs  11   p = 0.311
+  aspiración 90 %          vs satisfecho 90 %            8 vs  11   p = 0.631

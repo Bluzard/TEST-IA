@@ -1,0 +1,10 @@
+=== C, E/F · revisitas y entornos nuevos ===
+variante                    revisitas  no llegó C      E3  llega      E4  llega  p_recordar final
+tu regla + castigo duro           148     11/120     826  33/40     447  35/40              0.43
+
+=== Puente · 40 repeticiones, fallos por tramo (mediana) ===
+variante                        T1     T2     T3     T4     T5     T6  fallos total    puente  soluciones
+sin memoria (caos)             316     30    100     77     42     66          1206     6/40        33.9
+castigo duro c=0.5              98     16     16     14     13     11           235     4/40         3.9
+fallo reciente (tu regla)      116     19     16     12     16     17           263     4/40         4.4
+tu regla + castigo duro         99     20     18     17     12     10           210     4/40         4.9

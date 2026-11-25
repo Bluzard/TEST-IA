@@ -1,0 +1,13 @@
+=== Capas · 40 repeticiones · presupuesto 200000 pasos · autoexcitación interna +0.05 ===
+Densidad de conexiones por tipo (fila recibe de columna): P←P, P←I, I←P, I←I
+tamaño   modo                  llegan    P←P    P←I    I←P    I←I  internas unidas a periférica  grupos tam. grupo
+2P+2I    aislado (control)       0/40      -      -      -      -                             -       -          -
+2P+2I    completo               13/40    96%    96%    96%    88%                          100%     1.0        4.0
+2P+2I    libre                   1/40    50%    75%    50%   100%                          100%     1.0        4.0
+2P+2I    poda gradual            7/40    57%    64%    64%    71%                          100%     1.0        4.0
+
+3P+3I    aislado (control)       0/40      -      -      -      -                             -       -          -
+3P+3I    completo                0/40      -      -      -      -                             -       -          -
+3P+3I    libre                   0/40      -      -      -      -                             -       -          -
+3P+3I    poda gradual            0/40      -      -      -      -                             -       -          -
+

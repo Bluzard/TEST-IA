@@ -1,0 +1,37 @@
+=== 25 grupos de 4 sujetos (100 sujetos) · 300000 pasos por río ===
+variante                    río         caídas    T1   puente  % en pie  estabilizó  saturado
+solo                        rio1           288   190   16/100    99.76%     100/100    39/100
+                            distinto       362   231   13/100    99.68%     100/100    30/100
+                            repeticiones exactas evitadas: 0
+
+a1 tabú al explorar         rio1           288   190   16/100    99.76%     100/100    39/100
+                            distinto       362   231   13/100    99.68%     100/100    30/100
+                            repeticiones exactas evitadas: 0
+
+a2 tabú explorar+recordar   rio1          1354   466   25/100    98.93%     100/100    39/100
+                            distinto      2344   519   14/100    98.99%     100/100    39/100
+                            repeticiones exactas evitadas: 0
+
+c1 caídas ajenas            rio1           288   190   16/100    99.76%     100/100    39/100
+                            distinto       362   231   13/100    99.68%     100/100    30/100
+                            repeticiones exactas evitadas: 0
+
+c2 éxitos ajenos            rio1           170   120   11/100    99.85%     100/100    38/100
+                            distinto       300   172   20/100    99.86%     100/100    32/100
+                            repeticiones exactas evitadas: 0
+
+c3 caídas+éxitos ajenos     rio1           212   158   15/100    99.82%     100/100    40/100
+                            distinto       281   176   21/100    99.84%     100/100    31/100
+                            repeticiones exactas evitadas: 0
+
+Fisher, puentes frente a 'solo' (p < 0.05 = difícil que sea azar; en las variantes sociales los sujetos de un grupo no son independientes):
+  a1 tabú al explorar         rio1       16 vs  16   p = 1.000
+  a1 tabú al explorar         distinto   13 vs  13   p = 1.000
+  a2 tabú explorar+recordar   rio1       16 vs  25   p = 0.161
+  a2 tabú explorar+recordar   distinto   13 vs  14   p = 1.000
+  c1 caídas ajenas            rio1       16 vs  16   p = 1.000
+  c1 caídas ajenas            distinto   13 vs  13   p = 1.000
+  c2 éxitos ajenos            rio1       16 vs  11   p = 0.408
+  c2 éxitos ajenos            distinto   13 vs  20   p = 0.253
+  c3 caídas+éxitos ajenos     rio1       16 vs  15   p = 1.000
+  c3 caídas+éxitos ajenos     distinto   13 vs  21   p = 0.187

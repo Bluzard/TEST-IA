@@ -1,0 +1,14 @@
+=== 30 repeticiones por tamaño · densidad por azar = 48% ===
+estructura                   tamaño   llegan  densidad final  grupo medio
+original (todo conectado)         6    11/30             94%          6.0
+original (todo conectado)         8     1/30             98%          8.0
+original (todo conectado)        10     0/30               -            -
+subsistemas de 2 (dado)           6    24/30             19%          2.0
+subsistemas de 2 (dado)           8    13/30             14%          2.0
+subsistemas de 2 (dado)          10     7/30             11%          2.0
+aisladas (dado)                   6    25/30              0%          1.0
+aisladas (dado)                   8    13/30              0%          1.0
+aisladas (dado)                  10    12/30              0%          1.0
+libre (emergente)                 6    16/30             39%          6.0
+libre (emergente)                 8     2/30             39%          8.0
+libre (emergente)                10     0/30               -            -

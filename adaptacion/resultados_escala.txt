@@ -1,0 +1,24 @@
+=== D1 · un entorno nuevo por tamaño (30 repeticiones): llegan ===
+estructura                      2 u.        4 u.        6 u.        8 u.       10 u.
+original (fila)              30/30     26/30     11/30      1/30      0/30
+un peso                      30/30     27/30     13/30      0/30      0/30
+subsistemas                  30/30     27/30     24/30     13/30      7/30
+subsistemas + un peso        30/30     29/30     25/30     10/30     10/30
+
+=== D2 · 5 entornos nuevos seguidos (20 repeticiones): llegan por posición ===
+6 u. · original (fila) · sin memoria             4/20   2/20   4/20   0/20   2/20
+6 u. · original (fila) · con memoria             4/20   2/20   3/20   1/20   3/20
+6 u. · un peso · sin memoria                     6/20   7/20   6/20   3/20   4/20
+6 u. · un peso · con memoria                     6/20   7/20   7/20   5/20   4/20
+6 u. · subsistemas · sin memoria                13/20  10/20  12/20  11/20   9/20
+6 u. · subsistemas · con memoria                13/20  11/20  11/20  12/20  12/20
+6 u. · subsistemas + un peso · sin memoria      15/20  14/20  15/20  13/20  14/20
+6 u. · subsistemas + un peso · con memoria      15/20  18/20  14/20  14/20  12/20
+8 u. · original (fila) · sin memoria             0/20   0/20   0/20   0/20   0/20
+8 u. · original (fila) · con memoria             0/20   0/20   0/20   0/20   0/20
+8 u. · un peso · sin memoria                     0/20   0/20   1/20   0/20   0/20
+8 u. · un peso · con memoria                     0/20   0/20   1/20   0/20   0/20
+8 u. · subsistemas · sin memoria                 6/20   7/20   7/20   9/20   2/20
+8 u. · subsistemas · con memoria                 6/20   6/20   7/20   6/20   5/20
+8 u. · subsistemas + un peso · sin memoria       8/20   7/20   7/20  13/20   7/20
+8 u. · subsistemas + un peso · con memoria       8/20   7/20   8/20  11/20  10/20

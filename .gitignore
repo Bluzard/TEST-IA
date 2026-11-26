@@ -16,6 +16,7 @@ datos/memoria_prueba.json
 
 # pesos pesados y variantes (ver modelos/README.md): solo producción liviana va al repositorio
 modelos/*.pt
+modelos/**/*.safetensors
 modelos/archivo/
 modelos/experimentos/
 
@@ -45,9 +46,5 @@ resultados/*.flag
 datos/imagen/raw/
 datos/imagen/*.jsonl
 
-# escenas privadas del usuario (pueden ser explícitas): nunca van a Git
-datos/escenas_privadas/
-
-# experimento del experto de extracción: pares sintéticos y datasets (se reconstruyen)
-datos/extractor/
-datos/extractor_prueba/
+# pesos HF del modelo base (se descargan con huggingface_hub; ver lora3b.py)
+modelos/base/

@@ -1,0 +1,860 @@
+{
+  "resumen": {
+    "sin_plano": {
+      "vidas": 8,
+      "con_puente_estable": 4,
+      "mediana_tiempo_solo_exitos": 4737.0,
+      "mediana_episodios": 155.5,
+      "media_fraccion_puente": 0.29594166666666666
+    },
+    "correcto": {
+      "vidas": 8,
+      "con_puente_estable": 6,
+      "mediana_tiempo_solo_exitos": 1259.0,
+      "mediana_episodios": 117.5,
+      "media_fraccion_puente": 0.7804833333333333
+    },
+    "incorrecto": {
+      "vidas": 8,
+      "con_puente_estable": 3,
+      "mediana_tiempo_solo_exitos": 4747.0,
+      "mediana_episodios": 166.0,
+      "media_fraccion_puente": 0.24607500000000002
+    },
+    "parcial": {
+      "vidas": 8,
+      "con_puente_estable": 4,
+      "mediana_tiempo_solo_exitos": 2081.5,
+      "mediana_episodios": 128.0,
+      "media_fraccion_puente": 0.5411083333333333
+    }
+  },
+  "vidas": [
+    {
+      "semilla": 0,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 177,
+      "pasos_con_caida": 200,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.027933333333333334,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 0,
+      "usos": {},
+      "externos": [],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 0,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 23,
+      "pasos_con_caida": 25,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 760,
+      "fraccion_con_puente": 0.9801333333333333,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 2,
+        "2": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 2,
+          "logros": 0,
+          "confianza": 0.125,
+          "usos": 2
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 0,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 58,
+      "pasos_con_caida": 65,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.0114,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 4
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 4,
+          "logros": 0,
+          "confianza": 0.03125,
+          "usos": 4
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 0,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 149,
+      "pasos_con_caida": 162,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 3215,
+      "fraccion_con_puente": 0.8600666666666666,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 6,
+        "2": 2
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 6,
+          "logros": 0,
+          "confianza": 0.0078125,
+          "usos": 6
+        }
+      ],
+      "planos_guardados": 4
+    },
+    {
+      "semilla": 1,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 245,
+      "pasos_con_caida": 14077,
+      "caidas_ultimo_tramo": 62,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.2744666666666667,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 0,
+      "usos": {},
+      "externos": [],
+      "planos_guardados": 0
+    },
+    {
+      "semilla": 1,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 193,
+      "pasos_con_caida": 14265,
+      "caidas_ultimo_tramo": 27,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.2739333333333333,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 17
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 17,
+          "logros": 0,
+          "confianza": 3.814697265625e-06,
+          "usos": 17
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 1,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 227,
+      "pasos_con_caida": 14132,
+      "caidas_ultimo_tramo": 46,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.2742,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 26
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 26,
+          "logros": 0,
+          "confianza": 7.450580596923828e-09,
+          "usos": 26
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 1,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 278,
+      "pasos_con_caida": 13862,
+      "caidas_ultimo_tramo": 25,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.28426666666666667,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 20
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 20,
+          "logros": 0,
+          "confianza": 4.76837158203125e-07,
+          "usos": 20
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 2,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 902,
+      "pasos_con_caida": 4184,
+      "caidas_ultimo_tramo": 1,
+      "primer_puente_estable": 7473,
+      "fraccion_con_puente": 0.6402666666666667,
+      "puente_final": true,
+      "viable_final": false,
+      "recuperados": 0,
+      "usos": {
+        "1": 8,
+        "2": 3,
+        "3": 1
+      },
+      "externos": [],
+      "planos_guardados": 3
+    },
+    {
+      "semilla": 2,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 1533,
+      "pasos_con_caida": 7323,
+      "caidas_ultimo_tramo": 292,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.3804,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 19
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 19,
+          "logros": 0,
+          "confianza": 9.5367431640625e-07,
+          "usos": 19
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 2,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 1465,
+      "pasos_con_caida": 7966,
+      "caidas_ultimo_tramo": 224,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.3664,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 19
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 19,
+          "logros": 0,
+          "confianza": 9.5367431640625e-07,
+          "usos": 19
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 2,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 1525,
+      "pasos_con_caida": 7388,
+      "caidas_ultimo_tramo": 257,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.36833333333333335,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 18
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 18,
+          "logros": 0,
+          "confianza": 1.9073486328125e-06,
+          "usos": 18
+        }
+      ],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 3,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 134,
+      "pasos_con_caida": 182,
+      "caidas_ultimo_tramo": 4,
+      "primer_puente_estable": 14200,
+      "fraccion_con_puente": 0.1362,
+      "puente_final": true,
+      "viable_final": false,
+      "recuperados": 0,
+      "usos": {
+        "1": 3,
+        "2": 3,
+        "4": 1,
+        "3": 1,
+        "5": 2
+      },
+      "externos": [],
+      "planos_guardados": 6
+    },
+    {
+      "semilla": 3,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 353,
+      "pasos_con_caida": 513,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 4287,
+      "fraccion_con_puente": 0.8821333333333333,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 9
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 9,
+          "logros": 0,
+          "confianza": 0.0009765625,
+          "usos": 9
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 3,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 480,
+      "pasos_con_caida": 713,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 4747,
+      "fraccion_con_puente": 0.8249333333333333,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 9
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 9,
+          "logros": 0,
+          "confianza": 0.0009765625,
+          "usos": 9
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 3,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 31,
+      "pasos_con_caida": 44,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 779,
+      "fraccion_con_puente": 0.9877333333333334,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 2,
+        "2": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 2,
+          "logros": 0,
+          "confianza": 0.125,
+          "usos": 2
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 4,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 34,
+      "pasos_con_caida": 34,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.007533333333333334,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 0,
+      "usos": {
+        "1": 3,
+        "2": 2
+      },
+      "externos": [],
+      "planos_guardados": 3
+    },
+    {
+      "semilla": 4,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 12,
+      "pasos_con_caida": 12,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 1501,
+      "fraccion_con_puente": 0.9296666666666666,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 1,
+          "logros": 0,
+          "confianza": 0.25,
+          "usos": 1
+        }
+      ],
+      "planos_guardados": 5
+    },
+    {
+      "semilla": 4,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 105,
+      "pasos_con_caida": 109,
+      "caidas_ultimo_tramo": 9,
+      "primer_puente_estable": 11054,
+      "fraccion_con_puente": 0.24373333333333333,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 5,
+        "2": 4,
+        "3": 3,
+        "5": 2,
+        "4": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 5,
+          "logros": 0,
+          "confianza": 0.015625,
+          "usos": 5
+        }
+      ],
+      "planos_guardados": 5
+    },
+    {
+      "semilla": 4,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 45,
+      "pasos_con_caida": 48,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.0036666666666666666,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 4,
+        "2": 3
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 4,
+          "logros": 0,
+          "confianza": 0.03125,
+          "usos": 4
+        }
+      ],
+      "planos_guardados": 3
+    },
+    {
+      "semilla": 5,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 9,
+      "pasos_con_caida": 9,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 689,
+      "fraccion_con_puente": 0.9808,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 0,
+      "usos": {},
+      "externos": [],
+      "planos_guardados": 1
+    },
+    {
+      "semilla": 5,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 13,
+      "pasos_con_caida": 13,
+      "caidas_ultimo_tramo": 1,
+      "primer_puente_estable": 820,
+      "fraccion_con_puente": 0.979,
+      "puente_final": true,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 1,
+        "2": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 1,
+          "logros": 0,
+          "confianza": 0.25,
+          "usos": 1
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 5,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 25,
+      "pasos_con_caida": 25,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.0,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 3,
+        "2": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 3,
+          "logros": 0,
+          "confianza": 0.0625,
+          "usos": 3
+        }
+      ],
+      "planos_guardados": 3
+    },
+    {
+      "semilla": 5,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 36,
+      "pasos_con_caida": 37,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 948,
+      "fraccion_con_puente": 0.9662,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 3,
+        "2": 1,
+        "3": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 3,
+          "logros": 0,
+          "confianza": 0.0625,
+          "usos": 3
+        }
+      ],
+      "planos_guardados": 3
+    },
+    {
+      "semilla": 6,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 226,
+      "pasos_con_caida": 308,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 2001,
+      "fraccion_con_puente": 0.2138,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 0,
+      "usos": {
+        "1": 5,
+        "2": 4
+      },
+      "externos": [],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 6,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 396,
+      "pasos_con_caida": 501,
+      "caidas_ultimo_tramo": 80,
+      "primer_puente_estable": 1456,
+      "fraccion_con_puente": 0.8277333333333333,
+      "puente_final": true,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 6,
+        "2": 5,
+        "3": 4
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 6,
+          "logros": 0,
+          "confianza": 0.0078125,
+          "usos": 6
+        }
+      ],
+      "planos_guardados": 4
+    },
+    {
+      "semilla": 6,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 289,
+      "pasos_con_caida": 381,
+      "caidas_ultimo_tramo": 19,
+      "primer_puente_estable": 1854,
+      "fraccion_con_puente": 0.197,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 1,
+      "usos": {
+        "1": 5,
+        "2": 3,
+        "3": 4,
+        "4": 4,
+        "5": 3
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 5,
+          "logros": 0,
+          "confianza": 0.015625,
+          "usos": 5
+        }
+      ],
+      "planos_guardados": 6
+    },
+    {
+      "semilla": 6,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 450,
+      "pasos_con_caida": 611,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 3460,
+      "fraccion_con_puente": 0.8182666666666667,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 8,
+        "2": 5,
+        "4": 7,
+        "3": 4
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 8,
+          "logros": 0,
+          "confianza": 0.001953125,
+          "usos": 8
+        }
+      ],
+      "planos_guardados": 4
+    },
+    {
+      "semilla": 7,
+      "vida": 15000,
+      "variante": "sin_plano",
+      "contexto": 1,
+      "episodios_caida": 126,
+      "pasos_con_caida": 140,
+      "caidas_ultimo_tramo": 1,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.08653333333333334,
+      "puente_final": false,
+      "viable_final": false,
+      "recuperados": 0,
+      "usos": {
+        "1": 2
+      },
+      "externos": [],
+      "planos_guardados": 4
+    },
+    {
+      "semilla": 7,
+      "vida": 15000,
+      "variante": "correcto",
+      "contexto": 1,
+      "episodios_caida": 42,
+      "pasos_con_caida": 46,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": 1062,
+      "fraccion_con_puente": 0.9908666666666667,
+      "puente_final": true,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 3
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 3,
+          "logros": 0,
+          "confianza": 0.0625,
+          "usos": 3
+        }
+      ],
+      "planos_guardados": 4
+    },
+    {
+      "semilla": 7,
+      "vida": 15000,
+      "variante": "incorrecto",
+      "contexto": 1,
+      "episodios_caida": 89,
+      "pasos_con_caida": 105,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.05093333333333333,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 5
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 5,
+          "logros": 0,
+          "confianza": 0.015625,
+          "usos": 5
+        }
+      ],
+      "planos_guardados": 2
+    },
+    {
+      "semilla": 7,
+      "vida": 15000,
+      "variante": "parcial",
+      "contexto": 1,
+      "episodios_caida": 107,
+      "pasos_con_caida": 122,
+      "caidas_ultimo_tramo": 0,
+      "primer_puente_estable": null,
+      "fraccion_con_puente": 0.04033333333333333,
+      "puente_final": false,
+      "viable_final": true,
+      "recuperados": 1,
+      "usos": {
+        "1": 5,
+        "2": 2,
+        "3": 1
+      },
+      "externos": [
+        {
+          "id": 1,
+          "intentos": 5,
+          "logros": 0,
+          "confianza": 0.015625,
+          "usos": 5
+        }
+      ],
+      "planos_guardados": 3
+    }
+  ],
+  "nota": "Comparación exploratoria pareada; tiempos sin éxito quedan como null. No demuestra analogía."
+}

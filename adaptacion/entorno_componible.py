@@ -142,19 +142,25 @@ class Sujeto(Satisfecho):
         if mundo.con_piezas:
             self.P[i] = self.rng.integers(OPCIONES[i])
 
-    def vivir(self, mundo, pasos):
+    def _observar(self, t):
+        """Punto de extensión para memoria perceptiva, sin cambiar el control original."""
+
+    def vivir(self, mundo, pasos, rng_perturbaciones=None):
+        rng_fisica = self.rng if rng_perturbaciones is None else rng_perturbaciones
         caidas, con_puente = [], 0
         actual, desde, sin_violar = None, 0, 0
         A = mundo.matriz(self.W, self.P)
         hay_puente = bool(puentes(self.P))
         for t in range(1, pasos + 1):
             dx = A @ self.x
-            emp = mundo.empuje(self.rng)
+            emp = mundo.empuje(rng_fisica)
             if emp is not None:
                 dx[: NA + NR] += emp
             self.x = np.clip(self.x + DT * dx, -SATURACION, SATURACION)
             if t % CADA_PERTURBACION == 0:
-                self.x[: NA + NR] += self.rng.normal(0, puente.PERTURBACION_NORMAL, NA + NR)
+                self.x[: NA + NR] += rng_fisica.normal(0, puente.PERTURBACION_NORMAL, NA + NR)
+
+            self._observar(t)
 
             fuera = np.abs(self.x[:NA]) > LIMITE
             if np.any(np.abs(self.x[NA:]) >= SATURACION - 1e-9):

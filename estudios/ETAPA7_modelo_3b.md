@@ -5,7 +5,6 @@ Fecha: 2026-11-24. Decisión: usar solo el modelo de 3B (Ollama), sin modelos ma
 ## Qué cambió
 - `inferir.py` nuevo: capa 1 -> prompts de imagen deterministas -> hora/clima -> LLM con herramientas (`buscar_web`, `recordar`, `ejecutar_python`). Cliente en `llm.py`.
 - Raíz: de 88 a 24 archivos .py. `modelos/` de 11 GB a 0; `datos/` de 35 GB a 62 MB.
-- `servicio_escenas.py` conserva `/escena`; `/extraer` se quitó (b_chat usa `SCENE_EXTRACTOR=llm`).
 
 ## Medida (`evaluar_3b.py`, casos reservados de ddgs real, resultados de búsqueda dados, temperatura 0)
 | tipo | 3B | núcleo v2c (respuesta exacta) |

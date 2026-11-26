@@ -1,0 +1,133 @@
+W1124 19:45:12.923000 20196 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   5%|▌         | 22/434 [00:00<00:02, 196.01it/s]Loading weights:  10%|▉         | 42/434 [00:00<00:01, 196.77it/s]Loading weights:  14%|█▍        | 62/434 [00:00<00:02, 185.17it/s]Loading weights:  19%|█▉        | 83/434 [00:00<00:01, 180.40it/s]Loading weights:  25%|██▍       | 107/434 [00:00<00:01, 190.34it/s]Loading weights:  30%|██▉       | 129/434 [00:00<00:01, 193.06it/s]Loading weights:  34%|███▍      | 149/434 [00:00<00:01, 185.97it/s]Loading weights:  39%|███▉      | 169/434 [00:00<00:01, 183.61it/s]Loading weights:  44%|████▍     | 192/434 [00:01<00:01, 192.24it/s]Loading weights:  49%|████▉     | 214/434 [00:01<00:01, 187.12it/s]Loading weights:  55%|█████▍    | 237/434 [00:01<00:01, 192.17it/s]Loading weights:  59%|█████▉    | 257/434 [00:01<00:00, 186.11it/s]Loading weights:  64%|██████▍   | 277/434 [00:01<00:00, 183.00it/s]Loading weights:  68%|██████▊   | 297/434 [00:01<00:00, 173.94it/s]Loading weights:  74%|███████▍  | 323/434 [00:01<00:00, 192.92it/s]Loading weights:  79%|███████▉  | 343/434 [00:01<00:00, 194.40it/s]Loading weights:  84%|████████▎ | 363/434 [00:01<00:00, 186.99it/s]Loading weights:  88%|████████▊ | 383/434 [00:02<00:00, 189.68it/s]Loading weights:  93%|█████████▎| 403/434 [00:02<00:00, 192.51it/s]Loading weights:  97%|█████████▋| 423/434 [00:02<00:00, 188.89it/s]Loading weights: 100%|██████████| 434/434 [00:02<00:00, 191.61it/s]
+D:\Documentos\GitHub\TEST-IA\.venv\Lib\site-packages\transformers\modeling_utils.py:3204: FutureWarning: `gradient_checkpointing_enable` is deprecated and will be removed in v6. Use `activation_checkpointing_enable` instead.
+  warnings.warn(
+trainable params: 29,933,568 || all params: 3,115,872,256 || trainable%: 0.9607
+25189 ejemplos de 25189
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+época 1/2 paso 50/6296 | pérdida 0.1042 | 102s
+época 1/2 paso 100/6296 | pérdida 0.3843 | 181s
+época 1/2 paso 150/6296 | pérdida 0.1696 | 254s
+época 1/2 paso 200/6296 | pérdida 0.0124 | 326s
+época 1/2 paso 250/6296 | pérdida 0.0543 | 401s
+época 1/2 paso 300/6296 | pérdida 0.1243 | 468s
+época 1/2 paso 350/6296 | pérdida 0.2129 | 546s
+época 1/2 paso 400/6296 | pérdida 0.0807 | 679s
+época 1/2 paso 450/6296 | pérdida 0.1266 | 803s
+época 1/2 paso 500/6296 | pérdida 0.0001 | 887s
+época 1/2 paso 550/6296 | pérdida 0.0202 | 1045s
+época 1/2 paso 600/6296 | pérdida 0.0004 | 1124s
+época 1/2 paso 650/6296 | pérdida 0.0003 | 1203s
+época 1/2 paso 700/6296 | pérdida 0.0176 | 1280s
+época 1/2 paso 750/6296 | pérdida 0.0270 | 1363s
+época 1/2 paso 800/6296 | pérdida 0.0000 | 1441s
+época 1/2 paso 850/6296 | pérdida 0.0247 | 1524s
+época 1/2 paso 900/6296 | pérdida 0.0047 | 1615s
+época 1/2 paso 950/6296 | pérdida 0.0002 | 1689s
+época 1/2 paso 1000/6296 | pérdida 0.0063 | 1765s
+época 1/2 paso 1050/6296 | pérdida 0.0004 | 1859s
+época 1/2 paso 1100/6296 | pérdida 0.0377 | 1954s
+época 1/2 paso 1150/6296 | pérdida 0.0054 | 2031s
+época 1/2 paso 1200/6296 | pérdida 0.0078 | 2106s
+época 1/2 paso 1250/6296 | pérdida 0.0194 | 2187s
+época 1/2 paso 1300/6296 | pérdida 0.0136 | 2253s
+época 1/2 paso 1350/6296 | pérdida 0.0030 | 2338s
+época 1/2 paso 1400/6296 | pérdida 0.0801 | 2413s
+época 1/2 paso 1450/6296 | pérdida 0.0599 | 2489s
+época 1/2 paso 1500/6296 | pérdida 0.0107 | 2558s
+época 1/2 paso 1550/6296 | pérdida 0.0347 | 2633s
+época 1/2 paso 1600/6296 | pérdida 0.0003 | 2744s
+época 1/2 paso 1650/6296 | pérdida 0.0002 | 2852s
+época 1/2 paso 1700/6296 | pérdida 0.0208 | 2951s
+época 1/2 paso 1750/6296 | pérdida 0.0083 | 3145s
+época 1/2 paso 1800/6296 | pérdida 0.0457 | 3223s
+época 1/2 paso 1850/6296 | pérdida 0.0001 | 3324s
+época 1/2 paso 1900/6296 | pérdida 0.0002 | 3409s
+época 1/2 paso 1950/6296 | pérdida 0.0001 | 3483s
+época 1/2 paso 2000/6296 | pérdida 0.0001 | 3560s
+época 1/2 paso 2050/6296 | pérdida 0.0004 | 3633s
+época 1/2 paso 2100/6296 | pérdida 0.0024 | 3741s
+época 1/2 paso 2150/6296 | pérdida 0.0005 | 3819s
+época 1/2 paso 2200/6296 | pérdida 0.0018 | 3985s
+época 1/2 paso 2250/6296 | pérdida 0.0200 | 4056s
+época 1/2 paso 2300/6296 | pérdida 0.0048 | 4164s
+época 1/2 paso 2350/6296 | pérdida 0.0041 | 4238s
+época 1/2 paso 2400/6296 | pérdida 0.0007 | 4333s
+época 1/2 paso 2450/6296 | pérdida 0.0000 | 4416s
+época 1/2 paso 2500/6296 | pérdida 0.0001 | 4656s
+época 1/2 paso 2550/6296 | pérdida 0.0002 | 4728s
+época 1/2 paso 2600/6296 | pérdida 0.0302 | 4879s
+época 1/2 paso 2650/6296 | pérdida 0.0041 | 4957s
+época 1/2 paso 2700/6296 | pérdida 0.0000 | 5035s
+época 1/2 paso 2750/6296 | pérdida 0.0006 | 5112s
+época 1/2 paso 2800/6296 | pérdida 0.0001 | 5188s
+época 1/2 paso 2850/6296 | pérdida 0.0006 | 5265s
+época 1/2 paso 2900/6296 | pérdida 0.0289 | 5341s
+época 1/2 paso 2950/6296 | pérdida 0.0114 | 5480s
+época 1/2 paso 3000/6296 | pérdida 0.0025 | 5594s
+época 1/2 paso 3050/6296 | pérdida 0.0368 | 5663s
+época 1/2 paso 3100/6296 | pérdida 0.0009 | 5744s
+época 2/2 paso 3150/6296 | pérdida 0.0061 | 5818s
+época 2/2 paso 3200/6296 | pérdida 0.0265 | 5901s
+época 2/2 paso 3250/6296 | pérdida 0.0005 | 5993s
+época 2/2 paso 3300/6296 | pérdida 0.0048 | 6082s
+época 2/2 paso 3350/6296 | pérdida 0.0000 | 6241s
+época 2/2 paso 3400/6296 | pérdida 0.0000 | 6344s
+época 2/2 paso 3450/6296 | pérdida 0.0000 | 6505s
+época 2/2 paso 3500/6296 | pérdida 0.0000 | 6601s
+época 2/2 paso 3550/6296 | pérdida 0.0004 | 6703s
+época 2/2 paso 3600/6296 | pérdida 0.0001 | 6833s
+época 2/2 paso 3650/6296 | pérdida 0.0106 | 6922s
+época 2/2 paso 3700/6296 | pérdida 0.0000 | 7014s
+época 2/2 paso 3750/6296 | pérdida 0.0003 | 7121s
+época 2/2 paso 3800/6296 | pérdida 0.0000 | 7212s
+época 2/2 paso 3850/6296 | pérdida 0.0005 | 7382s
+época 2/2 paso 3900/6296 | pérdida 0.0003 | 7470s
+época 2/2 paso 3950/6296 | pérdida 0.0047 | 7588s
+época 2/2 paso 4000/6296 | pérdida 0.0015 | 7701s
+época 2/2 paso 4050/6296 | pérdida 0.0001 | 7795s
+época 2/2 paso 4100/6296 | pérdida 0.0025 | 7895s
+época 2/2 paso 4150/6296 | pérdida 0.0000 | 8006s
+época 2/2 paso 4200/6296 | pérdida 0.0000 | 8111s
+época 2/2 paso 4250/6296 | pérdida 0.0000 | 8271s
+época 2/2 paso 4300/6296 | pérdida 0.0000 | 8422s
+época 2/2 paso 4350/6296 | pérdida 0.0040 | 8523s
+época 2/2 paso 4400/6296 | pérdida 0.0000 | 8615s
+época 2/2 paso 4450/6296 | pérdida 0.0105 | 8712s
+época 2/2 paso 4500/6296 | pérdida 0.0000 | 8806s
+época 2/2 paso 4550/6296 | pérdida 0.0001 | 8916s
+época 2/2 paso 4600/6296 | pérdida 0.0006 | 9013s
+época 2/2 paso 4650/6296 | pérdida 0.0007 | 9119s
+época 2/2 paso 4700/6296 | pérdida 0.0003 | 9219s
+época 2/2 paso 4750/6296 | pérdida 0.0000 | 9340s
+época 2/2 paso 4800/6296 | pérdida 0.0000 | 9445s
+época 2/2 paso 4850/6296 | pérdida 0.0000 | 9555s
+época 2/2 paso 4900/6296 | pérdida 0.0023 | 9668s
+época 2/2 paso 4950/6296 | pérdida 0.0000 | 9773s
+época 2/2 paso 5000/6296 | pérdida 0.0000 | 9914s
+época 2/2 paso 5050/6296 | pérdida 0.0002 | 10017s
+época 2/2 paso 5100/6296 | pérdida 0.0083 | 10106s
+época 2/2 paso 5150/6296 | pérdida 0.0108 | 10206s
+época 2/2 paso 5200/6296 | pérdida 0.0000 | 10318s
+época 2/2 paso 5250/6296 | pérdida 0.0010 | 10427s
+época 2/2 paso 5300/6296 | pérdida 0.0005 | 10557s
+época 2/2 paso 5350/6296 | pérdida 0.0000 | 10672s
+época 2/2 paso 5400/6296 | pérdida 0.0001 | 10963s
+época 2/2 paso 5450/6296 | pérdida 0.0099 | 11065s
+época 2/2 paso 5500/6296 | pérdida 0.0012 | 11170s
+época 2/2 paso 5550/6296 | pérdida 0.0033 | 11291s
+época 2/2 paso 5600/6296 | pérdida 0.0000 | 11391s
+época 2/2 paso 5650/6296 | pérdida 0.0000 | 11487s
+época 2/2 paso 5700/6296 | pérdida 0.0005 | 11578s
+época 2/2 paso 5750/6296 | pérdida 0.0000 | 11677s
+época 2/2 paso 5800/6296 | pérdida 0.0001 | 11776s
+época 2/2 paso 5850/6296 | pérdida 0.0003 | 11947s
+época 2/2 paso 5900/6296 | pérdida 0.0004 | 12053s
+época 2/2 paso 5950/6296 | pérdida 0.0000 | 12146s
+época 2/2 paso 6000/6296 | pérdida 0.0000 | 12263s
+época 2/2 paso 6050/6296 | pérdida 0.0001 | 12360s
+época 2/2 paso 6100/6296 | pérdida 0.0043 | 12450s
+época 2/2 paso 6150/6296 | pérdida 0.0000 | 12549s
+época 2/2 paso 6200/6296 | pérdida 0.0012 | 12692s
+época 2/2 paso 6250/6296 | pérdida 0.0001 | 12800s
+guardado en D:\Documentos\GitHub\TEST-IA\modelos\lora3b\adaptador

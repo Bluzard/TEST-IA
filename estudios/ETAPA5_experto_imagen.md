@@ -31,7 +31,6 @@ Higiene mínima: normalizar artefactos, descartar enlaces/duplicados/no-inglés 
 ## Uso
 ```
 .venv\Scripts\python.exe inferir.py --sin-memoria --imagen          # chat; ejemplos: «prompt para flux: un gato dormido en una ventana lluviosa», «otra versión más oscura», «ahora para sdxl»
-.venv\Scripts\python.exe inferir.py --sin-memoria --imagen "prompt para flux: @ejemplos/escena_oficina.json"     # @ruta lee un archivo (la consola de Windows corta líneas de ~4.000 caracteres)
 ```
 Opciones: `--sin-traductor` (no carga el traductor: usa solo la generación del núcleo, peor fidelidad), `--continuacion-nucleo` (el núcleo continúa la idea en vez del enriquecimiento curado; incoherente), `--imagen_lora RUTA`.
 Dependencia opcional: `pip install transformers sentencepiece sacremoses`. Sin ella la idea no se traduce y se usa el camino anterior.

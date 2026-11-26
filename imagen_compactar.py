@@ -1,12 +1,12 @@
 """Entradas LARGAS o ESTRUCTURADAS para el experto de prompts de imagen: compactación y composición determinista.
 
-El núcleo v2c lee 1.024 tokens en total (ficha del modelo ≈ 330 + respuesta ≈ 150): la entrada debe caber en ≈ 430. Una especificación real (el JSON de una escena con «bindings / scene /
-sourceAuthority / proposedPlan») mide miles de tokens, repite lo mismo en varios campos y mezcla datos visuales con instrucciones para OTRO modelo («Omit…», «Do not…», «Unspecified»).
+El núcleo v2c lee 1.024 tokens en total (ficha del modelo ≈ 330 + respuesta ≈ 150): la entrada debe caber en ≈ 430. Una especificación visual en JSON puede medir miles de tokens,
+repetir lo mismo en varios campos y mezclar datos visuales con instrucciones para OTRO modelo («Omit…», «Do not…», «Unspecified»).
 Medido (imagen_d): con entradas largas y detalladas el núcleo ignora casi todo el contenido (ganancia de pérdida por usar la entrada: 0,1-0,3 nats frente a 0,8-1,4 en entradas cortas), así que
 para una especificación completa NO se genera con el modelo: se COMPONE el prompt de forma determinista con sus propios campos (fidelidad total) y se aplica el formato del modelo destino.
 
 Pasos, sin cambiar el significado visual:
-  · aplana el JSON a frases y sustituye los identificadores de personaje por su sustantivo («MAIN_ADULT» -> «the woman»; con su edad la primera vez: «the 19-year-old woman»)
+  · aplana el JSON a frases y sustituye los identificadores de sujeto por su sustantivo, incorporando su edad la primera vez cuando está especificada
   · descarta valores vacíos o «Not specified / Unspecified / null» y las frases que son instrucciones o reglas para otro sistema («Omit…», «Do not…», «Never…», claves *Rule / *Authority)
   · si hay «visibleParticipants», no describe a quien no es visible
   · elimina frases repetidas o casi repetidas (la misma ropa en 4 campos queda una vez)
@@ -36,7 +36,7 @@ def _hojas(obj, ruta=()):
 
 
 def _sustantivos(obj):
-    """{«MAIN_ADULT»: «woman», …} a partir de diccionarios con «noun» (p. ej. bindings.MAIN_ADULT.noun)."""
+    """Identificadores y sustantivos a partir de diccionarios con «noun»."""
     out = {}
 
     def rec(o, nombre=None):
@@ -118,7 +118,7 @@ def _extraer(obj):
     frases, vistas = [], []
     for orden, (ruta, v) in enumerate(_hojas(obj)):
         clave = ruta[-1]
-        ruta_plana = re.sub(r"[_\s]", "", ".".join(ruta).lower())  # «partnerAdultPermanentAppearance» y «bindings.PARTNER_ADULT.…» son el mismo participante oculto
+        ruta_plana = re.sub(r"[_\s]", "", ".".join(ruta).lower())  # Unifica las rutas que describen al mismo participante oculto.
         if (VACIO.match(v) or CLAVE_META.search(clave) or META.match(v) or any(o in ruta for o in ocultos) or any(re.sub(r"_", "", o).lower() in ruta_plana for o in ocultos)
                 or clave in ("noun",) or clave.lower() == "visibleparticipants"):
             continue

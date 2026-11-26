@@ -17,7 +17,6 @@ pip install -r requirements.txt
 python inferir.py                       # chat
 python inferir.py "¿Quién escribió Rayuela?" "prompt para flux: un gato dormido en una ventana lluviosa"
 python evaluar_3b.py                    # casos reservados de ddgs real
-python servicio_escenas.py              # servicio HTTP local de escenas para b_chat (POST /escena)
 ```
 Variables: `TEST_IA_MODELO` (defecto `qwen2.5:3b`), `OLLAMA_URL`.
 
@@ -28,6 +27,6 @@ Variables: `TEST_IA_MODELO` (defecto `qwen2.5:3b`), `OLLAMA_URL`.
 | `llm.py` | cliente de Ollama con llamadas a herramientas |
 | `herramientas.py`, `corrector.py`, `sandbox.py`, `tiempo_real.py`, `memoria.py` | capa 1, búsqueda, corrector ortográfico, ejecución segura, reloj/clima, memoria con enfriamiento |
 | `enrutador.py` | detecta pedidos de prompt de imagen (`EnrutadorV3`) |
-| `imagen_*.py`, `escena_*.py`, `servicio_escenas.py` | experto de prompts de imagen y redactor de escenas (traductor opus-mt + fichas) |
+| `imagen_*.py` | experto de prompts de imagen (traductor opus-mt + fichas) |
 | `experto_*.py`, `redaccion_*.py`, `sft_datos.py`, `protocolo.py`, `construir_lexico.py` | fichas locales y léxico que consulta `herramientas.py` |
 | `estudios/` | informes y transcripción de todas las etapas |

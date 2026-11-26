@@ -1,0 +1,117 @@
+W1124 23:20:33.628000 34568 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   3%|▎         | 11/434 [00:00<00:11, 36.88it/s]Loading weights:   5%|▌         | 22/434 [00:00<00:07, 52.11it/s]Loading weights:   6%|▋         | 28/434 [00:00<00:09, 40.70it/s]Loading weights:   8%|▊         | 34/434 [00:00<00:11, 33.68it/s]Loading weights:   9%|▉         | 39/434 [00:01<00:10, 36.64it/s]Loading weights:  10%|█         | 45/434 [00:01<00:12, 32.29it/s]Loading weights:  12%|█▏        | 51/434 [00:01<00:10, 37.65it/s]Loading weights:  14%|█▎        | 59/434 [00:01<00:10, 36.47it/s]Loading weights:  15%|█▍        | 64/434 [00:01<00:09, 38.54it/s]Loading weights:  16%|█▌        | 69/434 [00:02<00:13, 27.47it/s]Loading weights:  19%|█▉        | 82/434 [00:02<00:09, 36.00it/s]Loading weights:  20%|█▉        | 86/434 [00:02<00:09, 36.59it/s]Loading weights:  22%|██▏       | 95/434 [00:02<00:10, 32.18it/s]Loading weights:  25%|██▍       | 107/434 [00:03<00:09, 33.42it/s]Loading weights:  27%|██▋       | 118/434 [00:03<00:09, 33.49it/s]Loading weights:  30%|██▉       | 129/434 [00:03<00:09, 33.01it/s]Loading weights:  33%|███▎      | 143/434 [00:04<00:08, 35.51it/s]Loading weights:  35%|███▌      | 153/434 [00:04<00:07, 36.83it/s]Loading weights:  37%|███▋      | 159/434 [00:04<00:06, 39.63it/s]Loading weights:  38%|███▊      | 167/434 [00:04<00:06, 43.23it/s]Loading weights:  40%|███▉      | 172/434 [00:04<00:07, 35.54it/s]Loading weights:  41%|████▏     | 180/434 [00:05<00:07, 32.75it/s]Loading weights:  44%|████▍     | 191/434 [00:05<00:06, 36.52it/s]Loading weights:  45%|████▍     | 195/434 [00:05<00:06, 36.66it/s]Loading weights:  46%|████▋     | 201/434 [00:05<00:08, 28.70it/s]Loading weights:  50%|████▉     | 215/434 [00:06<00:06, 33.50it/s]Loading weights:  52%|█████▏    | 225/434 [00:06<00:05, 40.40it/s]Loading weights:  53%|█████▎    | 230/434 [00:06<00:05, 36.33it/s]Loading weights:  55%|█████▌    | 239/434 [00:06<00:05, 33.00it/s]Loading weights:  58%|█████▊    | 251/434 [00:07<00:04, 37.73it/s]Loading weights:  59%|█████▉    | 256/434 [00:07<00:04, 37.69it/s]Loading weights:  60%|██████    | 261/434 [00:07<00:05, 29.26it/s]Loading weights:  63%|██████▎   | 275/434 [00:07<00:04, 33.74it/s]Loading weights:  66%|██████▌   | 285/434 [00:07<00:03, 39.80it/s]Loading weights:  67%|██████▋   | 290/434 [00:08<00:03, 36.02it/s]Loading weights:  69%|██████▊   | 298/434 [00:08<00:03, 34.85it/s]Loading weights:  70%|██████▉   | 302/434 [00:08<00:03, 35.55it/s]Loading weights:  72%|███████▏  | 311/434 [00:08<00:03, 36.24it/s]Loading weights:  73%|███████▎  | 315/434 [00:08<00:03, 36.28it/s]Loading weights:  74%|███████▍  | 321/434 [00:09<00:03, 32.18it/s]Loading weights:  75%|███████▍  | 325/434 [00:09<00:03, 33.24it/s]Loading weights:  77%|███████▋  | 335/434 [00:09<00:03, 31.27it/s]Loading weights:  80%|███████▉  | 347/434 [00:09<00:02, 36.89it/s]Loading weights:  81%|████████  | 351/434 [00:09<00:02, 36.69it/s]Loading weights:  82%|████████▏ | 357/434 [00:10<00:02, 37.95it/s]Loading weights:  83%|████████▎ | 361/434 [00:10<00:02, 30.83it/s]Loading weights:  85%|████████▌ | 369/434 [00:10<00:02, 26.45it/s]Loading weights:  88%|████████▊ | 380/434 [00:10<00:01, 31.83it/s]Loading weights:  89%|████████▊ | 385/434 [00:11<00:01, 34.04it/s]Loading weights:  91%|█████████ | 395/434 [00:11<00:01, 35.46it/s]Loading weights:  92%|█████████▏| 399/434 [00:11<00:00, 35.42it/s]Loading weights:  94%|█████████▍| 407/434 [00:11<00:00, 29.50it/s]Loading weights:  97%|█████████▋| 419/434 [00:11<00:00, 39.97it/s]Loading weights:  98%|█████████▊| 424/434 [00:12<00:00, 33.82it/s]Loading weights: 100%|██████████| 434/434 [00:12<00:00, 35.69it/s]
+{
+ "habilidades": {
+  "cola_abst": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 30
+  },
+  "cola_inexistente": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 14
+  },
+  "concepto": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 405
+  },
+  "concepto_ejemplo": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 72
+  },
+  "concepto_reservado": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 130
+  },
+  "doc_abst": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 119
+  },
+  "doc_ok": {
+   "exacto": 0.9152542372881356,
+   "contiene": 0.9152542372881356,
+   "n": 59
+  },
+  "ejec_error": {
+   "exacto": 0.9875,
+   "contiene": 0.9875,
+   "n": 80
+  },
+  "ejec_nameerror": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 10
+  },
+  "ejec_ok": {
+   "exacto": 0.96,
+   "contiene": 0.96,
+   "n": 150
+  },
+  "error_interp": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 60
+  },
+  "gramatica": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 113
+  },
+  "gramatica_ejemplo": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 55
+  },
+  "gramatica_reservada": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 54
+  },
+  "ortografia": {
+   "exacto": 0.8796296296296297,
+   "contiene": 0.8796296296296297,
+   "n": 108
+  },
+  "ortografia_ok": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 12
+  },
+  "ortografia_signos": {
+   "exacto": 0.0,
+   "contiene": 0.25,
+   "n": 4
+  },
+  "tono_cercano": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 40
+  },
+  "tono_claro": {
+   "exacto": 0.95,
+   "contiene": 0.95,
+   "n": 40
+  },
+  "tono_conciso": {
+   "exacto": 0.95,
+   "contiene": 0.95,
+   "n": 40
+  },
+  "tono_formal": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 60
+  }
+ },
+ "ddgs_real": {
+  "buscar_ok": 0.8063063063063063,
+  "irrelevante": 0.9615384615384616,
+  "vacio": 1.0
+ },
+ "segundos": 306
+}

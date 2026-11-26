@@ -1,0 +1,115 @@
+{
+ "habilidades": {
+  "cola_abst": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 30
+  },
+  "cola_inexistente": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 14
+  },
+  "concepto": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 405
+  },
+  "concepto_ejemplo": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 72
+  },
+  "concepto_reservado": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 130
+  },
+  "doc_abst": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 119
+  },
+  "doc_ok": {
+   "exacto": 0.9152542372881356,
+   "contiene": 0.9152542372881356,
+   "n": 59
+  },
+  "ejec_error": {
+   "exacto": 0.9875,
+   "contiene": 0.9875,
+   "n": 80
+  },
+  "ejec_nameerror": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 10
+  },
+  "ejec_ok": {
+   "exacto": 0.96,
+   "contiene": 0.96,
+   "n": 150
+  },
+  "error_interp": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 60
+  },
+  "gramatica": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 113
+  },
+  "gramatica_ejemplo": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 55
+  },
+  "gramatica_reservada": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 54
+  },
+  "ortografia": {
+   "exacto": 0.8796296296296297,
+   "contiene": 0.8796296296296297,
+   "n": 108
+  },
+  "ortografia_ok": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 12
+  },
+  "ortografia_signos": {
+   "exacto": 0.0,
+   "contiene": 0.25,
+   "n": 4
+  },
+  "tono_cercano": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 40
+  },
+  "tono_claro": {
+   "exacto": 0.95,
+   "contiene": 0.95,
+   "n": 40
+  },
+  "tono_conciso": {
+   "exacto": 0.95,
+   "contiene": 0.95,
+   "n": 40
+  },
+  "tono_formal": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 60
+  }
+ },
+ "ddgs_real": {
+  "buscar_ok": 0.8063063063063063,
+  "irrelevante": 0.9615384615384616,
+  "vacio": 1.0
+ },
+ "segundos": 306
+}

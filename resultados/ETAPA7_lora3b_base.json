@@ -1,0 +1,115 @@
+{
+ "habilidades": {
+  "cola_abst": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 30
+  },
+  "cola_inexistente": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 14
+  },
+  "concepto": {
+   "exacto": 0.4691358024691358,
+   "contiene": 0.8296296296296296,
+   "n": 405
+  },
+  "concepto_ejemplo": {
+   "exacto": 0.0,
+   "contiene": 0.013888888888888888,
+   "n": 72
+  },
+  "concepto_reservado": {
+   "exacto": 0.5307692307692308,
+   "contiene": 0.8769230769230769,
+   "n": 130
+  },
+  "doc_abst": {
+   "exacto": 0.8403361344537815,
+   "contiene": 0.8403361344537815,
+   "n": 119
+  },
+  "doc_ok": {
+   "exacto": 0.0,
+   "contiene": 0.2033898305084746,
+   "n": 59
+  },
+  "ejec_error": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 80
+  },
+  "ejec_nameerror": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 10
+  },
+  "ejec_ok": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 150
+  },
+  "error_interp": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 60
+  },
+  "gramatica": {
+   "exacto": 0.09734513274336283,
+   "contiene": 0.6194690265486725,
+   "n": 113
+  },
+  "gramatica_ejemplo": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 55
+  },
+  "gramatica_reservada": {
+   "exacto": 0.16666666666666666,
+   "contiene": 0.6296296296296297,
+   "n": 54
+  },
+  "ortografia": {
+   "exacto": 0.3611111111111111,
+   "contiene": 0.37037037037037035,
+   "n": 108
+  },
+  "ortografia_ok": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 12
+  },
+  "ortografia_signos": {
+   "exacto": 1.0,
+   "contiene": 1.0,
+   "n": 4
+  },
+  "tono_cercano": {
+   "exacto": 0.075,
+   "contiene": 0.125,
+   "n": 40
+  },
+  "tono_claro": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 40
+  },
+  "tono_conciso": {
+   "exacto": 0.025,
+   "contiene": 0.1,
+   "n": 40
+  },
+  "tono_formal": {
+   "exacto": 0.0,
+   "contiene": 0.0,
+   "n": 60
+  }
+ },
+ "ddgs_real": {
+  "buscar_ok": 0.918918918918919,
+  "irrelevante": 0.9615384615384616,
+  "vacio": 1.0
+ },
+ "segundos": 225
+}

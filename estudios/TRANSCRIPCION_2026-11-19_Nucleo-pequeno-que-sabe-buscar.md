@@ -2,7 +2,7 @@
 
 > **Fecha:** 19 al 24 de noviembre de 2026
 > **Proyecto:** `TEST-IA`
-> **Tema central:** Análisis de una conversación con Gemini sobre por qué pesan las IA y construcción de un prototipo de núcleo pequeño que busca en un diccionario externo; continúa (turnos 32 en adelante) con la Etapa 3 (memoria externa con decay, experto de redacción, router de 3 estados, caché de 2 LoRA), el diseño del núcleo v2-A de 158 M y su Etapa 4: Fase 0 (motor C++), Fase 1 (tokenizador 24k y corpus de 4.000 M de tokens), piloto en GPU y preentrenamiento; el anexo final resume el cierre de la Etapa 4 (v2c en producción), la Etapa 5 (experto de prompts de imagen) y la Etapa 6 (extracción de escena, resultado negativo).
+> **Tema central:** Análisis de una conversación con Gemini sobre por qué pesan las IA y construcción de un prototipo de núcleo pequeño que busca en un diccionario externo; continúa (turnos 32 en adelante) con la Etapa 3 (memoria externa con decay, experto de redacción, router de 3 estados, caché de 2 LoRA), el diseño del núcleo v2-A de 158 M y su Etapa 4: Fase 0 (motor C++), Fase 1 (tokenizador 24k y corpus de 4.000 M de tokens), piloto en GPU y preentrenamiento; el anexo final resume el cierre de la Etapa 4 (v2c en producción) y la Etapa 5 (experto de prompts de imagen).
 > **Documentos generados:** datos.py, modelo.py, herramientas.py, entrenar.py, evaluar.py, conversar.py, ampliar_diccionario.py, comparar.py, exportar_bitnet.py, medir_recursos.py, preparar_pc.ps1, README.md; (turnos 32+) memoria.py, corrector.py, enrutador.py, motor.cpp, fase0_nucleo_v2.py, fase1_datos.py, modelo_v2.py, piloto_v2.py, pretrain_v2.py, estudios/ETAPA3_CIERRE.md, ETAPA4_DISENO_nucleo_v2.md, ETAPA4_FASE1_datos.md
 
 ---
@@ -2490,13 +2490,6 @@ Primero actualizo la transcripción con lo ocurrido desde el último anexo, y lu
 - Las especificaciones largas (JSON de más de 1.000 tokens) se componen sin pasar por el núcleo.
 - Datos con licencia abierta (73.364 filas de entrenamiento). Detalle en `ETAPA5_experto_imagen.md`.
 
-### Etapa 6: extracción de escena (24-nov)
-
-- Se probó un experto del núcleo v2c (LoRA) que extrae el estado de una escena a partir de cada turno. Datos: 382 turnos sintéticos generados con Mistral (1.248 ejemplos de entrenamiento y 58 de evaluación). Se compararon también modelos Qwen locales (`probar_modelos_extraccion.cjs`).
-- **Resultado negativo:** no supera a la línea base «copiar el estado anterior» (escena exacta 87,9–89,7 % en ambos). La variante B memoriza, y el formato delta (solo lo que cambia) colapsó a contestar siempre «sin cambios». Latencia 2,6–4,4 s por turno, frente a 31–44 s de Mistral.
-- **Decisión:** `SCENE_EXTRACTOR=core` queda desactivado (por defecto `llm`). Este camino necesita muchos más datos, turnos reales del usuario y campos libres resueltos de forma determinista. Detalle en `ETAPA6_extraccion.md`.
-- **Arquitectura vigente** (memoria del proyecto): Mistral hace el rol y la extracción, y el núcleo hace el resto, sin Rocinante.
-
 ### Estado del repositorio al 24-nov
 
-Último commit: `fa40ca7` (23-nov). Sin commitear están las Etapas 5 y 6 (scripts `imagen_*.py`, `extractor_*.py`, `servicio_escenas.py`, `resultados/ETAPA5_*` y `ETAPA6_*`), más cambios en `enrutador.py`, `inferir.py` y `motor_cpp.py`.
+Último commit: `fa40ca7` (23-nov). Sin commitear está la Etapa 5 (scripts `imagen_*.py` y `resultados/ETAPA5_*`), más cambios en `enrutador.py`, `inferir.py` y `motor_cpp.py`.

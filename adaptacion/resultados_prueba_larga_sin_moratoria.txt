@@ -1,0 +1,8 @@
+A_contexto_sin_moratoria   puente genuino 70.9%  saturadas 12/100  cambios sin caída 150/400  descarte prem. 23/49
+   vs A_fijo       (65.7%): mayor en 62, menor en 35  p = 0.008
+   vs A_contexto   (71.7%): mayor en 38, menor en 60  p = 0.033
+   vs C_contexto   (96.3%): mayor en 0, menor en 100  p = 0.000
+C_contexto_sin_moratoria   puente genuino 96.1%  saturadas 0/100  cambios sin caída 256/400  descarte prem. 14/37
+   vs A_fijo       (65.7%): mayor en 99, menor en 1  p = 0.000
+   vs A_contexto   (71.7%): mayor en 96, menor en 4  p = 0.000
+   vs C_contexto   (96.3%): mayor en 28, menor en 62  p = 0.000

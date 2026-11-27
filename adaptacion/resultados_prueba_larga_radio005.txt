@@ -1,0 +1,49 @@
+=== Prueba larga componible · 100 vidas pareadas · 300000 pasos · terrenos (0, 1, 0, 2, 1) cada 60000 · R_max 20 · radio 0.05 ===
+
+condición                     % t. puente genuino  % t. saturado  saturadas al final  genuino fin de fase  caídas (med)
+1 Sin piezas / sin SQLite                    0.0%         51.82%             40/100               0/500            1542
+2 Componible modo A                         65.7%         18.39%              9/100             209/500            3484
+2b A + contexto (ablación)                  73.9%         16.50%             11/100             231/500            2312
+3 Componible completo C                     97.6%          1.93%              0/100             332/500             148
+
+Cambios de terreno que no producen ninguna caída en los 400 pasos siguientes:
+  1 Sin piezas / sin SQLite      39/400
+  2 Componible modo A           117/400
+  2b A + contexto (ablación)    167/400
+  3 Componible completo C       246/400
+
+Referencia saturacion.py (otro entorno, sin piezas): 31–35/100 terminan saturadas.
+
+Recuperación tras cambio de terreno (pasos hasta 400 seguidos viables; sin recuperar = censurado en 60000):
+condición                    tipo        puente: recup.  med. recup.  med. cens.  estable: recup.  med. recup.  med. cens.
+1 Sin piezas / sin SQLite    nuevo              0/200              —       60000         101/200           1012       46907
+1 Sin piezas / sin SQLite    revisita           0/200              —       60000         104/200            953       29608
+2 Componible modo A          nuevo            158/200           1056        2198         170/200           1042        1531
+2 Componible modo A          revisita         165/200            782        1590         172/200            678         956
+2b A + contexto (ablación)   nuevo            168/200            640         972         174/200            690         940
+2b A + contexto (ablación)   revisita         170/200            400         564         172/200            400         523
+3 Componible completo C      nuevo            198/200            400         400         198/200            400         400
+3 Componible completo C      revisita         197/200            400         400         197/200            400         400
+
+Planos propios consolidados (≥ 90 % al terminar la primera visita) al volver a ese terreno:
+condición                     consolidados  recargados  descarte prem.  logran antes
+1 Sin piezas / sin SQLite               56          10     7/10 (70 %)             3
+2 Componible modo A                    112          38    16/38 (42 %)            22
+2b A + contexto (ablación)             121          73     7/73 (10 %)            62
+3 Componible completo C                137          81      1/81 (1 %)            77
+
+Reconocimiento de contexto (oráculo solo para medir):
+  2b A + contexto (ablación)   revisitas reconocidas 22/200   terrenos nuevos distinguidos 174/200   contextos por vida (med) 13
+  3 Componible completo C      revisitas reconocidas 41/200   terrenos nuevos distinguidos 167/200   contextos por vida (med) 11
+
+Pruebas pareadas por semilla (signo para % puente genuino; McNemar para saturadas al final):
+  2 Componible modo A           vs 3 Componible completo C     puente: 3 mayor en 98, menor en 2  p = 0.000   saturadas 9 vs 0  p = 0.004
+      recuperación de puente (nuevo): más rápida en 84, más lenta en 11  p = 0.000
+      recuperación de puente (revisita): más rápida en 78, más lenta en 11  p = 0.000
+  2b A + contexto (ablación)    vs 3 Componible completo C     puente: 3 mayor en 96, menor en 4  p = 0.000   saturadas 11 vs 0  p = 0.001
+      recuperación de puente (nuevo): más rápida en 72, más lenta en 18  p = 0.000
+      recuperación de puente (revisita): más rápida en 64, más lenta en 19  p = 0.000
+  2 Componible modo A           vs 2b A + contexto (ablación)  puente: 2 mayor en 69, menor en 28  p = 0.000   saturadas 9 vs 11  p = 0.754
+      recuperación de puente (nuevo): más rápida en 55, más lenta en 32  p = 0.018
+      recuperación de puente (revisita): más rápida en 62, más lenta en 30  p = 0.001
+  1 Sin piezas / sin SQLite     vs 3 Componible completo C     puente: 3 mayor en 100, menor en 0  p = 0.000   saturadas 40 vs 0  p = 0.000

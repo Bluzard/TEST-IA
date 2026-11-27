@@ -1,0 +1,36 @@
+=== Atribución del fallo · 40 vidas pareadas · 15000 pasos · R_max = 20 ===
+
+condición        modo                        puente estable  caídas (med) % t. puente  descarte prem.  nunca logró  confianza med
+Ninguno          A castigo inmediato                18/40           256.5       41.7%               —            —              —
+Ninguno          B paciencia fija                   18/40           256.5       41.7%               —            —              —
+Ninguno          C atribución por progreso          18/40           256.5       41.7%               —            —              —
+
+Plano correcto   A castigo inmediato                24/40           291.5       60.7%           39/40        37/40          0.003
+Plano correcto   B paciencia fija                   40/40            46.0       94.3%           15/40         0/40          0.250
+Plano correcto   C atribución por progreso          39/40            41.5       96.4%            6/40         1/40          0.250
+
+Plano incorrecto A castigo inmediato                23/40           468.5       51.7%           40/40        40/40          0.002
+Plano incorrecto B paciencia fija                   22/40           235.0       52.8%           40/40        40/40          0.003
+Plano incorrecto C atribución por progreso          19/40           304.0       49.7%           40/40        40/40          0.004
+
+Plano parcial    A castigo inmediato                20/40           394.5       51.5%           39/40        38/40          0.002
+Plano parcial    B paciencia fija                   25/40           173.0       58.4%           32/40        23/40          0.006
+Plano parcial    C atribución por progreso          27/40           247.0       63.3%           29/40        20/40          0.004
+
+Pruebas pareadas por semilla (McNemar exacto para puente estable; signo para caídas):
+  Plano correcto   A vs C:  puente 24 vs 39  p = 0.000   caídas de C: menos en 31, más en 8  p = 0.000
+  Plano correcto   A vs B:  puente 24 vs 40  p = 0.000   caídas de B: menos en 31, más en 8  p = 0.000
+  Plano correcto   B vs C:  puente 40 vs 39  p = 1.000   caídas de C: menos en 14, más en 2  p = 0.004
+  Plano incorrecto A vs C:  puente 23 vs 19  p = 0.219   caídas de C: menos en 16, más en 24  p = 0.268
+  Plano incorrecto A vs B:  puente 23 vs 22  p = 1.000   caídas de B: menos en 17, más en 23  p = 0.430
+  Plano incorrecto B vs C:  puente 22 vs 19  p = 0.508   caídas de C: menos en 17, más en 11  p = 0.345
+  Plano parcial    A vs C:  puente 20 vs 27  p = 0.039   caídas de C: menos en 20, más en 19  p = 1.000
+  Plano parcial    A vs B:  puente 20 vs 25  p = 0.180   caídas de B: menos en 19, más en 19  p = 1.000
+  Plano parcial    B vs C:  puente 25 vs 27  p = 0.727   caídas de C: menos en 16, más en 17  p = 1.000
+
+Fisher no pareado (referencia del laboratorio), puente estable:
+  Plano correcto   A 24 vs C 39   p = 0.000
+  Plano incorrecto A 23 vs C 19   p = 0.502
+  Plano parcial    A 20 vs C 27   p = 0.173
+
+Registros individuales: /Users/joaquinmeneses/Documents/TEST-IA/adaptacion/resultados_atribucion.json

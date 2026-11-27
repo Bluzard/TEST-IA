@@ -1,43 +1,79 @@
 === Vidas sucesivas · 100 sujetos · 10 vidas de 40000 pasos · mundos (0, 1, 2, 0, 3, 1, 4, 2, 5, 0) ===
 
 Pasos hasta el primer puente estable (mediana; sin puente = 40000) por vida:
- vida  mundo      tipo     de_cero    esquemas   deduccion    completo
-    1      0     nuevo       10804       10804       10804       10804
-    2      1     nuevo        9102        4077        2702        2771
-    3      2     nuevo       18625        7184        5782        5782
-    4      0  revisita        7795        4656        2248        2043
-    5      3     nuevo        7483        4168        2668        2422
-    6      1  revisita        9934        2573        2044        1842
-    7      4     nuevo        5583        2816        1711        2029
-    8      2  revisita       13210        4330        2051        1810
-    9      5     nuevo       11074        3585        2486        2178
-   10      0  revisita        7886        3028        2280        1953
+ vida  mundo      tipo               de_cero              esquemas             deduccion              completo           solo_cuerpo      deduccion_cuerpo       completo_cuerpo completo_cuerpo_mundo   deduccion_paciencia    completo_paciencia
+    1      0     nuevo                 10804                 10804                 10804                 10804                 10804                 10804                 10804                 10804                 10804                 10804
+    2      1     nuevo                  9102                  4077                  2702                  2771                 12924                  5766                  5766                  2702                  2543                  2771
+    3      2     nuevo                 18625                  7184                  5782                  5782                 24082                  8507                  8507                  3693                  4329                  4329
+    4      0  revisita                  7795                  4656                  2248                  2043                 19946                  8026                  7406                  1938                  2368                  2126
+    5      3     nuevo                  7483                  4168                  2668                  2422                 12196                  3390                  3776                  2635                  2677                  2756
+    6      1  revisita                  9934                  2573                  2044                  1842                 17430                  2882                  2272                  1729                  2376                  2306
+    7      4     nuevo                  5583                  2816                  1711                  2029                  9078                  2536                  2490                  1820                  1804                  2100
+    8      2  revisita                 13210                  4330                  2051                  1810                 14232                  4086                  3922                  1976                  2910                  2172
+    9      5     nuevo                 11074                  3585                  2486                  2178                 16839                  2830                  3262                  1992                  2718                  2344
+   10      0  revisita                  7886                  3028                  2280                  1953                 12164                  2822                  2804                  1605                  2046                  1962
 
 Resumen por sujeto (media de sus vidas 2–10; luego mediana entre sujetos):
-  vidas 2–10    de_cero:   17797   esquemas:   12489   deduccion:    9982   completo:   10320   
-  mundos nuevos de_cero:   18423   esquemas:   12621   deduccion:    9994   completo:   10789   
-  revisitas     de_cero:   15694   esquemas:   11922   deduccion:    8455   completo:   10290   
+  vidas 2–10    de_cero:   17797   esquemas:   12489   deduccion:    9982   completo:   10320   solo_cuerpo:   19614   deduccion_cuerpo:   14190   completo_cuerpo:   13103   completo_cuerpo_mundo:   10499   deduccion_paciencia:   10081   completo_paciencia:   10017   
+  mundos nuevos de_cero:   18423   esquemas:   12621   deduccion:    9994   completo:   10789   solo_cuerpo:   20142   deduccion_cuerpo:   12480   completo_cuerpo:   12654   completo_cuerpo_mundo:   10050   deduccion_paciencia:   10192   completo_paciencia:   10224   
+  revisitas     de_cero:   15694   esquemas:   11922   deduccion:    8455   completo:   10290   solo_cuerpo:   21217   deduccion_cuerpo:   12624   completo_cuerpo:   12064   completo_cuerpo_mundo:   10824   deduccion_paciencia:   10912   completo_paciencia:   10977   
 
 Pareadas por sujeto (signo sobre la media censurada de las vidas 2–10):
-  de_cero   vs esquemas  nuevos     esquemas más rápida en  80, más lenta en  19  p = 0.000
-  de_cero   vs esquemas  revisitas  esquemas más rápida en  73, más lenta en  26  p = 0.000
-  esquemas  vs deduccion nuevos     deduccion más rápida en  77, más lenta en  14  p = 0.000
-  esquemas  vs deduccion revisitas  deduccion más rápida en  75, más lenta en  17  p = 0.000
-  deduccion vs completo  nuevos     completo más rápida en  18, más lenta en  28  p = 0.184
-  deduccion vs completo  revisitas  completo más rápida en  51, más lenta en  41  p = 0.348
-  de_cero   vs completo  nuevos     completo más rápida en  89, más lenta en  10  p = 0.000
-  de_cero   vs completo  revisitas  completo más rápida en  88, más lenta en  11  p = 0.000
+  de_cero          vs solo_cuerpo           nuevos     solo_cuerpo más rápida en  38, más lenta en  62  p = 0.021
+  de_cero          vs solo_cuerpo           revisitas  solo_cuerpo más rápida en  38, más lenta en  62  p = 0.021
+  deduccion        vs deduccion_cuerpo      nuevos     deduccion_cuerpo más rápida en  33, más lenta en  67  p = 0.001
+  deduccion        vs deduccion_cuerpo      revisitas  deduccion_cuerpo más rápida en  31, más lenta en  69  p = 0.000
+  completo         vs completo_cuerpo       nuevos     completo_cuerpo más rápida en  37, más lenta en  63  p = 0.012
+  completo         vs completo_cuerpo       revisitas  completo_cuerpo más rápida en  30, más lenta en  70  p = 0.000
+  deduccion_cuerpo vs completo_cuerpo       nuevos     completo_cuerpo más rápida en  44, más lenta en  44  p = 1.000
+  deduccion_cuerpo vs completo_cuerpo       revisitas  completo_cuerpo más rápida en  53, más lenta en  42  p = 0.305
+  completo         vs completo_cuerpo_mundo nuevos     completo_cuerpo_mundo más rápida en  35, más lenta en  27  p = 0.374
+  completo         vs completo_cuerpo_mundo revisitas  completo_cuerpo_mundo más rápida en  55, más lenta en  44  p = 0.315
+  deduccion        vs deduccion_paciencia   nuevos     deduccion_paciencia más rápida en  38, más lenta en  38  p = 1.000
+  deduccion        vs deduccion_paciencia   revisitas  deduccion_paciencia más rápida en  34, más lenta en  45  p = 0.260
+  completo         vs completo_paciencia    nuevos     completo_paciencia más rápida en  39, más lenta en  40  p = 1.000
+  completo         vs completo_paciencia    revisitas  completo_paciencia más rápida en  30, más lenta en  43  p = 0.160
+  de_cero          vs esquemas              nuevos     esquemas más rápida en  80, más lenta en  19  p = 0.000
+  de_cero          vs esquemas              revisitas  esquemas más rápida en  73, más lenta en  26  p = 0.000
+  esquemas         vs deduccion             nuevos     deduccion más rápida en  77, más lenta en  14  p = 0.000
+  esquemas         vs deduccion             revisitas  deduccion más rápida en  75, más lenta en  17  p = 0.000
+  deduccion        vs completo              nuevos     completo más rápida en  18, más lenta en  28  p = 0.184
+  deduccion        vs completo              revisitas  completo más rápida en  51, más lenta en  41  p = 0.348
+  de_cero          vs completo              nuevos     completo más rápida en  89, más lenta en  10  p = 0.000
+  de_cero          vs completo              revisitas  completo más rápida en  88, más lenta en  11  p = 0.000
 
 Cómo llegó el puente y qué hizo la abducción (totales sobre vidas 2–10):
-  de_cero    ventanas acopladas: reconocidas 0, deducidas 0, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
-  esquemas   ventanas acopladas: reconocidas 1893, deducidas 0, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
-  deduccion  ventanas acopladas: reconocidas 563, deducidas 1557, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
-  completo   ventanas acopladas: reconocidas 497, deducidas 1428, deducidas con roles adoptados 133 | adopciones de mundo: revisitas 323/359 correctas, mundos nuevos 83 (todas erróneas por definición) | contradicciones 128
+  de_cero               ventanas acopladas: reconocidas 0, deducidas 0, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  esquemas              ventanas acopladas: reconocidas 1893, deducidas 0, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  deduccion             ventanas acopladas: reconocidas 563, deducidas 1557, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  completo              ventanas acopladas: reconocidas 497, deducidas 1428, deducidas con roles adoptados 133 | adopciones de mundo: revisitas 323/359 correctas, mundos nuevos 83 (todas erróneas por definición) | contradicciones 128
+  solo_cuerpo           ventanas acopladas: reconocidas 0, deducidas 0, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  deduccion_cuerpo      ventanas acopladas: reconocidas 476, deducidas 1458, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  completo_cuerpo       ventanas acopladas: reconocidas 460, deducidas 1488, deducidas con roles adoptados 111 | adopciones de mundo: revisitas 285/333 correctas, mundos nuevos 78 (todas erróneas por definición) | contradicciones 113
+  completo_cuerpo_mundo ventanas acopladas: reconocidas 499, deducidas 1424, deducidas con roles adoptados 133 | adopciones de mundo: revisitas 321/359 correctas, mundos nuevos 88 (todas erróneas por definición) | contradicciones 104
+  deduccion_paciencia   ventanas acopladas: reconocidas 525, deducidas 1774, deducidas con roles adoptados 0 | adopciones de mundo: revisitas 0/0 correctas, mundos nuevos 0 (todas erróneas por definición) | contradicciones 0
+  completo_paciencia    ventanas acopladas: reconocidas 491, deducidas 1619, deducidas con roles adoptados 125 | adopciones de mundo: revisitas 324/360 correctas, mundos nuevos 83 (todas erróneas por definición) | contradicciones 119
 
 ¿Dónde se va el tiempo? Vidas 2–10 con deducción y puente (mediana de pasos):
-  deduccion  335 vidas · hasta la primera deducción 972 · de ahí al puente estable 1106
-  completo   384 vidas · hasta la primera deducción 652 · de ahí al puente estable 1102
+  deduccion             335 vidas · hasta la primera deducción 972 · de ahí al puente estable 1106
+  completo              384 vidas · hasta la primera deducción 652 · de ahí al puente estable 1102
+  deduccion_cuerpo      356 vidas · hasta la primera deducción 1142 · de ahí al puente estable 1066
+  completo_cuerpo       402 vidas · hasta la primera deducción 911 · de ahí al puente estable 1114
+  completo_cuerpo_mundo 373 vidas · hasta la primera deducción 702 · de ahí al puente estable 1038
+  deduccion_paciencia   346 vidas · hasta la primera deducción 1036 · de ahí al puente estable 1274
+  completo_paciencia    392 vidas · hasta la primera deducción 734 · de ahí al puente estable 1220
+
+Diagnóstico de planes deducidos (oráculo: ¿el arreglo deducido es un puente?), vidas 2–10:
+  deduccion             es puente: acoplado  1534, agotado  1334, otro   36 | no es puente: acoplado   23, agotado  125, otro    1
+  completo              es puente: acoplado  1537, agotado  1394, otro   35 | no es puente: acoplado   24, agotado  161, otro    0
+  deduccion_cuerpo      es puente: acoplado  1434, agotado  1294, otro   30 | no es puente: acoplado   24, agotado   97, otro    0
+  completo_cuerpo       es puente: acoplado  1573, agotado  1530, otro   37 | no es puente: acoplado   26, agotado  136, otro    1
+  completo_cuerpo_mundo es puente: acoplado  1529, agotado  1404, otro   35 | no es puente: acoplado   28, agotado  174, otro    0
+  deduccion_paciencia   es puente: acoplado  1746, agotado   700, otro   51 | no es puente: acoplado   28, agotado   74, otro    1
+  completo_paciencia    es puente: acoplado  1718, agotado   879, otro   47 | no es puente: acoplado   26, agotado  107, otro    0
+  cuerpos recuperados en revisitas: 359 (del mundo correcto 321)
+  cuerpos recuperados en mundos nuevos: 88 (del mundo correcto 0)
 
 Esquemas que hereda la última vida (completo): mediana 2; roles heredados: mediana 84
 
-Registros individuales: adaptacion/resultados_vidas/ (un JSON por condición)
+Registros individuales: adaptacion/resultados_vidas/ (un JSON por condición; no se versiona, lo regenera `comparar`)

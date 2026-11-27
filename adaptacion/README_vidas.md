@@ -1,6 +1,6 @@
 # Vidas sucesivas: memoria persistente, deducción y abducción
 
-`vidas_sucesivas.py` · resultados en `resultados_vidas.txt` y `resultados_vidas/` (un JSON por condición) · pruebas en `test_vidas.py`.
+`vidas_sucesivas.py` · resultados en `resultados_vidas.txt` · pruebas en `test_vidas.py` · los registros por vida (`resultados_vidas/`, un JSON por condición, ≈5 MB) ya no se actualizan en el repositorio (los 4 que quedan son de la corrida del PR #4, sin los campos nuevos): `comparar --rep 100` los regenera en unos 15 minutos.
 
 ```powershell
 # Un sujeto real: cada ejecución es una vida; la memoria queda en el archivo.
@@ -86,16 +86,94 @@ las medianas por vida, porque las vidas sin puente cuentan como 40.000.
    359 adopciones fueron correctas (90 %), y adelanta la primera deducción de
    972 a 652 pasos. Pero en mundos nuevos adopta erróneamente 83 veces, y el
    total no mejora frente a deducción sola.
-4. **El límite ya no es el conocimiento, sino el cuerpo.** Tras deducir, quedan
-   unos 1.100 pasos de acoplamiento de un cuerpo que nació de nuevo, y ahí la
-   memoria no ayuda. Ahorrar unos 300 pasos de conocimiento casi no se nota.
+4. **Tras deducir quedan unos 1.100 pasos, y no se deben a roles mal
+   abducidos.** Una versión anterior de este README lo atribuía al acoplamiento
+   de un cuerpo recién nacido. El diagnóstico de abajo muestra que el
+   conocimiento acierta y que lo que falla es la atribución del fallo.
+
+## Diagnóstico de los planes deducidos
+
+Con el oráculo (solo para medir) se registra si cada arreglo deducido es de
+verdad un puente. Vidas 2–10 con deducción:
+
+| | Se acopla | Se agota |
+|---|---:|---:|
+| El arreglo deducido es un puente | 1.534 | **1.334** |
+| No es un puente | 23 | 125 |
+
+- **La deducción acierta:** el 95 % de los arreglos deducidos son puentes. Los
+  roles abducidos son buenos.
+- **Pero casi la mitad de los puentes deducidos correctos se agota** (1.334 de
+  2.868): el cuerpo recién nacido no se acopla dentro de `R_max` = 20, y el
+  fallo se atribuye al plano. Un arreglo agotado queda bloqueado por el resto de
+  la vida. En 23 vidas que terminaron sin puente, la deducción había dado con
+  el puente correcto y se descartó.
+
+Es el mismo problema que resolvió `atribucion_fallo.py`, pero ahora en el
+conocimiento propio: **la paciencia no depende de cuán seguro está el sujeto de
+su plano.** Un plano deducido desde esquemas con soporte y roles vistos merece
+más paciencia que un arreglo al azar.
+
+## Cuerpo persistente
+
+| Mediana de la media por sujeto, vidas 2–10 | Cuerpo nuevo | Heredado de la vida anterior | Recuperado del mundo abducido |
+|---|---:|---:|---:|
+| Sin conocimiento | 17.797 | 19.614 | — |
+| Deducción | 9.982 | 14.190 | — |
+| Completo | 10.320 | 13.103 | 10.499 |
+
+- **Heredar el cuerpo de la vida anterior empeora** en mundos nuevos y en
+  revisitas: las 6 comparaciones pareadas favorecen al cuerpo nuevo (p entre
+  0,021 y < 0,001). La vida anterior siempre es de otro mundo: un cuerpo adaptado
+  a otro mundo resulta peor que uno al azar (rigidez).
+- **Recuperar el cuerpo del mundo abducido** (`completo_cuerpo_mundo`): nace con
+  cuerpo nuevo y, si la abducción de mundo concluye «estoy en el mundo de la
+  vida L», recupera el cuerpo de L. En revisitas recuperó 359 cuerpos, 321 del
+  mundo correcto; en mundos nuevos, 88 equivocados. Las medianas por vida bajan
+  (revisitas: 1.605–1.976 contra 1.810–2.043 de `completo`), pero la prueba
+  pareada por sujeto no es significativa (revisitas 55 contra 44, p = 0,32;
+  nuevos 35 contra 27, p = 0,37). El tiempo tras deducir apenas baja (1.038
+  contra 1.102 pasos).
+
+El cuerpo no es el cuello de botella principal. Lo es la paciencia con un plano
+correcto.
+
+## Paciencia según la confianza en el plano (resultado negativo)
+
+Condiciones `*_paciencia`: la ventana de un plano deducido solo con roles vistos
+en esta vida tiene presupuesto `R_max × (1 + soporte del esquema)`; con roles
+adoptados, `R_max`.
+
+| Vidas 2–10 | Deducción | Deducción + paciencia | Completo | Completo + paciencia |
+|---|---:|---:|---:|---:|
+| Puentes deducidos correctos que se agotan | 1.334 | 700 | 1.394 | 879 |
+| Puentes deducidos que se acoplan | 1.534 | 1.746 | 1.537 | 1.718 |
+| Vidas sin puente (de 900) | 172 | 165 | 182 | 168 |
+| Pasos desde la deducción hasta el puente | 1.106 | 1.274 | 1.102 | 1.220 |
+| Mediana de la media por sujeto | 9.982 | 10.081 | 10.320 | 10.017 |
+
+La paciencia hace lo que promete, porque descarta la mitad de puentes correctos,
+pero **no acelera ni rescata vidas**: las 4 comparaciones pareadas no son
+significativas (p entre 0,16 y 1,0). Descartar un puente correcto casi no
+costaba, porque la deducción proponía enseguida otro arreglo equivalente (hay
+varios códigos que forman puente). El tiempo que se ahorra en planes descartados
+se gasta esperando a que el cuerpo se acople al plan retenido.
+
+**Lo que esto deja en claro:** el diagnóstico anterior mostraba un mecanismo
+real (planos correctos descartados), pero no era el cuello de botella. Los
+~1.100 pasos tras deducir y las ~170 vidas sin puente (19 %) siguen sin
+explicarse.
 
 ## Límites y siguientes pasos
 
+- **Explicar las vidas sin puente:** solo 23 de 172 se explican por un puente
+  deducido y descartado. Hay que ver si en las demás faltan roles, esquemas o
+  acoplamiento.
+- **El acoplamiento del cuerpo es búsqueda a ciegas:** tras fijar las piezas, W
+  se reorganiza al azar como en el homeostato original. Ni la memoria ni la
+  deducción guían esa parte.
 - Falta aprender de lo observado en otro (el ejemplo del fuego): peligros como
   firmas, vistos en otro sujeto y nunca probados por el propio.
 - La abducción de mundo debería pesar hipótesis rivales (cuántos roles explica
   cada mundo pasado) en vez de adoptar la primera consistente.
-- Si el cuerpo es el cuello de botella, hay que probar la otra opción que
-  dejamos abierta: que el cuerpo también persista (el mismo organismo).
 - Una sola familia de mundos, un solo esquema útil y roles de forma dada.

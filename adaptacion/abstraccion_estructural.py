@@ -216,7 +216,7 @@ class SujetoAbstraccion(BucleLargo):
         v = self.ventana
         if racha > v["mejor"]:
             v["mejor"] = racha
-            v["presupuesto"] = R_MAX
+            v["presupuesto"] = v.get("r_max", R_MAX)
             v["renovaciones"] += 1
         if v["presupuesto"] == 0:
             self.agotados.add(v["arreglo"])

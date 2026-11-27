@@ -52,7 +52,8 @@ class VidasTest(unittest.TestCase):
         for ranura in range(NP):
             for codigo in range(1, len(m.mapa[ranura])):
                 h.roles[(ranura, codigo)], h.origen_rol[(ranura, codigo)] = rol_verdadero(m, ranura, codigo), "visto"
-        fijo, bloqueo = h._deducir()
+        fijo, bloqueo, soporte = h._deducir()
+        self.assertEqual(soporte, 1)
         P = np.zeros(NP, dtype=int)
         for ranura, c in fijo:
             P[ranura] = c
@@ -83,6 +84,40 @@ class VidasTest(unittest.TestCase):
             with Memoria(db) as m:
                 self.assertEqual(m.vidas_previas(), 2)
                 self.assertTrue(m.roles())
+
+    def test_cuerpo_heredado_y_pareo(self):
+        with tempfile.TemporaryDirectory() as c:
+            ruta = Path(c) / "m.sqlite"
+            with Memoria(ruta) as m:
+                W = np.full((4, 10), 0.25)
+                m.cerrar_vida(0, None, frozenset(), {}, W)
+                h = SujetoVidas(np.random.default_rng(1), m, "deduccion_cuerpo")
+                n = SujetoVidas(np.random.default_rng(1), m, "deduccion")
+                w = SujetoVidas(np.random.default_rng(1), m, "completo_cuerpo_mundo")
+            np.testing.assert_array_equal(h.W, W)
+            self.assertTrue(h.cuerpo_heredado)
+            self.assertEqual(h.rng.random(), n.rng.random())  # mismo azar después de nacer
+            # Cuerpo por mundo: nace nuevo; al adoptar la vida 1 recupera su cuerpo en la próxima caída.
+            self.assertFalse(np.array_equal(w.W, W))
+            w.pasados = {1: {(0, 1): ("A", 0), (2, 3): ("B", 0, 0, -1)}}
+            w._ver((0, 1), ("A", 0))
+            w._ver((2, 3), ("B", 0, 0, -1))
+            w._abducir_mundo()
+            w._explorar_unidad(0, MundoFamilia(np.random.default_rng(0), n_mundos=2))
+            np.testing.assert_array_equal(w.W, W)
+
+    def test_paciencia_segun_confianza(self):
+        m = MundoFamilia(np.random.default_rng(5), n_mundos=2)
+        for condicion, esperado in (("deduccion", 20), ("deduccion_paciencia", 20 * 4)):
+            with tempfile.TemporaryDirectory() as c:
+                h = sujeto(c, condicion)
+            h._t, h.abstraccion, h.soporte = 0, frozenset({PUENTE}), {PUENTE: 3}
+            for ranura in range(NP):
+                for codigo in range(1, len(m.mapa[ranura])):
+                    h.roles[(ranura, codigo)], h.origen_rol[(ranura, codigo)] = rol_verdadero(m, ranura, codigo), "visto"
+            h._explorar_unidad(0, m)
+            self.assertEqual(h.ventana["presupuesto"], esperado)
+            self.assertTrue(h.ventana["es_puente"])
 
 
 if __name__ == "__main__":

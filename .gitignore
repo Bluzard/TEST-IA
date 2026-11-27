@@ -48,3 +48,6 @@ datos/imagen/*.jsonl
 
 # pesos HF del modelo base (se descargan con huggingface_hub; ver lora3b.py)
 modelos/base/
+
+# registros por vida (≈5 MB): se regeneran con adaptacion/vidas_sucesivas.py comparar
+adaptacion/resultados_vidas/

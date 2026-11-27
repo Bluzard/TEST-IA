@@ -33,6 +33,14 @@ Condiciones (cada una con su propia base, pareadas por semilla):
   esquemas    esquemas persistentes; solo reconocer + paciencia (sin roles)
   deduccion   esquemas + abducción de roles en la vida + deducción
   completo    deduccion + roles persistentes + abducción de mundo
+  *_cuerpo    además el cuerpo persiste: nace con el W de la configuración con
+              mejor tasa de la vida anterior (sin ruido; las piezas no se heredan,
+              sus códigos cambian de significado). solo_cuerpo: sin conocimiento.
+  *_paciencia  la ventana de un plano deducido solo con roles vistos en esta vida
+              tiene presupuesto R_max × (1 + soporte del esquema); con roles
+              adoptados, R_max. La confianza en el plano fija la paciencia.
+  completo_cuerpo_mundo  nace con cuerpo nuevo; si la abducción de mundo
+              concluye «estoy en el mundo de la vida L», recupera el cuerpo de L.
 
 Uso:
   python adaptacion/vidas_sucesivas.py comparar --rep 100
@@ -58,9 +66,15 @@ VIDA = 40_000
 SECUENCIA = (0, 1, 2, 0, 3, 1, 4, 2, 5, 0)  # mundo de cada vida; 4, 6, 8 y 10 son revisitas
 N_MUNDOS = max(SECUENCIA) + 1
 FUERTE = 2.0  # |influencia| para atribuir un rol (G = 4 en la física)
-CONDICIONES = ("de_cero", "esquemas", "deduccion", "completo")
-CONFIG = {"de_cero": (False, False, False), "esquemas": (True, False, False),
-          "deduccion": (True, True, False), "completo": (True, True, True)}
+CONDICIONES = ("de_cero", "esquemas", "deduccion", "completo", "solo_cuerpo", "deduccion_cuerpo", "completo_cuerpo",
+               "completo_cuerpo_mundo", "deduccion_paciencia", "completo_paciencia")
+# (esquemas, roles, abducción de mundo, cuerpo heredado)
+CONFIG = {"de_cero": (False, False, False, False), "esquemas": (True, False, False, False),
+          "deduccion": (True, True, False, False), "completo": (True, True, True, False),
+          "solo_cuerpo": (False, False, False, "anterior"), "deduccion_cuerpo": (True, True, False, "anterior"),
+          "completo_cuerpo": (True, True, True, "anterior"), "completo_cuerpo_mundo": (True, True, True, "mundo"),
+          "deduccion_paciencia": (True, True, False, False), "completo_paciencia": (True, True, True, False)}
+PACIENCIA = {"deduccion_paciencia", "completo_paciencia"}  # presupuesto según la confianza en el plano
 
 
 # ---------------------------------------------------------------- memoria
@@ -76,6 +90,7 @@ class Memoria:
             CREATE TABLE IF NOT EXISTS roles (vida INTEGER NOT NULL, ranura INTEGER NOT NULL,
                                               codigo INTEGER NOT NULL, rol TEXT NOT NULL,
                                               PRIMARY KEY (vida, ranura, codigo));
+            CREATE TABLE IF NOT EXISTS cuerpos (vida INTEGER PRIMARY KEY, W TEXT NOT NULL);
         """)
 
     def __enter__(self):
@@ -97,7 +112,14 @@ class Memoria:
             por_vida.setdefault(vida, {})[(ranura, codigo)] = tuple(json.loads(rol))
         return por_vida
 
-    def cerrar_vida(self, mundo_oraculo, pasos_puente, rasgos, roles):
+    def cuerpo(self):
+        fila = self.db.execute("SELECT W FROM cuerpos ORDER BY vida DESC LIMIT 1").fetchone()
+        return None if fila is None else np.array(json.loads(fila[0]))
+
+    def cuerpos(self):
+        return {vida: np.array(json.loads(W)) for vida, W in self.db.execute("SELECT vida, W FROM cuerpos")}
+
+    def cerrar_vida(self, mundo_oraculo, pasos_puente, rasgos, roles, W=None):
         with self.db:
             vida = self.vidas_previas() + 1
             self.db.execute("INSERT INTO vidas VALUES (?,?,?)", (vida, mundo_oraculo, pasos_puente))
@@ -107,6 +129,8 @@ class Memoria:
                                 "SET soporte = soporte + 1", (clave,))
             self.db.executemany("INSERT INTO roles VALUES (?,?,?,?)",
                                 [(vida, r, c, json.dumps(list(rol))) for (r, c), rol in roles.items()])
+            if W is not None:
+                self.db.execute("INSERT INTO cuerpos VALUES (?,?)", (vida, json.dumps(W.tolist())))
         return vida
 
 
@@ -122,7 +146,14 @@ def _completo(rol):
 class SujetoVidas(SujetoAbstraccion):
     def __init__(self, rng, memoria, condicion):
         super().__init__(rng)
-        self.usa_esquemas, self.usa_roles, self.usa_mundo = CONFIG[condicion]
+        self.usa_esquemas, self.usa_roles, self.usa_mundo, self.usa_cuerpo = CONFIG[condicion]
+        self.paciencia = condicion in PACIENCIA
+        heredado = memoria.cuerpo() if self.usa_cuerpo == "anterior" else None
+        self.cuerpos = memoria.cuerpos() if self.usa_cuerpo == "mundo" else {}
+        self._cuerpo_pendiente = None
+        self.cuerpo_heredado = heredado is not None
+        if heredado is not None:
+            self.W = heredado.copy()  # el rng ya consumió el W al azar: el pareo no cambia
         self.soporte = memoria.esquemas() if self.usa_esquemas else {}
         if self.soporte:
             tope = max(self.soporte.values())
@@ -130,7 +161,7 @@ class SujetoVidas(SujetoAbstraccion):
         self.pasados = memoria.roles() if self.usa_mundo else {}
         self.roles, self.origen_rol = {}, {}
         self.adopcion, self.descartadas = None, set()
-        self.registro = dict(adopciones=[], revisiones=0, contradicciones=0, deducciones=0)
+        self.registro = dict(adopciones=[], revisiones=0, contradicciones=0, deducciones=0, cuerpos_recuperados=[])
         self._plan = None
 
     # ------------------------------------------------------------ percepción
@@ -204,6 +235,9 @@ class SujetoVidas(SujetoAbstraccion):
             return
         self.adopcion = mejor
         self.registro["adopciones"].append(mejor)
+        if mejor in self.cuerpos:
+            self._cuerpo_pendiente = self.cuerpos[mejor]  # se aplica en la próxima caída
+            self.registro["cuerpos_recuperados"].append(mejor)
         for k, rol in self.pasados[mejor].items():
             if k not in self.roles:
                 self.roles[k], self.origen_rol[k] = rol, "adoptado"
@@ -239,10 +273,11 @@ class SujetoVidas(SujetoAbstraccion):
                     j, f, s = rol[1:]
                     M[NR + ranura, NR + f] = 1.0
                     M[j, NR + ranura] = float(s)
-            bloqueo, puntos = set(), 0
+            bloqueo, puntos, soporte = set(), 0, 0
             for rasgo, nodos in ciclos(M):
                 if rasgo in self.abstraccion:
                     puntos += self.soporte[rasgo]
+                    soporte = max(soporte, self.soporte[rasgo])
                     bloqueo.update(v - NR for v in nodos if v >= NR)
             if not puntos:
                 continue
@@ -250,12 +285,15 @@ class SujetoVidas(SujetoAbstraccion):
             if fijo in self.agotados:
                 continue
             if puntos > mejor_puntos:
-                mejor, mejor_puntos = (fijo, sorted(bloqueo)), puntos
+                mejor, mejor_puntos = (fijo, sorted(bloqueo), soporte), puntos
         self._plan = mejor
         return mejor or None
 
     def _explorar_unidad(self, i, mundo):
         super()._explorar_unidad(i, mundo)
+        if self._cuerpo_pendiente is not None:
+            self.W = self._cuerpo_pendiente.copy()
+            self._cuerpo_pendiente = None
         v = self.ventana
         if v is not None:
             if i in v["bloqueo"]:
@@ -266,14 +304,24 @@ class SujetoVidas(SujetoAbstraccion):
         plan = self._deducir()
         if plan is None:
             return
-        fijo, bloqueo = plan
+        fijo, bloqueo, soporte = plan
         for ranura, c in fijo:
             self.P[ranura] = c
         usa_adoptados = any(self.origen_rol.get((r, c)) == "adoptado" for r, c in fijo)
         self.registro["deducciones"] += 1
-        self.ventana = dict(arreglo=fijo, bloqueo=bloqueo, presupuesto=R_MAX, mejor=0, inicio=self._t,
+        solo_plan = np.zeros_like(self.P)
+        for ranura, c in fijo:
+            solo_plan[ranura] = c
+        r_max = R_MAX * (1 + soporte) if self.paciencia and not usa_adoptados else R_MAX
+        self.ventana = dict(arreglo=fijo, bloqueo=bloqueo, presupuesto=r_max, r_max=r_max, mejor=0, inicio=self._t,
                             reconfiguraciones=0, renovaciones=0, pasos=0,
-                            origen="deducido_adoptado" if usa_adoptados else "deducido")
+                            origen="deducido_adoptado" if usa_adoptados else "deducido",
+                            es_puente=bool(mundo.puentes_de(solo_plan)))  # oráculo: solo para medir
+
+    def _cerrar_ventana(self, motivo):
+        v = self.ventana
+        super()._cerrar_ventana(motivo)
+        self.ventanas[-1]["es_puente"] = v.get("es_puente")
 
     def _acoplar(self, fuera, racha, mundo):
         origen = self.ventana.get("origen")
@@ -291,7 +339,14 @@ class SujetoVidas(SujetoAbstraccion):
         mejor = max(cand, key=lambda v: v[3]) if cand else None
         rasgos = con_piezas(mejor[0]) if mejor else frozenset()
         vistos = {k: v for k, v in self.roles.items() if self.origen_rol[k] == "visto"}
-        return rasgos, vistos
+        W = None
+        if self.usa_cuerpo in ("anterior", "mundo"):
+            if self.repertorio:
+                k = max(range(len(self.repertorio)), key=lambda i: (self.tasa(i), self.logros[i]))
+                W = self.repertorio[k][:self.W.size].reshape(self.W.shape)
+            else:
+                W = self.W
+        return rasgos, vistos, W
 
 
 # ---------------------------------------------------------------- experimento
@@ -305,8 +360,8 @@ def vivir(ruta, semilla, vida, condicion="completo", pasos=VIDA):
         esquemas_heredados = len(h.abstraccion or ())
         _, frac, _ = h.vivir(mundo, pasos, np.random.default_rng([70_000, semilla, vida]))
         f = h.fases[0]
-        rasgos, roles = h.legado()
-        numero = m.cerrar_vida(mundo.terreno, f["rec_puente"], rasgos, roles)
+        rasgos, roles, W = h.legado()
+        numero = m.cerrar_vida(mundo.terreno, f["rec_puente"], rasgos, roles, W)
         oraculo = dict(m.db.execute("SELECT vida, mundo_oraculo FROM vidas").fetchall())
     adop = h.registro["adopciones"]
     return dict(semilla=semilla, vida=numero, condicion=condicion, mundo=mundo.terreno,
@@ -319,6 +374,12 @@ def vivir(ruta, semilla, vida, condicion="completo", pasos=VIDA):
                                for o in ("reconocido", "deducido", "deducido_adoptado")),
                 adopciones=len(adop), adopciones_correctas=sum(oraculo.get(v) == mundo.terreno for v in adop),
                 contradicciones=h.registro["contradicciones"], revisiones=h.registro["revisiones"],
+                diagnostico={f"{'puente' if w['es_puente'] else 'no_puente'}_{w['motivo']}":
+                             sum(1 for z in h.ventanas if str(z["origen"]).startswith("deducido")
+                                 and z["es_puente"] == w["es_puente"] and z["motivo"] == w["motivo"])
+                             for w in h.ventanas if str(w["origen"]).startswith("deducido")},
+                cuerpos_recuperados=len(h.registro["cuerpos_recuperados"]),
+                cuerpos_correctos=sum(oraculo.get(v) == mundo.terreno for v in h.registro["cuerpos_recuperados"]),
                 primera_deduccion=next((w["inicio"] for w in h.ventanas if str(w["origen"]).startswith("deducido")), None))
 
 
@@ -340,11 +401,11 @@ def informe(filas, rep, pasos):
     cen = lambda f: pasos if f["rec_puente"] is None else f["rec_puente"]
     print(f"=== Vidas sucesivas · {rep} sujetos · {len(SECUENCIA)} vidas de {pasos} pasos · mundos {SECUENCIA} ===\n")
     print("Pasos hasta el primer puente estable (mediana; sin puente = " f"{pasos}) por vida:")
-    print(f"{'vida':>5}{'mundo':>7}{'tipo':>10}" + "".join(f"{c:>12}" for c in CONDICIONES))
+    print(f"{'vida':>5}{'mundo':>7}{'tipo':>10}" + "".join(f"{c:>22}" for c in CONDICIONES))
     for v in range(1, len(SECUENCIA) + 1):
         d = {c: [x for x in filas if x["condicion"] == c and x["vida"] == v] for c in CONDICIONES}
         tipo = "revisita" if d[CONDICIONES[0]][0]["revisita"] else "nuevo"
-        print(f"{v:>5}{SECUENCIA[v - 1]:>7}{tipo:>10}" + "".join(f"{np.median([cen(x) for x in d[c]]):>12.0f}"
+        print(f"{v:>5}{SECUENCIA[v - 1]:>7}{tipo:>10}" + "".join(f"{np.median([cen(x) for x in d[c]]):>22.0f}"
                                                               for c in CONDICIONES))
     print("\nResumen por sujeto (media de sus vidas 2–10; luego mediana entre sujetos):")
     por = {c: {} for c in CONDICIONES}
@@ -357,12 +418,15 @@ def informe(filas, rep, pasos):
             f"{c}: {np.median([np.mean([cen(x) for x in v if filtro(x)]) for v in por[c].values()]):>7.0f}   "
             for c in CONDICIONES))
     print("\nPareadas por sujeto (signo sobre la media censurada de las vidas 2–10):")
-    for a, b in (("de_cero", "esquemas"), ("esquemas", "deduccion"), ("deduccion", "completo"),
+    for a, b in (("de_cero", "solo_cuerpo"), ("deduccion", "deduccion_cuerpo"), ("completo", "completo_cuerpo"),
+                 ("deduccion_cuerpo", "completo_cuerpo"), ("completo", "completo_cuerpo_mundo"),
+                 ("deduccion", "deduccion_paciencia"), ("completo", "completo_paciencia"),
+                 ("de_cero", "esquemas"), ("esquemas", "deduccion"), ("deduccion", "completo"),
                  ("de_cero", "completo")):
         for grupo, filtro in (("nuevos", lambda x: not x["revisita"]), ("revisitas", lambda x: x["revisita"])):
             ma = [np.mean([cen(x) for x in por[a][s] if filtro(x)]) for s in sorted(por[a])]
             mb = [np.mean([cen(x) for x in por[b][s] if filtro(x)]) for s in sorted(por[b])]
-            print(f"  {a:<9} vs {b:<9} {grupo:<10} {b} más rápida en {sum(y < z for z, y in zip(ma, mb)):>3}, "
+            print(f"  {a:<16} vs {b:<21} {grupo:<10} {b} más rápida en {sum(y < z for z, y in zip(ma, mb)):>3}, "
                   f"más lenta en {sum(y > z for z, y in zip(ma, mb)):>3}  p = {signo(mb, ma):.3f}")
     print("\nCómo llegó el puente y qué hizo la abducción (totales sobre vidas 2–10):")
     for c in CONDICIONES:
@@ -370,17 +434,32 @@ def informe(filas, rep, pasos):
         acop = {o: sum(x["acopladas"][o] for x in d) for o in ("reconocido", "deducido", "deducido_adoptado")}
         rev = [x for x in d if x["revisita"]]
         nue = [x for x in d if not x["revisita"]]
-        print(f"  {c:<10} ventanas acopladas: reconocidas {acop['reconocido']}, deducidas {acop['deducido']}, "
+        print(f"  {c:<21} ventanas acopladas: reconocidas {acop['reconocido']}, deducidas {acop['deducido']}, "
               f"deducidas con roles adoptados {acop['deducido_adoptado']} | adopciones de mundo: "
               f"revisitas {sum(x['adopciones_correctas'] for x in rev)}/{sum(x['adopciones'] for x in rev)} correctas, "
               f"mundos nuevos {sum(x['adopciones'] for x in nue)} (todas erróneas por definición) | "
               f"contradicciones {sum(x['contradicciones'] for x in d)}")
     print("\n¿Dónde se va el tiempo? Vidas 2–10 con deducción y puente (mediana de pasos):")
-    for c in ("deduccion", "completo"):
+    for c in ("deduccion", "completo", "deduccion_cuerpo", "completo_cuerpo", "completo_cuerpo_mundo",
+              "deduccion_paciencia", "completo_paciencia"):
         d = [x for x in filas if x["condicion"] == c and x["vida"] > 1 and x["primera_deduccion"] is not None
              and x["rec_puente"] is not None and x["rec_puente"] >= x["primera_deduccion"]]
-        print(f"  {c:<10} {len(d)} vidas · hasta la primera deducción {np.median([x['primera_deduccion'] for x in d]):.0f}"
+        print(f"  {c:<21} {len(d)} vidas · hasta la primera deducción {np.median([x['primera_deduccion'] for x in d]):.0f}"
               f" · de ahí al puente estable {np.median([x['rec_puente'] - x['primera_deduccion'] for x in d]):.0f}")
+    print("\nDiagnóstico de planes deducidos (oráculo: ¿el arreglo deducido es un puente?), vidas 2–10:")
+    for c in ("deduccion", "completo", "deduccion_cuerpo", "completo_cuerpo", "completo_cuerpo_mundo",
+              "deduccion_paciencia", "completo_paciencia"):
+        d = [x for x in filas if x["condicion"] == c and x["vida"] > 1]
+        t = lambda k: sum(x["diagnostico"].get(k, 0) for x in d)
+        print(f"  {c:<21} es puente: acoplado {t('puente_acoplado'):>5}, agotado {t('puente_agotado'):>5}, otro "
+              f"{t('puente_cambio_contexto') + t('puente_abierta_al_final'):>4} | no es puente: acoplado "
+              f"{t('no_puente_acoplado'):>4}, agotado {t('no_puente_agotado'):>4}, otro "
+              f"{t('no_puente_cambio_contexto') + t('no_puente_abierta_al_final'):>4}")
+    d = [x for x in filas if x["condicion"] == "completo_cuerpo_mundo" and x["vida"] > 1]
+    for grupo, filtro in (("revisitas", lambda x: x["revisita"]), ("mundos nuevos", lambda x: not x["revisita"])):
+        g = [x for x in d if filtro(x)]
+        print(f"  cuerpos recuperados en {grupo}: {sum(x['cuerpos_recuperados'] for x in g)} "
+              f"(del mundo correcto {sum(x['cuerpos_correctos'] for x in g)})")
     sop = [x for x in filas if x["condicion"] == "completo" and x["vida"] == len(SECUENCIA)]
     print(f"\nEsquemas que hereda la última vida (completo): mediana {np.median([x['esquemas_heredados'] for x in sop]):.0f}"
           f"; roles heredados: mediana {np.median([x['roles_heredados'] for x in sop]):.0f}")
@@ -393,7 +472,7 @@ def main():
     v.add_argument("--db", type=Path, required=True)
     v.add_argument("--semilla", type=int, default=0)
     v.add_argument("--vida", type=int, required=True, help="número de vida (elige el mundo de SECUENCIA)")
-    v.add_argument("--condicion", choices=CONDICIONES[1:], default="completo")
+    v.add_argument("--condicion", choices=[c for c in CONDICIONES if c != "de_cero"], default="completo")
     c = sub.add_parser("comparar", help="linajes pareados en bases temporales")
     c.add_argument("--rep", type=int, default=100)
     c.add_argument("--salida", type=Path, default=Path(__file__).with_name("resultados_vidas"),

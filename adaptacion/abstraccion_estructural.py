@@ -192,8 +192,8 @@ class SujetoAbstraccion(BucleLargo):
         return max(cand, key=lambda v: v[3]) if cand else None
 
     # ------------------------------------------------------------ reconocer
-    def _reconocer(self):
-        A = estimar(self._trans)
+    def _reconocer(self, A=None):
+        A = estimar(self._trans) if A is None else A
         if A is None:
             return
         presentes = ciclos(A)
@@ -210,7 +210,7 @@ class SujetoAbstraccion(BucleLargo):
             return
         self.reconocimientos += 1
         self.ventana = dict(arreglo=arreglo, bloqueo=sorted(bloqueo), presupuesto=R_MAX, mejor=0,
-                            inicio=self._t, reconfiguraciones=0, renovaciones=0, pasos=0)
+                            inicio=self._t, reconfiguraciones=0, renovaciones=0, pasos=0, origen="reconocido")
 
     def _acoplar(self, fuera, racha, mundo):
         v = self.ventana
@@ -233,7 +233,7 @@ class SujetoAbstraccion(BucleLargo):
 
     def _cerrar_ventana(self, motivo):
         v, self.ventana = self.ventana, None
-        self.ventanas.append(dict(inicio=v["inicio"], fin=self._t, motivo=motivo,
+        self.ventanas.append(dict(inicio=v["inicio"], fin=self._t, motivo=motivo, origen=v.get("origen"),
                                   reconfiguraciones=v["reconfiguraciones"], renovaciones=v["renovaciones"]))
 
     def _medir(self, t, cae, saturado, hay_puente):

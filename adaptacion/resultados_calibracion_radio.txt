@@ -1,0 +1,17 @@
+=== Calibración de RADIO · radio en uso 0.15 · 20 vidas (semillas 1000+) · 300000 pasos ===
+huellas por vida (mediana): 22
+pares mismo terreno: 4073   distinto: 6007
+  percentil 10: mismo 0.028   distinto 0.051
+  percentil 25: mismo 0.053   distinto 0.107
+  percentil 50: mismo 0.104   distinto 0.199
+  percentil 75: mismo 0.179   distinto 0.326
+  percentil 90: mismo 0.266   distinto 0.440
+  radio  reconoce mismo  confunde distinto
+  0.010             1%                0%
+  0.020             5%                2%
+  0.030            11%                4%
+  0.050            23%               10%
+  0.075            36%               16%
+  0.100            49%               23%
+  0.150            67%               37%
+  0.250            88%               62%

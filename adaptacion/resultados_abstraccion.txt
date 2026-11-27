@@ -1,0 +1,80 @@
+=== Abstracción estructural · 100 vidas pareadas · fuente 2×100000 · destino 60000 · umbral 0.5 · R_max 20 ===
+
+Fuentes (el sujeto, sin plano, en los mundos 1 y 2):
+  mundo 1: puente estable propio 76/100   éxito consolidado con firma 74/100   ese éxito es un puente 58/74   su firma contiene el lazo R→P→P negativo 56/74
+  mundo 2: puente estable propio 78/100   éxito consolidado con firma 74/100   ese éxito es un puente 63/74   su firma contiene el lazo R→P→P negativo 62/74
+  con dos éxitos: 56/100   lo común contiene el lazo de puente 34/56   rasgos con piezas en lo común (mediana) 1
+
+  abstraccion_1_sin_agencia: rasgos solo del río en la abstracción (mediana, vidas con dos éxitos con piezas) 0   abstracciones sin ningún rasgo del río 31/40
+  abstraccion_2_sin_agencia: rasgos solo del río en la abstracción (mediana, vidas con dos éxitos con piezas) 0   abstracciones sin ningún rasgo del río 40/40
+
+Todas las vidas (intención de tratar) — mundo 3 nuevo, 100 vidas:
+condición                    puente estable  pasos (med, éxitos)  pasos (med, cens.)  caídas (med)  % t. puente  reconoc.  acopladas
+sin_memoria                         72/100                  3080                8046           320        54.2%         0          0
+concreta                            66/100                  3490               11665           322        50.4%         0          0
+abstraccion_2                       76/100                  2336                4362           278        60.1%         0          0
+abstraccion_1                       79/100                  1737                2814           274        64.3%         1          0
+firma_invertida                     71/100                  2992                6886           337        53.1%         0          0
+firma_dada                          83/100                  1361                1704           190        72.8%         4          2
+abstraccion_2_sin_agencia           75/100                  2348                4362           276        59.9%         0          0
+abstraccion_1_sin_agencia           76/100                  2198                3649           276        59.6%         0          0
+firma_invertida_sin_agencia         70/100                  2858                6886           337        53.0%         0          0
+  Pareadas (signo sobre pasos censurados; McNemar sobre puente estable):
+    sin_memoria                 vs abstraccion_2              B más rápida en  16, más lenta en   4  p = 0.012   puente 72 vs 76  p = 0.125
+    abstraccion_1               vs abstraccion_2              B más rápida en   8, más lenta en  19  p = 0.052   puente 79 vs 76  p = 0.250
+    firma_invertida             vs abstraccion_2              B más rápida en  19, más lenta en   5  p = 0.007   puente 71 vs 76  p = 0.125
+    concreta                    vs abstraccion_2              B más rápida en  46, más lenta en  29  p = 0.064   puente 66 vs 76  p = 0.052
+    sin_memoria                 vs concreta                   B más rápida en  33, más lenta en  40  p = 0.483   puente 72 vs 66  p = 0.286
+    abstraccion_2               vs firma_dada                 B más rápida en  39, más lenta en   9  p = 0.000   puente 76 vs 83  p = 0.016
+    sin_memoria                 vs abstraccion_2_sin_agencia  B más rápida en  14, más lenta en   5  p = 0.064   puente 72 vs 75  p = 0.250
+    abstraccion_1_sin_agencia   vs abstraccion_2_sin_agencia  B más rápida en  14, más lenta en  10  p = 0.541   puente 76 vs 75  p = 1.000
+    firma_invertida_sin_agencia vs abstraccion_2_sin_agencia  B más rápida en  17, más lenta en   6  p = 0.035   puente 70 vs 75  p = 0.125
+    abstraccion_2_sin_agencia   vs abstraccion_1              B más rápida en  22, más lenta en   7  p = 0.008   puente 75 vs 79  p = 0.125
+
+Solo vidas con dos éxitos propios — mundo 3 nuevo, 56 vidas:
+condición                    puente estable  pasos (med, éxitos)  pasos (med, cens.)  caídas (med)  % t. puente  reconoc.  acopladas
+sin_memoria                         41/56                   2620                6384           290        52.6%         0          0
+concreta                            35/56                   2582                8936           252        50.1%         0          0
+abstraccion_2                       45/56                   1936                3030           256        63.0%         2          0
+abstraccion_1                       46/56                   1375                2046           232        64.3%         3          2
+firma_invertida                     40/56                   2530                5200           340        50.5%         0          0
+firma_dada                          45/56                   1263                1580           113        70.6%         3          2
+abstraccion_2_sin_agencia           44/56                   2038                3030           236        62.7%         2          0
+abstraccion_1_sin_agencia           44/56                   2144                2973           251        57.4%         1          0
+firma_invertida_sin_agencia         39/56                   2440                5200           340        50.3%         0          0
+  Pareadas (signo sobre pasos censurados; McNemar sobre puente estable):
+    sin_memoria                 vs abstraccion_2              B más rápida en  16, más lenta en   4  p = 0.012   puente 41 vs 45  p = 0.125
+    abstraccion_1               vs abstraccion_2              B más rápida en   5, más lenta en  11  p = 0.210   puente 46 vs 45  p = 1.000
+    firma_invertida             vs abstraccion_2              B más rápida en  19, más lenta en   5  p = 0.007   puente 40 vs 45  p = 0.125
+    concreta                    vs abstraccion_2              B más rápida en  29, más lenta en  14  p = 0.032   puente 35 vs 45  p = 0.013
+    sin_memoria                 vs concreta                   B más rápida en  18, más lenta en  23  p = 0.533   puente 41 vs 35  p = 0.180
+    abstraccion_2               vs firma_dada                 B más rápida en  13, más lenta en   3  p = 0.021   puente 45 vs 45  p = 1.000
+    sin_memoria                 vs abstraccion_2_sin_agencia  B más rápida en  14, más lenta en   5  p = 0.064   puente 41 vs 44  p = 0.250
+    abstraccion_1_sin_agencia   vs abstraccion_2_sin_agencia  B más rápida en  12, más lenta en   4  p = 0.077   puente 44 vs 44  p = 1.000
+    firma_invertida_sin_agencia vs abstraccion_2_sin_agencia  B más rápida en  17, más lenta en   6  p = 0.035   puente 39 vs 44  p = 0.125
+    abstraccion_2_sin_agencia   vs abstraccion_1              B más rápida en  14, más lenta en   4  p = 0.031   puente 44 vs 46  p = 0.500
+
+Solo vidas donde ambos éxitos usaron piezas — mundo 3 nuevo, 40 vidas:
+condición                    puente estable  pasos (med, éxitos)  pasos (med, cens.)  caídas (med)  % t. puente  reconoc.  acopladas
+sin_memoria                         28/40                   1944                7544           274        50.5%         0          0
+concreta                            25/40                   1801                9991           224        53.3%         0          0
+abstraccion_2                       32/40                   1275                1732           222        65.2%         3          2
+abstraccion_1                       33/40                   1200                1466           160        65.1%         4          2
+firma_invertida                     27/40                   2139                3988           320        47.7%         2          0
+firma_dada                          32/40                   1275                1580           135        69.9%         3          2
+abstraccion_2_sin_agencia           31/40                   1287                2038           211        64.8%         3          2
+abstraccion_1_sin_agencia           31/40                   1688                2244           204        57.2%         1          0
+firma_invertida_sin_agencia         26/40                   1998                3988           320        47.3%         1          0
+  Pareadas (signo sobre pasos censurados; McNemar sobre puente estable):
+    sin_memoria                 vs abstraccion_2              B más rápida en  16, más lenta en   4  p = 0.012   puente 28 vs 32  p = 0.125
+    abstraccion_1               vs abstraccion_2              B más rápida en   5, más lenta en   5  p = 1.000   puente 33 vs 32  p = 1.000
+    firma_invertida             vs abstraccion_2              B más rápida en  19, más lenta en   5  p = 0.007   puente 27 vs 32  p = 0.125
+    concreta                    vs abstraccion_2              B más rápida en  22, más lenta en   7  p = 0.008   puente 25 vs 32  p = 0.039
+    sin_memoria                 vs concreta                   B más rápida en  11, más lenta en  16  p = 0.442   puente 28 vs 25  p = 0.508
+    abstraccion_2               vs firma_dada                 B más rápida en   2, más lenta en   1  p = 1.000   puente 32 vs 32  p = 1.000
+    sin_memoria                 vs abstraccion_2_sin_agencia  B más rápida en  14, más lenta en   5  p = 0.064   puente 28 vs 31  p = 0.250
+    abstraccion_1_sin_agencia   vs abstraccion_2_sin_agencia  B más rápida en  10, más lenta en   2  p = 0.039   puente 31 vs 31  p = 1.000
+    firma_invertida_sin_agencia vs abstraccion_2_sin_agencia  B más rápida en  17, más lenta en   6  p = 0.035   puente 26 vs 31  p = 0.125
+    abstraccion_2_sin_agencia   vs abstraccion_1              B más rápida en   8, más lenta en   4  p = 0.388   puente 31 vs 33  p = 0.500
+
+Registros individuales: /Users/joaquinmeneses/Documents/TEST-IA/adaptacion/resultados_abstraccion.json

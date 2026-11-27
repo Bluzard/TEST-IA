@@ -1,0 +1,122 @@
+[
+  {
+    "selector": {
+      "rol": "rded0a0c323d9"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "seco"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": -0.16
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "rded0a0c323d9"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "humedo"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": -0.12
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "r1e9eb0ace1f1"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "seco"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": 0.3
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "r1e9eb0ace1f1"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "humedo"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": 0.22499999999999998
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "rc5c6a72457ad"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "seco"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": 0.16
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "rc5c6a72457ad"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "humedo"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": 0.12
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "r0676b4fccfa6"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "seco"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": -0.3
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  },
+  {
+    "selector": {
+      "rol": "r0676b4fccfa6"
+    },
+    "operacion": "activar",
+    "contexto": {
+      "modo": "humedo"
+    },
+    "condiciones": {},
+    "efectos": {
+      "$canal": -0.22499999999999998
+    },
+    "fuente": "manual-del-proveedor",
+    "tolerancia": 0.04
+  }
+]
